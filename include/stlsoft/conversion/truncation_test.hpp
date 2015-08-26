@@ -175,8 +175,8 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -185,7 +185,7 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 
@@ -257,8 +257,8 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -267,7 +267,7 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 
@@ -309,8 +309,8 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, yes_type, T
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -319,7 +319,7 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, yes_type, T
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 
@@ -354,8 +354,8 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, no_type, TO
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -364,7 +364,7 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, no_type, TO
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 
@@ -393,8 +393,8 @@ inline bool truncation_test_helper_runtime_test(FROM from, no_type, TO ) // The 
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -403,7 +403,7 @@ inline bool truncation_test_helper_runtime_test(FROM from, no_type, TO ) // The 
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 
@@ -439,8 +439,8 @@ inline bool truncation_test_(FROM from, TO dummy = TO())    // The use of the du
 {
 #ifdef _DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-	_CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
+    int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+    _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
 # endif /* VC++ */
 
     char const* TO_     =   typeid(TO).name();
@@ -449,7 +449,7 @@ inline bool truncation_test_(FROM from, TO dummy = TO())    // The use of the du
     STLSOFT_SUPPRESS_UNUSED(TO_);
     STLSOFT_SUPPRESS_UNUSED(FROM_);
 # if defined(STLSOFT_COMPILER_IS_MSVC)
-	_CrtSetDbgFlag(flags);
+    _CrtSetDbgFlag(flags);
 # endif /* VC++ */
 #endif /* _DEBUG */
 

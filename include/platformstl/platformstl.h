@@ -5,11 +5,11 @@
  *              platform discriminations, and definitions of types.
  *
  * Created:     20th March 2005
- * Updated:     12th September 2011
+ * Updated:     26th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,8 +47,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MAJOR    1
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MINOR    14
-# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_REVISION 1
-# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     40
+# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_REVISION 3
+# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file platformstl/platformstl.h
@@ -124,12 +124,13 @@
 # define _PLATFORMSTL_VER_1_8_1     0x010801ff  /*!< Version 1.8.1 (with STLSoft 1.9.86) */
 # define _PLATFORMSTL_VER_1_8_2     0x010802ff  /*!< Version 1.8.2 (with STLSoft 1.9.90) */
 # define _PLATFORMSTL_VER_1_8_3     0x010803ff  /*!< Version 1.8.3 (with STLSoft 1.9.110) */
+# define _PLATFORMSTL_VER_1_8_4     0x010804ff  /*!< Version 1.8.4 (with STLSoft 1.9.119) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _PLATFORMSTL_VER_MAJOR      1
 #define _PLATFORMSTL_VER_MINOR      8
-#define _PLATFORMSTL_VER_REVISION   3
-#define _PLATFORMSTL_VER            _PLATFORMSTL_VER_1_8_3
+#define _PLATFORMSTL_VER_REVISION   4
+#define _PLATFORMSTL_VER            _PLATFORMSTL_VER_1_8_4
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -308,6 +309,7 @@
  */
 
 #if defined(__cplusplus)
+
 # if defined(_STLSOFT_NO_NAMESPACES)
 #  error PlatformSTL may not be compiled when _STLSOFT_NO_NAMESPACES is defined. Note: it _can_ be compiled in the presence of _STLSOFT_NO_NAMESPACE, or _UNIXSTL_NO_NAMESPACE, or _WINSTL_NO_NAMESPACE
 # endif /* _STLSOFT_NO_NAMESPACES */
@@ -320,18 +322,22 @@
 #  error Use of namespaces in PlatformSTL may not be suspended; _PLATFORMSTL_NO_NAMESPACE was detected
 # endif /* _PLATFORMSTL_NO_NAMESPACE */
 
-#if defined(PLATFORMSTL_OS_IS_UNIX)
-# ifdef UNIXSTL_NO_NAMESPACE
-#  define PLATFORMSTL_NO_PLATFORM_NAMESPACE
-# endif /* UNIXSTL_NO_NAMESPACE */
-#elif defined(PLATFORMSTL_OS_IS_WINDOWS)
-# ifdef WINSTL_NO_NAMESPACE
-#  define PLATFORMSTL_NO_PLATFORM_NAMESPACE
-# endif /* WINSTL_NO_NAMESPACE */
-#else /* ? operating system */
-# error Operating system not discriminated. Only UNIX and Windows are currently recognised by PlatformSTL
-#endif /* operating system */
+# if defined(PLATFORMSTL_OS_IS_UNIX)
+#  ifdef _UNIXSTL_NO_NAMESPACE
+#   define PLATFORMSTL_NO_PLATFORM_NAMESPACE
+#  endif /* _UNIXSTL_NO_NAMESPACE */
+# elif defined(PLATFORMSTL_OS_IS_WINDOWS)
+#  ifdef _WINSTL_NO_NAMESPACE
+#   define PLATFORMSTL_NO_PLATFORM_NAMESPACE
+#  endif /* _WINSTL_NO_NAMESPACE */
+# else /* ? operating system */
+#  error Operating system not discriminated. Only UNIX and Windows are currently recognised by PlatformSTL
+# endif /* operating system */
+#else /* ? __cplusplus */
 
+# ifndef _PLATFORMSTL_NO_NAMESPACE
+#  define _PLATFORMSTL_NO_NAMESPACE
+# endif /* !_PLATFORMSTL_NO_NAMESPACE */
 #endif /* __cplusplus */
 
 #if !defined(__cplusplus)

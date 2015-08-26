@@ -4,11 +4,11 @@
  * Purpose:     is_fundamental_type meta class.
  *
  * Created:     19th November 1998
- * Updated:     10th August 2009
+ * Updated:     7th September 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_MAJOR     1
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_MINOR     0
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_REVISION  3
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_EDIT      8
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_MINOR     1
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_REVISION  1
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNDAMENTAL_TYPE_EDIT      9
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -124,6 +124,8 @@ struct is_fundamental_type
 
 #ifdef STLSOFT_META_HAS_SELECT_FIRST_TYPE_IF
     typedef ss_typename_type_k select_first_type_if<yes_type, no_type, value>::type     type;
+#else /* ? STLSOFT_META_HAS_SELECT_FIRST_TYPE_IF */
+    typedef value_to_yesno_type<value>::type                                            type;
 #endif /* STLSOFT_META_HAS_SELECT_FIRST_TYPE_IF */
 };
 

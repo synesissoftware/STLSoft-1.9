@@ -5,11 +5,11 @@
  *              Unicode specialisations thereof.
  *
  * Created:     15th November 2002
- * Updated:     10th October 2012
+ * Updated:     5th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_MAJOR       4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_MINOR       11
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_REVISION    1
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_EDIT        132
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_REVISION    3
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_EDIT        134
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -87,6 +87,9 @@
 #ifndef WINSTL_INCL_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS
 # include <winstl/system/system_traits.hpp>
 #endif /* !WINSTL_INCL_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS */
+#ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
+# include <winstl/internal/windows_version.h>
+#endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 
 #ifndef STLSOFT_INCL_H_CTYPE
 # define STLSOFT_INCL_H_CTYPE
@@ -1440,10 +1443,11 @@ public:
     }
     static ws_uint64_t get_file_size(stat_data_type const& sd)
     {
-        ws_uint64_t size = 0;
+        ws_uint64_t size;
 
-        size += sd.nFileSizeHigh;
-        size += sd.nFileSizeHigh;
+        size    =   sd.nFileSizeHigh;
+        size    <<= 32;
+        size    +=  sd.nFileSizeLow;
 
         return size;
     }
@@ -1852,7 +1856,7 @@ public:
 
     static size_type path_max()
     {
-        return (::GetVersion() & 0x80000000) ? WINSTL_CONST_MAX_PATH : CONST_NT_MAX_PATH;
+        return WinSTL_C_internal_IsWindows9x(NULL, NULL, NULL) ? WINSTL_CONST_MAX_PATH : CONST_NT_MAX_PATH;
     }
 
     static size_type get_full_path_name(char_type const* fileName, size_type cchBuffer, char_type* buffer, char_type** ppFile)
@@ -2184,8 +2188,9 @@ public:
     {
         ws_uint64_t size = 0;
 
-        size += sd.nFileSizeHigh;
-        size += sd.nFileSizeHigh;
+        size    =   sd.nFileSizeHigh;
+        size    <<= 32;
+        size    +=  sd.nFileSizeLow;
 
         return size;
     }

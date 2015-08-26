@@ -4,7 +4,7 @@
  * Purpose:     Functions for initialising Win32 structures.
  *
  * Created:     20th October 1994
- * Updated:     29th May 2014
+ * Updated:     1st June 2014
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_MAJOR       4
 # define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_MINOR       1
-# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_REVISION    1
-# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_EDIT        221
+# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_REVISION    2
+# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_EDIT        222
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -255,7 +255,10 @@ WINSTL_The_structure_(WIN32_FILE_ATTRIBUTE_DATA, has::no_init_member_type);
 WINSTL_The_structure_(SYSTEM_POWER_STATUS, has::no_init_member_type);
 #ifdef _WINCON_
 WINSTL_The_structure_(CONSOLE_SCREEN_BUFFER_INFO, has::no_init_member_type);
+# if defined(_MSC_VER) && \
+     _MSC_VER >= 1600
 WINSTL_The_structure_(CONSOLE_SCREEN_BUFFER_INFOEX, has::cbSize_member_type);
+# endif /* VC++ 10+ */
 #endif /* _WINCON_ */
 #ifdef WINTRUST_H
 WINSTL_The_structure_(WIN_CERTIFICATE, has::no_init_member_type);

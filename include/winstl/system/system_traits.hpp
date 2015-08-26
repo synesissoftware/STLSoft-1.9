@@ -648,11 +648,11 @@ public:
 #if STLSOFT_LEAD_VER >= 0x010a0000
     /// Gets the full path name of the user's home directory
     static size_type get_home_directory(char_type* buffer, size_type cchBuffer)
-	{
+    {
         WINSTL_ASSERT(NULL != buffer || 0 == cchBuffer);
 
-		return winstl_C_get_home_directory_a(buffer, cchBuffer);
-	}
+        return winstl_C_get_home_directory_a(buffer, cchBuffer);
+    }
 #endif /* STLSoft 1.10+ */
 
 public:
@@ -1122,11 +1122,11 @@ public:
 #if STLSOFT_LEAD_VER >= 0x010a0000
     /// Gets the full path name of the user's home directory
     static size_type    get_home_directory(char_type* buffer, size_type cchBuffer)
-	{
+    {
         WINSTL_ASSERT(NULL != buffer || 0 == cchBuffer);
 
-		return winstl_C_get_home_directory_w(buffer, cchBuffer);
-	}
+        return winstl_C_get_home_directory_w(buffer, cchBuffer);
+    }
 #endif /* STLSoft 1.10+ */
 
 public:

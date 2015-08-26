@@ -4,15 +4,16 @@
  * Purpose:     Discriminates between standard library implementations
  *
  * Created:     2nd January 2000
- * Updated:     13th December 2012
+ * Updated:     7th August 2015
  *
- * Thanks:      To Gabor Fischer, for reporting problems with VC++ 9/10
- *              compatibility, and persisting in (re-)reporting it even when
- *              I was being a thickie and unable to reproduce it.              
+ * Thanks:      To Cláudio Albuquerque for assisting with VC++ 12 & 14
+ *              support. To Gabor Fischer for reporting problems with VC++
+ *              9/10 compatibility, and persisting in (re-)reporting it even
+ *              when I was being a thickie and unable to reproduce it.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2000-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_MAJOR       4
-# define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_MINOR       8
+# define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_MINOR       11
 # define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_REVISION    1
-# define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_EDIT        107
+# define STLSOFT_VER_STLSOFT_UTIL_STD_LIBRARY_DISCRIMINATOR_EDIT        111
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -109,15 +110,16 @@ namespace stlsoft
  *
  * Currently recognised libraries are:          (identifying header include guards)
  *
- * 1. Dinkumware (shipping with Visual C++)     _ITERATOR_, _UTILITY_, _XSTDDEF_
- * 2. Metrowerks' MSL                           _ITERATOR, _MSLCONFIG (and __MSL_CPP__; well done Metrowerks!)
- * 3. STLport                                   _STLP_INTERNAL_ITERATOR_H (and _STLPORT_VERSION)
- * 4. HP/SGI, including HP/SGI/Comeau           __SGI_STL_INTERNAL_ITERATOR_H
- * 5. Gnu FSF's HP/SGI derivative               __GLIBCPP_INTERNAL_ITERATOR_H, _GLIBCXX_ITERATOR
- * 6. HP/RW                                     __RW_ITERATOR_H. __STD_RW_ITERATOR__
- * 7. Sun Pro/RW                                __STD_ITERATOR__
- * 8. Watcom (patch)                            STLSOFT_OW12_INCL_ITERATOR
- * 9. Watcom (none)                             STLSOFT_COMPILER_IS_WATCOM
+ *  1. Dinkumware (shipping with Visual C++)    _ITERATOR_, _UTILITY_, _XSTDDEF_
+ *  2. Metrowerks' MSL                          _ITERATOR, _MSLCONFIG (and __MSL_CPP__; well done Metrowerks!)
+ *  3. STLport                                  _STLP_INTERNAL_ITERATOR_H (and _STLPORT_VERSION)
+ *  4. HP/SGI, including HP/SGI/Comeau          __SGI_STL_INTERNAL_ITERATOR_H
+ *  5. Gnu FSF's HP/SGI derivative              __GLIBCPP_INTERNAL_ITERATOR_H, _GLIBCXX_ITERATOR
+ *  6. HP/RW                                    __RW_ITERATOR_H. __STD_RW_ITERATOR__
+ *  7. Sun Pro/RW                               __STD_ITERATOR__
+ *  8. Watcom (patch)                           STLSOFT_OW12_INCL_ITERATOR
+ *  9. Watcom (none)                            STLSOFT_COMPILER_IS_WATCOM
+ * 10. GCC 4.x's LLVM                           [_LIBCPP_ITERATOR, _LIBCPP_CSTDDEF, _LIBCPP_CONFIG] _LIBCPP_VERSION
  */
 
 /* The inclusion of <iterator> results in the following inclusions when using one
@@ -176,7 +178,21 @@ namespace stlsoft
 # undef STLSOFT_CF_STD_LIBRARY_IS_WATCOM_PATCH
 #endif /* STLSOFT_CF_STD_LIBRARY_IS_WATCOM_PATCH */
 
-#if defined(_STLPORT_VERSION) && \
+#ifdef STLSOFT_CF_STD_LIBRARY_IS_LIBCPP
+# undef STLSOFT_CF_STD_LIBRARY_IS_LIBCPP
+#endif /* STLSOFT_CF_STD_LIBRARY_IS_LIBCPP */
+
+#if 0
+#elif defined(_LIBCPP_VERSION)
+
+ /* STLport */
+# ifdef STLSOFT_COMPILE_VERBOSE
+#  pragma message("Standard library is libc++")
+# endif /* STLSOFT_COMPILE_VERBOSE */
+# define STLSOFT_CF_STD_LIBRARY_IS_LIBCPP
+# define STLSOFT_CF_STD_LIBRARY_NAME_STRING             "libc++"
+
+#elif defined(_STLPORT_VERSION) && \
       defined(_STLP_INTERNAL_ITERATOR_H)
  /* STLport */
 # ifdef STLSOFT_COMPILE_VERBOSE
@@ -290,6 +306,8 @@ namespace stlsoft
 #define STLSOFT_CF_DINKUMWARE_VC_VERSION_9_0            (0x0900)
 #define STLSOFT_CF_DINKUMWARE_VC_VERSION_10_0           (0x0a00)
 #define STLSOFT_CF_DINKUMWARE_VC_VERSION_11_0           (0x0b00)
+#define STLSOFT_CF_DINKUMWARE_VC_VERSION_12_0           (0x0c00)
+#define STLSOFT_CF_DINKUMWARE_VC_VERSION_14_0           (0x0e00)
 
 #ifdef STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC
 # if defined(STLSOFT_COMPILER_IS_INTEL) && \
@@ -347,8 +365,22 @@ namespace stlsoft
 #   endif /* STLSOFT_COMPILE_VERBOSE */
 #   define STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION      STLSOFT_CF_DINKUMWARE_VC_VERSION_11_0
 
+#  elif _CPPLIB_VER <= 610
+  /* Version 12.0 */
+#   ifdef STLSOFT_COMPILE_VERBOSE
+#    pragma message("  Dinkumware version 12.0")
+#   endif /* STLSOFT_COMPILE_VERBOSE */
+#   define STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION      STLSOFT_CF_DINKUMWARE_VC_VERSION_12_0
+
+#  elif _CPPLIB_VER <= 650
+  /* Version 14.0 */
+#   ifdef STLSOFT_COMPILE_VERBOSE
+#    pragma message("  Dinkumware version 14.0")
+#   endif /* STLSOFT_COMPILE_VERBOSE */
+#   define STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION      STLSOFT_CF_DINKUMWARE_VC_VERSION_14_0
+
 #  else
-#   error Dinkumware C++ Library version unrecognised: are you using a version of VC++ later than 10.0?
+#   error Dinkumware C++ Library version unrecognised: are you using a version of VC++ later than 14.0?
 
 #  endif /* _CPPLIB_VER */
 

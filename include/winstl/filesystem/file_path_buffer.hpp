@@ -5,14 +5,14 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     7th February 2002
- * Updated:     26th February 2011
+ * Updated:     5th August 2015
  *
  * Thanks to:   Pablo Aguilar for discovering the Borland weirdness which is now
  *              addressed with the calc_path_max_() method.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR    4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    4
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 2
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     118
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 3
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     119
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -105,6 +105,9 @@ STLSOFT_COMPILER_IS_MSVC: _MSC_VER<1200
 #ifndef STLSOFT_INCL_STLSOFT_STRING_HPP_COPY_FUNCTIONS
 # include <stlsoft/string/copy_functions.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_STRING_HPP_COPY_FUNCTIONS */
+#ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
+# include <winstl/internal/windows_version.h>
+#endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -358,7 +361,7 @@ private:
     {
         size_type   n;
 
-        if(::GetVersion() & 0x80000000)
+        if(WinSTL_C_internal_IsWindows9x(NULL, NULL, NULL))
         {
             n = CCH_9x;
         }

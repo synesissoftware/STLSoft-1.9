@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     31st May 2014
+ * Updated:     26th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    30
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    33
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     435
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     440
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -281,18 +281,19 @@
 # define _STLSOFT_VER_1_9_116   0x010974ff  /*!< Version 1.9.116 (18th August 2012) */
 # define _STLSOFT_VER_1_9_117   0x010975ff  /*!< Version 1.9.117 (16th February 2013) */
 # define _STLSOFT_VER_1_9_118   0x010976ff  /*!< Version 1.9.118 (31st May 2014) */
+# define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   118
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_118
+#define _STLSOFT_VER_REVISION   119
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_119
 
 /* /////////////////////////////////////
  * Underlying version detection
  */
 
-/* defines STLSOFT_HEAD_VER, which specifies the current version of the 
+/* defines STLSOFT_HEAD_VER, which specifies the current version of the
  * main (HEAD) library. Will never be greater than STLSOFT_LEAD_VER.
  */
 #include <stlsoft/internal/head_version.h>
@@ -314,18 +315,23 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
-# define STLSOFT_STRINGIZE_a_(x)            #x
-# define STLSOFT_STRINGIZE_a(x)             STLSOFT_STRINGIZE_a_(x)
+# define STLSOFT_STRINGIZE_DIRECT_a(x)      #x
+# define STLSOFT_STRINGIZE_INDIRECT_a(x)    STLSOFT_STRINGIZE_DIRECT_a(x)
 
 # if defined(__BORLANDC__) || \
      defined(__SUNPRO_C)
-#  define STLSOFT_STRINGIZE_w_(x)           L"" ## STLSOFT_STRINGIZE_a(x)
+#  define STLSOFT_STRINGIZE_DIRECT_w(x)     L"" ## STLSOFT_STRINGIZE_INDIRECT_a(x)
 # else /* ? compiler */
-#  define STLSOFT_STRINGIZE_w_(x)           L ## #x
+#  define STLSOFT_STRINGIZE_DIRECT_w(x)     L ## #x
 # endif /* compiler */
-# define STLSOFT_STRINGIZE_w(x)             STLSOFT_STRINGIZE_w_(x)
+# define STLSOFT_STRINGIZE_INDIRECT_w(x)    STLSOFT_STRINGIZE_DIRECT_w(x)
 
-# define STLSOFT_STRINGIZE(x)               STLSOFT_STRINGIZE_a(x)
+# define STLSOFT_STRINGIZE_DIRECT           STLSOFT_STRINGIZE_DIRECT_a
+# define STLSOFT_STRINGIZE_INDIRECT(x)      STLSOFT_STRINGIZE_INDIRECT_a(x)
+
+# define STLSOFT_STRINGIZE_a(x)             STLSOFT_STRINGIZE_INDIRECT_a(x)
+# define STLSOFT_STRINGIZE_w(x)             STLSOFT_STRINGIZE_INDIRECT_w(x)
+# define STLSOFT_STRINGIZE(x)               STLSOFT_STRINGIZE_INDIRECT(x)
 
 /* Simple macro indirection */
 # define STLSOFT_MACRO_INDIRECT(x)          x
@@ -670,8 +676,10 @@
 #  define STLSOFT_COMPILER_VERSION_STRING       "Visual C++ 11.0"
 # elif (_MSC_VER == 1800)
 #  define STLSOFT_COMPILER_VERSION_STRING       "Visual C++ 12.0"
+# elif (_MSC_VER == 1900)
+#  define STLSOFT_COMPILER_VERSION_STRING       "Visual C++ 14.0"
 # else /* ? _MSC_VER */
-#  error Currently only versions 5.0, 6.0, 7.0, 7.1, 8.0, 9.0, 10.0, 11.0, and 12.0 of the Visual C++ compiler are supported by the STLSoft libraries
+#  error Currently only versions 5.0, 6.0, 7.0, 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, and 14.0 of the Visual C++ compiler are supported by the STLSoft libraries
 # endif /* _MSC_VER */
 
 #else /* ? compiler */
@@ -1589,6 +1597,12 @@ namespace stlsoft
 # define stlsoft_ns_using(x)
 #endif /* !_STLSOFT_NO_NAMESPACE */
 
+#ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
+  /* STLSoft 1.12+ forward-compatible macros */
+# define STLSOFT_NS_QUAL(x)             stlsoft_ns_qual(x)
+# define STLSOFT_NS_USING(x)            stlsoft_ns_using(x)
+#endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
+
 /** \def stlsoft_ns_qual_std(x)
  * \brief Qualifies with <b>std::</b> if STLSoft is being translated in the context of the standard library being within the <b>std</b> namespace or, if not, does not qualify
  */
@@ -1606,6 +1620,12 @@ namespace stlsoft
 # define stlsoft_ns_qual_std(x)      x
 # define stlsoft_ns_using_std(x)
 #endif /* !STLSOFT_CF_std_NAMESPACE */
+
+#ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
+  /* STLSoft 1.12+ forward-compatible macros */
+# define STLSOFT_NS_QUAL_STD(x)         stlsoft_ns_qual_std(x)
+# define STLSOFT_NS_USING_STD(x)        stlsoft_ns_using_std(x)
+#endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \def STLSOFT_NS_GLOBAL(X)
  * \brief Qualifies <b>X</b> with <b>::</b> if compiling C++, otherwise just resolves to X
@@ -2755,6 +2775,16 @@ inline void suppress_unused_func(R (STLSOFT_STDCALL *)(A0))
 #else /* ? __cplusplus */
 # define stlsoft_dynamic_cast(T, E)         stlsoft_c_cast(T, E)
 #endif /* __cplusplus */
+
+#ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
+  /* STLSoft 1.12+ forward-compatible macros */
+# define STLSOFT_C_CAST(T, E)               stlsoft_c_cast(T, E)
+# define STLSOFT_STATIC_CAST(T, E)          stlsoft_static_cast(T, E)
+# define STLSOFT_CONST_CAST(T, E)           stlsoft_const_cast(T, E)
+# define STLSOFT_VOLATILE_CAST(T, E)        stlsoft_const_cast(T, E)
+# define STLSOFT_REINTERPRET_CAST(T, E)     stlsoft_reinterpret_cast(T, E)
+# define STLSOFT_DYNAMIC_CAST(T, E)         stlsoft_dynamic_cast(T, E)
+#endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** @} */
 

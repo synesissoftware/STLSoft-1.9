@@ -5,36 +5,37 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     22nd November 2013
+ * Updated:     26th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * modification, are permitted provided that the following conditions are
+ * met:
  *
- * - Redistributions of source code must retain the above copyright notice, this
- *   list of conditions and the following disclaimer.
- * - Redistributions in binary form must reproduce the above copyright notice,
- *   this list of conditions and the following disclaimer in the documentation
- *   and/or other materials provided with the distribution.
- * - Neither the name(s) of Matthew Wilson and Synesis Software nor the names of
- *   any contributors may be used to endorse or promote products derived from
- *   this software without specific prior written permission.
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
+ * - Redistributions in binary form must reproduce the above copyright
+ *   notice, this list of conditions and the following disclaimer in the
+ *   documentation and/or other materials provided with the distribution.
+ * - Neither the name(s) of Matthew Wilson and Synesis Software nor the
+ *   names of any contributors may be used to endorse or promote products
+ *   derived from this software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -46,9 +47,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_MAJOR    3
-# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_MINOR    8
-# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_REVISION 2
-# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_EDIT     93
+# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_MINOR    9
+# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_REVISION 3
+# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_EDIT     96
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file unixstl/unixstl.h \brief [C, C++] The root header for the \ref group__project__unixstl "UNIXSTL" project. */
@@ -127,12 +128,13 @@
 # define _UNIXSTL_VER_1_7_3     0x010703ff  /*!< Version 1.7.3 (with STLSoft 1.9.92) */
 # define _UNIXSTL_VER_1_7_4     0x010704ff  /*!< Version 1.7.4 (with STLSoft 1.9.108) */
 # define _UNIXSTL_VER_1_7_5     0x010705ff  /*!< Version 1.7.5 (with STLSoft 1.9.113) */
+# define _UNIXSTL_VER_1_7_6     0x010706ff  /*!< Version 1.7.6 (with STLSoft 1.9.119) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _UNIXSTL_VER_MAJOR      1
 #define _UNIXSTL_VER_MINOR      7
-#define _UNIXSTL_VER_REVISION   5
-#define _UNIXSTL_VER            _UNIXSTL_VER_1_7_5
+#define _UNIXSTL_VER_REVISION   6
+#define _UNIXSTL_VER            _UNIXSTL_VER_1_7_6
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -147,8 +149,8 @@
  */
 
 #if !defined(_STLSOFT_VER) || \
-    _STLSOFT_VER < 0x010971ff
-# error This version of the UNIXSTL libraries requires STLSoft version 1.9.113, or later
+    _STLSOFT_VER < 0x010977ff
+# error This version of the UNIXSTL libraries requires STLSoft version 1.9.119, or later
 #endif /* _STLSOFT_VER */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -161,7 +163,9 @@
  * Sun Pro C & Sun Pro C++ versions 5.9.x or later
  */
 
-#if defined(STLSOFT_COMPILER_IS_COMO)
+#if 0
+
+#elif defined(STLSOFT_COMPILER_IS_COMO)
  /* ******************************* Comeau ****************************** */
 # if __COMO_VERSION__ < 4300
 #  error Versions of Comeau C++ prior to 4.3.0.1 are not supported by the UNIXSTL libraries

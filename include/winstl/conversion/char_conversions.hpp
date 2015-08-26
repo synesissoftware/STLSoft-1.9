@@ -436,15 +436,15 @@ private:
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
-template<	ss_typename_param_k S
-		,	ss_typename_param_k C
-		>
+template<   ss_typename_param_k S
+        ,   ss_typename_param_k C
+        >
 struct encoding2encoding_traits
 {
-	static C const* elicit_ccs(S const& s)
-	{
-		return s.c_str();
-	}
+    static C const* elicit_ccs(S const& s)
+    {
+        return s.c_str();
+    }
 };
 
 #ifdef __ATLBASE_H__
@@ -454,7 +454,7 @@ inline
 wchar_t const*
 encoding2encoding_traits< ::ATL::CComBSTR, wchar_t>::elicit_ccs( ::ATL::CComBSTR const& s)
 {
-	return s.m_str;
+    return s.m_str;
 }
 #endif /* __ATLBASE_H__ */
 
@@ -472,7 +472,7 @@ public:
     {}
     template <ss_typename_param_k S>
     encoding2encoding(S const& s)
-		: m_s(encoding2encoding_traits<S, C>::elicit_ccs(s))
+        : m_s(encoding2encoding_traits<S, C>::elicit_ccs(s))
     {}
 
 public:

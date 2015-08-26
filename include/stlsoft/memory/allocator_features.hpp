@@ -4,11 +4,11 @@
  * Purpose:     Allocator commmon features.
  *
  * Created:     20th August 2003
- * Updated:     10th August 2009
+ * Updated:     5th December 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,9 +49,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_MAJOR    5
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_MINOR    1
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_REVISION 3
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_EDIT     41
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_MINOR    2
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_REVISION 1
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_EDIT     42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -218,6 +218,7 @@
 #  if STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION < STLSOFT_CF_DINKUMWARE_VC_VERSION_7_0
 #   undef STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT
 #  endif /* STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION */
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_LIBCPP)
 # elif defined(STLSOFT_CF_STD_LIBRARY_IS_MSL)
 # elif defined(STLSOFT_CF_STD_LIBRARY_IS_STLPORT)
 # elif defined(STLSOFT_CF_STD_LIBRARY_IS_HP_SGI)

@@ -4,11 +4,11 @@
  * Purpose:     Windows console functions.
  *
  * Created:     3rd December 2005
- * Updated:     29th January 2013
+ * Updated:     10th June 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_MAJOR     2
 # define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_MINOR     2
-# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_REVISION  2
-# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_EDIT      20
+# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_REVISION  3
+# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_EDIT      21
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -70,12 +70,6 @@
 #ifndef WINSTL_INCL_WINSTL_H_WINSTL
 # include <winstl/winstl.h>
 #endif /* !WINSTL_INCL_WINSTL_H_WINSTL */
-
-#if defined(STLSOFT_UNITTEST) && \
-    (   !defined(STLSOFT_COMPILER_IS_COMO) && \
-        !defined(STLSOFT_COMPILER_IS_WATCOM))
-# include <winstl/dl/dl_call.hpp>
-#endif /* STLSOFT_UNITTEST */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace

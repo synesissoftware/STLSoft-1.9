@@ -5,7 +5,7 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     24th April 2004
- * Updated:     22nd November 2013
+ * Updated:     26th August 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -119,12 +119,13 @@
 # define _INETSTL_VER_1_3_4      0x010304ff  /*!< Version 1.3.4 (with STLSoft 1.9.91) */
 # define _INETSTL_VER_1_3_5      0x010305ff  /*!< Version 1.3.5 (with STLSoft 1.9.92) */
 # define _INETSTL_VER_1_3_6      0x010306ff  /*!< Version 1.3.6 (with STLSoft 1.9.113) */
+# define _INETSTL_VER_1_3_7      0x010307ff  /*!< Version 1.3.7 (with STLSoft 1.9.119) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _INETSTL_VER_MAJOR       1
 #define _INETSTL_VER_MINOR       3
-#define _INETSTL_VER_REVISION    6
-#define _INETSTL_VER             _INETSTL_VER_1_3_6
+#define _INETSTL_VER_REVISION    7
+#define _INETSTL_VER             _INETSTL_VER_1_3_7
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
