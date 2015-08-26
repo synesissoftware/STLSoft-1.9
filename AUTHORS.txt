@@ -2,7 +2,7 @@
 STLSoft - Authors
 
 ; Created:  29th March 2002
-; Updated:  16th February 2013
+; Updated:  26th August 2015
 
 ============================================================================
 
@@ -56,6 +56,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Lars Ivar Igesund
     Luoyi
     Maciej Kaniewski
+    Magnificent Imbecil
     Manfred Ehrhart
     Marc Kamradt
     markitus82
