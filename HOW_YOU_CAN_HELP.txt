@@ -2,7 +2,7 @@
 STLSoft - How You Can Help
 
 ; Created:  27th December 2010
-; Updated:  27th December 2010
+; Updated:  26th August 2015
 
 ============================================================================
 
@@ -56,8 +56,8 @@ conversation on the Open Discussion Forum, located at:
 
   https://sourceforge.net/projects/stlsoft/forums/forum/864083
 
-If you're clear of what you need, please feel free to submit an item in the
-project Feature Request Tracker, located at:
+If you're not clear of what you need, please feel free to submit an item in
+the project Feature Request Tracker, located at:
 
   https://sourceforge.net/tracker/?group_id=238860&atid=1107749
 
