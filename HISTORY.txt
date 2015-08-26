@@ -2,9 +2,16 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  26th August 2015
+; Updated:  27th August 2015
 
 ============================================================================
+
+
+27th August 2015 - 1.9.120 released
+-----------------------------------
+
+ * optimised stlsoft::auto_buffer::swap() method
+ * WinSTL ToolHelp library widestring-compatibility
 
 
 26th August 2015 - 1.9.119 released
