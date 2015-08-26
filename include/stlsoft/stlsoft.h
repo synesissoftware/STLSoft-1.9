@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    33
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     440
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     441
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -282,12 +282,13 @@
 # define _STLSOFT_VER_1_9_117   0x010975ff  /*!< Version 1.9.117 (16th February 2013) */
 # define _STLSOFT_VER_1_9_118   0x010976ff  /*!< Version 1.9.118 (31st May 2014) */
 # define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
+# define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (27th August 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   119
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_119
+#define _STLSOFT_VER_REVISION   120
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_120
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -352,6 +353,7 @@
  * Currently the only compilers supported by the STLSoft libraries are
  *
  * Borland C++ 5.5, 5.51, 5.6 & 5.6.4
+ * clang 6.0
  * Comeau 4.3.0.1 & 4.3.3
  * Digital Mars C/C++ 8.26 and above
  * GCC 2.95, 2.96, 3.2, 3.3, 3.4 & 4.0
@@ -369,6 +371,10 @@
 #ifdef STLSOFT_COMPILER_IS_BORLAND
 # undef STLSOFT_COMPILER_IS_BORLAND
 #endif /* STLSOFT_COMPILER_IS_BORLAND */
+
+#ifdef STLSOFT_COMPILER_IS_CLANG
+# undef STLSOFT_COMPILER_IS_CLANG
+#endif /* STLSOFT_COMPILER_IS_CLANG */
 
 #ifdef STLSOFT_COMPILER_IS_COMO
 # undef STLSOFT_COMPILER_IS_COMO
@@ -420,6 +426,7 @@
 
 #ifdef _MSC_VER
 # if defined(__BORLANDC__) ||      /* Borland */ \
+     defined(__clang__) ||         /* clang */ \
      defined(__COMO__) ||          /* Comeau */ \
      defined(__DMC__) ||           /* Digital Mars */ \
      defined(__GNUC__) ||          /* GNU */ \
@@ -445,6 +452,16 @@
 # ifndef __STLSOFT_CF_CUSTOM_COMPILER_INCLUDE_NAME
 #  error When using the custom compiler option you must define the symbol __STLSOFT_CF_CUSTOM_COMPILER_INCLUDE_NAME, e.g. #define __STLSOFT_CF_CUSTOM_COMPILER_INCLUDE_NAME <stlsoft/internal/cccap/my_compiler.h>
 # endif /* !__STLSOFT_CF_CUSTOM_COMPILER_INCLUDE_NAME */
+
+#elif defined(__clang__)
+ /* ******************************* Comeau ****************************** */
+# define STLSOFT_COMPILER_IS_CLANG
+# define STLSOFT_COMPILER_LABEL_STRING          "clang C/C++"
+# if __clang_major__ < 6
+#  error Only versions 6.0 and later of clang C/C++ compiler is supported by the STLSoft libraries
+# else /* ? __COMO_VERSION__ */
+#  define STLSOFT_COMPILER_VERSION_STRING       "clang " ## __clang_version__
+# endif /* __COMO_VERSION__ */
 
 #elif defined(__COMO__) /* Do Comeau next, so that no Comeau back-end server compilers are preferentially discriminated */
  /* ******************************* Comeau ****************************** */
@@ -746,6 +763,8 @@
 # include <stlsoft/internal/cccap/unknown.h>
 #elif defined(STLSOFT_COMPILER_IS_BORLAND)
 # include <stlsoft/internal/cccap/borland.h>
+#elif defined(STLSOFT_COMPILER_IS_CLANG)
+# include <stlsoft/internal/cccap/clang.h>
 #elif defined(STLSOFT_COMPILER_IS_COMO)
 # include <stlsoft/internal/cccap/como.h>
 #elif defined(STLSOFT_COMPILER_IS_DMC)
@@ -2577,6 +2596,7 @@ private:
  */
 #if defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) || \
     defined(STLSOFT_COMPILER_IS_BORLAND) || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
     defined(STLSOFT_COMPILER_IS_COMO) || \
     defined(STLSOFT_COMPILER_IS_DMC) || \
     (   defined(STLSOFT_COMPILER_IS_GCC) && \

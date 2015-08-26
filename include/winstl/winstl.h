@@ -48,8 +48,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_H_WINSTL_MAJOR       3
 # define WINSTL_VER_WINSTL_H_WINSTL_MINOR       14
-# define WINSTL_VER_WINSTL_H_WINSTL_REVISION    3
-# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        194
+# define WINSTL_VER_WINSTL_H_WINSTL_REVISION    4
+# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        195
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file winstl/winstl.h
@@ -151,13 +151,14 @@
 # define _WINSTL_VER_1_11_6     0x010b06ff  /*!< Version 1.11.6 (with STLSoft 1.9.108) */
 # define _WINSTL_VER_1_11_7     0x010b07ff  /*!< Version 1.11.7 (with STLSoft 1.9.109) */
 # define _WINSTL_VER_1_11_8     0x010b08ff  /*!< Version 1.11.8 (with STLSoft 1.9.113) */
-# define _WINSTL_VER_1_11_9     0x010b08ff  /*!< Version 1.11.9 (with STLSoft 1.9.119) */
+# define _WINSTL_VER_1_11_9     0x010b09ff  /*!< Version 1.11.9 (with STLSoft 1.9.119) */
+# define _WINSTL_VER_1_11_10    0x010b0aff  /*!< Version 1.11.9 (with STLSoft 1.9.120) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _WINSTL_VER_MAJOR       1
 #define _WINSTL_VER_MINOR       11
-#define _WINSTL_VER_REVISION    9
-#define _WINSTL_VER             _WINSTL_VER_1_11_9
+#define _WINSTL_VER_REVISION    10
+#define _WINSTL_VER             _WINSTL_VER_1_11_10
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes

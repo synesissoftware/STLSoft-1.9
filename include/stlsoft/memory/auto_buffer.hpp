@@ -7,7 +7,7 @@
  * Updated:     26th August 2015
  *
  * Thanks:      To Magnificent Imbecil for pointing out error in
- *              documentation.
+ *              documentation, and for suggesting swap() optimisation.
  *              To Thorsten Ottosen for pointing out that allocators were
  *              not swapped.
  *
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MAJOR       5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MINOR       2
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    4
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        164
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    5
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        165
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -828,9 +828,18 @@ public:
             // Both are using internal buffers, so we exchange the contents
             value_type  t[space];
 
-            block_copy(&t[0],               &rhs.m_internal[0], rhs.m_cItems);
-            block_copy(&rhs.m_internal[0],  &m_internal[0],     m_cItems);
-            block_copy(&m_internal[0],      &t[0],              rhs.m_cItems);
+            if(rhs.m_cItems < m_cItems)
+            {
+                block_copy(&t[0],               &rhs.m_internal[0], rhs.m_cItems);
+                block_copy(&rhs.m_internal[0],  &m_internal[0],     m_cItems);
+                block_copy(&m_internal[0],      &t[0],              rhs.m_cItems);
+            }
+            else
+            {
+                block_copy(&t[0],               &m_internal[0],     m_cItems);
+                block_copy(&m_internal[0],      &rhs.m_internal[0], rhs.m_cItems);
+                block_copy(&rhs.m_internal[0],  &t[0],              m_cItems);
+            }
         }
 
         std_swap(m_cItems,      rhs.m_cItems);

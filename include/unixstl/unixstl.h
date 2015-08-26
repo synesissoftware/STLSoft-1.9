@@ -5,7 +5,7 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     26th August 2015
+ * Updated:     21st August 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -164,6 +164,13 @@
  */
 
 #if 0
+
+#elif defined(STLSOFT_COMPILER_IS_CLANG)
+ /* ******************************* Comeau ****************************** */
+# if __clang_major__ < 6
+#  error Versions of Clang C++ prior to 6 are not supported by the UNIXSTL libraries
+# endif /* __COMO_VERSION__ */
+
 
 #elif defined(STLSOFT_COMPILER_IS_COMO)
  /* ******************************* Comeau ****************************** */
