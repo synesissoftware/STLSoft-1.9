@@ -4,13 +4,13 @@
  * Purpose:     TOOLHELP process sequence class.
  *
  * Created:     21st May 2005
- * Updated:     10th August 2009
+ * Updated:     26th August 2015
  *
  * Thanks:      To Pablo for contributing this great library.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Pablo Aguilar
+ * Copyright (c) 2005-2015, Pablo Aguilar
  * Copyright (c) 2006-2007, Matthew Wilson
  * All rights reserved.
  *
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_MAJOR      1
 # define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_MINOR      1
-# define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_REVISION   1
-# define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_EDIT       8
+# define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_REVISION   2
+# define WINSTL_VER_WINSTL_TOOLHELP_HPP_PROCESS_SEQUENCE_EDIT       9
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,7 @@ namespace winstl_project
 #define WINSTL_TH_API_SEQUENCE_VALUE_TRAITS_FIRST                           Process32First
 #define WINSTL_TH_API_SEQUENCE_VALUE_TRAITS_NEXT                            Process32Next
 #define WINSTL_TH_API_SEQUENCE_VALUE_TRAITS_FLAG                            TH32CS_SNAPPROCESS
-#define WINSTL_TH_API_SEQUENCE_VALUE_TRAITS_CREATE_SNAPSHOT_FAIL_MESSAGE    TEXT("Could not create process list snapshot")
+#define WINSTL_TH_API_SEQUENCE_VALUE_TRAITS_CREATE_SNAPSHOT_FAIL_MESSAGE    ("Could not create process list snapshot")
 #include <winstl/toolhelp/sequence_value_traits.hpp>
 
 /** \brief An STL collection for accessing process information.
