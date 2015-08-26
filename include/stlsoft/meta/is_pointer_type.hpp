@@ -4,11 +4,11 @@
  * Purpose:     Tests whether a type is a pointer.
  *
  * Created:     19th November 1998
- * Updated:     10th August 2009
+ * Updated:     7th September 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_MAJOR       4
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_MINOR       0
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_MINOR       1
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_REVISION    1
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_EDIT        118
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_POINTER_TYPE_EDIT        119
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -65,6 +65,9 @@
 #ifndef STLSOFT_INCL_STLSOFT_META_HPP_N_TYPES
 # include <stlsoft/meta/n_types.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_META_HPP_N_TYPES */
+#ifndef STLSOFT_INCL_STLSOFT_META_HPP_YESNO
+# include <stlsoft/meta/yesno.hpp>
+#endif /* !STLSOFT_INCL_STLSOFT_META_HPP_YESNO */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -105,6 +108,9 @@ private:
     static T    t;
 public:
     enum { value = sizeof(is_pointer_type_func(t)) == sizeof(one_t) };
+
+public:
+    typedef ss_typename_type_k value_to_yesno_type<value>::type type;
 };
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
@@ -113,6 +119,8 @@ STLSOFT_TEMPLATE_SPECIALISATION
 struct is_pointer_type<void>
 {
     enum { value = 0 };
+
+    typedef no_type     type;
 };
 
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */

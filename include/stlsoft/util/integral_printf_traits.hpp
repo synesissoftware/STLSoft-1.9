@@ -382,93 +382,93 @@ struct integral_printf_traits_base;
 STLSOFT_TEMPLATE_SPECIALISATION
 struct integral_printf_traits_base<void>
 {
-	static ss_char_a_t const* get_hexadecimal_format_pcx_a_(int upperCase)
-	{
-		static ss_char_a_t const* const s_strings[] =
-		{
-				"%x"
-			,	"%X"
-		};
+    static ss_char_a_t const* get_hexadecimal_format_pcx_a_(int upperCase)
+    {
+        static ss_char_a_t const* const s_strings[] =
+        {
+                "%x"
+            ,   "%X"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_w_t const* get_hexadecimal_format_pcx_w_(int upperCase)
-	{
-		static ss_char_w_t const* const s_strings[] =
-		{
-				L"%x"
-			,	L"%X"
-		};
+    static ss_char_w_t const* get_hexadecimal_format_pcx_w_(int upperCase)
+    {
+        static ss_char_w_t const* const s_strings[] =
+        {
+                L"%x"
+            ,   L"%X"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_a_t const* get_hexadecimal_format_pclx_a_(int upperCase)
-	{
-		static ss_char_a_t const* const s_strings[] =
-		{
-				"%lx"
-			,	"%lX"
-		};
+    static ss_char_a_t const* get_hexadecimal_format_pclx_a_(int upperCase)
+    {
+        static ss_char_a_t const* const s_strings[] =
+        {
+                "%lx"
+            ,   "%lX"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_w_t const* get_hexadecimal_format_pclx_w_(int upperCase)
-	{
-		static ss_char_w_t const* const s_strings[] =
-		{
-				L"%lx"
-			,	L"%lX"
-		};
+    static ss_char_w_t const* get_hexadecimal_format_pclx_w_(int upperCase)
+    {
+        static ss_char_w_t const* const s_strings[] =
+        {
+                L"%lx"
+            ,   L"%lX"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_a_t const* get_hexadecimal_format_pci64x_a_(int upperCase)
-	{
-		static ss_char_a_t const* const s_strings[] =
-		{
-				"%I64x"
-			,	"%I64X"
-		};
+    static ss_char_a_t const* get_hexadecimal_format_pci64x_a_(int upperCase)
+    {
+        static ss_char_a_t const* const s_strings[] =
+        {
+                "%I64x"
+            ,   "%I64X"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_w_t const* get_hexadecimal_format_pci64x_w_(int upperCase)
-	{
-		static ss_char_w_t const* const s_strings[] =
-		{
-				L"%I64x"
-			,	L"%I64X"
-		};
+    static ss_char_w_t const* get_hexadecimal_format_pci64x_w_(int upperCase)
+    {
+        static ss_char_w_t const* const s_strings[] =
+        {
+                L"%I64x"
+            ,   L"%I64X"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_a_t const* get_hexadecimal_format_pcllx_a_(int upperCase)
-	{
-		static ss_char_a_t const* const s_strings[] =
-		{
-				"%llx"
-			,	"%llX"
-		};
+    static ss_char_a_t const* get_hexadecimal_format_pcllx_a_(int upperCase)
+    {
+        static ss_char_a_t const* const s_strings[] =
+        {
+                "%llx"
+            ,   "%llX"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
-	static ss_char_w_t const* get_hexadecimal_format_pcllx_w_(int upperCase)
-	{
-		static ss_char_w_t const* const s_strings[] =
-		{
-				L"%llx"
-			,	L"%llX"
-		};
+    static ss_char_w_t const* get_hexadecimal_format_pcllx_w_(int upperCase)
+    {
+        static ss_char_w_t const* const s_strings[] =
+        {
+                L"%llx"
+            ,   L"%llX"
+        };
 
-		return s_strings[0 != upperCase];
-	}
+        return s_strings[0 != upperCase];
+    }
 
 };
 

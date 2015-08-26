@@ -4,13 +4,13 @@
  * Purpose:     Contains the shared_handle and monitored_shared_handle classes.
  *
  * Created:     19th January 2002
- * Updated:     10th August 2009
+ * Updated:     5th August 2015
  *
  * Thanks:      To Austin Ziegler for fixes to defects evident on x64.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,8 +58,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_MAJOR       2
 # define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_MINOR       0
-# define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_REVISION    5
-# define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_EDIT        29
+# define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_REVISION    6
+# define WINSTL_VER_WINSTL_REGISTRY_UTIL_HPP_SHARED_HANDLES_EDIT        30
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -84,6 +84,9 @@
 #ifndef WINSTL_INCL_SYNCH_WINSTL_HPP_EVENT
 # include <winstl/synch/event.hpp>
 #endif /* !WINSTL_INCL_SYNCH_WINSTL_HPP_EVENT */
+#ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
+# include <winstl/internal/windows_version.h>
+#endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 #if !defined(STLSOFT_COMPILER_IS_COMO) && \
     !defined(STLSOFT_COMPILER_IS_WATCOM)
 # ifndef WINSTL_INCL_WINSTL_DL_HPP_DL_CALL
@@ -274,11 +277,14 @@ namespace registry_util
                             ,   m_monitor.handle()
                             ,   true);
             }
-            catch(missing_entry_point_exception &)
+            catch(missing_entry_point_exception&)
             {
-                if( 0 != (::GetVersion() & 0x80000000) &&
-                    LOBYTE(LOWORD(GetVersion())) == 4 &&
-                    HIBYTE(LOWORD(GetVersion())) < 10)
+                ws_uint_t   verMajor;
+                ws_uint_t   verMinor;
+
+                if( WinSTL_C_internal_IsWindows9x(&verMajor, &verMinor, NULL) &&
+                    verMajor == 4 &&
+                    verMinor < 10)
                 {
                     // If it's Windows 95, which doesn't support this function, we need to
                     // quench it, and simply not do any external iterator invalidation

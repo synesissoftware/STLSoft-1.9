@@ -4,7 +4,7 @@
  * Purpose:     Error functions.
  *
  * Created:     7th May 2000
- * Updated:     7th April 2014
+ * Updated:     19th July 2014
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_MAJOR     4
 # define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_MINOR     4
-# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_REVISION  3
-# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_EDIT      69
+# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_REVISION  4
+# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_EDIT      70
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -893,7 +893,7 @@ winstl_C_format_message_free_buff_a(ws_char_a_t* buffer)
     {
         return;
     }
-    if(winstl_C_fmtmsg_empty_reason_unknown_a() == buffer)
+    if(winstl_C_fmtmsg_empty_string_a() == buffer)
     {
         return;
     }

@@ -5,11 +5,11 @@
  *              information about the host system version.
  *
  * Created:     10th February 2002
- * Updated:     6th May 2010
+ * Updated:     5th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_MAJOR      4
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_MINOR      0
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_REVISION   2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_EDIT       55
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_REVISION   4
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_VERSION_EDIT       57
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -63,6 +63,9 @@
 #ifndef WINSTL_INCL_WINSTL_H_WINSTL
 # include <winstl/winstl.h>
 #endif /* !WINSTL_INCL_WINSTL_H_WINSTL */
+#ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
+# include <winstl/internal/windows_version.h>
+#endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -76,13 +79,10 @@ namespace winstl
 {
 # else
 /* Define stlsoft::winstl_project */
-
 namespace stlsoft
 {
-
 namespace winstl_project
 {
-
 # endif /* _STLSOFT_NO_NAMESPACE */
 #endif /* !_WINSTL_NO_NAMESPACE */
 
@@ -161,14 +161,17 @@ inline /* static */ OSVERSIONINFO &system_version::get_versioninfo_()
     _MSC_VER >= 1310
 # pragma warning(push)
 # pragma warning(disable : 4640)   /* "construction of local static object is not thread-safe" - since it is here! (As long as one uses a 'conformant' allocator) - maybe use a spin_mutex in future */
+# if _MSC_VER >= 1600
+#  pragma warning(disable : 4996)
+# endif
 #endif /* compiler */
 
     static OSVERSIONINFO    s_versioninfo;
 #if defined(STLSOFT_COMPILER_IS_BORLAND)
     /* WSCB: Borland has an internal compiler error if use ws_bool_t */
-    static ws_int_t         s_init = (s_versioninfo.dwOSVersionInfoSize = sizeof(s_versioninfo), ::GetVersionEx(&s_versioninfo), ws_true_v);
+    static ws_int_t         s_init = (s_versioninfo.dwOSVersionInfoSize = sizeof(s_versioninfo), WinSTL_C_internal_GetVersionEx(&s_versioninfo), ws_true_v);
 #else /* ? compiler */
-    static ws_bool_t        s_init = (s_versioninfo.dwOSVersionInfoSize = sizeof(s_versioninfo), ::GetVersionEx(&s_versioninfo), ws_true_v);
+    static ws_bool_t        s_init = (s_versioninfo.dwOSVersionInfoSize = sizeof(s_versioninfo), WinSTL_C_internal_GetVersionEx(&s_versioninfo), ws_true_v);
 #endif /* compiler */
 
 #if !defined(STLSOFT_STRICT) && \

@@ -4,14 +4,14 @@
  * Purpose:     basic_resource_string class.
  *
  * Created:     1st November 1994
- * Updated:     10th August 2009
+ * Updated:     5th August 2015
  *
  * Thanks to:   Ryan Ginstrom for suggesting the implementation for handling
  *              Unicode strings on Win9x.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * Copyright (c) 2004-2005, Ryan Ginstrom
  * All rights reserved.
  *
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_MAJOR    4
 # define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_MINOR    2
-# define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_REVISION 4
-# define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_EDIT     83
+# define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_REVISION 5
+# define WINSTL_VER_WINSTL_STRING_HPP_RESOURCE_STRING_EDIT     84
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -86,6 +86,9 @@ STLSOFT_COMPILER_IS_MSVC: _MSC_VER<1200
 #ifndef WINSTL_INCL_WINSTL_ERROR_HPP_WINDOWS_EXCEPTIONS
 # include <winstl/error/exceptions.hpp>
 #endif /* !WINSTL_INCL_WINSTL_ERROR_HPP_WINDOWS_EXCEPTIONS */
+#ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
+# include <winstl/internal/windows_version.h>
+#endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 
 #ifndef STLSOFT_INCL_EXCEPTION
 # define STLSOFT_INCL_EXCEPTION
@@ -279,7 +282,7 @@ private:
     }
     ws_int_t load_string_(HINSTANCE hinst, int uID, ws_char_w_t *buffer, ws_size_t cchBuffer)
     {
-        if(::GetVersion() & 0x80000000)
+        if(WinSTL_C_internal_IsWindows9x(NULL, NULL, NULL))
         {
             // This block of code kindly provided by Ryan Ginstrom
             int     block   =   (uID >> 4) + 1; // Compute block number.

@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  31st May 2014
+; Updated:  26th August 2015
 
 ============================================================================
 
@@ -15,6 +15,46 @@ STLSoft - Changes
    *   *  means a general bullet-point  *
    *                                    *
    **************************************
+
+
+============================================================================
+
+General:
+========
+
+  + Visual C++ 14 (Visual Studio 2015) compatibility
+
+  ~ compatibility with GCC 4.x's LLVM library
+
+  ~ 64-bit compatibility fixes
+
+  ~ various fixes for increased compiler pedanticism
+
+  ~ corrections to ensure that all .h files are C-compatible
+
+  ~ forward-compatibility (to STLSoft 1.12) for numerous macros
+
+Changes:
+========
+
+ STLSoft:
+ ========
+
+  ~ stlsoft/meta/is_function_pointer_type.hpp:
+
+    + discrimination of stdcall functions (when compiling in supported context)
+
+  ~ stlsoft/meta/is_fundamental_type.hpp:
+  ~ stlsoft/meta/is_pointer_type.hpp:
+
+    + added member type 'type'
+
+ WinSTL:
+ =======
+
+  + winstl/internal/windows_version.h:
+
+    + separated out all Windows-version assessments
 
 ============================================================================
 

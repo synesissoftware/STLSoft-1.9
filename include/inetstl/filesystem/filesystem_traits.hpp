@@ -5,11 +5,11 @@
  *              Unicode specialisations thereof.
  *
  * Created:     30th April 1999
- * Updated:     16th June 2010
+ * Updated:     21st August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_MAJOR    4
 # define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_MINOR    2
-# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_REVISION 2
-# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_EDIT     76
+# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_REVISION 3
+# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FILESYSTEM_TRAITS_EDIT     77
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -500,14 +500,14 @@ public:
         // If we're not rooted, then get the current directory and concatenate
         if(separator != *fileName)
         {
-            is_size_t   cchBuffer   =   STLSOFT_NUM_ELEMENTS(fullPath);
+            is_size_t   cchBuffer2  =   STLSOFT_NUM_ELEMENTS(fullPath);
             const int   isDot       =   '.' == 0[fileName] && '\0' == 0[fileName];
 
 #ifdef __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE
 # pragma message(_sscomp_fileline_message("This looks a bit dodgy. Better to use an auto_buffer, and cycle the size, testing the return value from get_current_directory"))
 #endif /* __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE */
 
-            if(!get_current_directory(hconn, cchBuffer, fullPath))
+            if(!get_current_directory(hconn, cchBuffer2, fullPath))
             {
                 fullPath[0] = '\0';
             }
@@ -883,14 +883,14 @@ public:
         // If we're not rooted, then get the current directory and concatenate
         if(separator != *fileName)
         {
-            is_size_t   cchBuffer   =   STLSOFT_NUM_ELEMENTS(fullPath);
+            is_size_t   cchBuffer2  =   STLSOFT_NUM_ELEMENTS(fullPath);
             const int   isDot       =   L'.' == 0[fileName] && L'\0' == 0[fileName];
 
 #ifdef __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE
 # pragma message(_sscomp_fileline_message("This looks a bit dodgy. Better to use an auto_buffer, and cycle the size, testing the return value from get_current_directory"))
 #endif /* __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE */
 
-            if(!get_current_directory(hconn, cchBuffer, fullPath))
+            if(!get_current_directory(hconn, cchBuffer2, fullPath))
             {
                 fullPath[0] = L'\0';
             }

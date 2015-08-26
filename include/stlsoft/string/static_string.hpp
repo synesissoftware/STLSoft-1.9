@@ -4,13 +4,13 @@
  * Purpose:     basic_static_string class template.
  *
  * Created:     11th June 1994
- * Updated:     10th August 2009
+ * Updated:     26th August 2015
  *
- * Thanks:      To Clï¿½udio Albuquerque for supplying the pop_back() member.
+ * Thanks:      To Cláudio Albuquerque for supplying the pop_back() member.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,7 +54,7 @@
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MAJOR    4
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MINOR    3
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_REVISION 2
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     198
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     199
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////

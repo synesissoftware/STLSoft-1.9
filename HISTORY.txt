@@ -2,9 +2,22 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  31st May 2014
+; Updated:  26th August 2015
 
 ============================================================================
+
+
+26th August 2015 - 1.9.119 released
+-----------------------------------
+
+ * Visual C++ 14 (Visual Studio 2015) compatibility
+ * compatibility with GCC 4.x's LLVM library
+ * 64-bit compatibility fixes
+ * various fixes for increased compiler pedanticism
+ * corrections to ensure that all .h files are C-compatible
+ * forward-compatibility (to STLSoft 1.12) for numerous macros
+ * various minor fixes
+ * various minor changes
 
 
 31st May 2014 - 1.9.118 released
@@ -17,6 +30,7 @@ STLSoft - History
  * added winstl::system_traits::get_home_directory() (although it's only operative in 1.10+ or when using 1.10 alpha with 1.9)
  * various minor fixes
  * various minor changes
+
 
 16th February 2013 - 1.9.117 released
 -------------------------------------

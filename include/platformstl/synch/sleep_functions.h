@@ -4,11 +4,11 @@
  * Purpose:     Time functions.
  *
  * Created:     10th June 2006
- * Updated:     10th August 2009
+ * Updated:     8th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_MAJOR      1
 # define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_MINOR      1
-# define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_REVISION   1
-# define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_EDIT       7
+# define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_REVISION   3
+# define PLATFORMSTL_VER_PLATFORMSTL_SYNCH_H_SLEEP_FUNCTIONS_EDIT       9
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -78,22 +78,20 @@
  * Namespace
  */
 
-#if !defined(__cplusplus)
- /* Nothing defined in C */
-#elif defined(_STLSOFT_NO_NAMESPACE) || \
-    defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+#if !defined(_PLATFORMSTL_NO_NAMESPACE) && \
+    !defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+# if defined(_STLSOFT_NO_NAMESPACE)
 /* There is no stlsoft namespace, so must define ::platformstl */
 namespace platformstl
 {
-#else
+# else
 /* Define stlsoft::platformstl_project */
-
 namespace stlsoft
 {
-
 namespace platformstl_project
 {
-#endif /* _STLSOFT_NO_NAMESPACE */
+# endif /* _STLSOFT_NO_NAMESPACE */
+#endif /* !_PLATFORMSTL_NO_NAMESPACE */
 
 /* ////////////////////////////////////////////////////////////////////// */
 
@@ -127,15 +125,15 @@ namespace platformstl_project
 
 /* ////////////////////////////////////////////////////////////////////// */
 
-#if !defined(__cplusplus)
- /* Nothing defined in C */
-#elif defined(_STLSOFT_NO_NAMESPACE) || \
+#ifndef _PLATFORMSTL_NO_NAMESPACE
+# if defined(_STLSOFT_NO_NAMESPACE) || \
     defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
 } /* namespace platformstl */
-#else
+# else
 } /* namespace platformstl_project */
 } /* namespace stlsoft */
-#endif /* _STLSOFT_NO_NAMESPACE */
+# endif /* _STLSOFT_NO_NAMESPACE */
+#endif /* !_PLATFORMSTL_NO_NAMESPACE */
 
 /* ////////////////////////////////////////////////////////////////////// */
 

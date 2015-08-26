@@ -245,7 +245,7 @@ inline
 C const*
 unsigned_integer_to_string(C* buf, ss_size_t cchBuf, I i, ss_size_t* cchRes)
 {
-	STLSOFT_ASSERT(NULL != cchRes);
+    STLSOFT_ASSERT(NULL != cchRes);
 
     C const* psz = unsigned_integer_to_string<C, I>(buf, cchBuf, i);
 
@@ -400,7 +400,7 @@ inline
 C const*
 signed_integer_to_string(C* buf, ss_size_t cchBuf, I i, ss_size_t* cchRes)
 {
-	STLSOFT_ASSERT(NULL != cchRes);
+    STLSOFT_ASSERT(NULL != cchRes);
 
     C const* psz = signed_integer_to_string<C, I>(buf, cchBuf, i);
 
@@ -829,7 +829,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_sint8_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -852,7 +852,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_uint8_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -875,7 +875,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_sint16_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -898,7 +898,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_uint16_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -921,7 +921,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_sint32_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -944,7 +944,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_uint32_t i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -968,7 +968,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_sint64_t const& i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -991,7 +991,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, ss_uint64_t const& i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -1016,7 +1016,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, int i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -1039,7 +1039,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, unsigned int i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -1064,7 +1064,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, long i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return signed_integer_to_string(buf, cchBuf, i, pcchRes);
 }
@@ -1087,7 +1087,7 @@ inline
 C const*
 integer_to_string(C* buf, ss_size_t cchBuf, unsigned long i, ss_size_t* pcchRes)
 {
-	STLSOFT_ASSERT(NULL != pcchRes);
+    STLSOFT_ASSERT(NULL != pcchRes);
 
     return unsigned_integer_to_string(buf, cchBuf, i, pcchRes);
 }

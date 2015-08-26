@@ -5,11 +5,14 @@
  *              abstracting away standard library inconsistencies.
  *
  * Created:     2nd January 2000
- * Updated:     13th December 2012
+ * Updated:     7th August 2015
+ *
+ * Thanks:      To Cláudio Albuquerque for assisting with VC++ 12 & 14
+ *              support.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2000-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,9 +54,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MAJOR     5
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MINOR     4
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MINOR     7
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      110
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      114
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -195,7 +198,10 @@ namespace stlsoft
 #endif /* !STLSOFT_ITERATOR_ITERATOR_FORM3_SUPPORT */
 
 
-#if defined(STLSOFT_COMPILER_IS_GCC) && \
+#if 0
+#elif defined(STLSOFT_CF_STD_LIBRARY_IS_LIBCPP)
+# define STLSOFT_ITERATOR_ITERATOR_FORM1_SUPPORT
+#elif defined(STLSOFT_COMPILER_IS_GCC) && \
     __GNUC__ < 3
  /* GCC 2.95 */
 # define STLSOFT_ITERATOR_ITERATOR_FORM3_SUPPORT
@@ -355,7 +361,8 @@ namespace stlsoft
  * actually a library feature (somewhat dependent on compilers's abilities).
  */
 
-#if defined(STLSOFT_COMPILER_IS_BORLAND)
+#if 0
+#elif defined(STLSOFT_COMPILER_IS_BORLAND)
 # define STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT
 #elif defined(STLSOFT_COMPILER_IS_COMO)
 # define STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT
@@ -402,7 +409,10 @@ namespace stlsoft
 
 /* Form 1 / Form 5 */
 
-# if defined(STLSOFT_CF_STD_LIBRARY_IS_STLPORT)
+# if 0
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_LIBCPP)
+#  define STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM1_SUPPORT
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_STLPORT)
  /* STLport is form 1 when not using the old form */
 #  if /* defined(__STL_CLASS_PARTIAL_SPECIALIZATION) || \
        */defined(_STLP_CLASS_PARTIAL_SPECIALIZATION)
@@ -430,6 +440,8 @@ namespace stlsoft
            STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_9_0 || \
            STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_10_0 || \
            STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_11_0 || \
+           STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_12_0 || \
+           STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_14_0 || \
            0 \
        )
  /* Visual C++ + Dinkumware */
@@ -437,7 +449,8 @@ namespace stlsoft
 # endif /* compiler / library */
 
 /* Form 2 / Form 5 */
-# if defined(STLSOFT_CF_STD_LIBRARY_IS_HP_SGI)
+# if 0
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_HP_SGI)
  /* HP/SGI or HP/SGI/Comeau */
 #  if defined(__STL_CLASS_PARTIAL_SPECIALIZATION)
 #   define STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM2_SUPPORT
@@ -447,7 +460,8 @@ namespace stlsoft
 # endif /* compiler / library */
 
 /* Form 3 */
-# if defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC) && \
+# if 0
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC) && \
      ( \
          STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_4_2 || \
          STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_5_0 || \
@@ -462,8 +476,9 @@ namespace stlsoft
 
 
 /* stlsoft_reverse_iterator() */
-# if defined(STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM1_SUPPORT) || \
-     defined(STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM2_SUPPORT)
+# if 0
+# elif defined(STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM1_SUPPORT) || \
+       defined(STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM2_SUPPORT)
 #  define stlsoft_reverse_iterator(I, V, R, P, D)       stlsoft_ns_qual_std(reverse_iterator)<I>
 # elif defined(STLSOFT_ITERATOR_REVERSE_ITERATOR_FORM3_SUPPORT)
 #  define stlsoft_reverse_iterator(I, V, R, P, D)       stlsoft_ns_qual_std(reverse_iterator)<I, V, R, P, D>
@@ -477,7 +492,8 @@ namespace stlsoft
 
 /* stlsoft_reverse_bidirectional_iterator() */
 
-# if defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC) && \
+# if 0
+# elif defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC) && \
      (   STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_4_2 || \
          STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_5_0 || \
          STLSOFT_CF_STD_LIBRARY_DINKUMWARE_VC_VERSION == STLSOFT_CF_DINKUMWARE_VC_VERSION_6_0)
@@ -1040,7 +1056,8 @@ inline stlsoft_ns_qual(ss_ptrdiff_t) *distance_type(pointer_iterator<V, P, R>::t
  * \param i The iterator instance
  */
 
-#if defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC)
+#if 0
+#elif defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC)
 # define stlsoft_iterator_query_category(I, i)      (stlsoft_ns_qual_std(_Iter_cat)(i))
 # define stlsoft_iterator_query_category_ptr(I, i)  (&stlsoft_ns_qual_std(_Iter_cat)(i))
 

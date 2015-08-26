@@ -5,14 +5,14 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     19th January 2002
- * Updated:     22nd November 2013
+ * Updated:     2nd September 2014
  *
  * Thanks:      To Sam Fisher for spotting the defect in the set_value_()
  *              overload for REG_MULTI_SZ values (widestring only).
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MAJOR       3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MINOR       9
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    10
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        137
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    11
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        138
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -263,7 +263,7 @@ public:
      */
     template <ss_typename_param_k S>
     basic_reg_key(hkey_type hkeyParent, S const& keyName, REGSAM accessMask = KEY_ALL_ACCESS)
-        : m_name(keyName)
+        : m_name(stlsoft_ns_qual(c_str_ptr)(keyName))
         , m_hkey(open_key_(hkeyParent, stlsoft_ns_qual(c_str_ptr)(keyName), accessMask))
         , m_accessMask(accessMask)
     {} // Implementation is within class, otherwise VC5 will not link
@@ -308,7 +308,7 @@ public:
      */
     template <ss_typename_param_k S>
     basic_reg_key(class_type const& keyParent, S const& keyName, REGSAM accessMask = KEY_ALL_ACCESS)
-        : m_name(keyName)
+        : m_name(stlsoft_ns_qual(c_str_ptr)(keyName))
         , m_hkey(open_key_(keyParent.get_key_handle(), stlsoft_ns_qual(c_str_ptr)(keyName), accessMask))
         , m_accessMask(accessMask)
     {} // Implementation is within class, otherwise VC5 will not link

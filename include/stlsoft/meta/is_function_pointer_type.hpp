@@ -4,11 +4,11 @@
  * Purpose:     is_function_pointer_type meta class.
  *
  * Created:     4th November 2005
- * Updated:     10th August 2009
+ * Updated:     26th August 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2014, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_MAJOR    1
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_MINOR    1
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_REVISION 3
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_EDIT     10
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_MINOR    2
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_REVISION 1
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_FUNCTION_POINTER_TYPE_EDIT     12
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -94,25 +94,25 @@ namespace stlsoft
  */
 
 template <ss_typename_param_k R>
-one_type is_function_pointer_type_func(R (*)());
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)());
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
         >
-one_type is_function_pointer_type_func(R (*)(A0));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
         ,   ss_typename_param_k A1
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
         ,   ss_typename_param_k A1
         ,   ss_typename_param_k A2
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -120,7 +120,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A2
         ,   ss_typename_param_k A3
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -129,7 +129,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A3
         ,   ss_typename_param_k A4
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -139,7 +139,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A4
         ,   ss_typename_param_k A5
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -150,7 +150,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A5
         ,   ss_typename_param_k A6
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -162,7 +162,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A6
         ,   ss_typename_param_k A7
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -175,7 +175,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A7
         ,   ss_typename_param_k A8
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -189,7 +189,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A8
         ,   ss_typename_param_k A9
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -204,7 +204,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A9
         ,   ss_typename_param_k A10
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -220,7 +220,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A10
         ,   ss_typename_param_k A11
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -237,7 +237,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A11
         ,   ss_typename_param_k A12
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -255,7 +255,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A12
         ,   ss_typename_param_k A13
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -274,7 +274,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A13
         ,   ss_typename_param_k A14
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -294,7 +294,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A14
         ,   ss_typename_param_k A15
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -315,7 +315,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A15
         ,   ss_typename_param_k A16
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -337,7 +337,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A16
         ,   ss_typename_param_k A17
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -360,7 +360,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A17
         ,   ss_typename_param_k A18
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -384,7 +384,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A18
         ,   ss_typename_param_k A19
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -409,7 +409,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A19
         ,   ss_typename_param_k A20
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -435,7 +435,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A20
         ,   ss_typename_param_k A21
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -462,7 +462,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A21
         ,   ss_typename_param_k A22
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -490,7 +490,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A22
         ,   ss_typename_param_k A23
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -519,7 +519,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A23
         ,   ss_typename_param_k A24
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -549,7 +549,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A24
         ,   ss_typename_param_k A25
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -580,7 +580,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A25
         ,   ss_typename_param_k A26
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -612,7 +612,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A26
         ,   ss_typename_param_k A27
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -645,7 +645,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A27
         ,   ss_typename_param_k A28
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -679,7 +679,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A28
         ,   ss_typename_param_k A29
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -714,7 +714,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A29
         ,   ss_typename_param_k A30
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -750,7 +750,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A30
         ,   ss_typename_param_k A31
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -787,7 +787,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A31
         ,   ss_typename_param_k A32
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -825,7 +825,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A32
         ,   ss_typename_param_k A33
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -864,7 +864,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A33
         ,   ss_typename_param_k A34
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -904,7 +904,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A34
         ,   ss_typename_param_k A35
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -945,7 +945,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A35
         ,   ss_typename_param_k A36
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -987,7 +987,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A36
         ,   ss_typename_param_k A37
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -1030,7 +1030,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A37
         ,   ss_typename_param_k A38
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -1074,7 +1074,7 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A38
         ,   ss_typename_param_k A39
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39));
 
 template<   ss_typename_param_k R
         ,   ss_typename_param_k A0
@@ -1119,7 +1119,1039 @@ template<   ss_typename_param_k R
         ,   ss_typename_param_k A39
         ,   ss_typename_param_k A40
         >
-one_type is_function_pointer_type_func(R (*)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, A40));
+one_type is_function_pointer_type_func(R (STLSOFT_CDECL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, A40));
+
+#ifdef STLSOFT_CF_STDCALL_SUPPORTED
+
+template <ss_typename_param_k R>
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)());
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        ,   ss_typename_param_k A36
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        ,   ss_typename_param_k A36
+        ,   ss_typename_param_k A37
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        ,   ss_typename_param_k A36
+        ,   ss_typename_param_k A37
+        ,   ss_typename_param_k A38
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        ,   ss_typename_param_k A36
+        ,   ss_typename_param_k A37
+        ,   ss_typename_param_k A38
+        ,   ss_typename_param_k A39
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39));
+
+template<   ss_typename_param_k R
+        ,   ss_typename_param_k A0
+        ,   ss_typename_param_k A1
+        ,   ss_typename_param_k A2
+        ,   ss_typename_param_k A3
+        ,   ss_typename_param_k A4
+        ,   ss_typename_param_k A5
+        ,   ss_typename_param_k A6
+        ,   ss_typename_param_k A7
+        ,   ss_typename_param_k A8
+        ,   ss_typename_param_k A9
+        ,   ss_typename_param_k A10
+        ,   ss_typename_param_k A11
+        ,   ss_typename_param_k A12
+        ,   ss_typename_param_k A13
+        ,   ss_typename_param_k A14
+        ,   ss_typename_param_k A15
+        ,   ss_typename_param_k A16
+        ,   ss_typename_param_k A17
+        ,   ss_typename_param_k A18
+        ,   ss_typename_param_k A19
+        ,   ss_typename_param_k A20
+        ,   ss_typename_param_k A21
+        ,   ss_typename_param_k A22
+        ,   ss_typename_param_k A23
+        ,   ss_typename_param_k A24
+        ,   ss_typename_param_k A25
+        ,   ss_typename_param_k A26
+        ,   ss_typename_param_k A27
+        ,   ss_typename_param_k A28
+        ,   ss_typename_param_k A29
+        ,   ss_typename_param_k A30
+        ,   ss_typename_param_k A31
+        ,   ss_typename_param_k A32
+        ,   ss_typename_param_k A33
+        ,   ss_typename_param_k A34
+        ,   ss_typename_param_k A35
+        ,   ss_typename_param_k A36
+        ,   ss_typename_param_k A37
+        ,   ss_typename_param_k A38
+        ,   ss_typename_param_k A39
+        ,   ss_typename_param_k A40
+        >
+one_type is_function_pointer_type_func(R (STLSOFT_STDCALL *)(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, A16, A17, A18, A19, A20, A21, A22, A23, A24, A25, A26, A27, A28, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, A40));
+
+#endif
 
 two_type is_function_pointer_type_func(...);
 

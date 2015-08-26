@@ -4,14 +4,14 @@
  * Purpose:     Comparison functions for Windows time structures.
  *
  * Created:     21st November 2003
- * Updated:     7th August 2012
+ * Updated:     21st August 2015
  *
  * Thanks to:   Mikael Pahmp, for spotting the failure to handle 24-hour
  *              time pictures.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_MAJOR      5
 # define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_MINOR      1
-# define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_REVISION   2
-# define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_EDIT       62
+# define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_REVISION   3
+# define WINSTL_VER_WINSTL_TIME_HPP_FORMAT_FUNCTIONS_EDIT       63
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -178,7 +178,7 @@ STLSOFT_STDCALL GetTimeFormat_ms_(
     typedef stlsoft_ns_qual(auto_buffer_old)<
         char_t
     ,   processheap_allocator<char_t>
-    >                                               buffer_t;
+    >                                               buffer_t_;
 
     if(dwFlags & (TIME_NOMINUTESORSECONDS | TIME_NOSECONDS))
     {
@@ -190,7 +190,7 @@ STLSOFT_STDCALL GetTimeFormat_ms_(
         locale = LOCALE_SYSTEM_DEFAULT;
     }
 
-    buffer_t            timePicture(1 + ((NULL == lpFormat) ? static_cast<ss_size_t>(::GetLocaleInfoA(locale, LOCALE_STIMEFORMAT, NULL, 0)) : 0));
+    buffer_t_           timePicture(1 + ((NULL == lpFormat) ? static_cast<ss_size_t>(::GetLocaleInfoA(locale, LOCALE_STIMEFORMAT, NULL, 0)) : 0));
 
     if(NULL == lpFormat)
     {
@@ -231,8 +231,8 @@ STLSOFT_STDCALL GetTimeFormat_ms_(
     // Get the time markers
     char_t const*   amMarker    =   (NULL != timeMarkers && NULL != timeMarkers[0]) ? timeMarkers[0] : NULL;
     char_t const*   pmMarker    =   (NULL != timeMarkers && NULL != timeMarkers[1]) ? timeMarkers[1] : NULL;
-    buffer_t        am(0);
-    buffer_t        pm(0);
+    buffer_t_       am(0);
+    buffer_t_       pm(0);
 
     if( NULL == amMarker ||
         NULL == pmMarker)
@@ -297,7 +297,7 @@ STLSOFT_STDCALL GetTimeFormat_ms_(
     char_t const*   timeMarker  =   (lpTime->wHour < 12) ? amMarker : pmMarker;
     ws_size_t const cchMarker   =   (cchAmMarker < cchPmMarker) ? cchPmMarker : cchAmMarker;
     ws_size_t const cchTimeMax  =   (cchPicture - 1) + (2 - 1) + (2 - 1) + (6 - 1) + 1 + (1 + cchMarker);
-    buffer_t        buffer(1 + cchTimeMax);
+    buffer_t_       buffer(1 + cchTimeMax);
     ws_size_t       len         =   0;
 
     if(!buffer.empty())
