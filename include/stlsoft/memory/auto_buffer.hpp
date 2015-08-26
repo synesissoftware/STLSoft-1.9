@@ -4,14 +4,16 @@
  * Purpose:     Contains the auto_buffer template class.
  *
  * Created:     19th January 2002
- * Updated:     21st June 2010
+ * Updated:     26th August 2015
  *
- * Thanks:      To Thorsten Ottosen for pointing out that allocators were
+ * Thanks:      To Magnificent Imbecil for pointing out error in
+ *              documentation, and for suggesting swap() optimisation.
+ *              To Thorsten Ottosen for pointing out that allocators were
  *              not swapped.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MAJOR       5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MINOR       2
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    4
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        163
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    5
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        165
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -826,9 +828,18 @@ public:
             // Both are using internal buffers, so we exchange the contents
             value_type  t[space];
 
-            block_copy(&t[0],               &rhs.m_internal[0], rhs.m_cItems);
-            block_copy(&rhs.m_internal[0],  &m_internal[0],     m_cItems);
-            block_copy(&m_internal[0],      &t[0],              rhs.m_cItems);
+            if(rhs.m_cItems < m_cItems)
+            {
+                block_copy(&t[0],               &rhs.m_internal[0], rhs.m_cItems);
+                block_copy(&rhs.m_internal[0],  &m_internal[0],     m_cItems);
+                block_copy(&m_internal[0],      &t[0],              rhs.m_cItems);
+            }
+            else
+            {
+                block_copy(&t[0],               &m_internal[0],     m_cItems);
+                block_copy(&m_internal[0],      &rhs.m_internal[0], rhs.m_cItems);
+                block_copy(&rhs.m_internal[0],  &t[0],              m_cItems);
+            }
         }
 
         std_swap(m_cItems,      rhs.m_cItems);
@@ -1066,9 +1077,6 @@ public:
     }
 
     /// \brief Indicates whether the buffer has any contents
-    ///
-    /// \note This will only ever be true when an allocation above the number
-    /// of elements in the internal array has been requested, and failed.
     ss_bool_t empty() const
     {
         STLSOFT_ASSERT(is_valid());
