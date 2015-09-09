@@ -2,7 +2,7 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  27th August 2015
+; Updated:  9th September 2015
 
 ============================================================================
 
@@ -11,7 +11,9 @@ STLSoft - History
 -----------------------------------
 
  * optimised stlsoft::auto_buffer::swap() method
+ * added unixstl_C_get_console_width() / unixstl::get_console_width()
  * WinSTL ToolHelp library widestring-compatibility
+ * VC++ 14 compatibility
 
 
 26th August 2015 - 1.9.119 released

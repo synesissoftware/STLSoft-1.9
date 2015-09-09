@@ -4,11 +4,11 @@
  * Purpose:     Safe interface casting functions.
  *
  * Created:     25th June 2002
- * Updated:     6th May 2010
+ * Updated:     1st September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -60,8 +60,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_MAJOR      5
 # define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_MINOR      2
-# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_REVISION   4
-# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_EDIT       117
+# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_REVISION   5
+# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_EDIT       118
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -404,9 +404,9 @@ private:
 
             if(FAILED(hr))
             {
-                exception_policy_type()(hr, iid);
-
                 pi = NULL;
+
+                exception_policy_type()(hr, iid);
             }
         }
 

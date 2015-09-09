@@ -4,11 +4,11 @@
  * Purpose:     Type conversions for Windows.
  *
  * Created:     31st May 2003
- * Updated:     14th June 2012
+ * Updated:     1st September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_MAJOR    5
 # define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_MINOR    4
-# define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_REVISION 1
-# define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_EDIT     92
+# define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_REVISION 2
+# define WINSTL_VER_WINSTL_CONVERSION_HPP_CHAR_CONVERSIONS_EDIT     93
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -496,12 +496,12 @@ private:
  *
  * \ingroup group__library__conversion
  */
-typedef multibyte2wide<256>               m2w;
+typedef multibyte2wide<256>                 m2w;
 /** Type that converts a wide string to a multibyte string.
  *
  * \ingroup group__library__conversion
  */
-typedef wide2multibyte<256>               w2m;
+typedef wide2multibyte<256>                 w2m;
 
 /** [Deprecated] Type that converts a multibyte string to a wide string.
  *
@@ -509,14 +509,14 @@ typedef wide2multibyte<256>               w2m;
  *
  * \deprecated This name is deprecated in favour of winstl::m2w
  */
-typedef multibyte2wide<256>               a2w;
+typedef multibyte2wide<256>                 a2w;
 /** [Deprecated] Type that converts a wide string to a multibyte string.
  *
  * \ingroup group__library__conversion
  *
  * \deprecated This name is deprecated in favour of winstl::w2m
  */
-typedef wide2multibyte<256>               w2a;
+typedef wide2multibyte<256>                 w2a;
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
@@ -530,6 +530,8 @@ typedef a2w                             a2t;
 # else /* ? UNICODE */
 typedef encoding2encoding<ws_char_a_t>  t2a;
 typedef encoding2encoding<ws_char_a_t>  a2t;
+typedef encoding2encoding<ws_char_a_t>  t2m;
+typedef encoding2encoding<ws_char_a_t>  m2t;
 typedef m2w                             t2w;
 typedef w2m                             w2t;
 typedef a2w                             t2w;

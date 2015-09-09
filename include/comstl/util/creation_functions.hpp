@@ -4,7 +4,7 @@
  * Purpose:     COM instance creation helper functions
  *
  * Created:     21st September 2005
- * Updated:     6th June 2010
+ * Updated:     30th August 2015
  *
  * Thanks:      To Adi Shavit for demanding more usability in these
  *              functions, which led to the adoption of stlsoft::ref_ptr<X>
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +55,7 @@
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_MAJOR    2
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_MINOR    3
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_REVISION 2
-# define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_EDIT     22
+# define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_EDIT     23
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -159,7 +159,7 @@ if(SUCCEEDED(comstl::co_create_instance(L"{4E7D5C47-8F96-45DE-905D-AA3E9E592DE3}
  * interface:
 \code
 IDispatch* logmgr;
-if(SUCCEEDED(comstl::co_create_instance(L"pantheios.COM.LoggerManager", &logmgr)))
+if(SUCCEEDED(comstl::co_create_instance(L"Pantheios.COM.LoggerManager", &logmgr)))
 {
   logmgr->Release();
 }
@@ -269,7 +269,7 @@ if(SUCCEEDED(comstl::co_create_instance(L"{4E7D5C47-8F96-45DE-905D-AA3E9E592DE3}
  * interface:
 \code
 stlsoft::ref_ptr<IDispatch> logmgr;
-if(SUCCEEDED(comstl::co_create_instance(L"pantheios.COM.LoggerManager", logmgr)))
+if(SUCCEEDED(comstl::co_create_instance(L"Pantheios.COM.LoggerManager", logmgr)))
 {
   . . .
 } // Release() automatically invoked here

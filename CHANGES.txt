@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  27th August 2015
+; Updated:  9th September 2015
 
 ============================================================================
 
@@ -19,7 +19,7 @@ STLSoft - Changes
 
 ============================================================================
 
-Changes for 1.9.120 (27th August 2015)
+Changes for 1.9.120 (9th September 2015)
 
 
  STLSoft:
@@ -29,8 +29,32 @@ Changes for 1.9.120 (27th August 2015)
 
     ~ optimised swap() method (when swapping between to instances using internal buffer)
 
+ COMSTL:
+ =======
+
+  ~ comstl/conversion/interface_cast.hpp:
+
+    ~ VC++ 14 compatibility
+
+ PlatformSTL:
+ ============
+
+  + platformstl/system/console_functions.h
+
+ UNIXSTL:
+ ========
+
+  + unixstl/system/console_functions.h
+
+    + unixstl_C_get_console_width() / unixstl::get_console_width()
+
+
  WinSTL:
  =======
+
+  ~ winstl/conversion/char_conversions.hpp:
+
+    + added t2m and m2t in multibyte compilations
 
   ~ winstl/toolhelp/*.hpp:
 
