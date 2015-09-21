@@ -5,6 +5,8 @@
 
 # files (by name)
 
+include/stlsoft/internal/dos2unix.has.been.performed
+
 # files (by pattern)
 
 *~
