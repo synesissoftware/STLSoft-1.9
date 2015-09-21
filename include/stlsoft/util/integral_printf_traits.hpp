@@ -4,11 +4,11 @@
  * Purpose:     integral_printf_traits classes.
  *
  * Created:     16th January 2002
- * Updated:     10th July 2012
+ * Updated:     21st September 2014
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_MAJOR      5
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_MINOR      2
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_REVISION   3
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_EDIT       70
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_REVISION   4
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_INTEGRAL_PRINTF_TRAITS_EDIT       71
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -262,6 +262,7 @@ namespace stlsoft
      defined(STLSOFT_COMPILER_IS_WATCOM)
 #  define STLSOFT_CF_64_BIT_PRINTF_USES_I64
 # elif defined(STLSOFT_COMPILER_IS_COMO) || \
+       defined(STLSOFT_COMPILER_IS_CLANG) || \
        defined(STLSOFT_COMPILER_IS_DMC) || \
        defined(STLSOFT_COMPILER_IS_GCC) || \
        defined(STLSOFT_COMPILER_IS_INTEL) || \

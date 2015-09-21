@@ -7,13 +7,13 @@
  *              in making these functions rather than macros.
  *
  * Created:     16th January 2002
- * Updated:     10th August 2009
+ * Updated:     21st September 2015
  *
  * Thanks:      To Jonathan Wakely for help with Solaris compatibility.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_MAJOR    4
 # define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_MINOR    2
-# define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_REVISION 6
-# define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_EDIT     60
+# define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_REVISION 7
+# define STLSOFT_VER_STLSOFT_UTIL_H_LIMIT_TRAITS_EDIT     61
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -102,6 +102,7 @@ namespace stlsoft
             __BORLANDC__ >= 0x0582) || \
         defined(STLSOFT_COMPILER_IS_DMC) || \
         defined(STLSOFT_COMPILER_IS_COMO) || \
+        defined(STLSOFT_COMPILER_IS_CLANG) || \
         defined(STLSOFT_COMPILER_IS_GCC) || \
         defined(STLSOFT_COMPILER_IS_MWERKS) || \
         defined(STLSOFT_COMPILER_IS_SUNPRO))

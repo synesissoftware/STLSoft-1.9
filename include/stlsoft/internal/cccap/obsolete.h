@@ -4,11 +4,11 @@
  * Purpose:     Obsolete
  *
  * Created:     11th May 2008
- * Updated:     21st July 2009
+ * Updated:     22nd September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2008-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2008-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -48,9 +48,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MAJOR     1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MINOR     0
-# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_REVISION  3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_EDIT      4
+# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MINOR     1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_REVISION  1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_EDIT      5
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -64,6 +64,10 @@
 #ifdef STLSOFT_PPF_pragma_once_SUPPORT
 # define STLSOFT_CF_PRAGMA_ONCE_SUPPORT
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
+
+#ifdef STLSOFT_PPF_COUNTER_SYMBOL_SUPPORT
+# define STLSOFT_CF_COUNTER_SYMBOL_SUPPORT
+#endif /* STLSOFT_PPF_COUNTER_SYMBOL_SUPPORT */
 
 #ifdef STLSOFT_PPF_FUNCTION_SYMBOL_SUPPORT
 # define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT

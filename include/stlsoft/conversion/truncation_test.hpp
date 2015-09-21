@@ -4,11 +4,11 @@
  * Purpose:     Runtime checking for numeric conversions.
  *
  * Created:     10th August 2006
- * Updated:     24th November 2011
+ * Updated:     22nd September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_MAJOR      1
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_MINOR      0
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_REVISION   6
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_EDIT       48
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_REVISION   7
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_EDIT       49
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -327,6 +327,8 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, yes_type, T
     const ss_size_t sizeofTO    =   sizeof(TO);
 
     STLSOFT_STATIC_ASSERT(sizeofTO < sizeofFROM);
+    STLSOFT_SUPPRESS_UNUSED(sizeofTO);
+    STLSOFT_SUPPRESS_UNUSED(sizeofFROM);
 
     // This is a fully runtime test: does FROM fit into TO's limits?
     //
@@ -419,6 +421,8 @@ inline bool truncation_test_helper_runtime_test(FROM from, no_type, TO ) // The 
     const ss_size_t sizeofTO    =   sizeof(TO);
 
     STLSOFT_STATIC_ASSERT(sizeofFROM >= sizeofTO || FROM_is_signed);
+    STLSOFT_SUPPRESS_UNUSED(sizeofTO);
+    STLSOFT_SUPPRESS_UNUSED(sizeofFROM);
 
     typedef ss_typename_param_k value_to_yesno_type<types_have_same_sign>::type  same_sign_yesno_t;
 

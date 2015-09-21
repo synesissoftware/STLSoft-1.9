@@ -5,7 +5,7 @@
  *              abstracting away standard library inconsistencies.
  *
  * Created:     2nd January 2000
- * Updated:     7th August 2015
+ * Updated:     21st September 2015
  *
  * Thanks:      To Cláudio Albuquerque for assisting with VC++ 12 & 14
  *              support.
@@ -54,9 +54,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MAJOR     5
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MINOR     7
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MINOR     8
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      114
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      115
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -363,6 +363,8 @@ namespace stlsoft
 
 #if 0
 #elif defined(STLSOFT_COMPILER_IS_BORLAND)
+# define STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT
+#elif defined(STLSOFT_COMPILER_IS_CLANG)
 # define STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT
 #elif defined(STLSOFT_COMPILER_IS_COMO)
 # define STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT
