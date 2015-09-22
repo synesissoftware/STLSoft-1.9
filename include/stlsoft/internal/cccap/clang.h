@@ -57,7 +57,7 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MAJOR    1
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 3
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 4
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     5
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
@@ -209,7 +209,7 @@
 
 #if __has_feature(cxx_exceptions)
 # define STLSOFT_CF_EXCEPTION_SUPPORT
-# define STLSOFT_USE_EXCEPTION_SPECIFICATIONS
+# define STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT
 # define STLSOFT_CF_EXCEPTION_OPERATOR_NEW_THROWS_BAD_ALLOC
 #endif
 
@@ -309,13 +309,9 @@
 /* /////////////////////////////////////////////////////////////////////////
  * Calling convention
  *
- * On x86, the following are supported:
- *   - cdecl
- *   - fastcall
- *   - stdcall
- *
- * On IA64/x64 there is only a single calling convention. Calling convention
- * keywords are ignored.
+ * As far as is currently known, there is only a single calling convention
+ * for CLang - cdecl. If that's not so, update in a similar vein to that
+ * shown in stlsoft/internal/cccap/msvc.h
  */
 
 #define STLSOFT_CF_CDECL_SUPPORTED

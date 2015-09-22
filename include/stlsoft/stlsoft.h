@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    34
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     444
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     445
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -2666,6 +2666,8 @@ private:
         (   defined(STLSOFT_COMPILER_IS_GCC) && \
             __GNUC__ >= 3) || \
         defined(STLSOFT_COMPILER_IS_INTEL) || \
+        (   defined(STLSOFT_COMPILER_IS_MSVC) && \
+            _MSC_VER >= 1600)|| \
         defined(STLSOFT_COMPILER_IS_WATCOM))
 template<ss_typename_param_k T>
 inline void suppress_unused_func(T const volatile &)

@@ -4,7 +4,7 @@
  * Purpose:     integral_printf_traits classes.
  *
  * Created:     16th January 2002
- * Updated:     21st September 2014
+ * Updated:     23rd September 2015
  *
  * Home:        http://stlsoft.org/
  *

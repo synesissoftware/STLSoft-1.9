@@ -4,14 +4,14 @@
  * Purpose:     Compiler feature discrimination for Visual C++.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     21st September 2015
  *
  * Thanks:      To Cláudio Albuquerque for working on the
  *              Win64-compatibility.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -65,7 +65,7 @@
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MAJOR     3
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     25
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  2
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      123
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      124
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -169,10 +169,6 @@
 #ifdef _NATIVE_WCHAR_T_DEFINED
 # define STLSOFT_CF_BUILTIN_wchar_t_SUPPORT
 #endif /* _NATIVE_WCHAR_T_DEFINED */
-
-/*
-# define STLSOFT_CF_BUILTIN_long_long_SUPPORT
-*/
 
 #define STLSOFT_CF_BUILTIN___int8_SUPPORT
 
