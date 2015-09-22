@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     22nd September 2015
+ * Updated:     23rd September 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -55,7 +55,7 @@
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    34
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     443
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     444
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -283,7 +283,7 @@
 # define _STLSOFT_VER_1_9_118   0x010976ff  /*!< Version 1.9.118 (31st May 2014) */
 # define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
 # define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (9th September 2015) */
-# define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (22nd September 2015) */
+# define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (23rd September 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
@@ -354,7 +354,7 @@
  * Currently the only compilers supported by the STLSoft libraries are
  *
  * Borland C++ 5.5, 5.51, 5.6 & 5.6.4
- * clang 6.0
+ * Clang 6.0
  * Comeau 4.3.0.1 & 4.3.3
  * Digital Mars C/C++ 8.26 and above
  * GCC 2.95, 2.96, 3.2, 3.3, 3.4 & 4.0
@@ -427,7 +427,7 @@
 
 #ifdef _MSC_VER
 # if defined(__BORLANDC__) ||      /* Borland */ \
-     defined(__clang__) ||         /* clang */ \
+     defined(__clang__) ||         /* Clang */ \
      defined(__COMO__) ||          /* Comeau */ \
      defined(__DMC__) ||           /* Digital Mars */ \
      defined(__GNUC__) ||          /* GNU */ \
@@ -457,11 +457,11 @@
 #elif defined(__clang__)
  /* ******************************* Comeau ****************************** */
 # define STLSOFT_COMPILER_IS_CLANG
-# define STLSOFT_COMPILER_LABEL_STRING          "clang C/C++"
+# define STLSOFT_COMPILER_LABEL_STRING          "Clang C/C++"
 # if __clang_major__ < 6
-#  error Only versions 6.0 and later of clang C/C++ compiler is supported by the STLSoft libraries
+#  error Only versions 6.0 and later of Clang C/C++ compiler is supported by the STLSoft libraries
 # else /* ? __COMO_VERSION__ */
-#  define STLSOFT_COMPILER_VERSION_STRING       "clang " ## __clang_version__
+#  define STLSOFT_COMPILER_VERSION_STRING       "Clang " ## __clang_version__
 # endif /* __COMO_VERSION__ */
 
 #elif defined(__COMO__) /* Do Comeau next, so that no Comeau back-end server compilers are preferentially discriminated */

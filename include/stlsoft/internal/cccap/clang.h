@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
  * File:        stlsoft/internal/cccap/clang.h
  *
- * Purpose:     Compiler feature discrimination for clang C/C++.
+ * Purpose:     Compiler feature discrimination for Clang C/C++.
  *
  * Created:     14th March 2015
- * Updated:     21st September 2015
+ * Updated:     23rd September 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -58,7 +58,7 @@
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MAJOR    1
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    1
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     4
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     5
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////

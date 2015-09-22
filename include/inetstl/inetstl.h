@@ -5,11 +5,11 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     24th April 2004
- * Updated:     26th August 2015
+ * Updated:     23rd September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -46,9 +46,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_H_INETSTL_MAJOR    3
-# define INETSTL_VER_INETSTL_H_INETSTL_MINOR    6
-# define INETSTL_VER_INETSTL_H_INETSTL_REVISION 2
-# define INETSTL_VER_INETSTL_H_INETSTL_EDIT     54
+# define INETSTL_VER_INETSTL_H_INETSTL_MINOR    7
+# define INETSTL_VER_INETSTL_H_INETSTL_REVISION 1
+# define INETSTL_VER_INETSTL_H_INETSTL_EDIT     55
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file inetstl/inetstl.h \brief [C, C++] The root header for the \ref group__project__inetstl "InetSTL" project. */
@@ -120,12 +120,13 @@
 # define _INETSTL_VER_1_3_5      0x010305ff  /*!< Version 1.3.5 (with STLSoft 1.9.92) */
 # define _INETSTL_VER_1_3_6      0x010306ff  /*!< Version 1.3.6 (with STLSoft 1.9.113) */
 # define _INETSTL_VER_1_3_7      0x010307ff  /*!< Version 1.3.7 (with STLSoft 1.9.119) */
+# define _INETSTL_VER_1_3_8      0x010308ff  /*!< Version 1.3.8 (with STLSoft 1.9.121) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _INETSTL_VER_MAJOR       1
 #define _INETSTL_VER_MINOR       3
-#define _INETSTL_VER_REVISION    7
-#define _INETSTL_VER             _INETSTL_VER_1_3_7
+#define _INETSTL_VER_REVISION    8
+#define _INETSTL_VER             _INETSTL_VER_1_3_8
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -169,8 +170,8 @@
  * STLSoft version compatibility
  */
 
-#if _STLSOFT_VER < 0x010971ff
-# error This version of the InetSTL libraries requires STLSoft version 1.9.113, or later
+#if _STLSOFT_VER < 0x010979ff
+# error This version of the InetSTL libraries requires STLSoft version 1.9.121, or later
 #endif /* _STLSOFT_VER */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -183,7 +184,9 @@
  * Currently the only compilers supported by the InetSTL libraries are
  *
  * Borland C++ 5.5, 5.51, 5.6
+ * Clang
  * Digital Mars C/C++ 8.26 - 8.32
+ * GCC 2.95+
  * Metrowerks 2.4 & 3.0 (CodeWarrior 7.0 & 8.0)
  * Intel C/C++ 6.0 & 7.0
  * Visual C++ 4.2, 5.0, 6.0, 7.0
@@ -195,6 +198,8 @@
 # if __BORLANDC__ < 0x0550
 #  error Versions of Borland C++ prior to 5.5 are not supported by the InetSTL libraries
 # endif /* __BORLANDC__ */
+
+#elif defined(STLSOFT_COMPILER_IS_CLANG)
 
 #elif defined(STLSOFT_COMPILER_IS_COMO)
 /* Comeau C++ */
@@ -251,7 +256,7 @@
 #   pragma message("Compiler is unknown to InetSTL")
 #  endif /* STLSOFT_COMPILE_VERBOSE */
 # else /* ? _STLSOFT_FORCE_ANY_COMPILER */
-#  error Currently only Borland C++, Digital Mars C/C++, Intel C/C++, Metrowerks CodeWarrior and Visual C++ compilers are supported by the InetSTL libraries
+#  error Currently only Borland C++, CLang, Digital Mars C/C++, GCC, Intel C/C++, Metrowerks CodeWarrior and Visual C++ compilers are supported by the InetSTL libraries
 # endif /* _STLSOFT_FORCE_ANY_COMPILER */
 #endif /* compiler */
 
