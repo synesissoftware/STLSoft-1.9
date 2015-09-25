@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  9th September 2015
+; Updated:  25th September 2015
 
 ============================================================================
 
@@ -15,6 +15,32 @@ STLSoft - Changes
    *   *  means a general bullet-point  *
    *                                    *
    **************************************
+
+
+============================================================================
+
+Changes for 1.9.121 (26th September 2015)
+
+
+ STLSoft:
+ ========
+
+  ~ stlsoft/conversion/char_conversions.hpp:
+  ~ stlsoft/conversion/truncation_test.hpp:
+  + stlsoft/internal/cccap/clang.h:
+  ~ stlsoft/util/integral_printf_traits.hpp:
+  ~ stlsoft/util/limit_traits.h:
+  ~ stlsoft/util/std/iterator_helper.hpp:
+
+    + Clang-compatibility
+
+
+ WinSTL:
+ =======
+
+  ~ winstl/util/struct_initialisers.hpp:
+
+    ~ VC++ 11/12/14 compatibility
 
 
 ============================================================================
