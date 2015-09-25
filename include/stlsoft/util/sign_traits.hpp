@@ -4,11 +4,11 @@
  * Purpose:     sign_traits classes.
  *
  * Created:     16th January 2002
- * Updated:     31st July 2012
+ * Updated:     25th September 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_MAJOR      4
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_MINOR      1
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_REVISION   3
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_EDIT       47
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_REVISION   4
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_SIGN_TRAITS_EDIT       48
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -247,6 +247,18 @@ struct sign_traits<ss_uint64_t>
     typedef ss_sint64_t alt_sign_type;
 };
 #endif /* !STLSOFT_CF_64BIT_INT_SUPPORT */
+
+#ifdef STLSOFT_CF_CHAR_DISTINCT_INT_TYPE
+struct sign_traits<signed char>
+    : public sign_traits<ss_sint8_t>
+{};
+
+struct sign_traits<unsigned char>
+    : public sign_traits<ss_uint8_t>
+{};
+
+#endif /* STLSOFT_CF_CHAR_DISTINCT_INT_TYPE */
+
 
 #ifdef STLSOFT_CF_SHORT_DISTINCT_INT_TYPE
 

@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     23rd September 2015
+ * Updated:     25th September 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -283,7 +283,7 @@
 # define _STLSOFT_VER_1_9_118   0x010976ff  /*!< Version 1.9.118 (31st May 2014) */
 # define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
 # define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (9th September 2015) */
-# define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (23rd September 2015) */
+# define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (25th September 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
