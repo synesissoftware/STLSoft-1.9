@@ -2,9 +2,15 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  9th September 2015
+; Updated:  25th September 2015
 
 ============================================================================
+
+
+26th September 2015 - 1.9.121 released
+--------------------------------------
+
+ * Clang-compatibility
 
 
 27th August 2015 - 1.9.120 released

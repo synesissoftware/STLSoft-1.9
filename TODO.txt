@@ -2,7 +2,7 @@
 STLSoft - TODO
 
 ; Created:  29th March 2002
-; Updated:  9th September 2015
+; Updated:  25th September 2015
 
 ============================================================================
 
@@ -11,7 +11,6 @@ STLSoft 1.9 TODOs:
 ==================
 
 
-* CLang support                     -   work underway currently
 * Documentation improvements        -   abandoned. Will be done for STLSoft 1.12
 * Website                           -   deferred until STLSoft 1.12 released
 * scoped_method                     -   in STLSoft 1.10 (alpha to be released soon)
