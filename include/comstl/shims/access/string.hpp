@@ -4,11 +4,11 @@
  * Purpose:     Contains classes and functions for dealing with OLE/COM strings.
  *
  * Created:     24th May 2002
- * Updated:     10th August 2009
+ * Updated:     6th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_MAJOR    5
 # define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_MINOR    0
-# define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_REVISION 1
-# define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_EDIT     104
+# define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_REVISION 2
+# define COMSTL_VER_COMSTL_SHIMS_ACCESS_HPP_STRING_EDIT     105
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -63,10 +63,10 @@
 # include <comstl/comstl.h>
 #endif /* !COMSTL_INCL_COMSTL_H_COMSTL */
 #ifndef COMSTL_INCL_COMSTL_SHIMS_ACCESS_STRING_HPP_GUID
-# include <comstl/shims/access/string/guid.hpp>
+# include <comstl/shims/access/string/GUID.hpp>
 #endif /* !COMSTL_INCL_COMSTL_SHIMS_ACCESS_STRING_HPP_GUID */
 #ifndef COMSTL_INCL_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT
-# include <comstl/shims/access/string/variant.hpp>
+# include <comstl/shims/access/string/VARIANT.hpp>
 #endif /* !COMSTL_INCL_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT */
 
 /* ////////////////////////////////////////////////////////////////////// */
