@@ -5,11 +5,11 @@
  *              as references.
  *
  * Created:     28th December 2002
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_MAJOR      4
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_MINOR      0
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_REVISION   8
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_EDIT       38
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_REVISION   9
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_PTR_CAST_EDIT       40
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -245,9 +245,12 @@ public:
 
     /// Constructor used when casting a pointer
     template <ss_typename_param_k Source>
-#if defined(STLSOFT_COMPILER_IS_BORLAND) || \
-    defined(STLSOFT_COMPILER_IS_GCC) || \
-    defined(STLSOFT_COMPILER_IS_MWERKS)
+# if 0 || \
+     defined(STLSOFT_COMPILER_IS_BORLAND) || \
+     defined(STLSOFT_COMPILER_IS_CLANG) || \
+     defined(STLSOFT_COMPILER_IS_GCC) || \
+     defined(STLSOFT_COMPILER_IS_MWERKS) || \
+     0
     ptr_cast(Source*& s)
 #else /* ? compiler */
     ptr_cast(Source* s)

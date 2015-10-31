@@ -4,11 +4,11 @@
  * Purpose:     Converts a standard rerror code (errno) to a printable string.
  *
  * Created:     18th July 2006
- * Updated:     12th August 2010
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_MAJOR     1
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_MINOR     2
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_REVISION  5
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_EDIT      24
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_REVISION  6
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_EDIT      26
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -301,7 +301,10 @@ public:
     ~basic_error_desc() stlsoft_throw_0();
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-# ifdef STLSOFT_COMPILER_IS_GCC
+# if 0 || \
+     defined(STLSOFT_COMPILER_IS_CLANG) || \
+     defined(STLSOFT_COMPILER_IS_GCC) || \
+     0
     basic_error_desc(class_type const& rhs)
         : m_str(string_dup(rhs.m_str, rhs.m_length, get_allocator_()))
         , m_length(rhs.m_length)
@@ -344,7 +347,10 @@ private:
 /// \name Not to be implemented
 /// @{
 private:
-#ifndef STLSOFT_COMPILER_IS_GCC
+# if 1 && \
+     !defined(STLSOFT_COMPILER_IS_CLANG) && \
+     !defined(STLSOFT_COMPILER_IS_GCC) && \
+     1
     basic_error_desc(class_type const&);
 #endif /* compiler */
     basic_error_desc& operator =(class_type const&);

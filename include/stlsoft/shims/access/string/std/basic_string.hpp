@@ -5,14 +5,14 @@
  *              c_str_size accessors.
  *
  * Created:     16th January 2002
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Thanks to:   Robert Kreger for spotting a defect in the discrimination of
  *              wide character support on GCC 3.3.3.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_MAJOR     4
 # define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_MINOR     0
-# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_REVISION  3
-# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_EDIT      92
+# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_REVISION  4
+# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_HPP_BASIC_STRING_EDIT      94
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,10 @@
 # endif /* !STLSOFT_INCL_STLSOFT_STRING_HPP_CHAR_TRAITS */
 #endif /* !STLSOFT_CF_STRING_ACCESS_USE_std_char_traits */
 
-#if defined(STLSOFT_COMPILER_IS_GCC)
+# if 0 || \
+     defined(STLSOFT_COMPILER_IS_CLANG) || \
+     defined(STLSOFT_COMPILER_IS_GCC) || \
+     0
 # include <wchar.h>
 #endif /* compiler */
 

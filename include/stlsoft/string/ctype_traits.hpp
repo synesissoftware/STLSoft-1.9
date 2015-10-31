@@ -4,11 +4,11 @@
  * Purpose:     Traits for ctype functions.
  *
  * Created:     1st April 2005
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_MAJOR     2
 # define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_MINOR     0
-# define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_REVISION  2
-# define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_EDIT      18
+# define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_REVISION  3
+# define STLSOFT_VER_INCL_STLSOFT_STRING_HPP_CTYPE_TRAITS_EDIT      20
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -66,8 +66,11 @@
 # define STLSOFT_INCL_H_CTYPE
 # include <ctype.h>
 #endif /* !STLSOFT_INCL_H_CTYPE */
-#if defined(STLSOFT_COMPILER_IS_GCC) || \
-    defined(STLSOFT_COMPILER_IS_MWERKS)
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
+    defined(STLSOFT_COMPILER_IS_MWERKS) || \
+    0
 # ifndef STLSOFT_INCL_H_WCTYPE
 #  define STLSOFT_INCL_H_WCTYPE
 #  include <wctype.h>

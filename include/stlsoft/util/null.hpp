@@ -5,11 +5,11 @@
  *              automatically the strong NULL.
  *
  * Created:     8th September 2002
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_MAJOR     4
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_MINOR     0
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_EDIT      50
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_REVISION  2
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_NULL_EDIT      52
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -89,7 +89,10 @@
 
 #define _STLSOFT_NULL_v_DEFINED_PTR_TO_MEMBER_SUPPORT
 
-#if defined(STLSOFT_COMPILER_IS_GCC)
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
+    0
 # undef _STLSOFT_NULL_v_DEFINED_PTR_TO_MEMBER_SUPPORT
 #elif defined(STLSOFT_COMPILER_IS_MWERKS)
 # undef _STLSOFT_NULL_v_DEFINED_PTR_TO_MEMBER_SUPPORT
@@ -188,7 +191,10 @@ public:
 private:
     void operator &() const;
 
-#if !defined(STLSOFT_COMPILER_IS_GCC)
+#if 1 && \
+    !defined(STLSOFT_COMPILER_IS_CLANG) && \
+    !defined(STLSOFT_COMPILER_IS_GCC) && \
+    1
     NULL_v(NULL_v const&);
     NULL_v const& operator =(NULL_v const&);
 #endif /* compiler */

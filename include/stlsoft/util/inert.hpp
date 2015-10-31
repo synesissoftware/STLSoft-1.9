@@ -4,11 +4,11 @@
  * Purpose:     Contains the inert class.
  *
  * Created:     16th January 2002
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_MAJOR      4
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_MINOR      0
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_REVISION   3
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_EDIT       40
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_REVISION   4
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_INERT_EDIT       42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -121,9 +121,12 @@ private:
 #endif /* STLSOFT_CF_NATIVE_BOOL_SUPPORT */
     operator void *() const;
     void *operator &() const;
-#if defined(STLSOFT_COMPILER_IS_GCC) || \
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
     defined(STLSOFT_COMPILER_IS_INTEL) || \
-    defined(STLSOFT_COMPILER_IS_WATCOM)
+    defined(STLSOFT_COMPILER_IS_WATCOM) || \
+    0
     struct _{};
     _ *operator ->() const;
 #else /* ? compiler */

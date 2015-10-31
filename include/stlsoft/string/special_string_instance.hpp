@@ -4,14 +4,14 @@
  * Purpose:     Special string instance class template.
  *
  * Created:     3rd June 2006
- * Updated:     19th May 2012
+ * Updated:     9th October 2015
  *
  * Thanks to:   Pablo Aguilar for spotting my omission of string access shims
  *              for special_string_instance_1.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_MAJOR       1
 # define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_MINOR       3
-# define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_REVISION    2
-# define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_EDIT        23
+# define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_REVISION    3
+# define STLSOFT_VER_STLSOFT_STRING_HPP_SPECIAL_STRING_INSTANCE_EDIT        25
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -149,7 +149,10 @@ public:
         : m_len(0)
         , m_buffer(0)
     {}
-#ifdef STLSOFT_COMPILER_IS_GCC
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
+    0
     ssi_buffer(class_type const& rhs)
         : m_len(rhs.m_len)
         , m_buffer(rhs.m_len + 1)
@@ -270,7 +273,10 @@ public:
     {
         parent_class_type::init(a0, pfn);
     }
-#ifdef STLSOFT_COMPILER_IS_GCC
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
+    0
     ssi_buffer_non_static(class_type const& rhs)
         : parent_class_type(rhs)
     {}
@@ -293,7 +299,10 @@ public:
 /// \name Not to be implemented
 /// @{
 private:
-#ifndef STLSOFT_COMPILER_IS_GCC
+#if 1 && \
+    !defined(STLSOFT_COMPILER_IS_CLANG) && \
+    !defined(STLSOFT_COMPILER_IS_GCC) && \
+    1
     ssi_buffer_non_static(class_type const&);
 #endif /* compiler */
     class_type& operator =(class_type const&);
@@ -331,7 +340,10 @@ public:
     ssi_buffer_static(A0 a0, size_type (*pfn)(A0, char_type*, size_type))
         : m_buffer(a0, get_buffer(a0, pfn))
     {}
-#ifdef STLSOFT_COMPILER_IS_GCC
+#if 0 || \
+    defined(STLSOFT_COMPILER_IS_CLANG) || \
+    defined(STLSOFT_COMPILER_IS_GCC) || \
+    0
     ssi_buffer_static(class_type const& rhs)
         : m_buffer(rhs.m_buffer)
     {}
@@ -401,7 +413,10 @@ private:
 /// \name Not to be implemented
 /// @{
 private:
-#ifndef STLSOFT_COMPILER_IS_GCC
+#if 1 && \
+    !defined(STLSOFT_COMPILER_IS_CLANG) && \
+    !defined(STLSOFT_COMPILER_IS_GCC) && \
+    1
     ssi_buffer_static(class_type const&);
 #endif /* compiler */
     class_type& operator =(class_type const&);
