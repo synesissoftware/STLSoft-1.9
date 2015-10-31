@@ -4,11 +4,11 @@
  * Purpose:     UNIXSTL time functions.
  *
  * Created:     2nd September 2005
- * Updated:     10th August 2009
+ * Updated:     25th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_MAJOR      2
 # define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_MINOR      0
-# define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_REVISION   5
-# define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_EDIT       17
+# define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_REVISION   6
+# define UNIXSTL_VER_UNIXSTL_SYNCH_H_SLEEP_FUNCTIONS_EDIT       18
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -63,8 +63,10 @@
 #endif /* !UNIXSTL_INCL_UNIXSTL_H_UNIXSTL */
 
 #ifndef STLSOFT_INCL_SYS_H_SELECT
-# define STLSOFT_INCL_SYS_H_SELECT
-# include <sys/select.h>
+# ifndef _WIN32
+#  define STLSOFT_INCL_SYS_H_SELECT
+#  include <sys/select.h>
+# endif /* !_WIN32 */
 #endif /* !STLSOFT_INCL_SYS_H_SELECT */
 #ifndef STLSOFT_INCL_SYS_H_TIME
 # define STLSOFT_INCL_SYS_H_TIME
