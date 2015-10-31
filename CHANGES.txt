@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  25th September 2015
+; Updated:  1st November 2015
 
 ============================================================================
 
@@ -15,6 +15,163 @@ STLSoft - Changes
    *   *  means a general bullet-point  *
    *                                    *
    **************************************
+
+
+============================================================================
+
+Changes for 1.9.122 (1st November 2015)
+
+General:
+========
+
+  * added STLSOFT_PRETTY_FUNCTION_SYMBOL
+  * now prefers __func__ over __FUNCTION__ for STLSOFT_FUNCTION_SYMBOL
+  * added (recognition of) support for nullptr
+  * added (recognition of) support for static_assert
+  * added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+  * added STLSOFT_DEBUG
+  * Clang compatibility
+  * Windows-emulation compatibility
+  * replaced dodgy use of memset()
+  * forward compatibility with 1.10+
+
+Changes:
+========
+
+
+ STLSoft:
+ ========
+
+  ~ stlsoft/algorithms/std/alt.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/conversion/byte_format_functions.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/conversion/char_conversions.hpp:
+  ~ stlsoft/conversion/explicit_cast.hpp:
+  ~ stlsoft/conversion/literal_cast.hpp:
+  ~ stlsoft/conversion/ptr_cast.hpp:
+    ~ Clang compatibility
+
+  ~ stlsoft/conversion/truncation_test.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/error/error_desc.hpp:
+    ~ Clang compatibility
+
+  ~ stlsoft/internal/cccap/borland.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+
+  ~ stlsoft/internal/cccap/clang.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+    + added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+
+  ~ stlsoft/internal/cccap/como.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+
+  ~ stlsoft/internal/cccap/dmc.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+    + added (recognition of) support for nullptr
+    + added (recognition of) support for static_assert
+
+  ~ stlsoft/internal/cccap/gcc.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+    + added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+
+  ~ stlsoft/internal/cccap/msvc.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+    + added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+
+  ~ stlsoft/internal/cccap/mwerks.h:
+  ~ stlsoft/internal/cccap/sunpro.h:
+  ~ stlsoft/internal/cccap/unknown.h:
+  ~ stlsoft/internal/cccap/vectorc.h:
+  ~ stlsoft/internal/cccap/watcom.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+
+  ~ stlsoft/shims/access/string/std/basic_string.hpp:
+    ~ Clang compatibility
+
+  ~ stlsoft/stlsoft.h:
+    + STLSOFT_PRETTY_FUNCTION_SYMBOL
+    ~ now prefers __func__ over __FUNCTION__
+    + added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+    ~ Clang compatibility
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/string/char_traits.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/string/ctype_traits.hpp:
+  ~ stlsoft/string/fast_string_concatenator.hpp:
+    ~ Clang compatibility
+
+  ~ stlsoft/string/simple_string.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/string/special_string_instance.hpp:
+    ~ Clang compatibility
+
+  ~ stlsoft/string/static_string.hpp:
+    + STLSOFT_DEBUG
+
+  ~ stlsoft/string/view_slice_functions.hpp:
+  ~ stlsoft/util/inert.hpp:
+  ~ stlsoft/util/null.hpp:
+    ~ Clang compatibility
+
+ UNIXSTL:
+ ========
+
+  ~ unixstl/filesystem/current_directory_scope.hpp:
+    ~ Clang compatibility
+
+  ~ unixstl/filesystem/file_path_buffer.hpp:
+    + STLSOFT_DEBUG
+    ~ replaced dodgy use of memset()
+
+  ~ unixstl/filesystem/glob_sequence.hpp:
+    ~ Clang compatibility
+
+  ~ unixstl/filesystem/path.hpp:
+    + STLSOFT_DEBUG
+    ~ replaced dodgy use of memset()
+
+  ~ unixstl/synch/sleep_functions.h:
+    ~ Windows-emulation compatibility
+
+  ~ unixstl/synch/spin_mutex.hpp:
+    + STLSOFT_DEBUG
+
+ WinSTL:
+ =======
+
+  ~ winstl/filesystem/file_path_buffer.hpp:
+    + STLSOFT_DEBUG
+    ~ replaced dodgy use of memset()
+
+  ~ winstl/filesystem/findfile_sequence.hpp:
+    + STLSOFT_DEBUG
+
+  ~ winstl/filesystem/path.hpp:
+`    + STLSOFT_DEBUG
+    ~ replaced dodgy use of memset()
+
+  ~ winstl/shell/file_operations.hpp:
+    ~ refactored worker functions into implementation namespace
+    ~ merging from 1.10
+
+  ~ winstl/shims/access/string/time.hpp:
+    ~ forward compatibility with 1.10+
+
+  ~ winstl/synch/spin_mutex.hpp:
+  ~ winstl/system/console_functions.h:
+  ~ winstl/system/version_info.hpp:
+    + STLSOFT_DEBUG
+
+  ~ winstl/winstl.h:
+    ~ definition of INVALID_FILE_ATTRIBUTES
 
 
 ============================================================================

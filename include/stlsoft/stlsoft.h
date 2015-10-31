@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     31st October 2015
+ * Updated:     1st November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -55,7 +55,7 @@
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    37
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     452
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     453
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -284,7 +284,7 @@
 # define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
 # define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (9th September 2015) */
 # define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (25th September 2015) */
-# define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (31st October 2015) */
+# define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (1st November 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1

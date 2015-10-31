@@ -2,9 +2,24 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  25th September 2015
+; Updated:  1st November 2015
 
 ============================================================================
+
+
+1st November 2015 - 1.9.122 released
+------------------------------------
+
+ * added STLSOFT_PRETTY_FUNCTION_SYMBOL
+ * now prefers __func__ over __FUNCTION__ for STLSOFT_FUNCTION_SYMBOL
+ * added (recognition of) support for nullptr
+ * added (recognition of) support for static_assert
+ * added ss_override_k / STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+ * added STLSOFT_DEBUG
+ * Clang compatibility
+ * Windows-emulation compatibility
+ * replaced dodgy use of memset()
+ * forward compatibility with 1.10+
 
 
 26th September 2015 - 1.9.121 released
