@@ -4,7 +4,7 @@
  * Purpose:     Platform header for the file_lines components.
  *
  * Created:     25th October 2007
- * Updated:     28th September 2015
+ * Updated:     10th September 2010
  *
  * Home:        http://stlsoft.org/
  *
@@ -46,8 +46,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_MAJOR    1
 # define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_MINOR    4
-# define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_REVISION 10
-# define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_EDIT     28
+# define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_REVISION 9
+# define PLATFORMSTL_VER_PLATFORMSTL_FILESYSTEM_HPP_FILE_LINES_EDIT     27
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file platformstl/filesystem/file_lines.hpp
@@ -239,15 +239,15 @@ private:
                 {
                     if(0u != (*i).size())
                     {
-                        void const* bas2    =   mmf.memory();
+                        void const* base    =   mmf.memory();
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
-                        void const* end     =   ptr_byte_offset(bas2, stlsoft_ns_qual(truncation_cast)<ss_ptrdiff_t>(mmf.size()));
+                        void const* end     =   ptr_byte_offset(base, stlsoft_ns_qual(truncation_cast)<ss_ptrdiff_t>(mmf.size()));
 #else /* ? STLSOFT_CF_EXCEPTION_SUPPORT */
-                        void const* end     =   ptr_byte_offset(bas2, static_cast<ss_ptrdiff_t>(mmf.size()));
+                        void const* end     =   ptr_byte_offset(base, static_cast<ss_ptrdiff_t>(mmf.size()));
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
                         void const* p       =   (*i).data();
 
-                        canDiscardMapping   =   p < bas2 || p >= end;
+                        canDiscardMapping   =   p < base || p >= end;
 
                         break;
                     }
