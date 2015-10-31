@@ -4,14 +4,14 @@
  * Purpose:     Compiler feature discrimination for Borland C/C++.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     31st October 2015
  *
  * Thanks to:   markitus82 for pointing out overlooking of support for
  *              __FUNCTION__.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -92,10 +92,28 @@
 /* Variadic Macros
  */
 
-/* Support for __FUNCTION__
+/* Support for:
+ *  - __func__
+ *  - __FUNCTION__
+ *  - __PRETTY_FUNCTION__
+ *  - __FUNCSIG__
  */
 
-/* #define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT */
+/*
+#define STLSOFT_CF_func_SYMBOL_SUPPORT
+*/
+
+/*
+#define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT
+*/
+
+/*
+#define STLSOFT_CF_PRETTY_FUNCTION_SYMBOL_SUPPORT
+*/
+
+/*
+#define STLSOFT_CF_FUNCSIG_SYMBOL_SUPPORT
+*/
 
 /* Variadic Macros
  */

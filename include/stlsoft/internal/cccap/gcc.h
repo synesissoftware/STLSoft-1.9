@@ -4,13 +4,13 @@
  * Purpose:     Compiler feature discrimination for GNU C/C++.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     31st October 2015
  *
  * Thanks:      To Sergey Nikulov, for PowerPC (BSD) compatibility fixes
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,9 +58,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MINOR      21
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_REVISION   2
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       87
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MINOR      22
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_REVISION   1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       88
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -116,7 +116,7 @@
  * - #pragma message
  * - #pragma once
  * - __COUNTER__
- * - __FUNCTION__
+ * - __func__, __FUNCTION__, __PRETTY_FUNCTION__, __FUNCSIG__
  * - variadic macros
  */
 
@@ -138,6 +138,10 @@
 
 #if __GNUC__ >= 3
 # define STLSOFT_PPF_FUNCTION_SYMBOL_SUPPORT
+#endif /* compiler */
+
+#if __GNUC__ >= 4
+# define STLSOFT_PPF_PRETTY_FUNCTION_SYMBOL_SUPPORT
 #endif /* compiler */
 
 #if __GNUC__ > 3 || \
@@ -240,6 +244,7 @@
  * - member constants
  * - explicit keyword
  * - mutable keyword
+ * - override keyword
  * - template keyword
  * - typename keyword
  *    - in a template parameter
@@ -282,6 +287,12 @@
 #define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
 
 #define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+
+#if __GNUC__ > 4 || \
+    (   __GNUC__ == 4 && \
+        __GNUC_MINOR__ >= 7)
+# define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+#endif /* compiler */
 
 #if __GNUC__ > 3 || \
     (   __GNUC__ == 3 && \

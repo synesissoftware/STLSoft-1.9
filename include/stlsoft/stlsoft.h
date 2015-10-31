@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     28th September 2015
+ * Updated:     31st October 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    34
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     446
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    37
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     452
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -284,7 +284,7 @@
 # define _STLSOFT_VER_1_9_119   0x010977ff  /*!< Version 1.9.119 (26th August 2015) */
 # define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (9th September 2015) */
 # define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (25th September 2015) */
-# define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (????) */
+# define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (31st October 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
@@ -833,10 +833,25 @@
 #endif /* STLSOFT_COMPILE_VERBOSE */
 
 
+/* STLSOFT_DEBUG */
+
+/*
+ */
+
+#ifndef STLSOFT_DEBUG
+# if !defined(NDEBUG) && \
+     defined(_DEBUG)
+#  define STLSOFT_DEBUG
+# endif
+#endif /* !STLSOFT_DEBUG */
+
+#if defined(STLSOFT_NO_DEBUG) && \
+    defined(STLSOFT_DEBUG)
+# undef STLSOFT_DEBUG
+#endif
 
 
-
-/* __FUNCTION__ support */
+/* __func__ / __FUNCTION__ support */
 
 /** \def STLSOFT_FUNCTION_SYMBOL
  *
@@ -846,11 +861,31 @@
  * \note Not defined if no appropriate symbol is available
  */
 
-#if defined(STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT)
-# define STLSOFT_FUNCTION_SYMBOL    __FUNCTION__
+#if 0
 #elif defined(STLSOFT_CF_func_SYMBOL_SUPPORT)
 # define STLSOFT_FUNCTION_SYMBOL    __func__
+#elif defined(STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT)
+# define STLSOFT_FUNCTION_SYMBOL    __FUNCTION__
 #endif /* __FUNCTION__ or __func__ */
+
+
+
+/* __PRETTY_FUNCTION__ / __FUNCSIG__ support */
+
+/** \def STLSOFT_PRETTY_FUNCTION_SYMBOL
+ *
+ * The symbol to be used where __PRETTY_FUNCTION__ may be used, taking into
+ * account any compiler-specific alternative forms
+ *
+ * \note Not defined if no appropriate symbol is available
+ */
+
+#if 0
+#elif defined(STLSOFT_PPF_PRETTY_FUNCTION_SYMBOL_SUPPORT)
+# define STLSOFT_PRETTY_FUNCTION_SYMBOL		__PRETTY_FUNCTION__
+#elif defined(STLSOFT_CF_FUNCSIG_SYMBOL_SUPPORT)
+# define STLSOFT_PRETTY_FUNCTION_SYMBOL     __FUNCSIG__
+#endif /* __PRETTY_FUNCTION__ or __FUNCSIG__ */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Sanity checks - 2
@@ -1384,8 +1419,11 @@
 #if defined(STLSOFT_CF_static_assert_SUPPORT)
 # define STLSOFT_STATIC_ASSERT(expr)        static_assert((expr), #expr)
 #elif defined(STLSOFT_CF_STATIC_ASSERT_SUPPORT)
-# if defined(STLSOFT_COMPILER_IS_GCC) || \
-      defined(STLSOFT_COMPILER_IS_INTEL)
+# if 0 || \
+     defined(STLSOFT_COMPILER_IS_CLANG) || \
+     defined(STLSOFT_COMPILER_IS_GCC) || \
+     defined(STLSOFT_COMPILER_IS_INTEL) || \
+     0
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1]; } while(0)
 # else /* ? compiler */
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : 0]; } while(0)
@@ -2064,6 +2102,7 @@ private:
  *
  * ss_explicit_k            -   explicit, or nothing
  * ss_mutable_k             -   mutable, or nothing
+ * ss_override_k            -   override, or nothing
  * ss_typename_type_k       -   typename, or nothing (used within template
  *                              definitions for declaring types derived from
  *                              externally derived types)
@@ -2100,6 +2139,17 @@ private:
 #else /* ? STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
 # define ss_mutable_k
 #endif /* STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+
+/** \def ss_override_k
+ *
+ * \brief Evaluates to <b>override</b> on translators that support the keyword, otherwise to nothing.
+ */
+#if defined(STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT) || \
+    defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+# define ss_override_k              override
+#else /* ? STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT */
+# define ss_override_k
+#endif /* STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT */
 
 /** \def ss_typename_param_k
  *
@@ -2479,10 +2529,13 @@ ss_array_size_struct<N> const& ss_static_array_size(T const (&)[N]);
 #  undef STLSOFT_CF_USE_RAW_OFFSETOF_IN_STATIC_ASSERT
 # endif /* STLSOFT_CF_USE_RAW_OFFSETOF_IN_STATIC_ASSERT */
 
-# if !defined(STLSOFT_COMPILER_IS_COMO) && \
+# if 1 && \
+     !defined(STLSOFT_COMPILER_IS_CLANG) && \
+     !defined(STLSOFT_COMPILER_IS_COMO) && \
      !defined(STLSOFT_COMPILER_IS_GCC) && \
      !defined(STLSOFT_COMPILER_IS_INTEL) && \
-     !defined(STLSOFT_COMPILER_IS_WATCOM)
+     !defined(STLSOFT_COMPILER_IS_WATCOM) && \
+     1
 #  define STLSOFT_CF_USE_RAW_OFFSETOF_IN_STATIC_ASSERT
 # endif /* compiler */
 
@@ -2914,31 +2967,6 @@ ptr_byte_offset(
 ,   ss_ptrdiff_t    n
 )
 {
-# if 0
-# if !defined(STLSOFT_COMPILER_IS_BORLAND) && \
-     (   !defined(STLSOFT_COMPILER_IS_MSVC) || \
-         _MSC_VER > 1200)
-    struct InternalPointerChecker
-    {
-    public:
-        static void check(void mutable *)
-        {}
-        static void check(void const mutable *)
-        {}
-        template <ss_typename_param_k T2>
-        static void check(T2 p)
-        {
-            ss_size_t n = sizeof(p[0]);
-
-            STLSOFT_SUPPRESS_UNUSED(n);
-        }
-    };
-
-    /* Check it's a pointer */
-    InternalPointerChecker::check(p);
-# endif /* compiler */
-# endif /* 0 */
-
     void const*         p1 =   static_cast<void const*>(p);
     ss_byte_t const*    p2 =   static_cast<ss_byte_t const*>(p1);
     ss_byte_t const*    p3 =   p2 + n;
@@ -3110,7 +3138,11 @@ inline T& move_lhs_from_rhs(stlsoft_define_move_rhs_type(T) t)
  * address of temporaries. As such, the advice is: <b>Use With Care!</b>
  */
 template <ss_typename_param_k T>
-inline T const* address(T const& t)
+inline
+T const*
+address(
+    T const& t
+)
 {
     return &t;
 }

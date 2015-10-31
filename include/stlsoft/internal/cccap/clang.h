@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Clang C/C++.
  *
  * Created:     14th March 2015
- * Updated:     25th September 2015
+ * Updated:     31st October 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -56,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MAJOR    1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 5
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     6
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    2
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     7
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -88,6 +88,7 @@
  * - #pragma message
  * - #pragma once
  * - __COUNTER__
+ * - __func__
  * - __FUNCTION__
  * - variadic macros
  */
@@ -98,7 +99,11 @@
 
 #define STLSOFT_PPF_COUNTER_SYMBOL_SUPPORT
 
+#define STLSOFT_PPF_func_SYMBOL_SUPPORT
+
 #define STLSOFT_PPF_FUNCTION_SYMBOL_SUPPORT
+
+#define STLSOFT_PPF_PRETTY_FUNCTION_SYMBOL_SUPPORT
 
 #define STLSOFT_PPF_VARIADIC_MACROS_SUPPORT
 
@@ -190,6 +195,7 @@
  * - member constants
  * - explicit keyword
  * - mutable keyword
+ * - override keyword
  * - template keyword
  * - typename keyword
  *    - in a template parameter
@@ -230,6 +236,8 @@
 #define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
 
 #define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+
+#define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
 
 #define STLSOFT_CF_TEMPLATE_QUALIFIER_KEYWORD_SUPPORT
 
@@ -330,7 +338,7 @@
 #define _STLSOFT_SIZEOF_SHORT           __SIZEOF_SHORT__
 #define _STLSOFT_SIZEOF_INT             __SIZEOF_INT__
 #define _STLSOFT_SIZEOF_LONG            __SIZEOF_LONG__
-#define _STLSOFT_SIZEOF_LONG_LONG		__SIZEOF_LONG_LONG__
+#define _STLSOFT_SIZEOF_LONG_LONG       __SIZEOF_LONG_LONG__
 
 /* /////////////////////////////////////////////////////////////////////////
  * Size-specific integer types

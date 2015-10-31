@@ -4,11 +4,11 @@
  * Purpose:     Compiler feature discrimination for Digital Mars C/C++.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     31st October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_MINOR      18
-# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_REVISION   3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_EDIT       93
+# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_MINOR      19
+# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_REVISION   1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_DMC_EDIT       94
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -106,7 +106,11 @@
 
 #define STLSOFT_CF_PRAGMA_ONCE_SUPPORT
 
-/* Support for __FUNCTION__
+/* Support for:
+ *  - __func__
+ *  - __FUNCTION__
+ *  - __PRETTY_FUNCTION__
+ *  - __FUNCSIG__
  */
 
 #if __DMC__ >= 0x850
@@ -206,10 +210,18 @@
 /* Member constants */
 #define STLSOFT_CF_MEMBER_CONSTANT_SUPPORT
 
+#if __DMC__ >= 0x0852
+# define STLSOFT_CF_BUILTIN_nullptr_SUPPORT
+#endif /* compiler */
+
 /* Static assertions */
 #if __DMC__ >= 0x0835
 # define STLSOFT_CF_STATIC_ASSERT_SUPPORT
 #endif /* __DMC__ */
+
+#if __DMC__ >= 0x0852
+# define STLSOFT_CF_static_assert_SUPPORT
+#endif /* compiler */
 
 /* RTTI support */
 #ifdef _CPPRTTI

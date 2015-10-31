@@ -4,11 +4,11 @@
  * Purpose:     Compiler feature discrimination for Metrowerks CodeWarrior.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     31st October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -84,7 +84,11 @@
 
 #define STLSOFT_CF_PRAGMA_ONCE_SUPPORT
 
-/* Support for __FUNCTION__
+/* Support for:
+ *  - __func__
+ *  - __FUNCTION__
+ *  - __PRETTY_FUNCTION__
+ *  - __FUNCSIG__
  */
 
 #if (__MWERKS__ & 0xFF00) >= 0x3000

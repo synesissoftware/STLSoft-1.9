@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for SunPro C / SunPro C++.
  *
  * Created:     24th April 2008
- * Updated:     22nd November 2013
+ * Updated:     31st October 2015
  *
  * Thanks to:   Jonathan Wakely and Lars Ivar Igesund for help with
  *              getting STLSoft (and Pantheios) compatible with Solaris.
@@ -13,7 +13,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2008-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2008-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -113,10 +113,16 @@
 
 /* #define STLSOFT_CF_PRAGMA_ONCE_SUPPORT */
 
-/* Support for __FUNCTION__
+/* Support for:
+ *  - __func__
+ *  - __FUNCTION__
+ *  - __PRETTY_FUNCTION__
+ *  - __FUNCSIG__
  */
 
-/* #define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT */
+/*
+#define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT
+*/
 
 #define STLSOFT_CF_func_SYMBOL_SUPPORT
 

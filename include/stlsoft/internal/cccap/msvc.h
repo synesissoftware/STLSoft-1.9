@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Visual C++.
  *
  * Created:     7th February 2003
- * Updated:     21st September 2015
+ * Updated:     31st October 2015
  *
  * Thanks:      To Cláudio Albuquerque for working on the
  *              Win64-compatibility.
@@ -63,9 +63,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MAJOR     3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     25
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  2
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      124
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     27
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      126
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@
  * - #pragma message
  * - #pragma once
  * - __COUNTER__
- * - __FUNCTION__
+ * - __func__, __FUNCTION__, __PRETTY_FUNCTION__, __FUNCSIG__
  * - variadic macros
  */
 
@@ -141,8 +141,16 @@
 # define STLSOFT_PPF_COUNTER_SYMBOL_SUPPORT
 #endif /* compiler */
 
+#if _MSC_VER >= 1900
+# define STLSOFT_PPF_func_SYMBOL_SUPPORT
+#endif /* compiler */
+
 #if _MSC_VER >= 1300
 # define STLSOFT_PPF_FUNCTION_SYMBOL_SUPPORT
+#endif /* compiler */
+
+#if _MSC_VER >= 1400
+# define STLSOFT_PPF_FUNCSIG_SYMBOL_SUPPORT
 #endif /* compiler */
 
 #if _MSC_VER >= 1400
@@ -274,6 +282,7 @@
  * - member constants
  * - explicit keyword
  * - mutable keyword
+ * - override keyword
  * - template keyword
  * - typename keyword
  *    - in a template parameter
@@ -334,6 +343,10 @@
 
 #if _MSC_VER >= 1100
 # define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#endif /* compiler */
+
+#if _MSC_VER >= 1600
+# define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
 #endif /* compiler */
 
 #if _MSC_VER >= 1300
