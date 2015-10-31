@@ -1,17 +1,17 @@
 /* /////////////////////////////////////////////////////////////////////////
  * File:        winstl/shims/access/string/time.hpp
  *
- * Purpose:     Helper functions for the SYSTEMTIME and FILETIME structures.
+ * Purpose:     Helper functions for the Windows time types.
  *
  * Created:     2nd December 2004
- * Updated:     28th May 2014
+ * Updated:     7th October 2015
  *
  * Thanks to:   David Wang, for spotting an error in one of the shim
  *              functions.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -43,8 +43,8 @@
 
 /** \file winstl/shims/access/string/time.hpp
  *
- * \brief [C++] Definition of the string access shims for
- *   <code>FILETIME</code> and <code>SYSTEMTIME</code>
+ * \brief [C++] Definition of the string access shims for the Windows time
+ *   types
  *   (\ref group__concept__shim__string_access "String Access Shims" Concept).
  */
 
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_MAJOR       2
 # define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_MINOR       3
-# define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_REVISION    9
-# define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_EDIT        57
+# define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_REVISION    10
+# define WINSTL_VER_WINSTL_SHIMS_ACCESS_STRING_HPP_TIME_EDIT        59
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -112,7 +112,7 @@ namespace winstl_project
  */
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-struct winstl_shims_access_string_time_impl
+struct ximpl_winstl_shims_access_string_time
 {
     typedef int (STLSOFT_STDCALL *pfnGetDateTimeFmtA_t)(LCID                Locale      // locale
                                                     ,   DWORD               dwFlags     // options
@@ -233,7 +233,7 @@ void
 stream_insert(S &stm, SYSTEMTIME const& t)
 {
     typedef stlsoft_ns_qual(basic_shim_string)<ws_char_a_t>     string_t;
-    typedef winstl_shims_access_string_time_impl                impl_t;
+    typedef ximpl_winstl_shims_access_string_time                impl_t;
 
     ws_size_t       cchDate     =   0;
     ws_size_t       cchTime     =   0;
@@ -303,7 +303,7 @@ c_str_ptr_a(
 )
 {
     typedef stlsoft_ns_qual(basic_shim_string)<ws_char_a_t>     string_t;
-    typedef winstl_shims_access_string_time_impl                impl_t;
+    typedef ximpl_winstl_shims_access_string_time                impl_t;
 
     int (STLSOFT_STDCALL *pfnGetTimeFormatA)(   LCID                Locale      // locale
                                             ,   DWORD               dwFlags     // options
@@ -353,7 +353,7 @@ c_str_ptr_w(
 )
 {
     typedef stlsoft_ns_qual(basic_shim_string)<ws_char_w_t>     string_t;
-    typedef winstl_shims_access_string_time_impl                impl_t;
+    typedef ximpl_winstl_shims_access_string_time                impl_t;
 
     int (STLSOFT_STDCALL *pfnGetTimeFormatW)(   LCID                Locale      // locale
                                             ,   DWORD               dwFlags     // options
@@ -923,7 +923,7 @@ c_str_len_a(
 ,   ws_bool_t           bMilliseconds
 )
 {
-    typedef winstl_shims_access_string_time_impl impl_t;
+    typedef ximpl_winstl_shims_access_string_time impl_t;
 
     int (STLSOFT_STDCALL *pfnGetTimeFormatA)(   LCID                Locale      // locale
                                             ,   DWORD               dwFlags     // options
@@ -955,7 +955,7 @@ c_str_len_w(
 ,   ws_bool_t           bMilliseconds
 )
 {
-    typedef winstl_shims_access_string_time_impl impl_t;
+    typedef ximpl_winstl_shims_access_string_time impl_t;
 
     int (STLSOFT_STDCALL *pfnGetTimeFormatW)(   LCID                Locale      // locale
                                             ,   DWORD               dwFlags     // options

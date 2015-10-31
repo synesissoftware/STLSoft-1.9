@@ -4,13 +4,13 @@
  * Purpose:     Shell file operations.
  *
  * Created:     12th December 1996
- * Updated:     15th February 2010
+ * Updated:     17th October 2015
  *
  * Thanks:      To Pablo Aguilar for default folder enhancements.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * Copyright (c) 2005, Pablo Aguilar
  * All rights reserved.
  *
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_MAJOR      2
 # define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_MINOR      1
-# define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_REVISION   3
-# define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_EDIT       89
+# define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_REVISION   5
+# define WINSTL_VER_WINSTL_SHELL_HPP_FILE_OPERATIONS_EDIT       91
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -70,12 +70,6 @@
 #ifndef STLSOFT_INCL_STLSOFT_MEMORY_HPP_AUTO_BUFFER
 # include <stlsoft/memory/auto_buffer.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_AUTO_BUFFER */
-//#ifndef STLSOFT_INCL_STLSOFT_HPP_STRING_ACCESS
-//# include <stlsoft/string_access.hpp>
-//#endif /* !STLSOFT_INCL_STLSOFT_HPP_STRING_ACCESS */
-//#ifndef WINSTL_INCL_WINSTL_SHIMS_ACCESS_HPP_STRING
-//# include <winstl/shims/access/string.hpp>
-//#endif /* !WINSTL_INCL_WINSTL_SHIMS_ACCESS_HPP_STRING */
 #ifndef STLSOFT_INCL_STLSOFT_HPP_AUTO_BUFFER
 # include <winstl/winstl.h>
 #endif /* !STLSOFT_INCL_STLSOFT_HPP_AUTO_BUFFER */
@@ -92,13 +86,10 @@ namespace winstl
 {
 # else
 /* Define stlsoft::winstl_project */
-
 namespace stlsoft
 {
-
 namespace winstl_project
 {
-
 # endif /* _STLSOFT_NO_NAMESPACE */
 #endif /* !_WINSTL_NO_NAMESPACE */
 
@@ -108,7 +99,18 @@ namespace winstl_project
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
-inline int shell_delete_a_(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t *pbAborted)
+namespace ximpl_winstl_shell_functions_
+{
+
+inline
+int
+shell_delete_a_(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t*          pbAborted
+)
 {
     WINSTL_MESSAGE_ASSERT("Null string cannot be specified", NULL != from);
 
@@ -156,7 +158,15 @@ inline int shell_delete_a_(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const
     }
 }
 
-inline int shell_delete_w_(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t *pbAborted)
+inline
+int
+shell_delete_w_(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t*          pbAborted
+)
 {
     WINSTL_MESSAGE_ASSERT("Null string cannot be specified", NULL != from);
 
@@ -204,9 +214,11 @@ inline int shell_delete_w_(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const
     }
 }
 
+} /* namespace ximpl_winstl_shell_functions_ */
+
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -220,12 +232,18 @@ inline int shell_delete_w_(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from)
+inline
+int
+shell_delete(
+    ws_char_a_t const* from
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, NULL, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -240,12 +258,19 @@ inline int shell_delete(ws_char_a_t const* from)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, NULL, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -262,12 +287,19 @@ inline int shell_delete(ws_char_a_t const* from, ws_bool_t &bAborted)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, NULL, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -285,12 +317,20 @@ inline int shell_delete(ws_char_a_t const* from, FILEOP_FLAGS flags)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, NULL, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -307,12 +347,19 @@ inline int shell_delete(ws_char_a_t const* from, FILEOP_FLAGS flags, ws_bool_t &
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitle)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, progressTitle, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -330,12 +377,20 @@ inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitle, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, progressTitle, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -353,12 +408,20 @@ inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitle, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, progressTitle, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -377,12 +440,21 @@ inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(NULL, from, progressTitle, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -397,12 +469,19 @@ inline int shell_delete(ws_char_a_t const* from, ws_char_a_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, NULL, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -418,12 +497,20 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, NULL, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -441,12 +528,20 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_bool_t &bAborted)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, NULL, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -465,12 +560,21 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, FILEOP_FLAGS flags)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, NULL, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -488,12 +592,20 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, FILEOP_FLAGS flags, 
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* progressTitle)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, progressTitle, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -512,12 +624,21 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* progressTitle, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, progressTitle, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -536,12 +657,21 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* progressTitle, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, progressTitle, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -561,14 +691,24 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_a_t const*  from
+,   ws_char_a_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_a_(hwnd, from, progressTitle, flags, &bAborted);
 }
 
 
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -582,12 +722,18 @@ inline int shell_delete(HWND hwnd, ws_char_a_t const* from, ws_char_a_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from)
+inline
+int
+shell_delete(
+    ws_char_w_t const* from
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, NULL, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -602,12 +748,19 @@ inline int shell_delete(ws_char_w_t const* from)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, NULL, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -624,12 +777,19 @@ inline int shell_delete(ws_char_w_t const* from, ws_bool_t &bAborted)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, NULL, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -647,12 +807,20 @@ inline int shell_delete(ws_char_w_t const* from, FILEOP_FLAGS flags)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, NULL, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -669,12 +837,19 @@ inline int shell_delete(ws_char_w_t const* from, FILEOP_FLAGS flags, ws_bool_t &
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitle)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, progressTitle, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -692,12 +867,20 @@ inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitle, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, progressTitle, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -715,12 +898,20 @@ inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitle, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, progressTitle, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -739,12 +930,21 @@ inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(NULL, from, progressTitle, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -759,12 +959,19 @@ inline int shell_delete(ws_char_w_t const* from, ws_char_w_t const* progressTitl
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, NULL, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -780,12 +987,20 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, NULL, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -803,12 +1018,20 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_bool_t &bAborted)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, NULL, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -827,12 +1050,21 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, FILEOP_FLAGS flags)
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, NULL, flags, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -850,12 +1082,20 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, FILEOP_FLAGS flags, 
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* progressTitle)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, progressTitle, 0, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -874,12 +1114,21 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* progressTitle, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, progressTitle, 0, &bAborted);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -898,12 +1147,21 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* progressTitle, FILEOP_FLAGS flags)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, progressTitle, flags, NULL);
 }
 
-/** \brief Requests the shell to delete the given file
+/** Requests the shell to delete the given file
  *
  * \ingroup group__library__windows_shell
  *
@@ -923,28 +1181,30 @@ inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* p
  * \retval ERROR_NOT_ENOUGH_MEMORY This is returned only when compiling with translators that do not support throwing std::bad_alloc on memory allocation failure
  * \retval !0 Any other Win32 error code
  */
-inline int shell_delete(HWND hwnd, ws_char_w_t const* from, ws_char_w_t const* progressTitle, FILEOP_FLAGS flags, ws_bool_t &bAborted)
+inline
+int
+shell_delete(
+    HWND                hwnd
+,   ws_char_w_t const*  from
+,   ws_char_w_t const*  progressTitle
+,   FILEOP_FLAGS        flags
+,   ws_bool_t&          bAborted
+)
 {
+    using namespace ximpl_winstl_shell_functions_;
+
     return shell_delete_w_(hwnd, from, progressTitle, flags, &bAborted);
 }
-
-
-////////////////////////////////////////////////////////////////////////////
-// Unit-testing
-
-#ifdef STLSOFT_UNITTEST
-# include "./unittest/file_operations_unittest_.h"
-#endif /* STLSOFT_UNITTEST */
 
 /* ////////////////////////////////////////////////////////////////////// */
 
 #ifndef _WINSTL_NO_NAMESPACE
 # if defined(_STLSOFT_NO_NAMESPACE) || \
      defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
-} // namespace winstl
+} /* namespace winstl */
 # else
-} // namespace winstl_project
-} // namespace stlsoft
+} /* namespace winstl_project */
+} /* namespace stlsoft */
 # endif /* _STLSOFT_NO_NAMESPACE */
 #endif /* !_WINSTL_NO_NAMESPACE */
 

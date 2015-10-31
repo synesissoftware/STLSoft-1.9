@@ -4,11 +4,11 @@
  * Purpose:     Functions for initialising Win32 structures.
  *
  * Created:     20th October 1994
- * Updated:     1st June 2014
+ * Updated:     9th August 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_MAJOR       4
 # define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_MINOR       1
-# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_REVISION    2
-# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_EDIT        222
+# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_REVISION    3
+# define WINSTL_VER_WINSTL_UTIL_HPP_STRUCT_INITIALISERS_EDIT        223
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -325,13 +325,17 @@ WINSTL_The_structure_(DRAGINFOW, has::uSize_member_type);
 WINSTL_The_structure_(APPBARDATA, has::cbSize_member_type);
 WINSTL_The_structure_(SHELLEXECUTEINFOA, has::cbSize_member_type);
 WINSTL_The_structure_(SHELLEXECUTEINFOW, has::cbSize_member_type);
-#if !defined(STLSOFT_COMPILER_IS_DMC) && \
+#if 1 && \
+    !defined(STLSOFT_COMPILER_IS_DMC) && \
     (   !defined(STLSOFT_COMPILER_IS_GCC) || \
         __GNUC__ > 3 || \
         (   __GNUC__ == 3 && \
             __GNUC_MINOR__ > 2)) && \
     (   !defined(STLSOFT_COMPILER_IS_MSVC) || \
-        _MSC_VER >= 1200)
+        _MSC_VER == 1200 || \
+        ( defined(NTDDI_VERSION) && \
+          NTDDI_VERSION >= 0x05000000)) && \
+    1
 WINSTL_The_structure_(SHQUERYRBINFO, has::cbSize_member_type);
 #endif /* compiler */
 WINSTL_The_structure_(NOTIFYICONDATAA, has::cbSize_member_type);

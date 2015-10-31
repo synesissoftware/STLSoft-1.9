@@ -5,7 +5,7 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     26th August 2015
+ * Updated:     15th October 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -48,8 +48,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_H_WINSTL_MAJOR       3
 # define WINSTL_VER_WINSTL_H_WINSTL_MINOR       14
-# define WINSTL_VER_WINSTL_H_WINSTL_REVISION    4
-# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        195
+# define WINSTL_VER_WINSTL_H_WINSTL_REVISION    5
+# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        196
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file winstl/winstl.h
@@ -152,13 +152,14 @@
 # define _WINSTL_VER_1_11_7     0x010b07ff  /*!< Version 1.11.7 (with STLSoft 1.9.109) */
 # define _WINSTL_VER_1_11_8     0x010b08ff  /*!< Version 1.11.8 (with STLSoft 1.9.113) */
 # define _WINSTL_VER_1_11_9     0x010b09ff  /*!< Version 1.11.9 (with STLSoft 1.9.119) */
-# define _WINSTL_VER_1_11_10    0x010b0aff  /*!< Version 1.11.9 (with STLSoft 1.9.120) */
+# define _WINSTL_VER_1_11_10    0x010b0aff  /*!< Version 1.11.10 (with STLSoft 1.9.120) */
+# define _WINSTL_VER_1_11_11    0x010b0bff  /*!< Version 1.11.11 (with STLSoft 1.9.121) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _WINSTL_VER_MAJOR       1
 #define _WINSTL_VER_MINOR       11
-#define _WINSTL_VER_REVISION    10
-#define _WINSTL_VER             _WINSTL_VER_1_11_10
+#define _WINSTL_VER_REVISION    11
+#define _WINSTL_VER             _WINSTL_VER_1_11_11
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -366,6 +367,15 @@
  */
 # undef     INVALID_SET_FILE_POINTER
 # define    INVALID_SET_FILE_POINTER    static_cast<DWORD>(0xFFFFFFFF)
+
+/** \def INVALID_FILE_ATTRIBUTES
+ * \brief A C++-only redefinition of this \#define which uses C++ cast operators to
+ *  avoid C-style cast warnings.
+ */
+# ifdef INVALID_FILE_ATTRIBUTES
+#  undef INVALID_FILE_ATTRIBUTES
+# endif /* INVALID_FILE_ATTRIBUTES */
+# define INVALID_FILE_ATTRIBUTES        static_cast<DWORD>(0xFFFFFFFF)
 
 #else /* ? __cplusplus */ 
 
