@@ -4,11 +4,11 @@
  * Purpose:     Windows console functions.
  *
  * Created:     3rd December 2005
- * Updated:     10th June 2014
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,9 +49,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_MAJOR     2
-# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_MINOR     2
-# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_REVISION  3
-# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_EDIT      21
+# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_MINOR     3
+# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_REVISION  1
+# define WINSTL_VER_WINSTL_SYSTEM_H_CONSOLE_FUNCTIONS_EDIT      22
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -115,9 +115,9 @@ STLSOFT_INLINE ws_size_t winstl_C_get_console_width(void)
         }
     }
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     STLSOFT_NS_GLOBAL(GetLastError)();
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     return ~stlsoft_static_cast(ws_size_t, 0);
 }

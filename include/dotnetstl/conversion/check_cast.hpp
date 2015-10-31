@@ -5,11 +5,11 @@
  *              on the cast instance in debug builds.
  *
  * Created:     9th August 2006
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef DOTNETSTL_DOCUMENTATION_SKIP_SECTION
 # define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_MAJOR    1
-# define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_MINOR    0
+# define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_MINOR    1
 # define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_REVISION 1
-# define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_EDIT     4
+# define DOTNETSTL_VER_DOTNETSTL_CONVERSION_HPP_CHECK_CAST_EDIT     5
 #endif /* !DOTNETSTL_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -103,11 +103,11 @@ template<   ss_typename_param_k TO
         >
 inline TO check_cast(FROM from)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     return __try_cast<TO>(from);
-#else // ? _DEBUG
+#else // ? STLSOFT_DEBUG
     return static_cast<TO>(from);
-#endif // _DEBUG
+#endif // STLSOFT_DEBUG
 }
 
 ////////////////////////////////////////////////////////////////////////////

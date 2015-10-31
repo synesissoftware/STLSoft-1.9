@@ -4,7 +4,7 @@
  * Purpose:     Runtime checking for numeric conversions.
  *
  * Created:     10th August 2006
- * Updated:     22nd September 2015
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -49,9 +49,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_MAJOR      1
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_MINOR      0
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_REVISION   7
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_EDIT       49
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_MINOR      1
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_REVISION   1
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_TRUNCATION_TEST_EDIT       50
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -87,12 +87,12 @@
 # include <limits.h>
 #endif /* STLSOFT_UNITTEST */
 #if defined(STLSOFT_UNITTEST) || \
-    defined(_DEBUG)
+    defined(STLSOFT_DEBUG)
 # include <typeinfo>
 # if defined(STLSOFT_COMPILER_IS_MSVC)
 #  include <crtdbg.h>
 # endif /* VC++ */
-#endif /* STLSOFT_UNITTEST || _DEBUG */
+#endif /* STLSOFT_UNITTEST || STLSOFT_DEBUG */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -173,7 +173,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FROM from, yes_type, TO)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -187,7 +187,7 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     enum {  TO_is_signed            =   is_signed_type<TO>::value                   };
     enum {  FROM_is_signed          =   is_signed_type<FROM>::value                 };
@@ -255,7 +255,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FROM from, no_type, TO)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -269,7 +269,7 @@ inline bool truncation_test_helper_runtime_test_different_sign_FROM_is_signed(FR
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     enum {  TO_is_signed            =   is_signed_type<TO>::value                   };
     enum {  FROM_is_signed          =   is_signed_type<FROM>::value                 };
@@ -307,7 +307,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_helper_runtime_test_same_sign(FROM from, yes_type, TO) // The use of the dummy variable is to fix a bug with VC++ 5-7.0
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -321,7 +321,7 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, yes_type, T
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     const ss_size_t sizeofFROM  =   sizeof(FROM);
     const ss_size_t sizeofTO    =   sizeof(TO);
@@ -354,7 +354,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_helper_runtime_test_same_sign(FROM from, no_type, TO)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -368,7 +368,7 @@ inline bool truncation_test_helper_runtime_test_same_sign(FROM from, no_type, TO
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     enum {  TO_is_signed            =   is_signed_type<TO>::value                   };
     enum {  FROM_is_signed          =   is_signed_type<FROM>::value                 };
@@ -393,7 +393,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_helper_runtime_test(FROM from, no_type, TO ) // The use of the dummy variable is to fix a bug with VC++ 5-7.0
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -407,7 +407,7 @@ inline bool truncation_test_helper_runtime_test(FROM from, no_type, TO ) // The 
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     // Types are different
 
@@ -441,7 +441,7 @@ template<   ss_typename_param_k TO
         >
 inline bool truncation_test_(FROM from, TO dummy = TO())    // The use of the dummy variable is to fix a bug with VC++ 5-7.0
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     int const flags = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
     _CrtSetDbgFlag(flags & ~(_CRTDBG_ALLOC_MEM_DF));
@@ -455,7 +455,7 @@ inline bool truncation_test_(FROM from, TO dummy = TO())    // The use of the du
 # if defined(STLSOFT_COMPILER_IS_MSVC)
     _CrtSetDbgFlag(flags);
 # endif /* VC++ */
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     // First, we must check that the types are compatible, with constraints
 

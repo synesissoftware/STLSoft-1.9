@@ -5,7 +5,7 @@
  *              class templates.
  *
  * Created:     1st December 2002
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Thanks to:   Nevin Liber and Scott Meyers for kicking my lazy behind, and
  *              requiring that I implement the full complement of standard
@@ -13,7 +13,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,9 +55,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_MAJOR    4
-# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_MINOR    2
+# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_MINOR    3
 # define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_REVISION 1
-# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_EDIT     82
+# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_EDIT     83
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -306,12 +306,12 @@ public:
     {
         return allocator_type();
     }
-#if defined(_DEBUG) || \
+#if defined(STLSOFT_DEBUG) || \
     defined(MFCSTL_ARRAY_ADAPTORS_ALLOW_CAPACITY_PEEK)
 public:
-#else /* ? _DEBUG */
+#else /* ? STLSOFT_DEBUG */
 protected:
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
     size_type grow_increment() const
     {
         class GrowByGetter

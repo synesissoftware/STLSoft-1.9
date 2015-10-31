@@ -4,11 +4,11 @@
  * Purpose:     Definition of the environment_map class.
  *
  * Created:     14th November 2005
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_MAJOR       2
-# define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_MINOR       3
+# define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_MINOR       4
 # define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_REVISION    1
-# define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_EDIT        56
+# define PLATFORMSTL_VER_PLATFORMSTL_SYSTEM_HPP_ENVIRONMENT_MAP_EDIT        57
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -863,20 +863,20 @@ inline void environment_map::snapshot::set(first_type const& name, second_type c
     STLSOFT_ASSERT(m_variables.end() != it);
     STLSOFT_ASSERT((*it).second.capacity() >= value.size());
 
-#  ifdef _DEBUG
+#  ifdef STLSOFT_DEBUG
     try
-#  endif /* _DEBUG */
+#  endif /* STLSOFT_DEBUG */
     {
         (*it).second.assign(value);
     }
-#  ifdef _DEBUG
+#  ifdef STLSOFT_DEBUG
     catch(...)
     {
         STLSOFT_MESSAGE_ASSERT("Should never happen", 0);
 
         throw; // Might as well pass on to precipitate unexpected()
     }
-#  endif /* _DEBUG */
+#  endif /* STLSOFT_DEBUG */
 
 }
 

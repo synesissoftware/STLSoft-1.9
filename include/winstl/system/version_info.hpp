@@ -4,11 +4,11 @@
  * Purpose:     Helper for accessing version information.
  *
  * Created:     16th February 1998
- * Updated:     19th May 2010
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MAJOR    5
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MINOR    2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 8
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     126
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MINOR    3
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 1
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     127
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -1217,7 +1217,7 @@ inline /* static */ wchar_t const* version_info::calc_key_(void const* pv)
     WINSTL_ASSERT(NULL != pv);
 #endif /* !STLSOFT_CF_EXCEPTION_SUPPORT || !STLSOFT_CF_THROW_BAD_ALLOC */
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     // Bit of 16-bit resource code here
     //
     // This is reasonably safe, because if it is unicode, then the n-limited string comparison
@@ -1230,7 +1230,7 @@ inline /* static */ wchar_t const* version_info::calc_key_(void const* pv)
             keyA = NULL;
         }
     }
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     wchar_t const* key = reinterpret_cast<wchar_t const*>(static_cast<WORD const*>(pv) + 3);
 
@@ -1281,14 +1281,14 @@ inline void version_info::init_()
     WINSTL_ASSERT(NULL != m_hdr);
 #endif /* !STLSOFT_CF_EXCEPTION_SUPPORT || !STLSOFT_CF_THROW_BAD_ALLOC */
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     // Check that ffi is the same as the pointer returned from VerQueryValue("\\");
     VS_FIXEDFILEINFO    *ffi    =   NULL;
     UINT                cchInfo =   0;
 
     WINSTL_ASSERT(::VerQueryValueA(const_cast<VS_VERSIONINFO_hdr*>(m_hdr), "\\", reinterpret_cast<void**>(&ffi), &cchInfo));
     WINSTL_ASSERT(ffi == m_ffi);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     // Now we must parse the children.
 
@@ -1342,7 +1342,7 @@ inline void version_info::init_()
 
     WINSTL_ASSERT(ptr_byte_diff(pv, m_hdr) == m_hdr->wLength);
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     fixed_file_info fixedInfo = FixedFileInfo();
 
     ws_uint16_t    j   =   fixedInfo.FileVerMajor();
@@ -1354,7 +1354,7 @@ inline void version_info::init_()
     STLSOFT_SUPPRESS_UNUSED(n);
     STLSOFT_SUPPRESS_UNUSED(r);
     STLSOFT_SUPPRESS_UNUSED(b);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 }
 
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */

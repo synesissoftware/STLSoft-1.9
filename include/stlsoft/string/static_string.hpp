@@ -4,7 +4,7 @@
  * Purpose:     basic_static_string class template.
  *
  * Created:     11th June 1994
- * Updated:     26th August 2015
+ * Updated:     9th October 2015
  *
  * Thanks:      To Cláudio Albuquerque for supplying the pop_back() member.
  *
@@ -52,9 +52,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MAJOR    4
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MINOR    3
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_REVISION 2
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     199
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MINOR    4
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_REVISION 1
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     200
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -570,9 +570,9 @@ template<   ss_typename_param_k C
         >
 inline ss_bool_t operator ==(basic_static_string<C, CCH, T> const& lhs, basic_static_string<C, CCH, T> const& rhs)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 //  printf("lhs(%s); rhs(%s); lhs.compare(rhs)=%d\n", lhs.c_str(), lhs.c_str(), lhs.compare(rhs));
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     return lhs.compare(rhs) == 0;
 }
@@ -1034,9 +1034,9 @@ inline basic_static_string<C, CCH, T>::basic_static_string(class_type const& rhs
 
     STLSOFT_ASSERT(is_valid());
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 //printf("*this(%s, %d)\n", &m_buffer[0], m_length);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 }
 
 template<   ss_typename_param_k C
@@ -1240,9 +1240,9 @@ inline ss_typename_type_ret_k basic_static_string<C, CCH, T>::class_type& basic_
 
 //printf("1\n");
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     const class_type    result(rhs);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
 //printf("2\n");
 
@@ -1259,10 +1259,10 @@ inline ss_typename_type_ret_k basic_static_string<C, CCH, T>::class_type& basic_
 
 //printf("5\n");
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 //printf("result(%s, %d); rhs(%s, %d); t(%s, %d), *this(%s, %d)\n", result.c_str(), result.length(), rhs.c_str(), rhs.length(), t.c_str(), t.length(), c_str(), length());
     STLSOFT_ASSERT(result == *this);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
 //printf("6\n");
 
@@ -1423,9 +1423,9 @@ inline /* static */ ss_sint_t basic_static_string<C, CCH, T>::compare_( ss_typen
         result = static_cast<ss_int_t>(lhs_len) - static_cast<ss_int_t>(rhs_len);
     }
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 //printf("compare_(\"%*s\",%d\n        ,\"%*s\",%d) == %d\n", lhs_len, lhs, lhs_len, rhs_len, rhs, rhs_len, result);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     return result;
 }
@@ -1602,9 +1602,9 @@ inline ss_sint_t basic_static_string<C, CCH, T>::compare(ss_typename_type_k basi
 
     STLSOFT_ASSERT(is_valid());
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
 //printf("Comparing (\"%*s\",%d; \"%*s\",%d)\n", lhs_len, &m_buffer[0], lhs_len, rhs_len, &rhs.m_buffer[0], rhs_len);
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     return compare_(&m_buffer[0], lhs_len, &rhs.m_buffer[0], rhs_len);
 }

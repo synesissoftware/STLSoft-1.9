@@ -4,14 +4,14 @@
  * Purpose:     Simple class that represents a path.
  *
  * Created:     1st May 1993
- * Updated:     29th November 2010
+ * Updated:     11th October 2015
  *
  * Thanks to:   Pablo Aguilar for reporting defect in push_ext() (which
  *              doesn't work for wide-string builds).
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1993-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1993-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,9 +52,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_MAJOR    6
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_MINOR    6
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_REVISION 20
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_EDIT     261
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_MINOR    7
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_REVISION 2
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_EDIT     264
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -98,6 +98,10 @@
 # define STLSOFT_INCL_STDEXCEPT
 # include <stdexcept>                            // for std::logic_error
 #endif /* !STLSOFT_INCL_STDEXCEPT */
+
+#ifdef STLSOFT_DEBUG
+# include <stlsoft/algorithms/pod.hpp>
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -1544,9 +1548,9 @@ inline basic_path<C, T, A>& basic_path<C, T, A>::canonicalise(ws_bool_t bRemoveT
 
     class_type  newPath(*this);
 
-#ifdef _DEBUG
-    memset(&newPath.m_buffer[0], '~', newPath.m_buffer.size());
-#endif /* _DEBUG */
+#ifdef STLSOFT_DEBUG
+    STLSOFT_NS_QUAL(pod_fill_n)(&newPath.m_buffer[0], newPath.m_buffer.size(), static_cast<char_type>('~'));
+#endif /* STLSOFT_DEBUG */
 
     // Basically we scan through the path looking for ./ .\ ..\ and ../
 
@@ -1708,9 +1712,9 @@ inline basic_path<C, T, A>& basic_path<C, T, A>::canonicalise(ws_bool_t bRemoveT
 
     // 3. Write out all the parts back into the new path instance
     {
-#ifdef _DEBUG
-        ::memset(dest, '~', newPath.m_buffer.size() - (dest - &newPath.m_buffer[0]));
-#endif /* _DEBUG */
+#ifdef STLSOFT_DEBUG
+        STLSOFT_NS_QUAL(pod_fill_n)(dest, newPath.m_buffer.size() - (dest - &newPath.m_buffer[0]), static_cast<char_type>('~'));
+#endif /* STLSOFT_DEBUG */
 
         for(size_type i = 0; i < parts.size(); ++i)
         {

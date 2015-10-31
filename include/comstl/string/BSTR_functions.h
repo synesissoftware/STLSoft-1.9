@@ -4,11 +4,11 @@
  * Purpose:     Contains classes and functions for dealing with BSTR strings.
  *
  * Created:     24th June 2002
- * Updated:     4th March 2010
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,9 +49,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_MAJOR    4
-# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_MINOR    2
-# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_REVISION 7
-# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_EDIT     84
+# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_MINOR    3
+# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_REVISION 1
+# define COMSTL_VER_COMSTL_STRING_H_BSTR_FUNCTIONS_EDIT     85
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -189,12 +189,12 @@ STLSOFT_INLINE BSTR comstl__bstr_create_len_a(cs_char_a_t const* s, cs_size_t le
         {
             int n = STLSOFT_NS_GLOBAL(MultiByteToWideChar)(0, 0, s, stlsoft_static_cast(int, len), pwsz, stlsoft_static_cast(int, 1 + len));
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
             if(0 == n)
             {
                 STLSOFT_NS_GLOBAL(GetLastError)();
             }
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
             if(0 != n)
             {
                 bstr = comstl__bstr_create_len_w(pwsz, len);

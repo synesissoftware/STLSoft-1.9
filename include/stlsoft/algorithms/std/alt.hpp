@@ -5,11 +5,11 @@
  *              do or do not have a standard library.
  *
  * Created:     17th January 2002
- * Updated:     15th July 2010
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,9 +54,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_MAJOR       3
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_MINOR       4
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_REVISION    4
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_EDIT        77
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_MINOR       5
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_REVISION    1
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_STD_HPP_ALT_EDIT        78
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -487,9 +487,9 @@ inline FI std_unique(FI first, FI last, BP pred)
 
     if(first != last)
     {
-# ifdef _DEBUG
+# ifdef STLSOFT_DEBUG
         const FI    start   =   first;
-# endif /* _DEBUG */
+# endif /* STLSOFT_DEBUG */
         FI          curr    =   first;  // The first elements is always unique
 
         for(++first; first != last; ++first)
@@ -536,9 +536,9 @@ inline FI std_unique(FI first, FI last)
 
     if(first != last)
     {
-# ifdef _DEBUG
+# ifdef STLSOFT_DEBUG
         const FI    start   =   first;
-# endif /* _DEBUG */
+# endif /* STLSOFT_DEBUG */
         FI          curr    =   first;  // The first elements is always unique
 
         for(++first; first != last; ++first)
@@ -587,9 +587,9 @@ inline OI std_unique_copy(FI first, FI last, OI dest)
 
     if(first != last)
     {
-# ifdef _DEBUG
+# ifdef STLSOFT_DEBUG
         const FI    start   =   first;
-# endif /* _DEBUG */
+# endif /* STLSOFT_DEBUG */
         FI          curr    =   first;  // The first elements is always unique
 
         *dest++ = *first++;
@@ -637,9 +637,9 @@ inline OI std_unique_copy(FI first, FI last, OI dest, BP pred)
 
     if(first != last)
     {
-# ifdef _DEBUG
+# ifdef STLSOFT_DEBUG
         const FI    start   =   first;
-# endif /* _DEBUG */
+# endif /* STLSOFT_DEBUG */
         FI          curr    =   first;  // The first elements is always unique
 
         *dest++ = *first++;

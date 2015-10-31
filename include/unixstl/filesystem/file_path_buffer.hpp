@@ -4,11 +4,11 @@
  * Purpose:     Contains the basic_file_path_buffer template class.
  *
  * Created:     24th May 2004
- * Updated:     9th February 2011
+ * Updated:     11th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR      4
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR      2
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION   1
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT       65
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR      3
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION   2
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT       68
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -79,6 +79,10 @@
 # define STLSOFT_INCL_H_UNISTD
 # include <unistd.h>
 #endif /* !STLSOFT_INCL_H_UNISTD */
+
+#ifdef STLSOFT_DEBUG
+# include <stlsoft/algorithms/pod.hpp>
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -180,10 +184,10 @@ public:
     basic_file_path_buffer()
         : m_buffer(1 + calc_path_max_())
     {
-#ifdef _DEBUG
-        ::memset(&m_buffer[0], '?', m_buffer.size());
+#ifdef STLSOFT_DEBUG
+        STLSOFT_NS_QUAL(pod_fill_n)(&m_buffer[0], m_buffer.size(), static_cast<char_type>('?'));
         m_buffer[m_buffer.size() - 1] = '\0';
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
     }
     /// \brief Copy constructor
     basic_file_path_buffer(class_type const& rhs)

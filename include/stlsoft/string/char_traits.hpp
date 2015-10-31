@@ -4,11 +4,11 @@
  * Purpose:     char_traits classes.
  *
  * Created:     19th November 1998
- * Updated:     16th February 2013
+ * Updated:     9th October 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_MAJOR    4
-# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_MINOR    0
-# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_REVISION 4
-# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_EDIT     72
+# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_MINOR    1
+# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_REVISION 1
+# define STLSOFT_VER_STLSOFT_STRING_HPP_CHAR_TRAITS_EDIT     73
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -104,14 +104,14 @@
 # include <string>                  // for std::char_traits
 #endif /* !::stlsoft && !::std */
 #if !defined(STLSOFT_NO_CHAR_TRAITS_LIBRARY_CALLS) || \
-    defined(_DEBUG)
+    defined(STLSOFT_DEBUG)
 # include <string.h>
 # include <wchar.h>
 # if defined(STLSOFT_COMPILER_IS_BORLAND) && \
      __BORLANDC__ >= 0x0560
 #  include <mem.h>
 #endif /* compiler */
-#endif /* !STLSOFT_NO_CHAR_TRAITS_LIBRARY_CALLS || _DEBUG */
+#endif /* !STLSOFT_NO_CHAR_TRAITS_LIBRARY_CALLS || STLSOFT_DEBUG */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -324,9 +324,9 @@ public:
         STLSOFT_MESSAGE_ASSERT("char_traits<X>::copy called with NULL destination", (0 == cch || NULL != dest));
         STLSOFT_MESSAGE_ASSERT("char_traits<X>::copy called with NULL source", (0 == cch || NULL != src));
 
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
         ::memset(dest, 0, cch * sizeof(char_type));
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
         for(ret = dest; 0 < cch; --cch, ++dest, ++src)
         {
@@ -707,9 +707,9 @@ inline char const* stlsoft_char_traits<char>::find(char_type const* s, size_type
 STLSOFT_TEMPLATE_SPECIALISATION
 inline char* stlsoft_char_traits<char>::copy(char* dest, char const* src, ss_size_t cch)
 {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     ::memset(dest, 0, cch * sizeof(char));
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
     return static_cast<char*>(memcpy(dest, src, cch * sizeof(char)));
 }

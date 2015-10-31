@@ -5,7 +5,7 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     7th February 2002
- * Updated:     5th August 2015
+ * Updated:     11th October 2015
  *
  * Thanks to:   Pablo Aguilar for discovering the Borland weirdness which is now
  *              addressed with the calc_path_max_() method.
@@ -54,9 +54,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR    4
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    4
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 3
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     119
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    5
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 2
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     122
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -108,6 +108,10 @@ STLSOFT_COMPILER_IS_MSVC: _MSC_VER<1200
 #ifndef WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION
 # include <winstl/internal/windows_version.h>
 #endif /* !WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
+
+#ifdef STLSOFT_DEBUG
+# include <stlsoft/algorithms/pod.hpp>
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -232,10 +236,10 @@ public:
     basic_file_path_buffer()
         : m_buffer(1 + calc_path_max_())
     {
-#ifdef _DEBUG
-        ::memset(&m_buffer[0], '?', m_buffer.size());
+#ifdef STLSOFT_DEBUG
+        STLSOFT_NS_QUAL(pod_fill_n)(&m_buffer[0], m_buffer.size(), static_cast<char_type>('?'));
         m_buffer[m_buffer.size() - 1] = '\0';
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
     }
     /// \brief Copy constructor
     basic_file_path_buffer(class_type const& rhs)

@@ -4,14 +4,14 @@
  * Purpose:     Simple class that represents a path.
  *
  * Created:     1st May 1993
- * Updated:     29th November 2010
+ * Updated:     11th October 2015
  *
  * Thanks to:   Pablo Aguilar for reporting defect in push_ext() (which
  *              doesn't work for wide-string builds).
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1993-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1993-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,9 +52,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_MAJOR      6
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_MINOR      6
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_REVISION   4
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_EDIT       236
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_MINOR      7
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_REVISION   2
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_EDIT       239
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -104,6 +104,10 @@
 #ifdef _WIN32
 # include <ctype.h>
 #endif /* _WIN32 */
+
+#ifdef STLSOFT_DEBUG
+# include <stlsoft/algorithms/pod.hpp>
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -1232,9 +1236,9 @@ inline basic_path<C, T, A>& basic_path<C, T, A>::canonicalise(us_bool_t bRemoveT
 {
     class_type  newPath(*this);
 
-#ifdef _DEBUG
-    memset(&newPath.m_buffer[0], '~', newPath.m_buffer.size());
-#endif /* _DEBUG */
+#ifdef STLSOFT_DEBUG
+    STLSOFT_NS_QUAL(pod_fill_n)(&newPath.m_buffer[0], newPath.m_buffer.size(), static_cast<char_type>('~'));
+#endif /* STLSOFT_DEBUG */
 
     // Basically we scan through the path looking for ./ .\ ..\ and ../
 
@@ -1398,9 +1402,9 @@ inline basic_path<C, T, A>& basic_path<C, T, A>::canonicalise(us_bool_t bRemoveT
     {
         size_type   i   =   0;
 
-#ifdef _DEBUG
-        memset(dest, '~', newPath.m_buffer.size() - (dest - &newPath.m_buffer[0]));
-#endif /* _DEBUG */
+#ifdef STLSOFT_DEBUG
+        STLSOFT_NS_QUAL(pod_fill_n)(dest, newPath.m_buffer.size() - (dest - &newPath.m_buffer[0]), static_cast<char_type>('~'));
+#endif /* STLSOFT_DEBUG */
 
         for(i = 0; i < parts.size(); ++i)
         {

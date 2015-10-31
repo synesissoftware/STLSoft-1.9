@@ -4,7 +4,7 @@
  * Purpose:     Intra-process mutex, based on spin waits.
  *
  * Created:     27th August 1997
- * Updated:     10th August 2009
+ * Updated:     9th October 2015
  *
  * Thanks:      To Rupert Kittinger, for pointing out that the prior
  *              implementation that always yielded was not really "spinning".
@@ -14,7 +14,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,9 +55,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_MAJOR     5
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_MINOR     0
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_REVISION  3
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_EDIT      60
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_MINOR     1
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_REVISION  1
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_SPIN_MUTEX_EDIT      61
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -102,9 +102,9 @@
 # include <stlsoft/synch/lock_scope.hpp>
 #endif /* STLSOFT_UNITTEST */
 
-#if defined(_DEBUG)
+#if defined(STLSOFT_DEBUG)
 # define    STLSOFT_SPINMUTEX_COUNT_LOCKS
-#endif /* _DEBUG */
+#endif /* STLSOFT_DEBUG */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
