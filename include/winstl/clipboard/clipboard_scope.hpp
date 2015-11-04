@@ -4,7 +4,7 @@
  * Purpose:     Clipboard scoping and facade class.
  *
  * Created:     26th May 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Thanks:      To Martin Moene for reporting the problem with the data type
  *              in set_data_or_deallocate_and_throw_(), and for calling for
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +55,7 @@
 # define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_MAJOR      2
 # define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_MINOR      0
 # define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_REVISION   7
-# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_EDIT       34
+# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_EDIT       35
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -290,10 +290,15 @@ public:
 /// \name Members
 /// @{
 private:
-    template<   ss_typename_param_k A
-            ,   ss_typename_param_k T
-            >
-    void set_data_or_deallocate_and_throw_(UINT fmt, T* memory, A& ator) stlsoft_throw_1(clipboard_scope_exception)
+    template<
+        ss_typename_param_k A
+    ,   ss_typename_param_k T
+    >
+    void set_data_or_deallocate_and_throw_(
+        UINT    fmt
+    ,   T*      memory
+    ,   A&      ator
+    ) stlsoft_throw_1(clipboard_scope_exception)
     {
     #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         try
