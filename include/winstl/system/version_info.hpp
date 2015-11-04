@@ -4,7 +4,7 @@
  * Purpose:     Helper for accessing version information.
  *
  * Created:     16th February 1998
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MAJOR    5
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MINOR    3
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 1
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     127
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 2
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     128
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -83,6 +83,9 @@
 #ifndef STLSOFT_INCL_STLSOFT_CONVERSION_HPP_SAP_CAST
 # include <stlsoft/conversion/sap_cast.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_CONVERSION_HPP_SAP_CAST */
+#ifndef STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES
+# include <stlsoft/memory/allocator_features.hpp>   // for STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT
+#endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES */
 #ifndef STLSOFT_INCL_STLSOFT_SHIMS_ACCESS_HPP_STRING
 # include <stlsoft/shims/access/string.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_SHIMS_ACCESS_HPP_STRING */
@@ -96,6 +99,11 @@
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
 # include <stdexcept>                           // for std::exception
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
+
+#ifndef STLSOFT_INCL_UTILITY
+# define STLSOFT_INCL_UTILITY
+# include <utility>
+#endif /* !STLSOFT_INCL_UTILITY */
 
 #ifndef STLSOFT_INCL_H_WCHAR
 # define STLSOFT_INCL_H_WCHAR
@@ -557,6 +565,8 @@ private:
 public:
     /// This type
     typedef version_info                        class_type;
+private:
+    typedef std::pair<void*, size_t>            mem_block_type_;
 
 /// \name Construction
 /// @{
@@ -607,20 +617,23 @@ public:
 /// @}
 
 private:
-    static VS_VERSIONINFO_hdr const* retrieve_module_info_block_(ws_char_a_t const* moduleName);
+    static mem_block_type_ const        retrieve_module_info_block_(ws_char_a_t const* moduleName);
 
-    static VS_VERSIONINFO_hdr const* retrieve_module_info_block_(ws_char_w_t const* moduleName);
+    static mem_block_type_ const        retrieve_module_info_block_(ws_char_w_t const* moduleName);
 
-    static wchar_t const* calc_key_(void const* pv);
+    static VS_VERSIONINFO_hdr const*    calc_hdr_(mem_block_type_ const& mem);
 
-    static VS_FIXEDFILEINFO const* calc_ffi_(wchar_t const* key);
+    static wchar_t const*               calc_key_(void const* pv);
 
-    static WORD const* calc_children_(VS_FIXEDFILEINFO const* ffi);
+    static VS_FIXEDFILEINFO const*      calc_ffi_(wchar_t const* key);
+
+    static WORD const*                  calc_children_(VS_FIXEDFILEINFO const* ffi);
 
 private:
     void init_();
 
 private:
+    mem_block_type_ const               m_mem;
     VS_VERSIONINFO_hdr const*   const   m_hdr;
     wchar_t const*              const   m_key;
     VS_FIXEDFILEINFO const*     const   m_ffi;
@@ -964,7 +977,8 @@ inline VsStringFileInfo::const_iterator VsStringFileInfo::end() const
 }
 
 inline /* ss_explicit_k */ version_info::version_info(ws_char_a_t const* moduleName)
-    : m_hdr(retrieve_module_info_block_(moduleName))
+    : m_mem(retrieve_module_info_block_(moduleName))
+    , m_hdr(calc_hdr_(m_mem))
     , m_key(calc_key_(m_hdr))
     , m_ffi(calc_ffi_(m_key))
     , m_children(calc_children_(m_ffi))
@@ -975,7 +989,8 @@ inline /* ss_explicit_k */ version_info::version_info(ws_char_a_t const* moduleN
 }
 
 inline /* ss_explicit_k */ version_info::version_info(ws_char_w_t const* moduleName)
-    : m_hdr(retrieve_module_info_block_(moduleName))
+    : m_mem(retrieve_module_info_block_(moduleName))
+    , m_hdr(calc_hdr_(m_mem))
     , m_key(calc_key_(m_hdr))
     , m_ffi(calc_ffi_(m_key))
     , m_children(calc_children_(m_ffi))
@@ -989,7 +1004,11 @@ inline version_info::~version_info() stlsoft_throw_0()
 {
     allocator_type  allocator;
 
-    allocator.deallocate(const_cast<ws_byte_t*>(sap_cast<ws_byte_t const*>(m_hdr)));
+#ifdef STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT
+    allocator.deallocate(m_mem.first, m_mem.second);
+#else /* ? STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT */
+    allocator.deallocate(m_mem.first);
+#endif /* !STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT */
 }
 
 inline ws_size_t version_info::Length() const
@@ -1067,7 +1086,12 @@ inline VsStringFileInfo version_info::StringFileInfo() const
     return VsStringFileInfo(m_sfi);
 }
 
-inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info_block_(ws_char_a_t const* moduleName)
+inline
+/* static */
+version_info::mem_block_type_ const
+version_info::retrieve_module_info_block_(
+    ws_char_a_t const* moduleName
+)
 {
 #ifdef WINSTL_VERSION_INFO_NO_USE_FILE_PATH_BUFFER
     ws_char_a_t                         buffer[1 + WINSTL_CONST_MAX_PATH];
@@ -1089,7 +1113,7 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
         // Must verify it can be loaded, i.e. is a 32-bit resource
         //
         // TODO: Work out how to support 16-bit versions
-        HINSTANCE   hinst   =   ::LoadLibraryExA(moduleName, NULL, LOAD_LIBRARY_AS_DATAFILE);
+        HINSTANCE hinst = ::LoadLibraryExA(moduleName, NULL, LOAD_LIBRARY_AS_DATAFILE);
 
         if(NULL == hinst)
         {
@@ -1105,9 +1129,9 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
         }
     }
 
-    allocator_type      allocator;
-    ws_dword_t          cb  =   ::GetFileVersionInfoSizeA(const_cast<ws_char_a_t*>(moduleName), NULL);
-    void                *pv =   (0 == cb) ? NULL : allocator.allocate(cb);
+    allocator_type  allocator;
+    ws_dword_t      cb  =   ::GetFileVersionInfoSizeA(const_cast<ws_char_a_t*>(moduleName), NULL);
+    void*           pv  =   (0 == cb) ? NULL : allocator.allocate(cb);
 
 #if !defined(STLSOFT_CF_THROW_BAD_ALLOC)
     // If bad_alloc will not be thrown, then we need to check for NULL, but only act on it
@@ -1115,9 +1139,7 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
     if( 0 != cb &&
         pv == NULL)
     {
-        ::GetLastError();
-
-        return NULL;
+        return version_info::mem_block_type_();
     }
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
 
@@ -1129,18 +1151,25 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
         allocator.deallocate(static_cast<ws_byte_t*>(pv), cb);
 
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
+
         STLSOFT_THROW_X(version_info_exception("Could not elicit version information from module", ::GetLastError()));
 #else /* ? STLSOFT_CF_EXCEPTION_SUPPORT */
-        return NULL;
+
+        return version_info::mem_block_type_();
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
     }
 
     WINSTL_ASSERT(pv != NULL);
 
-    return static_cast<VS_VERSIONINFO_hdr*>(pv);
+    return version_info::mem_block_type_(pv, cb);
 }
 
-inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info_block_(ws_char_w_t const* moduleName)
+inline
+/* static */
+version_info::mem_block_type_ const
+version_info::retrieve_module_info_block_(
+    ws_char_w_t const* moduleName
+)
 {
 #ifdef WINSTL_VERSION_INFO_NO_USE_FILE_PATH_BUFFER
     ws_char_w_t                         buffer[1 + WINSTL_CONST_MAX_PATH];
@@ -1162,7 +1191,7 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
         // Must verify it can be loaded, i.e. is a 32-bit resource
         //
         // TODO: Work out how to support 16-bit versions
-        HINSTANCE   hinst   =   ::LoadLibraryExW(moduleName, NULL, LOAD_LIBRARY_AS_DATAFILE);
+        HINSTANCE hinst = ::LoadLibraryExW(moduleName, NULL, LOAD_LIBRARY_AS_DATAFILE);
 
         if(NULL == hinst)
         {
@@ -1180,13 +1209,13 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
 
     allocator_type  allocator;
     ws_dword_t      cb  =   ::GetFileVersionInfoSizeW(const_cast<ws_char_w_t*>(moduleName), NULL);
-    void            *pv =   (0 == cb) ? NULL : allocator.allocate(cb);
+    void*           pv  =   (0 == cb) ? NULL : allocator.allocate(cb);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
     if( 0 != cb &&
         pv == NULL)
     {
-        return NULL;
+        return version_info::mem_block_type_();
     }
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
 
@@ -1196,16 +1225,33 @@ inline /* static */ VS_VERSIONINFO_hdr const* version_info::retrieve_module_info
         allocator.deallocate(static_cast<ws_byte_t*>(pv), cb);
 
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
+
         STLSOFT_THROW_X((version_info_exception("Could not elicit version information from module", ::GetLastError())));
 #else /* ? STLSOFT_CF_EXCEPTION_SUPPORT */
-        pv = NULL;
+
+        return version_info::mem_block_type_();
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
     }
 
-    return static_cast<VS_VERSIONINFO_hdr*>(pv);
+    return version_info::mem_block_type_(pv, cb);
 }
 
-inline /* static */ wchar_t const* version_info::calc_key_(void const* pv)
+inline
+/* static */
+VS_VERSIONINFO_hdr const*
+version_info::calc_hdr_(
+    version_info::mem_block_type_ const& mem
+)
+{
+    return static_cast<VS_VERSIONINFO_hdr const*>(mem.first);
+}
+
+inline
+/* static */
+wchar_t const*
+version_info::calc_key_(
+    void const* pv
+)
 {
 #if !defined(STLSOFT_CF_EXCEPTION_SUPPORT) || \
     !defined(STLSOFT_CF_THROW_BAD_ALLOC)
@@ -1301,9 +1347,9 @@ inline void version_info::init_()
     {
         union
         {
-            void const                  *pv_;
-            StringFileInfo_hdr const    *psfi;
-            VarFileInfo_hdr const       *pvfi;
+            void const*                 pv_;
+            StringFileInfo_hdr const*   psfi;
+            VarFileInfo_hdr const*      pvfi;
         } u;
 
         u.pv_ = pv;
