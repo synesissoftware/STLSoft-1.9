@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Visual C++.
  *
  * Created:     7th February 2003
- * Updated:     31st October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Cláudio Albuquerque for working on the
  *              Win64-compatibility.
@@ -63,9 +63,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MAJOR     3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     27
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     28
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      126
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      127
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -213,18 +213,10 @@
 /* /////////////////////////////////////////////////////////////////////////
  * Support for C/C++ language features
  *
- * - nullptr (C++11)
  * - return void
  * - static assertions
  * - anonymous unions
  * - -ve % +ve => -ve result
- *
- * nullptr (C++11)
- * ---------------
- *
- * nullptr keyword is recognised, represented by definition of the
- * preprocessor symbol STLSOFT_CF_BUILTIN_nullptr_SUPPORT
- *
  *
  * static assertions
  * -----------------
@@ -238,10 +230,6 @@
  * 2. Is the C++11 static_assert keyword supported? This is indicated by the
  * definition of the preprocessor symbol STLSOFT_CF_static_assert_SUPPORT
  */
-
-#if _MSC_VER >= 1600
-# define STLSOFT_CF_BUILTIN_nullptr_SUPPORT
-#endif /* compiler */
 
 #if _MSC_VER >= 1300
 # define STLSOFT_CF_return_void_SUPPORT
@@ -280,16 +268,21 @@
  * - namespaces
  *    - STLSoft namespace(s)?
  * - member constants
- * - explicit keyword
- * - mutable keyword
- * - override keyword
- * - template keyword
- * - typename keyword
- *    - in a template parameter
- *    - type disambiguation inside template bodies
- *    - disambiguation in default template arguments
- *    - type disambiguation inside initialiser lists in class template constructors
- *    - type disambiguation the return types in templates
+ * - keywords:
+ *   - constexpr keyword (C++11)
+ *   - explicit keyword
+ *   - final keyword (C++11)
+ *   - mutable keyword
+ *   - noexcept keyword (C++11)
+ *   - nullptr keyword (C++11)
+ *   - override keyword (C++11)
+ *   - template keyword
+ *   - typename keyword
+ *     - in a template parameter
+ *     - type disambiguation inside template bodies
+ *     - disambiguation in default template arguments
+ *     - type disambiguation inside initialiser lists in class template constructors
+ *     - type disambiguation the return types in templates
  * - argument-dependent lookup
  * - static array-size determination
  * - empty-derived optimisation
@@ -337,16 +330,41 @@
 # define STLSOFT_CF_MEMBER_CONSTANT_SUPPORT
 #endif /* compiler */
 
-#if _MSC_VER >= 1100
-# define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
-#endif /* compiler */
+/* keywords:
+ *
+ * nullptr (C++11)
+ * ---------------
+ *
+ * nullptr keyword is recognised, represented by definition of the
+ * preprocessor symbol STLSOFT_CF_BUILTIN_nullptr_SUPPORT
+ */
+
+#if _MSC_VER >= 1900
+# define STLSOFT_CF_constexpr_KEYWORD_SUPPORT
+#endif
 
 #if _MSC_VER >= 1100
-# define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+# define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 #endif /* compiler */
 
 #if _MSC_VER >= 1600
-# define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+# define STLSOFT_CF_final_KEYWORD_SUPPORT
+#endif /* compiler */
+
+#if _MSC_VER >= 1100
+# define STLSOFT_CF_mutable_KEYWORD_SUPPORT
+#endif /* compiler */
+
+#if _MSC_VER >= 1900
+# define STLSOFT_CF_noexcept_KEYWORD_SUPPORT
+#endif
+
+#if _MSC_VER >= 1600
+# define STLSOFT_CF_nullptr_KEYWORD_SUPPORT
+#endif /* compiler */
+
+#if _MSC_VER >= 1600
+# define STLSOFT_CF_override_KEYWORD_SUPPORT
 #endif /* compiler */
 
 #if _MSC_VER >= 1300
@@ -372,6 +390,7 @@
 #if _MSC_VER >= 1300
 # define STLSOFT_CF_TYPENAME_TYPE_RET_KEYWORD_SUPPORT
 #endif /* compiler */
+
 
 #if _MSC_VER >= 1310
 # define STLSOFT_CF_ADL_SUPPORT

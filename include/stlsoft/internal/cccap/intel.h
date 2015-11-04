@@ -4,14 +4,14 @@
  * Purpose:     Compiler feature discrimination for Intel C/C++.
  *
  * Created:     7th February 2003
- * Updated:     22nd November 2013
+ * Updated:     4th November 2015
  *
  * Thanks:      To Derek Baikie for working on the
  *              Win64-compatibility.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -63,9 +63,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_MAJOR       3
-# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_MINOR       18
-# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_REVISION    3
-# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_EDIT        80
+# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_MINOR       19
+# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_REVISION    1
+# define  STLSOFT_VER_H_STLSOFT_CCCAP_INTEL_EDIT        81
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -289,9 +289,9 @@
 
 #define STLSOFT_CF_MEMBER_CONSTANT_SUPPORT
 
-#define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 
-#define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#define STLSOFT_CF_mutable_KEYWORD_SUPPORT
 
 /*
 # define STLSOFT_CF_TEMPLATE_QUALIFIER_KEYWORD_SUPPORT

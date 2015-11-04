@@ -4,11 +4,11 @@
  * Purpose:     The #undefs for stlsoft/stlsoft.h.
  *
  * Created:     1st December 2003
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT__UNDEFS_MAJOR    2
-# define STLSOFT_VER_H_STLSOFT__UNDEFS_MINOR    8
+# define STLSOFT_VER_H_STLSOFT__UNDEFS_MINOR    9
 # define STLSOFT_VER_H_STLSOFT__UNDEFS_REVISION 1
-# define STLSOFT_VER_H_STLSOFT__UNDEFS_EDIT     27
+# define STLSOFT_VER_H_STLSOFT__UNDEFS_EDIT     28
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -339,19 +339,43 @@
 
 /* explicit keyword support
  *
- * Discriminated symbol is STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+ * Discriminated symbol is STLSOFT_CF_explicit_KEYWORD_SUPPORT
  */
-#ifdef STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
-# undef STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
-#endif /* STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT */
+#ifdef STLSOFT_CF_explicit_KEYWORD_SUPPORT
+# undef STLSOFT_CF_explicit_KEYWORD_SUPPORT
+#endif /* STLSOFT_CF_explicit_KEYWORD_SUPPORT */
+
+/* final keyword support
+ *
+ * Discriminated symbol is STLSOFT_CF_final_KEYWORD_SUPPORT
+ */
+#ifdef STLSOFT_CF_final_KEYWORD_SUPPORT
+# undef STLSOFT_CF_final_KEYWORD_SUPPORT
+#endif /* STLSOFT_CF_final_KEYWORD_SUPPORT */
 
 /* mutable keyword support
  *
- * Discriminated symbol is STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+ * Discriminated symbol is STLSOFT_CF_mutable_KEYWORD_SUPPORT
  */
-#ifdef STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
-# undef STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
-#endif /* STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#ifdef STLSOFT_CF_mutable_KEYWORD_SUPPORT
+# undef STLSOFT_CF_mutable_KEYWORD_SUPPORT
+#endif /* STLSOFT_CF_mutable_KEYWORD_SUPPORT */
+
+/* noexcept keyword support
+ *
+ * Discriminated symbol is STLSOFT_CF_noexcept_KEYWORD_SUPPORT
+ */
+#ifdef STLSOFT_CF_noexcept_KEYWORD_SUPPORT
+# undef STLSOFT_CF_noexcept_KEYWORD_SUPPORT
+#endif /* STLSOFT_CF_noexcept_KEYWORD_SUPPORT */
+
+/* override keyword support
+ *
+ * Discriminated symbol is STLSOFT_CF_override_KEYWORD_SUPPORT
+ */
+#ifdef STLSOFT_CF_override_KEYWORD_SUPPORT
+# undef STLSOFT_CF_override_KEYWORD_SUPPORT
+#endif /* STLSOFT_CF_override_KEYWORD_SUPPORT */
 
 /* typename keyword support
  *

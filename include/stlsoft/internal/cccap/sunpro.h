@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for SunPro C / SunPro C++.
  *
  * Created:     24th April 2008
- * Updated:     31st October 2015
+ * Updated:     4th November 2015
  *
  * Thanks to:   Jonathan Wakely and Lars Ivar Igesund for help with
  *              getting STLSoft (and Pantheios) compatible with Solaris.
@@ -61,9 +61,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_MAJOR      1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_MINOR      0
-# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_REVISION   4
-# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_EDIT       9
+# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_MINOR      1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_REVISION   1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_SUNPRO_EDIT       10
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -342,9 +342,9 @@
 
 /* !!! Assumed. Not yet verified !!! */ #define STLSOFT_CF_PARENT_TYPES_CAN_BE_USED_IN_TEMPLATE
 
-#define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 
-#define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#define STLSOFT_CF_mutable_KEYWORD_SUPPORT
 
 /* !!! Assumed. Not yet verified !!! */ #define STLSOFT_CF_TYPENAME_PARAM_KEYWORD_SUPPORT
 

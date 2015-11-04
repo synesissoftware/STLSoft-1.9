@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     1st November 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    37
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    38
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     453
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     454
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -285,12 +285,13 @@
 # define _STLSOFT_VER_1_9_120   0x010978ff  /*!< Version 1.9.120 (9th September 2015) */
 # define _STLSOFT_VER_1_9_121   0x010979ff  /*!< Version 1.9.121 (25th September 2015) */
 # define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (1st November 2015) */
+# define _STLSOFT_VER_1_9_123   0x01097bff  /*!< Version 1.9.123 (4th November 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   122
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_122
+#define _STLSOFT_VER_REVISION   123
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_123
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -1036,15 +1037,15 @@
 # define _STLSOFT_FORCE_KEYWORD_TYPENAME
 #endif /* _STLSOFT_FORCE_ALL_KEYWORDS */
 
-#if !defined(STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT) && \
+#if !defined(STLSOFT_CF_explicit_KEYWORD_SUPPORT) && \
     defined(_STLSOFT_FORCE_KEYWORD_EXPLICIT)
-# define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
-#endif /* !STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT && _STLSOFT_FORCE_KEYWORD_EXPLICIT */
+# define STLSOFT_CF_explicit_KEYWORD_SUPPORT
+#endif /* !STLSOFT_CF_explicit_KEYWORD_SUPPORT && _STLSOFT_FORCE_KEYWORD_EXPLICIT */
 
-#if !defined(STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT) && \
+#if !defined(STLSOFT_CF_mutable_KEYWORD_SUPPORT) && \
     defined(_STLSOFT_FORCE_KEYWORD_MUTABLE)
-# define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
-#endif /* !STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT && _STLSOFT_FORCE_KEYWORD_MUTABLE */
+# define STLSOFT_CF_mutable_KEYWORD_SUPPORT
+#endif /* !STLSOFT_CF_mutable_KEYWORD_SUPPORT && _STLSOFT_FORCE_KEYWORD_MUTABLE */
 
 #if !defined(STLSOFT_CF_TYPENAME_PARAM_KEYWORD_SUPPORT) && \
     defined(_STLSOFT_FORCE_KEYWORD_TYPENAME)
@@ -2101,7 +2102,9 @@ private:
  * compatibility in the libraries' code.
  *
  * ss_explicit_k            -   explicit, or nothing
+ * ss_final_k               -   final, or nothing
  * ss_mutable_k             -   mutable, or nothing
+ * ss_noexcept_k            -   noexcept, or nothing
  * ss_override_k            -   override, or nothing
  * ss_typename_type_k       -   typename, or nothing (used within template
  *                              definitions for declaring types derived from
@@ -2122,34 +2125,56 @@ private:
  *
  * \brief Evaluates to <b>explicit</b> on translators that support the keyword, otherwise to nothing.
  */
-#if defined(STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT) || \
+#if defined(STLSOFT_CF_explicit_KEYWORD_SUPPORT) || \
     defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
 # define ss_explicit_k              explicit
-#else /* ? STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT */
+#else /* ? STLSOFT_CF_explicit_KEYWORD_SUPPORT */
 # define ss_explicit_k
-#endif /* STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT */
+#endif /* STLSOFT_CF_explicit_KEYWORD_SUPPORT */
+
+/** \def ss_final_k
+ *
+ * \brief Evaluates to <b>final</b> on translators that support the keyword, otherwise to nothing.
+ */
+#if defined(STLSOFT_CF_final_KEYWORD_SUPPORT) || \
+    defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+# define ss_final_k                 final
+#else /* ? STLSOFT_CF_final_KEYWORD_SUPPORT */
+# define ss_final_k
+#endif /* STLSOFT_CF_final_KEYWORD_SUPPORT */
 
 /** \def ss_mutable_k
  *
  * \brief Evaluates to <b>mutable</b> on translators that support the keyword, otherwise to nothing.
  */
-#if defined(STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT) || \
+#if defined(STLSOFT_CF_mutable_KEYWORD_SUPPORT) || \
     defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
 # define ss_mutable_k               mutable
-#else /* ? STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#else /* ? STLSOFT_CF_mutable_KEYWORD_SUPPORT */
 # define ss_mutable_k
-#endif /* STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#endif /* STLSOFT_CF_mutable_KEYWORD_SUPPORT */
+
+/** \def ss_noexcept_k
+ *
+ * \brief Evaluates to <b>noexcept</b> on translators that support the keyword, otherwise to nothing.
+ */
+#if defined(STLSOFT_CF_noexcept_KEYWORD_SUPPORT) || \
+    defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+# define ss_noexcept_k              noexcept
+#else /* ? STLSOFT_CF_noexcept_KEYWORD_SUPPORT */
+# define ss_noexcept_k
+#endif /* STLSOFT_CF_noexcept_KEYWORD_SUPPORT */
 
 /** \def ss_override_k
  *
  * \brief Evaluates to <b>override</b> on translators that support the keyword, otherwise to nothing.
  */
-#if defined(STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT) || \
+#if defined(STLSOFT_CF_override_KEYWORD_SUPPORT) || \
     defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
 # define ss_override_k              override
-#else /* ? STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT */
+#else /* ? STLSOFT_CF_override_KEYWORD_SUPPORT */
 # define ss_override_k
-#endif /* STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT */
+#endif /* STLSOFT_CF_override_KEYWORD_SUPPORT */
 
 /** \def ss_typename_param_k
  *
@@ -2371,6 +2396,14 @@ throw_x(
 # define stlsoft_throw_7(x1, x2, x3, x4, x5, x6, x7)
 # define stlsoft_throw_8(x1, x2, x3, x4, x5, x6, x7, x8)
 #endif /* STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT && !STLSOFT_DOCUMENTATION_SKIP_SECTION */
+
+
+#if 0
+#elif defined(STLSOFT_CF_noexcept_KEYWORD_SUPPORT)
+# define STLSOFT_NOEXCEPT                                   ss_noexcept_k
+#elif !defined(STLSOFT_NO_noexcept_AS_throw_0)
+# define STLSOFT_NOEXCEPT                                   stlsoft_throw_0()
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * Array size determination macro(s)
@@ -3095,17 +3128,17 @@ apply_const_ptr(T* t)
 /* Mutable support */
 # ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 template <ss_typename_param_k T>
-#  ifdef STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#  ifdef STLSOFT_CF_mutable_KEYWORD_SUPPORT
 inline T& mutable_access(T& t)
-#  else /* ? STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#  else /* ? STLSOFT_CF_mutable_KEYWORD_SUPPORT */
 inline T& mutable_access(T const& t)
-#  endif /* STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#  endif /* STLSOFT_CF_mutable_KEYWORD_SUPPORT */
 {
-#  ifdef STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#  ifdef STLSOFT_CF_mutable_KEYWORD_SUPPORT
     return t;
-#  else /* ? STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#  else /* ? STLSOFT_CF_mutable_KEYWORD_SUPPORT */
     return const_cast<T&>(t);
-#  endif /* STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT */
+#  endif /* STLSOFT_CF_mutable_KEYWORD_SUPPORT */
 }
 # endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 

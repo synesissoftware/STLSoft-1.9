@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for GNU C/C++.
  *
  * Created:     7th February 2003
- * Updated:     31st October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Sergey Nikulov, for PowerPC (BSD) compatibility fixes
  *
@@ -58,9 +58,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MINOR      22
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MINOR      23
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_REVISION   1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       88
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       89
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -284,14 +284,14 @@
 
 #define STLSOFT_CF_MEMBER_CONSTANT_SUPPORT
 
-#define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 
-#define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#define STLSOFT_CF_mutable_KEYWORD_SUPPORT
 
 #if __GNUC__ > 4 || \
     (   __GNUC__ == 4 && \
         __GNUC_MINOR__ >= 7)
-# define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+# define STLSOFT_CF_override_KEYWORD_SUPPORT
 #endif /* compiler */
 
 #if __GNUC__ > 3 || \

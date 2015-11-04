@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for unknown compilers.
  *
  * Created:     7th February 2003
- * Updated:     31st October 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -56,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_MINOR      16
-# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_REVISION   3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_EDIT       69
+# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_MINOR      17
+# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_REVISION   1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_UNKNOWN_EDIT       70
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -225,9 +225,9 @@
  * C++-98 keywords support
  */
 
-#define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 
-#define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#define STLSOFT_CF_mutable_KEYWORD_SUPPORT
 
 #define STLSOFT_CF_TYPENAME_PARAM_KEYWORD_SUPPORT
 

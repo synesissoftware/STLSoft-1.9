@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Borland C/C++.
  *
  * Created:     7th February 2003
- * Updated:     31st October 2015
+ * Updated:     4th November 2015
  *
  * Thanks to:   markitus82 for pointing out overlooking of support for
  *              __FUNCTION__.
@@ -59,9 +59,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MINOR      18
-# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_REVISION   3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_EDIT       85
+# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MINOR      19
+# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_REVISION   1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_EDIT       86
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -309,9 +309,9 @@
 
 /* #define STLSOFT_CF_PARENT_TYPES_CAN_BE_USED_IN_TEMPLATE */
 
-#define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#define STLSOFT_CF_explicit_KEYWORD_SUPPORT
 
-#define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#define STLSOFT_CF_mutable_KEYWORD_SUPPORT
 
 #define STLSOFT_CF_TYPENAME_PARAM_KEYWORD_SUPPORT
 

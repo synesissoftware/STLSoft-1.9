@@ -4,7 +4,7 @@
  * Purpose:     Obsolete
  *
  * Created:     11th May 2008
- * Updated:     22nd September 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -48,9 +48,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MAJOR     1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MINOR     1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_MINOR     2
 # define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_REVISION  1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_EDIT      5
+# define STLSOFT_VER_H_STLSOFT_CCCAP_OBSOLETE_EDIT      6
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -92,6 +92,29 @@
 #ifdef STLSOFT_CF_return_void_SUPPORT
 # define STLSOFT_CF_COMPILER_SUPPORTS_RETURN_VOID
 #endif /* STLSOFT_CF_return_void_SUPPORT */
+
+
+/* keywords */
+
+#ifdef STLSOFT_CF_explicit_KEYWORD_SUPPORT
+# define STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT
+#endif
+
+#ifdef STLSOFT_CF_mutable_KEYWORD_SUPPORT
+# define STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT
+#endif
+
+#ifdef STLSOFT_CF_nullptr_KEYWORD_SUPPORT
+# define STLSOFT_CF_BUILTIN_nullptr_SUPPORT
+#endif
+
+#ifdef STLSOFT_CF_override_KEYWORD_SUPPORT
+# define STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT
+#endif
+
+
+
+
 
 #ifdef STLSOFT_CF_TEMPLATE_FUNCTION_TEMPLATE_REQUIRES_TEMPLATE_PARAMETERS_IN_FUNCTION_PARAMETER_LIST
 # define STLSOFT_CF_TEMPLATE_TYPE_REQUIRED_IN_ARGS
