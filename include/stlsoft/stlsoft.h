@@ -2398,7 +2398,8 @@ throw_x(
 #endif /* STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT && !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 
-#if 0
+#if !defined(__cplusplus)
+# define STLSOFT_NOEXCEPT
 #elif defined(STLSOFT_CF_noexcept_KEYWORD_SUPPORT)
 # define STLSOFT_NOEXCEPT                                   ss_noexcept_k
 #elif !defined(STLSOFT_NO_noexcept_AS_throw_0)
