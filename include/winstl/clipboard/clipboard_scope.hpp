@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_MAJOR      2
 # define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_MINOR      0
-# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_REVISION   7
-# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_EDIT       35
+# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_REVISION   8
+# define WINSTL_VER_WINSTL_CLIPBOARD_HPP_CLIPBOARD_SCOPE_EDIT       36
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -74,6 +74,9 @@
 #ifndef STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE
 # include <stlsoft/memory/allocator_base.hpp>       // for STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT
 #endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE */
+#ifndef STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES
+# include <stlsoft/memory/allocator_features.hpp>   // for STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT
+#endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES */
 #ifndef STLSOFT_INCL_STLSOFT_STRING_HPP_CSTRING_FUNCTIONS
 # include <stlsoft/string/cstring_functions.hpp>
 #endif /* !STLSOFT_INCL_STLSOFT_STRING_HPP_CSTRING_FUNCTIONS */
@@ -294,9 +297,11 @@ private:
         ss_typename_param_k A
     ,   ss_typename_param_k T
     >
-    void set_data_or_deallocate_and_throw_(
+    void
+    set_data_or_deallocate_and_throw_(
         UINT    fmt
     ,   T*      memory
+    ,   size_t  n
     ,   A&      ator
     ) stlsoft_throw_1(clipboard_scope_exception)
     {
@@ -311,7 +316,13 @@ private:
         }
         catch(...)
         {
+#ifdef STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT
+            ator.deallocate(memory, n);
+#else /* ? STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
+            STLSOFT_SUPPRESS_UNUSED(n);
+
             ator.deallocate(memory);
+#endif /* STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
 
             throw;
         }
@@ -407,9 +418,10 @@ inline void clipboard_scope::set_data(char const* str) stlsoft_throw_1(clipboard
 #else /* ? STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
     global_allocator<char>                  ator;
 #endif /* STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
-    char*                                   memory = stlsoft_ns_qual(string_dup)(str, ator);
+    size_t                                  n;
+    char*                                   memory = stlsoft_ns_qual(string_dup)(str, ator, &n);
 
-    set_data_or_deallocate_and_throw_(CF_TEXT, memory, ator);
+    set_data_or_deallocate_and_throw_(CF_TEXT, memory, n, ator);
 }
 
 inline void clipboard_scope::set_data(char const* str, ws_size_t n) stlsoft_throw_1(clipboard_scope_exception)
@@ -421,7 +433,7 @@ inline void clipboard_scope::set_data(char const* str, ws_size_t n) stlsoft_thro
 #endif /* STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
     char*                                   memory = stlsoft_ns_qual(string_dup)(str, n, ator);
 
-    set_data_or_deallocate_and_throw_(CF_TEXT, memory, ator);
+    set_data_or_deallocate_and_throw_(CF_TEXT, memory, n, ator);
 }
 
 inline void clipboard_scope::set_data(wchar_t const* str) stlsoft_throw_1(clipboard_scope_exception)
@@ -431,9 +443,10 @@ inline void clipboard_scope::set_data(wchar_t const* str) stlsoft_throw_1(clipbo
 #else /* ? STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
     global_allocator<wchar_t>               ator;
 #endif /* STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
-    wchar_t*                                memory = stlsoft_ns_qual(string_dup)(str, ator);
+    size_t                                  n;
+    wchar_t*                                memory = stlsoft_ns_qual(string_dup)(str, ator, &n);
 
-    set_data_or_deallocate_and_throw_(CF_UNICODETEXT, memory, ator);
+    set_data_or_deallocate_and_throw_(CF_UNICODETEXT, memory, n, ator);
 }
 
 inline void clipboard_scope::set_data(wchar_t const* str, ws_size_t n) stlsoft_throw_1(clipboard_scope_exception)
@@ -445,7 +458,7 @@ inline void clipboard_scope::set_data(wchar_t const* str, ws_size_t n) stlsoft_t
 #endif /* STLSOFT_LF_ALLOCATOR_REBIND_SUPPORT */
     wchar_t*                                memory = stlsoft_ns_qual(string_dup)(str, n, ator);
 
-    set_data_or_deallocate_and_throw_(CF_UNICODETEXT, memory, ator);
+    set_data_or_deallocate_and_throw_(CF_UNICODETEXT, memory, n, ator);
 }
 
 inline void clipboard_scope::set_data(HBITMAP hBmp) stlsoft_throw_1(clipboard_scope_exception)
