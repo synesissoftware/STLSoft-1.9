@@ -4,11 +4,11 @@
  * Purpose:     Helper for accessing token information.
  *
  * Created:     20th June 2003
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,9 +49,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_MAJOR     4
-# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_MINOR     1
+# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_MINOR     2
 # define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_REVISION  1
-# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_EDIT      53
+# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_EDIT      54
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -70,6 +70,11 @@
 #ifndef WINSTL_INCL_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE
 # include <winstl/error/last_error_scope.hpp>
 #endif /* !WINSTL_INCL_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE */
+
+#ifndef STLSOFT_INCL_UTILITY
+# define STLSOFT_INCL_UTILITY
+# include <utility>
+#endif /* !STLSOFT_INCL_UTILITY */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
@@ -227,20 +232,21 @@ struct token_information_traits<static_cast<TOKEN_INFORMATION_CLASS>(TokenOrigin
  *
  * \ingroup group__library__security
  */
-template<   TOKEN_INFORMATION_CLASS C
+template<
+    TOKEN_INFORMATION_CLASS C
 #ifdef STLSOFT_CF_TEMPLATE_CLASS_DEFAULT_CLASS_ARGUMENT_SUPPORT
 # ifdef __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE
 #  pragma message(_sscomp_fileline_message("Note that we have to have data_type as a parameter, otherwise VC5&6 have a cow"))
 # endif /* __SYNSOFT_DBS_COMPILER_SUPPORTS_PRAGMA_MESSAGE */
-        ,   ss_typename_param_k     X = stlsoft_ns_qual(null_exception_policy)
-        ,   ss_typename_param_k     D = ss_typename_type_def_k token_information_traits<C>::data_type
-        ,   ss_typename_param_k     A = processheap_allocator<ss_byte_t>
+,   ss_typename_param_k     X = stlsoft_ns_qual(null_exception_policy)
+,   ss_typename_param_k     D = ss_typename_type_def_k token_information_traits<C>::data_type
+,   ss_typename_param_k     A = processheap_allocator<ss_byte_t>
 #else /* ? STLSOFT_CF_TEMPLATE_CLASS_DEFAULT_CLASS_ARGUMENT_SUPPORT */
-        ,   ss_typename_param_k     X /* = stlsoft_ns_qual(null_exception_policy) */
-        ,   ss_typename_param_k     D /* = token_information_traits<C>::data_type */
-        ,   ss_typename_param_k     A /* = processheap_allocator<ss_byte_t> */
+,   ss_typename_param_k     X /* = stlsoft_ns_qual(null_exception_policy) */
+,   ss_typename_param_k     D /* = token_information_traits<C>::data_type */
+,   ss_typename_param_k     A /* = processheap_allocator<ss_byte_t> */
 #endif /* STLSOFT_CF_TEMPLATE_CLASS_DEFAULT_CLASS_ARGUMENT_SUPPORT */
-        >
+>
 class token_information
 {
 /// \name Member Types
@@ -251,8 +257,10 @@ public:
     typedef X                                           exception_thrower_type;
     typedef D                                           data_type;
     typedef A                                           allocator_type;
-//  typedef ss_typename_type_k traits_type::data_type   data_type;
+    typedef ss_size_t                                   size_type;
 /// @}
+private:
+    typedef std::pair<void*, size_t>                    mem_block_type_;
 
 /// \name Construction
 /// @{
@@ -260,7 +268,15 @@ public:
     /// \brief Constructs an instance from the given access token
     ///
     ss_explicit_k token_information(HANDLE hToken)
-        : m_data(0)
+        : m_data(init_(hToken))
+    {}
+
+private:
+    static
+    mem_block_type_
+    init_(
+        HANDLE hToken
+    )
     {
         DWORD   cbRequired;
         DWORD   dwError;
@@ -274,7 +290,7 @@ public:
         }
         else
         {
-            data_type   *data = reinterpret_cast<data_type*>(allocator_type().allocate(cbRequired));
+            data_type* const data = reinterpret_cast<data_type*>(allocator_type().allocate(cbRequired));
 
             if(NULL == data)
             {
@@ -289,48 +305,64 @@ public:
                 if(!::GetTokenInformation(hToken, C, data, cbRequired, &cbRequired))
                 {
                     // Scope the last error, in case the client code is not using exception reporting
-                    last_error_scope    scope;
+                    last_error_scope scope;
 
+#ifdef STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT
+                    allocator_type().deallocate(reinterpret_cast<ss_byte_t*>(data), cbRequired);
+#else /* ? STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
                     allocator_type().deallocate(reinterpret_cast<ss_byte_t*>(data));
+#endif /* STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
 
                     // Report error
                     exception_thrower_type()(DWORD((scope)));
                 }
-                else
-                {
-                    // Success
-                    m_data = data;
 
-                    ::SetLastError(ERROR_SUCCESS);
-                }
+                return mem_block_type_(data, cbRequired);
             }
         }
+
+        return mem_block_type_(NULL, 0);
     }
+public:
+
     ~token_information() stlsoft_throw_0()
     {
-        allocator_type().deallocate(reinterpret_cast<ss_byte_t*>(m_data));
+#ifdef STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT
+        allocator_type().deallocate(m_data.first, m_data.second);
+#else /* ? STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
+        allocator_type().deallocate(m_data.first);
+#endif /* STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT */
     }
 /// @}
 
 /// \name Conversion
 /// @{
 public:
+    data_type* get() const
+    {
+        return static_cast<data_type*>(m_data.first);
+    }
+    size_type size() const
+    {
+        return m_data.second;
+    }
+
     operator data_type *()
     {
-        return m_data;
+        return get();
     }
     operator data_type const* () const
     {
-        return m_data;
+        return get();
     }
 
     data_type *operator ->()
     {
-        return m_data;
+        return get();
     }
     data_type const* operator ->() const
     {
-        return m_data;
+        return get();
     }
 /*
     operator ws_bool_t () const
@@ -340,7 +372,7 @@ public:
 */
     ws_bool_t operator !() const
     {
-        return 0 == m_data;
+        return 0 == m_data.second;
     }
 /// @}
 
@@ -352,7 +384,7 @@ private:
 /// \name Members
 /// @{
 private:
-    data_type   *m_data;
+    mem_block_type_ const   m_data;
 /// @}
 
 /// \name Not to be implemented
