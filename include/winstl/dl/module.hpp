@@ -4,13 +4,13 @@
  * Purpose:     Contains the module class.
  *
  * Created:     30th October 1997
- * Updated:     12th August 2010
+ * Updated:     4th November 2015
  *
  * Thanks to:   Pablo Aguilar for the idea of a template-based get_symbol().
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_DL_HPP_MODULE_MAJOR      6
 # define WINSTL_VER_WINSTL_DL_HPP_MODULE_MINOR      5
-# define WINSTL_VER_WINSTL_DL_HPP_MODULE_REVISION   1
-# define WINSTL_VER_WINSTL_DL_HPP_MODULE_EDIT       228
+# define WINSTL_VER_WINSTL_DL_HPP_MODULE_REVISION   2
+# define WINSTL_VER_WINSTL_DL_HPP_MODULE_EDIT       229
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -199,7 +199,7 @@ public:
     /// \note Both copies hold independent handles to the underlying module.
     module(class_type const& rhs);
     /// \brief Closes the module handle
-    ~module() stlsoft_throw_0();
+    ~module() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Static operations
@@ -238,7 +238,7 @@ public:
     }
 #endif /* STLSOFT_CF_MEMBER_TEMPLATE_FUNCTION_SUPPORT */
     /// \brief Closes the given module handle
-    static void                 unload(module_handle_type hmodule) stlsoft_throw_0();
+    static void                 unload(module_handle_type hmodule) STLSOFT_NOEXCEPT;
     /// \brief Looks up a named symbol from the given module.
     ///
     /// \return A pointer to the named symbol, or NULL if not found.
@@ -282,7 +282,7 @@ public:
 /// @{
 public:
     /// \brief Closes the module handle
-    void unload() stlsoft_throw_0();
+    void unload() STLSOFT_NOEXCEPT;
 
     /// \brief Yields the module handle to the caller
     module_handle_type detach();
@@ -337,7 +337,7 @@ public:
 private:
     static module_handle_type   load(ws_char_a_t const* moduleName, void (*pfn)(ws_char_a_t const*, handle_type, void*), void* param);
     static module_handle_type   load(ws_char_w_t const* moduleName, void (*pfn)(ws_char_w_t const*, handle_type, void*), void* param);
-    static void                 unload(module_handle_type hmodule, degenerate_feedback_proc_type, void* param) /* stlsoft_throw_0() */;
+    static void                 unload(module_handle_type hmodule, degenerate_feedback_proc_type, void* param) /* STLSOFT_NOEXCEPT */;
 /// @}
 
 /// \name Member Variables
@@ -475,12 +475,12 @@ inline module::module(module const& rhs)
     }
 }
 
-inline module::~module() stlsoft_throw_0()
+inline module::~module() STLSOFT_NOEXCEPT
 {
     unload();
 }
 
-inline void module::unload() stlsoft_throw_0()
+inline void module::unload() STLSOFT_NOEXCEPT
 {
     if(NULL != m_hmodule)
     {
@@ -528,7 +528,7 @@ inline /* static */ module::module_handle_type module::load(ws_char_w_t const* m
     return ::LoadLibraryW(moduleName);
 }
 
-inline /* static */ void module::unload(module::module_handle_type hmodule) stlsoft_throw_0()
+inline /* static */ void module::unload(module::module_handle_type hmodule) STLSOFT_NOEXCEPT
 {
     if(NULL != hmodule)
     {
@@ -536,7 +536,7 @@ inline /* static */ void module::unload(module::module_handle_type hmodule) stls
     }
 }
 
-inline /* static */ void module::unload(module::module_handle_type hmodule, module::degenerate_feedback_proc_type pfn, void* param) /* stlsoft_throw_0() */
+inline /* static */ void module::unload(module::module_handle_type hmodule, module::degenerate_feedback_proc_type pfn, void* param) /* STLSOFT_NOEXCEPT */
 {
     if(NULL != hmodule)
     {

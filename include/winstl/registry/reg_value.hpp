@@ -66,8 +66,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_MAJOR     3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_MINOR     5
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_REVISION  1
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_EDIT      108
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_REVISION  2
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_VALUE_EDIT      109
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -197,7 +197,7 @@ public:
     /// Copy constructor
     reg_blob(class_type const& rhs);
     /// Destructor
-    ~reg_blob() stlsoft_throw_0();
+    ~reg_blob() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
@@ -338,7 +338,7 @@ protected:
     {} // Implementation provided here, as otherwise VC5 will not link
 public:
     /// Destructor
-    ~basic_reg_value() stlsoft_throw_0();
+    ~basic_reg_value() STLSOFT_NOEXCEPT;
 
     /// Copy assignment operator
     class_type& operator =(class_type const& rhs);
@@ -464,7 +464,7 @@ inline basic_reg_value<C, T, A>::basic_reg_value(basic_reg_value<C, T, A>::hkey_
 #endif /* 0 */
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
-inline basic_reg_value<C, T, A>::~basic_reg_value() stlsoft_throw_0()
+inline basic_reg_value<C, T, A>::~basic_reg_value() STLSOFT_NOEXCEPT
 {
     if(m_hkey != NULL)
     {
@@ -858,7 +858,7 @@ inline reg_blob<A>::reg_blob(ss_typename_type_k reg_blob<A>::class_type const& r
 }
 
 template<ss_typename_param_k A>
-inline reg_blob<A>::~reg_blob() stlsoft_throw_0()
+inline reg_blob<A>::~reg_blob() STLSOFT_NOEXCEPT
 {}
 
 template<ss_typename_param_k A>

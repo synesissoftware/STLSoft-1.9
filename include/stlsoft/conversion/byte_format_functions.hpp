@@ -4,7 +4,7 @@
  * Purpose:     Byte formatting functions.
  *
  * Created:     23rd July 2006
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_MAJOR     1
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_MINOR     1
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_REVISION  1
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_EDIT      16
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_REVISION  2
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_BYTE_FORMAT_FUNCTIONS_EDIT      17
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -243,14 +243,18 @@ inline void format_hex_uint256(char buff[16], ss_byte_t const* py, bool requestU
  *   written to the buffer. Otherwise, returns a size that is guaranteed to
  *   be large enough to write the result.
  */
-inline ss_size_t format_bytes(  void const* pv
-                            ,   ss_size_t   cb
-                            ,   char*       buff
-                            ,   ss_size_t   cchBuff
-                            ,   ss_size_t   byteGrouping
-                            ,   char const* groupSeparator
-                            ,   int         groupsPerLine   =   -1
-                            ,   char const* lineSeparator   =   "\n") stlsoft_throw_0()
+inline
+ss_size_t
+format_bytes(
+    void const* pv
+,   ss_size_t   cb
+,   char*       buff
+,   ss_size_t   cchBuff
+,   ss_size_t   byteGrouping
+,   char const* groupSeparator
+,   int         groupsPerLine   =   -1
+,   char const* lineSeparator   =   "\n"
+) STLSOFT_NOEXCEPT
 /*
                             ,   int         flags           =   format::lowercase | format::highByteFirst */
 {

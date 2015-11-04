@@ -4,11 +4,11 @@
  * Purpose:     event class, based on Windows EVENT.
  *
  * Created:     3rd July 2003
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_MAJOR    4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_MINOR    3
-# define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_REVISION 2
-# define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_EDIT     60
+# define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_REVISION 3
+# define WINSTL_VER_WINSTL_SYNCH_HPP_EVENT_EDIT     61
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@ public:
         , m_bOwnHandle(true)
     {}
     /// \brief Destroys the event instance
-    ~event() stlsoft_throw_0()
+    ~event() STLSOFT_NOEXCEPT
     {
         if( NULL != m_ev &&
             m_bOwnHandle)

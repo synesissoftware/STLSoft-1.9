@@ -4,11 +4,11 @@
  * Purpose:     Contains the module class.
  *
  * Created:     30th October 1997
- * Updated:     12th August 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_MAJOR    6
 # define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_MINOR    3
-# define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_REVISION 1
-# define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_EDIT     220
+# define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_REVISION 2
+# define UNIXSTL_VER_UNIXSTL_DL_HPP_MODULE_EDIT     221
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -186,7 +186,7 @@ public:
     ///  if the handle is NULL.
     ss_explicit_k module(module_handle_type hmodule);
     /// \brief Closes the module handle
-    ~module() stlsoft_throw_0();
+    ~module() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Static operations
@@ -226,7 +226,7 @@ public:
     }
 #endif /* STLSOFT_CF_MEMBER_TEMPLATE_FUNCTION_SUPPORT */
     /// \brief Closes the given module handle
-    static void                 unload(module_handle_type hmodule) stlsoft_throw_0();
+    static void                 unload(module_handle_type hmodule) STLSOFT_NOEXCEPT;
     /// \brief Looks up the named symbol from the given module
     ///
     /// \return A pointer to the named symbol, or NULL if not found
@@ -251,7 +251,7 @@ public:
 /// @{
 public:
     /// \brief Closes the module handle
-    void unload() stlsoft_throw_0();
+    void unload() STLSOFT_NOEXCEPT;
 
     /// \brief Yields the module handle to the caller
     module_handle_type detach();
@@ -362,12 +362,12 @@ inline module::module(module::module_handle_type hmodule)
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
 }
 
-inline module::~module() stlsoft_throw_0()
+inline module::~module() STLSOFT_NOEXCEPT
 {
     unload(m_hmodule);
 }
 
-inline void module::unload() stlsoft_throw_0()
+inline void module::unload() STLSOFT_NOEXCEPT
 {
     if(NULL != m_hmodule)
     {
@@ -391,7 +391,7 @@ inline /* static */ module::module_handle_type module::load(us_char_a_t const* m
     return ::dlopen(moduleName, mode);
 }
 
-inline /* static */ void module::unload(module::module_handle_type hmodule) stlsoft_throw_0()
+inline /* static */ void module::unload(module::module_handle_type hmodule) STLSOFT_NOEXCEPT
 {
     if(NULL != hmodule)
     {

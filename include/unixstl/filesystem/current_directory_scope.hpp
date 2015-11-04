@@ -4,7 +4,7 @@
  * Purpose:     Current working directory scoping class.
  *
  * Created:     12th November 1998
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_MAJOR       5
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_MINOR       1
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_REVISION    5
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_EDIT        117
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_REVISION    6
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_CURRENT_DIRECTORY_SCOPE_EDIT        118
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -151,7 +151,7 @@ public:
     }
 #endif /* STLSOFT_CF_MEMBER_TEMPLATE_CTOR_SUPPORT */
     /// \brief Returns the current directory to its original location
-    ~basic_current_directory_scope() stlsoft_throw_0();
+    ~basic_current_directory_scope() STLSOFT_NOEXCEPT;
 
 // Attributes
 public:
@@ -380,7 +380,7 @@ inline basic_current_directory_scope<C, T>::basic_current_directory_scope(ss_typ
 template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         >
-inline basic_current_directory_scope<C, T>::~basic_current_directory_scope() stlsoft_throw_0()
+inline basic_current_directory_scope<C, T>::~basic_current_directory_scope() STLSOFT_NOEXCEPT
 {
     if('\0' != m_previous[0])
     {

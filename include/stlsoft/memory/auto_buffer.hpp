@@ -4,7 +4,7 @@
  * Purpose:     Contains the auto_buffer template class.
  *
  * Created:     19th January 2002
- * Updated:     26th August 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Magnificent Imbecil for pointing out error in
  *              documentation, and for suggesting swap() optimisation.
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MAJOR       5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MINOR       2
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    5
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        165
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    6
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        166
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -601,7 +601,7 @@ public:
 #if defined(STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT)
     ~auto_buffer()
 #else /* ? STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT */
-    ~auto_buffer() stlsoft_throw_0()
+    ~auto_buffer() STLSOFT_NOEXCEPT
 #endif /* STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT */
     {
         STLSOFT_ASSERT(is_valid());
@@ -782,7 +782,7 @@ public:
     /// costs of exchanging the memory
     ///
     /// \note Exception-safety: Provides the no-throw guarantee
-    void swap(class_type& rhs) stlsoft_throw_0()
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT
     {
         STLSOFT_ASSERT(is_valid());
 

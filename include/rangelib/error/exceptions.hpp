@@ -4,11 +4,11 @@
  * Purpose:     Range exceptions.
  *
  * Created:     30th December 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_MAJOR     2
 # define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_MINOR     0
-# define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_REVISION  2
-# define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_EDIT      17
+# define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_REVISION  3
+# define RANGELIB_VER_RANGELIB_ERROR_HPP_EXCEPTIONS_EDIT      18
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -148,14 +148,14 @@ public:
     /// \note This does not do have any implementation, but is required to placate
     /// the Comeau and GCC compilers, which otherwise complain about mismatched
     /// exception specifications between this class and its parent
-    virtual ~range_exception() stlsoft_throw_0()
+    virtual ~range_exception() STLSOFT_NOEXCEPT
     {}
 /// @}
 
 /// \name Accessors
 /// @{
 public:
-    virtual char const* what() const stlsoft_throw_0()
+    virtual char const* what() const STLSOFT_NOEXCEPT
     {
         return m_reason.empty() ? this->real_what_() : m_reason.c_str();
     }
@@ -207,7 +207,7 @@ public:
     /// \note This does not do have any implementation, but is required to placate
     /// the Comeau and GCC compilers, which otherwise complain about mismatched
     /// exception specifications between this class and its parent
-    virtual ~empty_range_exception() stlsoft_throw_0()
+    virtual ~empty_range_exception() STLSOFT_NOEXCEPT
     {}
 /// @}
 

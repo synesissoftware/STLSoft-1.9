@@ -5,14 +5,14 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     19th January 2002
- * Updated:     2nd September 2014
+ * Updated:     4th November 2015
  *
  * Thanks:      To Sam Fisher for spotting the defect in the set_value_()
  *              overload for REG_MULTI_SZ values (widestring only).
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MAJOR       3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MINOR       9
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    11
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        138
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    12
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        139
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -347,7 +347,7 @@ public:
     ///
     /// Releases any resources allocated by the instance, including closing the
     /// underlying registry key.
-    ~basic_reg_key() stlsoft_throw_0();
+    ~basic_reg_key() STLSOFT_NOEXCEPT;
 
     /// Copy assignment operator
     class_type& operator =(class_type const& rhs);
@@ -808,7 +808,7 @@ public:
     ///
     /// \param rhs The parameter whose contents will be swapped.
      */
-    void    swap(class_type& rhs) stlsoft_throw_0();
+    void    swap(class_type& rhs) STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Members
@@ -999,7 +999,7 @@ inline basic_reg_key<C, T, A>::basic_reg_key(class_type const& rhs, REGSAM acces
 {}
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
-inline basic_reg_key<C, T, A>::~basic_reg_key() stlsoft_throw_0()
+inline basic_reg_key<C, T, A>::~basic_reg_key() STLSOFT_NOEXCEPT
 {
     if(m_hkey != NULL)
     {
@@ -1008,7 +1008,7 @@ inline basic_reg_key<C, T, A>::~basic_reg_key() stlsoft_throw_0()
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
-inline void basic_reg_key<C, T, A>::swap(ss_typename_type_k basic_reg_key<C, T, A>::class_type& rhs) stlsoft_throw_0()
+inline void basic_reg_key<C, T, A>::swap(ss_typename_type_k basic_reg_key<C, T, A>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     std_swap(m_name,        rhs.m_name);
     std_swap(m_hkey,        rhs.m_hkey);

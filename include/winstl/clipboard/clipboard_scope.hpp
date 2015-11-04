@@ -206,7 +206,7 @@ public:
     ///  May be NULL, in which case the current thread owns the clipboard.
     ss_explicit_k clipboard_scope(HWND hwndOwner = NULL) stlsoft_throw_1(clipboard_scope_exception);
     /// \brief Gives up ownership of the clipboard.
-    ~clipboard_scope() stlsoft_throw_0();
+    ~clipboard_scope() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
@@ -365,7 +365,7 @@ inline clipboard_scope::clipboard_scope(HWND hwndOwner /* = NULL */) stlsoft_thr
     }
 }
 
-inline clipboard_scope::~clipboard_scope() stlsoft_throw_0()
+inline clipboard_scope::~clipboard_scope() STLSOFT_NOEXCEPT
 {
     ::CloseClipboard();
 }

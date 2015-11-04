@@ -4,7 +4,7 @@
  * Purpose:     Intra-process mutex, based on spin waits.
  *
  * Created:     27th August 1997
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Rupert Kittinger, for pointing out that prior
  *              implementation that always yielded was not really "spinning".
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_MAJOR       4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_MINOR       2
-# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_REVISION    1
-# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_EDIT        58
+# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_REVISION    2
+# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_EDIT        59
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -156,7 +156,7 @@ public:
     ///  which case an internal member is used for the counter variable.
     ///
     /// \note
-    ss_explicit_k spin_mutex_base(atomic_int_type* p = NULL) stlsoft_throw_0()
+    ss_explicit_k spin_mutex_base(atomic_int_type* p = NULL) STLSOFT_NOEXCEPT
         : m_spinCount((NULL != p) ? p : &m_internalCount)
         , m_internalCount(0)
 #ifdef STLSOFT_SPINMUTEX_COUNT_LOCKS
@@ -170,7 +170,7 @@ public:
     /// \param p Pointer to an external counter variable. May be NULL, in
     ///  which case an internal member is used for the counter variable.
     /// \param bYieldOnSpin
-    spin_mutex_base(atomic_int_type* p, bool_type bYieldOnSpin) stlsoft_throw_0()
+    spin_mutex_base(atomic_int_type* p, bool_type bYieldOnSpin) STLSOFT_NOEXCEPT
         : m_spinCount((NULL != p) ? p : &m_internalCount)
         , m_internalCount(0)
 #ifdef STLSOFT_SPINMUTEX_COUNT_LOCKS
@@ -180,7 +180,7 @@ public:
         , m_bYieldOnSpin(bYieldOnSpin)
     {}
     /// Destroys an instance of the mutex
-    ~spin_mutex_base() stlsoft_throw_0()
+    ~spin_mutex_base() STLSOFT_NOEXCEPT
     {
 #ifdef STLSOFT_SPINMUTEX_COUNT_LOCKS
         WINSTL_ASSERT(0 == m_cLocks);
@@ -192,7 +192,7 @@ public:
 /// @{
 public:
     /// \brief Acquires a lock on the mutex, pending the thread until the lock is aquired
-    void lock() stlsoft_throw_0()
+    void lock() STLSOFT_NOEXCEPT
     {
 #ifdef WINSTL_SPINMUTEX_CHECK_INIT
         // If the dynamic initialisation phase has been skipped, the
@@ -226,7 +226,7 @@ public:
 #endif // STLSOFT_SPINMUTEX_COUNT_LOCKS
     }
     /// \brief Releases an aquired lock on the mutex
-    void unlock() stlsoft_throw_0()
+    void unlock() STLSOFT_NOEXCEPT
     {
 #ifdef STLSOFT_SPINMUTEX_COUNT_LOCKS
         WINSTL_ASSERT(0 != m_cLocks--);

@@ -4,11 +4,11 @@
  * Purpose:     Interface management helper classes.
  *
  * Created:     2nd November 1994
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_MAJOR      7
 # define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_MINOR      2
-# define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_REVISION   2
-# define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_EDIT       498
+# define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_REVISION   3
+# define COMSTL_VER_COMSTL_SMARTPTR_HPP_INTERFACE_PTR_EDIT       499
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ public:
      interface_ptr(pointer p, cs_bool_t bAddRef);
      interface_ptr(reference r, cs_bool_t bAddRef);
      interface_ptr(class_type const& rhs);
-    ~interface_ptr() stlsoft_throw_0();
+    ~interface_ptr() STLSOFT_NOEXCEPT;
 
     class_type& operator =(class_type const& rhs);
 /// @}
@@ -263,7 +263,7 @@ inline void interface_ptr<T>::release(cs_bool_t bDecRef /* = true */)
 }
 
 template <ss_typename_param_k T>
-inline interface_ptr<T>::~interface_ptr() stlsoft_throw_0()
+inline interface_ptr<T>::~interface_ptr() STLSOFT_NOEXCEPT
 {
     release();
 }

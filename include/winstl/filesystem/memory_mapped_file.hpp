@@ -4,14 +4,14 @@
  * Purpose:     Memory mapped file class.
  *
  * Created:     15th December 1996
- * Updated:     5th June 2011
+ * Updated:     4th November 2015
  *
  * Thanks:      To Pablo Aguilar for requesting multibyte / wide string
  *              ambivalence. To Joe Mariadassou for requesting swap().
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_MAJOR     4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_MINOR     11
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_REVISION  5
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_EDIT      105
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_REVISION  6
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_MEMORY_MAPPED_FILE_EDIT      106
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -520,7 +520,7 @@ public:
     }
 
     /// Closes the view on the mapped file
-    ~memory_mapped_file() stlsoft_throw_0()
+    ~memory_mapped_file() STLSOFT_NOEXCEPT
     {
         WINSTL_ASSERT(is_valid());
 
@@ -531,7 +531,7 @@ public:
     }
 
     /// Swaps the state of this instance with another
-    void swap(class_type& rhs) stlsoft_throw_0()
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT
     {
         WINSTL_ASSERT(is_valid());
 

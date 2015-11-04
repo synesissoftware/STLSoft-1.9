@@ -4,11 +4,11 @@
  * Purpose:     Event handler class for custom event notifications.
  *
  * Created:     1st October 2004
- * Updated:     12th January 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_MAJOR     2
 # define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_MINOR     1
-# define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_REVISION  4
-# define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_EDIT      22
+# define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_REVISION  5
+# define ACESTL_VER_ACESTL_REACTOR_HPP_CUSTOM_EVENT_HANDLER_EDIT      23
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -322,7 +322,7 @@ protected:
                                     ,   int             priority    =   ACE_Event_Handler::LO_PRIORITY);
 public:
     /// Destructor
-    virtual ~custom_event_handler() stlsoft_throw_0();
+    virtual ~custom_event_handler() STLSOFT_NOEXCEPT;
 
 /// \name Operations
 /// @{
@@ -564,7 +564,7 @@ private:
         {
             ACESTL_MESSAGE_ASSERT("reactor may not be null", NULL != reactor);
         }
-        ~callback_hook() stlsoft_throw_0()
+        ~callback_hook() STLSOFT_NOEXCEPT
         {
             reactor()->remove_handler(this, ACE_Event_Handler::ALL_EVENTS_MASK | ACE_Event_Handler::DONT_CALL);
         }
@@ -691,7 +691,7 @@ inline custom_event_handler::custom_event_handler(  ACE_Reactor*    reactor    /
     ACESTL_MESSAGE_ASSERT("invariant violation", is_valid());
 }
 
-inline custom_event_handler::~custom_event_handler() stlsoft_throw_0()
+inline custom_event_handler::~custom_event_handler() STLSOFT_NOEXCEPT
 {
     ACESTL_MESSAGE_ASSERT("invariant violation", is_valid());
 

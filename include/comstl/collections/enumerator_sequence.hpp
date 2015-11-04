@@ -4,7 +4,7 @@
  * Purpose:     STL sequence for IEnumXXXX enumerator interfaces.
  *
  * Created:     17th September 1998
- * Updated:     3rd February 2012
+ * Updated:     4th November 2015
  *
  * Thanks:      To Eduardo Bezerra and Vivi Orunitia for reporting
  *              incompatibilities with Borland's 5.82 (Turbo C++). The awful
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_MAJOR    6
 # define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_MINOR    1
-# define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_REVISION 4
-# define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_EDIT     251
+# define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_REVISION 5
+# define COMSTL_VER_COMSTL_COLLECTIONS_HPP_ENUMERATOR_SEQUENCE_EDIT     252
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -314,7 +314,7 @@ public:
         COMSTL_ASSERT(is_valid());
     }
     /// \brief Releases the adapted interface pointer
-    ~enumerator_sequence() stlsoft_throw_0()
+    ~enumerator_sequence() STLSOFT_NOEXCEPT
     {
         COMSTL_ASSERT(is_valid());
 
@@ -432,7 +432,7 @@ public:
                 COMSTL_ASSERT(is_valid());
             }
 
-            ~enumeration_context() stlsoft_throw_0()
+            ~enumeration_context() STLSOFT_NOEXCEPT
             {
                 ++m_refCount;
                 COMSTL_ASSERT(is_valid());
@@ -524,7 +524,7 @@ public:
         /// \name Iteration
         /// @{
         public:
-            void advance() stlsoft_throw_0()
+            void advance() STLSOFT_NOEXCEPT
             {
                 COMSTL_ASSERT(NULL != m_enumerator);
 
@@ -563,19 +563,19 @@ public:
                 }
             }
 
-            value_type &current() stlsoft_throw_0()
+            value_type &current() STLSOFT_NOEXCEPT
             {
                 COMSTL_ASSERT(!empty());
 
                 return m_values[m_current];
             }
 
-            size_type index() const stlsoft_throw_0()
+            size_type index() const STLSOFT_NOEXCEPT
             {
                 return m_previousBlockTotal + m_current;
             }
 
-            bool empty() const stlsoft_throw_0()
+            bool empty() const STLSOFT_NOEXCEPT
             {
                 return 0 == m_acquired /* && NULL == m_enumerator */;
             }
@@ -648,7 +648,7 @@ public:
         /// \name Implementation
         /// @{
         private:
-            void acquire_next_() stlsoft_throw_0()
+            void acquire_next_() STLSOFT_NOEXCEPT
             {
 //              COMSTL_ASSERT(0 == m_acquired);
                 COMSTL_ASSERT(0 == m_current);
@@ -665,7 +665,7 @@ public:
                 // only reliable guide when marshalling anyway
             }
 
-            void clear_elements_() stlsoft_throw_0()
+            void clear_elements_() STLSOFT_NOEXCEPT
             {
                 COMSTL_ASSERT(m_acquired <= STLSOFT_NUM_ELEMENTS(m_values));
 
@@ -674,7 +674,7 @@ public:
                 comstl_ns_qual_std(for_each)(&m_values[0], &m_values[0] + m_acquired, clear_t());
             }
 
-            void init_elements_(size_type n) stlsoft_throw_0()
+            void init_elements_(size_type n) STLSOFT_NOEXCEPT
             {
                 COMSTL_ASSERT(n <= STLSOFT_NUM_ELEMENTS(m_values));
 
@@ -731,7 +731,7 @@ public:
         }
 
         /// \brief Releases any internal storage
-        ~iterator() stlsoft_throw_0()
+        ~iterator() STLSOFT_NOEXCEPT
         {
             COMSTL_ASSERT(is_valid());
 

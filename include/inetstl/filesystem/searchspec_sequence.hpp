@@ -15,11 +15,11 @@
  *              2003 issue of Windows Developer Network (http://windevnet.com).
  *
  * Created:     1st May 2004
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -62,8 +62,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_MAJOR      5
 # define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_MINOR      1
-# define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_REVISION   5
-# define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_EDIT       55
+# define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_REVISION   6
+# define STLSOFT_VER_INETSTL_FILESYSTEM_HPP_SEARCHSPEC_SEQUENCE_EDIT       56
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -338,7 +338,7 @@ protected:
 #else /* ? STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
 private:
 #endif /* STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
-        ~search_state() stlsoft_throw_0()
+        ~search_state() STLSOFT_NOEXCEPT
         {
             delete m_entries;
         }
@@ -364,7 +364,7 @@ public:
             : m_searchState(NULL)
         {}
         /// Destructor
-        ~const_iterator() stlsoft_throw_0()
+        ~const_iterator() STLSOFT_NOEXCEPT
         {
             if(NULL != m_searchState)
             {

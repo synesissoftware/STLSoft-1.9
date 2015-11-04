@@ -5,11 +5,11 @@
  *              classes.
  *
  * Created:     1st November 1994
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_MAJOR       5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_MINOR       1
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_REVISION    2
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_EDIT        72
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_REVISION    3
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_DESTRUCTOR_EDIT        73
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -231,7 +231,7 @@ public:
         : m_value(rhs.m_value)
     {}
     /// Destroys the managed instance
-    ~auto_destructor() stlsoft_throw_0()
+    ~auto_destructor() STLSOFT_NOEXCEPT
     {
         delete m_value;
     }
@@ -350,7 +350,7 @@ public:
         : m_value(rhs.m_value)
     {}
     /// Destroys the managed array
-    ~auto_array_destructor() stlsoft_throw_0()
+    ~auto_array_destructor() STLSOFT_NOEXCEPT
     {
         delete [] m_value;
     }
@@ -462,7 +462,7 @@ public:
         : m_value(rhs.m_value)
     {}
     /// Destroys the managed instance
-    ~return_value_destructor() stlsoft_throw_0()
+    ~return_value_destructor() STLSOFT_NOEXCEPT
     {
         // This fires a report if value is non-zero, which indicates that
         // the return value had not been used. This is arguably ok since this
@@ -567,7 +567,7 @@ public:
         : m_value(rhs.m_value)
     {}
     /// Destroys the managed array
-    ~return_value_array_destructor() stlsoft_throw_0()
+    ~return_value_array_destructor() STLSOFT_NOEXCEPT
     {
         // This fires a report if value is non-zero, which indicates that
         // the return value had not been used. This is arguably ok since this

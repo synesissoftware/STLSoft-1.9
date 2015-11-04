@@ -5,11 +5,11 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     30th April 1999
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MAJOR    3
 # define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MINOR    0
-# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION 11
-# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT     139
+# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION 12
+# define INETSTL_VER_INETSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT     140
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -253,7 +253,7 @@ public:
                         ,   char_type           delim
                         ,   flags_type          flags = directories | files);
     /// Destructor
-    ~basic_findfile_sequence() stlsoft_throw_0();
+    ~basic_findfile_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -571,7 +571,7 @@ private:
 # else /* ? STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
     private:
 # endif /* STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
-        ~shared_handle() stlsoft_throw_0()
+        ~shared_handle() STLSOFT_NOEXCEPT
         {
             INETSTL_MESSAGE_ASSERT("Shared search handle being destroyed with outstanding references!", 0 == m_refCount);
 
@@ -629,7 +629,7 @@ public:
     /// <a href = "http://synesis.com.au/resources/articles/cpp/movectors.pdf">Move constructor</a>
     basic_findfile_sequence_const_input_iterator(class_type const& rhs);
     /// Destructor
-    ~basic_findfile_sequence_const_input_iterator() stlsoft_throw_0();
+    ~basic_findfile_sequence_const_input_iterator() STLSOFT_NOEXCEPT;
 
     // Copy assignment operator
     basic_findfile_sequence_const_input_iterator& operator =(class_type const& rhs);
@@ -994,7 +994,7 @@ inline basic_findfile_sequence<C, T, X>::basic_findfile_sequence(
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k X>
-inline basic_findfile_sequence<C, T, X>::~basic_findfile_sequence() stlsoft_throw_0()
+inline basic_findfile_sequence<C, T, X>::~basic_findfile_sequence() STLSOFT_NOEXCEPT
 {
     INETSTL_ASSERT(is_valid());
 }
@@ -1318,7 +1318,7 @@ inline basic_findfile_sequence_const_input_iterator<C, T, X, V> &basic_findfile_
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k X, ss_typename_param_k V>
-inline basic_findfile_sequence_const_input_iterator<C, T, X, V>::~basic_findfile_sequence_const_input_iterator() stlsoft_throw_0()
+inline basic_findfile_sequence_const_input_iterator<C, T, X, V>::~basic_findfile_sequence_const_input_iterator() STLSOFT_NOEXCEPT
 {
     if(NULL != m_handle)
     {

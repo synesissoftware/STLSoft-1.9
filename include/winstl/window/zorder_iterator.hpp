@@ -4,11 +4,11 @@
  * Purpose:     Z-order iteration.
  *
  * Created:     11th July 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_MAJOR     2
 # define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_MINOR     0
-# define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_REVISION  3
-# define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_EDIT      40
+# define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_REVISION  4
+# define WINSTL_VER_WINSTL_WINDOW_HPP_ZORDER_ITERATOR_EDIT      41
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -206,7 +206,7 @@ private:
     zorder_iterator_tmpl(HWND hwndRoot, HWND hwndCurrent);
 public:
     zorder_iterator_tmpl();
-    ~zorder_iterator_tmpl() stlsoft_throw_0();
+    ~zorder_iterator_tmpl() STLSOFT_NOEXCEPT;
 
     class_type& operator =(class_type const&);
 
@@ -329,7 +329,7 @@ inline zorder_iterator_tmpl<T>::zorder_iterator_tmpl(HWND hwndRoot, HWND hwndCur
 {}
 
 template <ss_typename_param_k T>
-inline zorder_iterator_tmpl<T>::~zorder_iterator_tmpl() stlsoft_throw_0()
+inline zorder_iterator_tmpl<T>::~zorder_iterator_tmpl() STLSOFT_NOEXCEPT
 {}
 
 template <ss_typename_param_k T>

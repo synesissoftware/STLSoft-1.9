@@ -5,11 +5,11 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     12th July 2002
- * Updated:     12th August 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_MAJOR    4
 # define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_MINOR    2
-# define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_REVISION 4
-# define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_EDIT     97
+# define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_REVISION 5
+# define WINSTL_VER_SYSTEM_HPP_SEARCHPATH_SEQUENCE_EDIT     98
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -194,7 +194,7 @@ public:
     ,   ws_bool_t bApplicationDirectoryFirst = true
     );
     /// Releases any resources
-    ~basic_searchpath_sequence() stlsoft_throw_0();
+    ~basic_searchpath_sequence() STLSOFT_NOEXCEPT;
 
 // Iteration
 public:
@@ -647,7 +647,7 @@ inline void basic_searchpath_sequence<C, T>::construct_(
 template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         >
-inline basic_searchpath_sequence<C, T>::~basic_searchpath_sequence() stlsoft_throw_0()
+inline basic_searchpath_sequence<C, T>::~basic_searchpath_sequence() STLSOFT_NOEXCEPT
 {}
 
 template<   ss_typename_param_k C

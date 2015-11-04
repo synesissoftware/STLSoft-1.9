@@ -4,11 +4,11 @@
  * Purpose:     COM-related exception classes, and their policy classes
  *
  * Created:     8th December 2004
- * Updated:     7th March 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_MAJOR       2
 # define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_MINOR       2
-# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_REVISION    1
-# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_EDIT        44
+# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_REVISION    2
+# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_EDIT        45
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -146,14 +146,14 @@ public:
     /// \note This does not do have any implementation, but is required to placate
     /// the Comeau and GCC compilers, which otherwise complain about mismatched
     /// exception specifications between this class and its parent
-    virtual ~com_exception() stlsoft_throw_0()
+    virtual ~com_exception() STLSOFT_NOEXCEPT
     {}
 /// @}
 
 /// \name Accessors
 /// @{
 public:
-    virtual char const* what() const stlsoft_throw_0()
+    virtual char const* what() const STLSOFT_NOEXCEPT
     {
         return m_reason.empty() ? this->real_what_(): m_reason.c_str();
     }
@@ -224,7 +224,7 @@ public:
     /// \note This does not do have any implementation, but is required to placate
     /// the Comeau and GCC compilers, which otherwise complain about mismatched
     /// exception specifications between this class and its parent
-    virtual ~variant_type_exception() stlsoft_throw_0()
+    virtual ~variant_type_exception() STLSOFT_NOEXCEPT
     {}
 /// @}
 

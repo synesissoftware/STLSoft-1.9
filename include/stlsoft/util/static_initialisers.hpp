@@ -4,11 +4,11 @@
  * Purpose:     Initialiser classes for the STLSoft libraries.
  *
  * Created:     17th February 1997
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_MAJOR     4
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_MINOR     0
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_EDIT      217
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_REVISION  2
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_STATIC_INITIALISERS_EDIT      218
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -134,12 +134,12 @@ private:
 
 #ifndef new
 # ifdef STLSOFT_COMPILER_IS_COMO
-    void *operator new(ss_size_t) stlsoft_throw_0()
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT
     {
         return 0;
     }
 # else /* ? compiler */
-    void *operator new(ss_size_t) stlsoft_throw_0();
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT;
 # endif /* compiler */
 #endif /* !new */
     void operator delete(void*)
@@ -165,7 +165,7 @@ public:
             (*pfnInit)();
         }
     }
-    ~api_constructor() stlsoft_throw_0()
+    ~api_constructor() STLSOFT_NOEXCEPT
     {
         if(NULL != m_pfnUninit)
         {
@@ -188,12 +188,12 @@ private:
 
 #ifndef new
 # ifdef STLSOFT_COMPILER_IS_COMO
-    void *operator new(ss_size_t) stlsoft_throw_0()
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT
     {
         return 0;
     }
 # else /* ? compiler */
-    void *operator new(ss_size_t) stlsoft_throw_0();
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT;
 # endif /* compiler */
 #endif /* !new */
     void operator delete(void*)
@@ -239,12 +239,12 @@ private:
 
 #ifndef new
 # ifdef STLSOFT_COMPILER_IS_COMO
-    void *operator new(ss_size_t) stlsoft_throw_0()
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT
     {
         return 0;
     }
 # else /* ? compiler */
-    void *operator new(ss_size_t) stlsoft_throw_0();
+    void *operator new(ss_size_t) STLSOFT_NOEXCEPT;
 # endif /* compiler */
 #endif /* !new */
     void operator delete(void*)

@@ -5,7 +5,7 @@
  *              fixed_array_4d template classes.
  *
  * Created:     4th August 1998
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Thanks to:   Neal Becker for suggesting the uninitialised mode,
  *              requesting the function call operator, and for requesting
@@ -16,7 +16,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,8 +61,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_MAJOR      4
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_MINOR      9
-# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_REVISION   5
-# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_EDIT       191
+# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_REVISION   6
+# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FIXED_ARRAY_EDIT       192
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -254,11 +254,11 @@ public:
                   fixed_array_1d(index_type d0, value_type const& t);
                   fixed_array_1d(index_type d0, value_type const& t, allocator_type const& ator);
                   fixed_array_1d(class_type const& rhs);
-                 ~fixed_array_1d() stlsoft_throw_0();
+                 ~fixed_array_1d() STLSOFT_NOEXCEPT;
 
     allocator_type  get_allocator() const;
 
-    void          swap(class_type& rhs) stlsoft_throw_0();
+    void          swap(class_type& rhs) STLSOFT_NOEXCEPT;
 
 // Access
 public:
@@ -414,11 +414,11 @@ public:
     fixed_array_2d(index_type d0, index_type d1, value_type const& t);
     fixed_array_2d(index_type d0, index_type d1, value_type const& t, allocator_type const& ator);
     fixed_array_2d(class_type const& rhs);
-    ~fixed_array_2d() stlsoft_throw_0();
+    ~fixed_array_2d() STLSOFT_NOEXCEPT;
 
     allocator_type  get_allocator() const;
 
-    void swap(class_type& rhs) stlsoft_throw_0();
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT;
 
 // Access
 public:
@@ -580,11 +580,11 @@ public:
     fixed_array_3d(index_type d0, index_type d1, index_type d2, value_type const& t);
     fixed_array_3d(index_type d0, index_type d1, index_type d2, value_type const& t, allocator_type const& ator);
     fixed_array_3d(class_type const& rhs);
-    ~fixed_array_3d() stlsoft_throw_0();
+    ~fixed_array_3d() STLSOFT_NOEXCEPT;
 
     allocator_type  get_allocator() const;
 
-    void swap(class_type& rhs) stlsoft_throw_0();
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT;
 
 // Access
 public:
@@ -746,11 +746,11 @@ public:
     fixed_array_4d(index_type d0, index_type d1, index_type d2, index_type d3, value_type const& t);
     fixed_array_4d(index_type d0, index_type d1, index_type d2, index_type d3, value_type const& t, allocator_type const& ator);
     fixed_array_4d(class_type const& rhs);
-    ~fixed_array_4d() stlsoft_throw_0();
+    ~fixed_array_4d() STLSOFT_NOEXCEPT;
 
     allocator_type  get_allocator() const;
 
-    void swap(class_type& rhs) stlsoft_throw_0();
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT;
 
 // Access
 public:
@@ -971,7 +971,7 @@ inline fixed_array_1d<T, A, P, R>::fixed_array_1d(fixed_array_1d<T, A, P, R> con
 #endif /* STLSOFT_MULTIDIM_ARRAY_FEATURE_REQUIRES_COPY_CTOR_WITH_RVO */
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline fixed_array_1d<T, A, P, R>::~fixed_array_1d() stlsoft_throw_0()
+inline fixed_array_1d<T, A, P, R>::~fixed_array_1d() STLSOFT_NOEXCEPT
 {
     if(R)
     {
@@ -987,7 +987,7 @@ inline ss_typename_type_k fixed_array_1d<T, A, P, R>::allocator_type fixed_array
 }
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline void fixed_array_1d<T, A, P, R>::swap(ss_typename_type_k fixed_array_1d<T, A, P, R>::class_type& rhs) stlsoft_throw_0()
+inline void fixed_array_1d<T, A, P, R>::swap(ss_typename_type_k fixed_array_1d<T, A, P, R>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     // We don't need to do any construct and swap here, because all the
     // variables that are being swapped are simple types (integers and
@@ -1333,7 +1333,7 @@ inline fixed_array_2d<T, A, P, R>::fixed_array_2d(fixed_array_2d<T, A, P, R> con
 #endif /* STLSOFT_MULTIDIM_ARRAY_FEATURE_REQUIRES_COPY_CTOR_WITH_RVO */
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline fixed_array_2d<T, A, P, R>::~fixed_array_2d() stlsoft_throw_0()
+inline fixed_array_2d<T, A, P, R>::~fixed_array_2d() STLSOFT_NOEXCEPT
 {
     if(R)
     {
@@ -1349,7 +1349,7 @@ inline ss_typename_type_k fixed_array_2d<T, A, P, R>::allocator_type fixed_array
 }
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline void fixed_array_2d<T, A, P, R>::swap(ss_typename_type_k fixed_array_2d<T, A, P, R>::class_type& rhs) stlsoft_throw_0()
+inline void fixed_array_2d<T, A, P, R>::swap(ss_typename_type_k fixed_array_2d<T, A, P, R>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     // We don't need to do any construct and swap here, because all the
     // variables that are being swapped are simple types (integers and
@@ -1727,7 +1727,7 @@ inline fixed_array_3d<T, A, P, R>::fixed_array_3d(fixed_array_3d<T, A, P, R> con
 #endif /* STLSOFT_MULTIDIM_ARRAY_FEATURE_REQUIRES_COPY_CTOR_WITH_RVO */
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline fixed_array_3d<T, A, P, R>::~fixed_array_3d() stlsoft_throw_0()
+inline fixed_array_3d<T, A, P, R>::~fixed_array_3d() STLSOFT_NOEXCEPT
 {
     if(R)
     {
@@ -1743,7 +1743,7 @@ inline ss_typename_type_k fixed_array_3d<T, A, P, R>::allocator_type fixed_array
 }
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline void fixed_array_3d<T, A, P, R>::swap(ss_typename_type_k fixed_array_3d<T, A, P, R>::class_type& rhs) stlsoft_throw_0()
+inline void fixed_array_3d<T, A, P, R>::swap(ss_typename_type_k fixed_array_3d<T, A, P, R>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     // We don't need to do any construct and swap here, because all the
     // variables that are being swapped are simple types (integers and
@@ -2133,7 +2133,7 @@ inline fixed_array_4d<T, A, P, R>::fixed_array_4d(fixed_array_4d<T, A, P, R> con
 #endif /* STLSOFT_MULTIDIM_ARRAY_FEATURE_REQUIRES_COPY_CTOR_WITH_RVO */
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline fixed_array_4d<T, A, P, R>::~fixed_array_4d() stlsoft_throw_0()
+inline fixed_array_4d<T, A, P, R>::~fixed_array_4d() STLSOFT_NOEXCEPT
 {
     if(R)
     {
@@ -2149,7 +2149,7 @@ inline ss_typename_type_k fixed_array_4d<T, A, P, R>::allocator_type fixed_array
 }
 
 template <ss_typename_param_k T, ss_typename_param_k A, ss_typename_param_k P, ss_bool_t R>
-inline void fixed_array_4d<T, A, P, R>::swap(ss_typename_type_k fixed_array_4d<T, A, P, R>::class_type& rhs) stlsoft_throw_0()
+inline void fixed_array_4d<T, A, P, R>::swap(ss_typename_type_k fixed_array_4d<T, A, P, R>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     // We don't need to do any construct and swap here, because all the
     // variables that are being swapped are simple types (integers and

@@ -4,7 +4,7 @@
  * Purpose:     basic_static_string class template.
  *
  * Created:     11th June 1994
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Cláudio Albuquerque for supplying the pop_back() member.
  *
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MAJOR    4
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_MINOR    4
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_REVISION 1
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     200
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_REVISION 2
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STATIC_STRING_EDIT     201
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -259,7 +259,7 @@ public:
     }
 #endif /* STLSOFT_CF_MEMBER_TEMPLATE_RANGE_METHOD_SUPPORT */
     /// Destructor
-    ~basic_static_string() stlsoft_throw_0();
+    ~basic_static_string() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Assignment
@@ -1146,7 +1146,7 @@ template<   ss_typename_param_k C
         ,   ss_size_t           CCH
         ,   ss_typename_param_k T
         >
-inline basic_static_string<C, CCH, T>::~basic_static_string() stlsoft_throw_0()
+inline basic_static_string<C, CCH, T>::~basic_static_string() STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 }

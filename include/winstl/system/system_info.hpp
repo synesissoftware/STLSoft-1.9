@@ -6,11 +6,11 @@
  *              page size.
  *
  * Created:     7th February 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_MAJOR     4
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_MINOR     0
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_REVISION  2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_EDIT      57
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_REVISION  3
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_INFO_EDIT      58
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -110,7 +110,7 @@ public:
 // Construction
 private:
     system_info();
-    ~system_info() stlsoft_throw_0();
+    ~system_info() STLSOFT_NOEXCEPT;
 
 // Operations
 public:

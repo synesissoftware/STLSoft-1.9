@@ -4,11 +4,11 @@
  * Purpose:     Exception throwing policy classes.
  *
  * Created:     19th January 2002
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * Copyright (c) 2006, Pablo Aguilar
  * All rights reserved.
  *
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_MAJOR     5
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_MINOR     0
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_REVISION  2
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_EDIT      51
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_REVISION  3
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_EDIT      52
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -117,7 +117,7 @@ public:
 #ifdef STLSOFT_CF_MEMBER_TEMPLATE_FUNCTION_SUPPORT
     /// Function call operator, taking one parameter
     template <ss_typename_param_k T>
-    void operator ()(T const& /* t */) const stlsoft_throw_0()
+    void operator ()(T const& /* t */) const STLSOFT_NOEXCEPT
     {
         // Do nothing
     }
@@ -125,7 +125,7 @@ public:
     template<   ss_typename_param_k T1
             ,   ss_typename_param_k T2
             >
-    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */) const stlsoft_throw_0()
+    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */) const STLSOFT_NOEXCEPT
     {
         // Do nothing
     }
@@ -134,7 +134,7 @@ public:
             ,   ss_typename_param_k T2
             ,   ss_typename_param_k T3
             >
-    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */, T3 const& /* t3 */) const stlsoft_throw_0()
+    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */, T3 const& /* t3 */) const STLSOFT_NOEXCEPT
     {
         // Do nothing
     }
@@ -144,7 +144,7 @@ public:
             ,   ss_typename_param_k T3
             ,   ss_typename_param_k T4
             >
-    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */, T3 const& /* t3 */, T4 const& /* t4 */) const stlsoft_throw_0()
+    void operator ()(T1 const& /* t1 */, T2 const& /* t2 */, T3 const& /* t3 */, T4 const& /* t4 */) const STLSOFT_NOEXCEPT
     {
         // Do nothing
     }

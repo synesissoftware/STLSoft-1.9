@@ -4,11 +4,11 @@
  * Purpose:     shell_allocator class.
  *
  * Created:     2nd March 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_MAJOR     4
 # define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_MINOR     1
-# define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_REVISION  5
-# define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_EDIT      83
+# define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_REVISION  6
+# define WINSTL_VER_WINSTL_MEMORY_HPP_SHELL_ALLOCATOR_EDIT      84
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -159,16 +159,16 @@ public:
     /// Copy constructor
 #ifdef STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT
     template <ss_typename_param_k U>
-    shell_allocator(shell_allocator<U> const& rhs) stlsoft_throw_0()
+    shell_allocator(shell_allocator<U> const& rhs) STLSOFT_NOEXCEPT
         : m_malloc(get_malloc_())
     {}
 #else /* ? STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT */
-    shell_allocator(class_type const& rhs) stlsoft_throw_0()
+    shell_allocator(class_type const& rhs) STLSOFT_NOEXCEPT
         : m_malloc(addref_malloc_(rhs.m_malloc))
     {}
 #endif /* STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT */
     /// Destructor
-    ~shell_allocator() stlsoft_throw_0()
+    ~shell_allocator() STLSOFT_NOEXCEPT
     {
         if(m_malloc != NULL)
         {

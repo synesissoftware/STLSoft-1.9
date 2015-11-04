@@ -4,11 +4,11 @@
  * Purpose:     task_allocator class.
  *
  * Created:     19th January 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_MAJOR      4
 # define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_MINOR      0
-# define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_REVISION   4
-# define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_EDIT       87
+# define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_REVISION   5
+# define COMSTL_VER_COMSTL_MEMORY_HPP_TASK_ALLOCATOR_EDIT       88
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -148,7 +148,7 @@ public:
 /// @{
 public:
     /// Default constructor
-    task_allocator() stlsoft_throw_0()
+    task_allocator() STLSOFT_NOEXCEPT
     {}
     /// Copy constructor
 #ifdef STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT

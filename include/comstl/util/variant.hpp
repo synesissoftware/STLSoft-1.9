@@ -4,11 +4,11 @@
  * Purpose:     variant class.
  *
  * Created:     12th December 1996
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_MAJOR      2
 # define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_MINOR      3
-# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_REVISION   5
-# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_EDIT       158
+# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_REVISION   6
+# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_VARIANT_EDIT       159
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -378,7 +378,7 @@ public:
     /** Releases any resources associated with the underlying
      *   <code>VARIANT</code>
      */
-    ~variant() stlsoft_throw_0()
+    ~variant() STLSOFT_NOEXCEPT
     {
         stlsoft_constraint_must_be_same_size(class_type, VARIANT);
 

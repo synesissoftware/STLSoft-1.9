@@ -4,13 +4,13 @@
  * Purpose:     pipe class, based on Windows anonymous pipe.
  *
  * Created:     19th June 2004
- * Updated:     19th August 2012
+ * Updated:     4th November 2015
  *
  * Thanks:      iceboy for reporting a defect in close_write()
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_MAJOR    4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_MINOR    1
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_REVISION 3
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_EDIT     38
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_REVISION 4
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PIPE_EDIT     39
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ public:
         }
     }
 
-    ~pipe() stlsoft_throw_0()
+    ~pipe() STLSOFT_NOEXCEPT
     {
         if(NULL != m_hReadHandle)
         {

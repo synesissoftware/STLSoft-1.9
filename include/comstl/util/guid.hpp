@@ -4,11 +4,11 @@
  * Purpose:     guid class.
  *
  * Created:     10th May 2000
- * Updated:     12th May 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2000-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_MAJOR      4
 # define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_MINOR      3
-# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_REVISION   2
-# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_EDIT       46
+# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_REVISION   3
+# define _COMSTL_VER_COMSTL_UTIL_HPP_COMSTL_GUID_EDIT       47
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -209,7 +209,7 @@ public:
 /// @{
 public:
     /// \brief Swaps the contents with the given instance
-    void swap(class_type& rhs) stlsoft_throw_0();
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Members
@@ -496,7 +496,7 @@ inline cs_bool_t guid::equal(GUID const& rhs) const
     return 0 != IsEqualGUID(m_guid, rhs);
 }
 
-inline void guid::swap(guid::class_type& rhs) stlsoft_throw_0()
+inline void guid::swap(guid::class_type& rhs) STLSOFT_NOEXCEPT
 {
     stlsoft_ns_qual(std_swap)(m_guid, rhs.m_guid);
 }

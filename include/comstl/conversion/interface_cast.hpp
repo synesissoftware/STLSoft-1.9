@@ -4,7 +4,7 @@
  * Purpose:     Safe interface casting functions.
  *
  * Created:     25th June 2002
- * Updated:     1st September 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -60,8 +60,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_MAJOR      5
 # define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_MINOR      2
-# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_REVISION   5
-# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_EDIT       118
+# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_REVISION   6
+# define COMSTL_VER_COMSTL_CONVERSION_HPP_INTERFACE_CAST_EDIT       119
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ public:
     ///
     /// \param hr The HRESULT that caused the error
     /// \param riid The REFIID that could not be acquired
-    void operator ()(HRESULT hr, REFIID riid) stlsoft_throw_0()
+    void operator ()(HRESULT hr, REFIID riid) STLSOFT_NOEXCEPT
     {
         STLSOFT_SUPPRESS_UNUSED(hr);
         STLSOFT_SUPPRESS_UNUSED(riid);
@@ -365,7 +365,7 @@ protected:
     }
 
     /// Releases the acquired interface pointer according to the \c release_type policy
-    ~interface_cast_base() stlsoft_throw_0()
+    ~interface_cast_base() STLSOFT_NOEXCEPT
     {
         if(NULL != m_pi)
         {
@@ -505,7 +505,7 @@ public: // Construction
     }
 
 # ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    ~interface_cast_noaddref() stlsoft_throw_0()
+    ~interface_cast_noaddref() STLSOFT_NOEXCEPT
     {} // We need to provide this to persuade VC6 to call the parent class dtor
 # endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
@@ -574,7 +574,7 @@ public: // Construction
     {}
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    ~interface_cast_addref() stlsoft_throw_0()
+    ~interface_cast_addref() STLSOFT_NOEXCEPT
     {} // We need to provide this to persuade VC6 to call the parent class dtor
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
@@ -639,7 +639,7 @@ public: // Construction
     {}
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    ~interface_cast_tester() stlsoft_throw_0()
+    ~interface_cast_tester() STLSOFT_NOEXCEPT
     {} // We need to provide this to persuade VC6 to call the parent class dtor
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 

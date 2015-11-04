@@ -4,13 +4,13 @@
  * Purpose:     Contains classes for initialising COM/OLE.
  *
  * Created:     8th February 1999
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Thanks:      To Adi Shavit, for demanding better documentation of COMSTL.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_MAJOR      3
 # define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_MINOR      3
-# define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_REVISION   2
-# define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_EDIT       80
+# define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_REVISION   3
+# define COMSTL_VER_COMSTL_UTIL_HPP_INITIALISERS_EDIT       81
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -257,7 +257,7 @@ public:
     ss_explicit_k initialiser(cs_dword_t dwInit /* = COINIT_APARTMENTTHREADED */);
 #endif /* __COMSTL_CF_DCOM_SUPPORT */
     /// Uninitialises via CoUninitialize()
-    ~initialiser() stlsoft_throw_0();
+    ~initialiser() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
@@ -448,7 +448,7 @@ inline initialiser<IP, XP>::initialiser(cs_dword_t coInit)
 template<   ss_typename_param_k IP
         ,   ss_typename_param_k XP
         >
-inline initialiser<IP, XP>::~initialiser() stlsoft_throw_0()
+inline initialiser<IP, XP>::~initialiser() STLSOFT_NOEXCEPT
 {
     if(is_initialised())
     {

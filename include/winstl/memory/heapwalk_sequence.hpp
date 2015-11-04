@@ -10,11 +10,11 @@
  *              regretably now implemented as independent classes.
  *
  * Created:     15th January 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_MAJOR       4
 # define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_MINOR       0
-# define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_REVISION    3
-# define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_EDIT        62
+# define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_REVISION    4
+# define WINSTL_VER_WINSTL_MEMORY_HPP_HEAPWALK_SEQUENCE_EDIT        63
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -181,7 +181,7 @@ public:
     /// \note The heapwalk_sequence does <i>not</i> take ownership of the given heap handle
     ss_explicit_k heapwalk_sequence(HANDLE hHeap);
     /// Destructor
-    ~heapwalk_sequence() stlsoft_throw_0();
+    ~heapwalk_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -255,7 +255,7 @@ public:
     /// \brief Copy constructor
     heapwalk_sequence_const_iterator(class_type const& rhs);
     /// \brief Destructor
-    ~heapwalk_sequence_const_iterator() stlsoft_throw_0();
+    ~heapwalk_sequence_const_iterator() STLSOFT_NOEXCEPT;
 
     /// \brief Copy asignment operator
     heapwalk_sequence_const_iterator& operator =(class_type const& rhs);
@@ -304,7 +304,7 @@ inline heapwalk_sequence::heapwalk_sequence(HANDLE hHeap)
     : m_hHeap(hHeap)
 {}
 
-inline heapwalk_sequence::~heapwalk_sequence() stlsoft_throw_0()
+inline heapwalk_sequence::~heapwalk_sequence() STLSOFT_NOEXCEPT
 {}
 
 inline heapwalk_sequence::const_iterator heapwalk_sequence::begin() const
@@ -356,7 +356,7 @@ inline heapwalk_sequence_const_iterator::class_type& heapwalk_sequence_const_ite
     return *this;
 }
 
-inline heapwalk_sequence_const_iterator::~heapwalk_sequence_const_iterator() stlsoft_throw_0()
+inline heapwalk_sequence_const_iterator::~heapwalk_sequence_const_iterator() STLSOFT_NOEXCEPT
 {}
 
 inline heapwalk_sequence_const_iterator::class_type& heapwalk_sequence_const_iterator::operator ++()

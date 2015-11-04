@@ -4,11 +4,11 @@
  * Purpose:     Intra-process mutex, based on Windows CRITICAL_SECTION.
  *
  * Created:     17th December 1996
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_MAJOR     4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_MINOR     0
-# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_REVISION  1
-# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_EDIT      52
+# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_REVISION  2
+# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_EDIT      53
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -134,7 +134,7 @@ public:
 // Construction
 public:
     /// Creates an instance of the mutex
-    thread_mutex() stlsoft_throw_0()
+    thread_mutex() STLSOFT_NOEXCEPT
     {
         ::InitializeCriticalSection(&m_cs);
     }
@@ -143,13 +143,13 @@ public:
     ///
     /// \param spinCount The new spin count for the mutex
     /// \note Only available with Windows NT 4 SP3 and later
-    thread_mutex(ws_dword_t spinCount) stlsoft_throw_0()
+    thread_mutex(ws_dword_t spinCount) STLSOFT_NOEXCEPT
     {
         ::InitializeCriticalSectionAndSpinCount(&m_cs, spinCount);
     }
 #endif /* __WINSTL_THREAD_MUTEX_SPIN_COUNT_SUPPORT */
     /// Destroys an instance of the mutex
-    ~thread_mutex() stlsoft_throw_0()
+    ~thread_mutex() STLSOFT_NOEXCEPT
     {
         ::DeleteCriticalSection(&m_cs);
     }
@@ -157,7 +157,7 @@ public:
 // Operations
 public:
     /// Acquires a lock on the mutex, pending the thread until the lock is aquired
-    void lock() stlsoft_throw_0()
+    void lock() STLSOFT_NOEXCEPT
     {
         ::EnterCriticalSection(&m_cs);
     }
@@ -172,7 +172,7 @@ public:
     }
 #endif /* __WINSTL_THREAD_MUTEX_TRY_LOCK_SUPPORT */
     /// Releases an aquired lock on the mutex
-    void unlock() stlsoft_throw_0()
+    void unlock() STLSOFT_NOEXCEPT
     {
         ::LeaveCriticalSection(&m_cs);
     }
@@ -183,7 +183,7 @@ public:
     /// \param spinCount The new spin count for the mutex
     /// \return The previous spin count associated with the mutex
     /// \note Only available with Windows NT 4 SP3 and later
-    ws_dword_t set_spin_count(ws_dword_t spinCount) stlsoft_throw_0()
+    ws_dword_t set_spin_count(ws_dword_t spinCount) STLSOFT_NOEXCEPT
     {
         return ::SetCriticalSectionSpinCount(&m_cs, spinCount);
     }

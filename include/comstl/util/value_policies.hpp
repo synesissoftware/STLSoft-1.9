@@ -5,11 +5,11 @@
  *              enumerator interfaces.
  *
  * Created:     17th September 1998
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_MAJOR    5
 # define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_MINOR    1
-# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_REVISION 2
-# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_EDIT     165
+# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_REVISION 3
+# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_EDIT     166
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -117,7 +117,7 @@ public:
     /// Initialises an instance
     ///
     /// In the case of the <code>GUID</code> type, this is a no-op
-    static void init(value_type* ) stlsoft_throw_0()
+    static void init(value_type* ) STLSOFT_NOEXCEPT
     {}
     /// Initialises an instance from another
     ///
@@ -130,7 +130,7 @@ public:
     /// Releases an instance
     ///
     /// In the case of the <code>GUID</code> type, this is a no-op
-    static void clear(value_type* ) stlsoft_throw_0()
+    static void clear(value_type* ) STLSOFT_NOEXCEPT
     {}
 };
 
@@ -152,7 +152,7 @@ public:
     ///
     /// In the case of the <code>BSTR</code> type, this involves setting
     /// the value to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         *p = NULL;
     }
@@ -181,7 +181,7 @@ public:
     ///
     /// In the case of the <code>BSTR</code> type, this involves calling
     /// <code>SysFreeString()</code>
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         ::SysFreeString(*p);
     }
@@ -205,7 +205,7 @@ public:
     ///
     /// In the case of the OLE string type, this involves setting
     /// the value to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         *p = NULL;
     }
@@ -233,7 +233,7 @@ public:
     ///
     /// In the case of the OLE string type, this involves calling
     /// <code>olestring_destroy()</code>
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         olestring_destroy(*p);
     }
@@ -257,7 +257,7 @@ public:
     ///
     /// In the case of the <code>VARIANT</code> type, this involves calling
     /// <code>VariantInit()</code>
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         ::VariantInit(p);
     }
@@ -284,7 +284,7 @@ public:
     ///
     /// In the case of the <code>VARIANT</code> type, this involves calling
     /// <code>VariantClear()</code>
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         ::VariantClear(p);
     }
@@ -312,7 +312,7 @@ public:
     ///
     /// In the case of an interface pointer type, this involves setting
     /// the value to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         *p = NULL;
     }
@@ -334,7 +334,7 @@ public:
     /// In the case of an interface pointer type, this involves
     /// invoking <code>Release()</code> and setting the value to NULL
     /// (unless it is already NULL)
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         if(NULL != *p)
         {
@@ -362,7 +362,7 @@ public:
     ///
     /// In the case of the <code>LPUNKNOWN</code> type, this involves setting
     /// the value to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         *p = NULL;
     }
@@ -384,7 +384,7 @@ public:
     /// In the case of the <code>LPUNKNOWN</code> type, this involves
     /// invoking <code>Release()</code> and setting the value to NULL
     /// (unless it is already NULL)
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         if(NULL != *p)
         {
@@ -412,7 +412,7 @@ public:
     ///
     /// In the case of the <code>STATSTG</code> type, this involves setting
     /// the <code>pwcsName</code> member to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         p->pwcsName = NULL;
     }
@@ -445,7 +445,7 @@ public:
     ///
     /// In the case of the <code>STATSTG</code> type, this involves invoking
     /// <code>olestring_destroy()</code> on the <code>pwcsName</code> member
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         olestring_destroy(p->pwcsName);
     }
@@ -469,7 +469,7 @@ public:
     ///
     /// In the case of the <code>FORMATETC</code> type, this involves setting
     /// the <code>ptd</code> member to NULL
-    static void init(value_type* p) stlsoft_throw_0()
+    static void init(value_type* p) STLSOFT_NOEXCEPT
     {
         p->ptd = NULL;
     }
@@ -513,7 +513,7 @@ public:
     ///
     /// In the case of the <code>FORMATETC</code> type, this involves invoking
     /// <code>CoTaskMemFree()</code> on the <code>ptd</code> member
-    static void clear(value_type* p) stlsoft_throw_0()
+    static void clear(value_type* p) STLSOFT_NOEXCEPT
     {
         ::CoTaskMemFree(p->ptd);
     }

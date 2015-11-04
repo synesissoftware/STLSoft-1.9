@@ -4,11 +4,11 @@
  * Purpose:     Mutual exclusion model class.
  *
  * Created:     19th December 1997
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_MAJOR     4
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_MINOR     0
-# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_REVISION  1
-# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_EDIT      41
+# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_REVISION  2
+# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_EDIT      42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -99,7 +99,7 @@ public:
 /// @{
 public:
     /// \brief Creates an instance of the mutex
-    null_mutex() stlsoft_throw_0()
+    null_mutex() STLSOFT_NOEXCEPT
     {}
 /// @}
 
@@ -107,10 +107,10 @@ public:
 /// @{
 public:
     /// \brief Acquires a lock on the mutex, pending the thread until the lock is aquired
-    void lock() stlsoft_throw_0()
+    void lock() STLSOFT_NOEXCEPT
     {}
     /// \brief Releases an aquired lock on the mutex
-    void unlock() stlsoft_throw_0()
+    void unlock() STLSOFT_NOEXCEPT
     {}
 /// @}
 

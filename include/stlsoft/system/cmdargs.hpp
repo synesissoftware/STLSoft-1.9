@@ -4,11 +4,11 @@
  * Purpose:     Command-line sequences class.
  *
  * Created:     25th June 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_MAJOR       3
 # define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_MINOR       0
-# define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_REVISION    3
-# define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_EDIT        30
+# define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_REVISION    4
+# define STLSOFT_VER_STLSOFT_SYSTEM_HPP_CMDARGS_EDIT        31
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -204,7 +204,7 @@ public:
     /// Constructs from argc/argv
     cmdargs(int argc, char /*const*/ ** argv);
     /// Releases any resources
-    ~cmdargs() stlsoft_throw_0();
+    ~cmdargs() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
@@ -337,7 +337,7 @@ inline cmdargs::cmdargs(int argc, char /*const*/ **argv)
     }
 }
 
-inline cmdargs::~cmdargs() stlsoft_throw_0()
+inline cmdargs::~cmdargs() STLSOFT_NOEXCEPT
 {
 }
 

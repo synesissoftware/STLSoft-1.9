@@ -4,11 +4,11 @@
  * Purpose:     Invocation of functions in dynamic libraries.
  *
  * Created:     sometime in 1998
- * Updated:     24th May 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_MAJOR     2
 # define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_MINOR     7
-# define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_REVISION  3
-# define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_EDIT      47
+# define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_REVISION  4
+# define WINSTL_VER_WINSTL_DL_HPP_DL_CALL_EDIT      48
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -191,7 +191,7 @@ public:
         : parent_class_type(class_type::create_reason_(functionName), err)
     {}
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    virtual ~missing_entry_point_exception() stlsoft_throw_0()
+    virtual ~missing_entry_point_exception() STLSOFT_NOEXCEPT
     {}
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /// @}
@@ -242,7 +242,7 @@ public:
         , m_ccs(callingConventionSpecifier)
     {}
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    virtual ~invalid_calling_convention_exception() stlsoft_throw_0()
+    virtual ~invalid_calling_convention_exception() STLSOFT_NOEXCEPT
     {}
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /// @}

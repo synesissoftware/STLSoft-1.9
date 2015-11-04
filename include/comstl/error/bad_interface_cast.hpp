@@ -4,11 +4,11 @@
  * Purpose:     Exception thrown when interface casts fail.
  *
  * Created:     22nd December 2003
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_MAJOR       5
 # define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_MINOR       0
-# define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_REVISION    3
-# define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_EDIT        39
+# define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_REVISION    4
+# define COMSTL_VER_COMSTL_ERROR_HPP_BAD_INTERFACE_CAST_EDIT        40
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ public:
 public:
     /// Constructs an instance of the exception from the given interface
     /// identifier and result code.
-    bad_interface_cast(REFIID riid, HRESULT hr) stlsoft_throw_0()
+    bad_interface_cast(REFIID riid, HRESULT hr) STLSOFT_NOEXCEPT
         : parent_class_type()
         , m_riid(riid)
         , m_hr(hr)
@@ -141,14 +141,14 @@ public:
 #if defined(STLSOFT_COMPILER_IS_DMC)
     char const* what() const throw()
 #else /* ? compiler */
-    char const* what() const stlsoft_throw_0()
+    char const* what() const STLSOFT_NOEXCEPT
 #endif /* compiler */
     {
         return "Failed to acquire requested interface";
     }
 
     /// \brief The interface identifier that is associated with the exception
-    REFIID      iid() const stlsoft_throw_0()
+    REFIID      iid() const STLSOFT_NOEXCEPT
     {
         return m_riid;
     }
@@ -156,13 +156,13 @@ public:
     /// \brief [DEPRECATED] Equivalent to hr()
     ///
     /// \deprecated
-    HRESULT     hresult() const stlsoft_throw_0()
+    HRESULT     hresult() const STLSOFT_NOEXCEPT
     {
         return hr();
     }
 
     /// \brief The result code that is associated with the exception
-    HRESULT     hr() const stlsoft_throw_0()
+    HRESULT     hr() const STLSOFT_NOEXCEPT
     {
         return m_hr;
     }

@@ -4,11 +4,11 @@
  * Purpose:     Wrapper class for Win32 TSS key.
  *
  * Created:     20th January 1999
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_MAJOR    4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_MINOR    0
-# define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_REVISION 5
-# define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_EDIT     38
+# define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_REVISION 6
+# define WINSTL_VER_WINSTL_SYNCH_HPP_TSS_INDEX_EDIT     39
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -126,7 +126,7 @@ public:
 /// \name Accessors
 /// @{
 public:
-    virtual char const* what() const stlsoft_throw_0()
+    virtual char const* what() const STLSOFT_NOEXCEPT
     {
         return "failed to allocate a TSS key";
     }
@@ -170,7 +170,7 @@ public:
         : m_index(index_create_())
     {}
     /// \brief Releases the TSS key
-    ~tss_index() stlsoft_throw_0()
+    ~tss_index() STLSOFT_NOEXCEPT
     {
         index_destroy_(m_index);
     }

@@ -4,11 +4,11 @@
  * Purpose:     Contains the internet_exception class.
  *
  * Created:     25th April 2004
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_MAJOR     4
 # define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_MINOR     2
-# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_REVISION  1
-# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_EDIT      42
+# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_REVISION  2
+# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_EDIT      43
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -160,14 +160,14 @@ public:
     /// \note This does not do have any implementation, but is required to placate
     /// the Comeau and GCC compilers, which otherwise complain about mismatched
     /// exception specifications between this class and its parent
-    virtual ~internet_exception() stlsoft_throw_0()
+    virtual ~internet_exception() STLSOFT_NOEXCEPT
     {}
 /// @}
 
 /// \name Accessors
 /// @{
 public:
-    virtual char const* what() const stlsoft_throw_0()
+    virtual char const* what() const STLSOFT_NOEXCEPT
     {
         if(!m_reason.empty())
         {
@@ -180,21 +180,21 @@ public:
     }
 
     /// The error code associated with the exception
-    error_code_type get_error_code() const stlsoft_throw_0()
+    error_code_type get_error_code() const STLSOFT_NOEXCEPT
     {
         return m_errorCode;
     }
     /// [DEPRECATED] The error code associated with the exception
     ///
     /// \deprecated Use get_error_code() instead.
-    error_code_type last_error() const stlsoft_throw_0()
+    error_code_type last_error() const STLSOFT_NOEXCEPT
     {
         return get_error_code();
     }
     /// [DEPRECATED] The error code associated with the exception
     ///
     /// \deprecated Use get_error_code() instead.
-    error_code_type error() const stlsoft_throw_0()
+    error_code_type error() const STLSOFT_NOEXCEPT
     {
         return get_error_code();
     }

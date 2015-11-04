@@ -13,11 +13,11 @@
  *              basic_reg_key_sequence class interface.
  *
  * Created:     19th January 2002
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -60,8 +60,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_MAJOR      3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_MINOR      9
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_REVISION   2
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_EDIT       132
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_REVISION   3
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_EDIT       133
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -271,7 +271,7 @@ public:
                         ,   REGSAM              accessMask
                         ,   bool_type           bMonitorExternalInvalidation);
     /// \brief Destructor
-    ~basic_reg_key_sequence() stlsoft_throw_0();
+    ~basic_reg_key_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -440,7 +440,7 @@ public:
     /// \brief Copy constructor
     basic_reg_key_sequence_iterator(class_type const& rhs);
     /// \brief Destructor
-    ~basic_reg_key_sequence_iterator() stlsoft_throw_0();
+    ~basic_reg_key_sequence_iterator() STLSOFT_NOEXCEPT;
 
     /// \brief Copy assignment operator
     class_type& operator =(class_type const& rhs);
@@ -476,7 +476,7 @@ public:
 /// \name Implementation
 /// @{
 private:
-    static index_type sentinel_() stlsoft_throw_0();
+    static index_type sentinel_() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Members
@@ -709,7 +709,7 @@ inline basic_reg_key_sequence<C, T, A>::basic_reg_key_sequence( ss_typename_type
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
-inline basic_reg_key_sequence<C, T, A>::~basic_reg_key_sequence() stlsoft_throw_0()
+inline basic_reg_key_sequence<C, T, A>::~basic_reg_key_sequence() STLSOFT_NOEXCEPT
 {
     if(m_hkey != NULL)
     {
@@ -925,7 +925,7 @@ inline ss_typename_type_ret_k basic_reg_key_sequence<C, T, A>::hkey_type basic_r
 // basic_reg_key_sequence_iterator
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k V, ss_typename_param_k A>
-inline /* static */ ss_typename_type_ret_k basic_reg_key_sequence_iterator<C, T, V, A>::index_type basic_reg_key_sequence_iterator<C, T, V, A>::sentinel_() stlsoft_throw_0()
+inline /* static */ ss_typename_type_ret_k basic_reg_key_sequence_iterator<C, T, V, A>::index_type basic_reg_key_sequence_iterator<C, T, V, A>::sentinel_() STLSOFT_NOEXCEPT
 {
     return 0x7fffffff;
 }
@@ -977,7 +977,7 @@ inline ss_typename_type_ret_k basic_reg_key_sequence_iterator<C, T, V, A>::class
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k V, ss_typename_param_k A>
-inline basic_reg_key_sequence_iterator<C, T, V, A>::~basic_reg_key_sequence_iterator() stlsoft_throw_0()
+inline basic_reg_key_sequence_iterator<C, T, V, A>::~basic_reg_key_sequence_iterator() STLSOFT_NOEXCEPT
 {
     if(NULL != m_handle)
     {

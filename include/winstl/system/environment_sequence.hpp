@@ -4,11 +4,11 @@
  * Purpose:     basic_environment_sequence class.
  *
  * Created:     31st December 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_MAJOR    4
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_MINOR    1
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_REVISION 1
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_EDIT     82
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_REVISION 2
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_EDIT     83
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -206,7 +206,7 @@ public:
     /// \param flags One or more of the member constants
     ss_explicit_k basic_environment_sequence(ws_int_t flags = ignoreCase);
     /// Destructor, which releases any resources acquired
-    ~basic_environment_sequence() stlsoft_throw_0();
+    ~basic_environment_sequence() STLSOFT_NOEXCEPT;
 
 /// \name Iteration
 /// @{
@@ -502,7 +502,7 @@ inline /* ss_explicit_k */ basic_environment_sequence<C>::basic_environment_sequ
 }
 
 template <ss_typename_param_k C>
-inline basic_environment_sequence<C>::~basic_environment_sequence() stlsoft_throw_0()
+inline basic_environment_sequence<C>::~basic_environment_sequence() STLSOFT_NOEXCEPT
 {
     // The documentation for FreeEnvironmentStrings does not explicitly state
     // that it is legal to free a null string, so we must do the test.

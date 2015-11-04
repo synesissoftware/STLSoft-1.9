@@ -5,11 +5,11 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     13th November 2002
- * Updated:     26th July 2012
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_MAJOR      4
 # define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_MINOR      1
-# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_REVISION   5
-# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_EDIT       97
+# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_REVISION   6
+# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_EDIT       98
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -327,7 +327,7 @@ public:
     /// \brief Construct a sequence based on the contents of the given drop handle
     ss_explicit_k basic_drophandle_sequence(HDROP hdrop, ws_bool_t bOwnHandle = true);
     /// \brief Release any resources aquired
-    ~basic_drophandle_sequence() stlsoft_throw_0();
+    ~basic_drophandle_sequence() STLSOFT_NOEXCEPT;
 
 // Attributes
 public:
@@ -576,7 +576,7 @@ inline basic_drophandle_sequence<C, T>::basic_drophandle_sequence(HDROP hdrop, w
 {}
 
 template <ss_typename_param_k C, ss_typename_param_k T>
-inline basic_drophandle_sequence<C, T>::~basic_drophandle_sequence() stlsoft_throw_0()
+inline basic_drophandle_sequence<C, T>::~basic_drophandle_sequence() STLSOFT_NOEXCEPT
 {
     if(m_bOwnHandle)
     {

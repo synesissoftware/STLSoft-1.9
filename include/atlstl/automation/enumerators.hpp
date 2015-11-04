@@ -4,11 +4,11 @@
  * Purpose:     Enumerator classes.
  *
  * Created:     11th November 1998
- * Updated:     26th December 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_MAJOR    4
 # define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_MINOR    0
-# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_REVISION 5
-# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_EDIT     67
+# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_REVISION 6
+# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_ENUMERATORS_EDIT     68
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 ////////////////////////////////////////////////////////////////////////////
@@ -217,7 +217,7 @@ public:
 /// @{
 public:
     copy_enumerator_impl();
-    ~copy_enumerator_impl() stlsoft_throw_0();
+    ~copy_enumerator_impl() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Enumeration
@@ -417,7 +417,7 @@ template<   ss_typename_param_k I
         ,   ss_typename_param_k IV
         ,   ss_typename_param_k I2ETx
         >
-inline copy_enumerator_impl<I, piid, V, IV, I2ETx>::~copy_enumerator_impl() stlsoft_throw_0()
+inline copy_enumerator_impl<I, piid, V, IV, I2ETx>::~copy_enumerator_impl() STLSOFT_NOEXCEPT
 {}
 
 template<   ss_typename_param_k I

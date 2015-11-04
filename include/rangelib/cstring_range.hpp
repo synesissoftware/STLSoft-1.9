@@ -4,11 +4,11 @@
  * Purpose:     Range adaptor for C-strings.
  *
  * Created:     17th May 2004
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -46,8 +46,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_MAJOR     2
 # define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_MINOR     3
-# define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_REVISION  3
-# define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_EDIT      37
+# define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_REVISION  4
+# define RANGELIB_VER_RANGELIB_HPP_CSTRING_RANGE_EDIT      38
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -181,7 +181,7 @@ public:
         STLSOFT_MESSAGE_ASSERT("NULL string passed to cstring_range constructor", NULL != s);
     }
     /// Destructor
-    ~cstring_range() stlsoft_throw_0()
+    ~cstring_range() STLSOFT_NOEXCEPT
     {
         // This is a constraint to ensure that this template is not used
         // for any non-character types.

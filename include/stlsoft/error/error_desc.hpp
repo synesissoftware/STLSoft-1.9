@@ -4,7 +4,7 @@
  * Purpose:     Converts a standard rerror code (errno) to a printable string.
  *
  * Created:     18th July 2006
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_MAJOR     1
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_MINOR     2
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_REVISION  6
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_EDIT      26
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_REVISION  7
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERROR_DESC_EDIT      27
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -298,7 +298,7 @@ public:
     /// \param error The errno value whose string equivalent will be searched
     ss_explicit_k basic_error_desc(error_type error = errno);
     /// \brief Releases any resources.
-    ~basic_error_desc() stlsoft_throw_0();
+    ~basic_error_desc() STLSOFT_NOEXCEPT;
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # if 0 || \
@@ -317,18 +317,18 @@ public:
 /// @{
 public:
     /// \brief The error description
-    char_type const* get_description() const stlsoft_throw_0();
+    char_type const* get_description() const STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Accessors
 /// @{
 public:
     /// \brief The error description
-    char_type const*    c_str() const stlsoft_throw_0();
+    char_type const*    c_str() const STLSOFT_NOEXCEPT;
     /// \brief The length of the error description
-    size_type           length() const stlsoft_throw_0();
+    size_type           length() const STLSOFT_NOEXCEPT;
     /// \brief The length of the error description
-    size_type           size() const stlsoft_throw_0();
+    size_type           size() const STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Implementation
@@ -438,13 +438,13 @@ inline basic_error_desc<C>::basic_error_desc(ss_typename_type_k basic_error_desc
 #endif /* STLSOFT_USING_SAFE_STR_FUNCTIONS */
 
 template <ss_typename_param_k C>
-inline basic_error_desc<C>::~basic_error_desc() stlsoft_throw_0()
+inline basic_error_desc<C>::~basic_error_desc() STLSOFT_NOEXCEPT
 {
     get_allocator_().deallocate(m_str, m_length);
 }
 
 template <ss_typename_param_k C>
-inline ss_typename_type_ret_k basic_error_desc<C>::char_type const* basic_error_desc<C>::get_description() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_error_desc<C>::char_type const* basic_error_desc<C>::get_description() const STLSOFT_NOEXCEPT
 {
     static const char_type s_nullMessage[1] = { '\0' };
 
@@ -452,19 +452,19 @@ inline ss_typename_type_ret_k basic_error_desc<C>::char_type const* basic_error_
 }
 
 template <ss_typename_param_k C>
-inline ss_typename_type_ret_k basic_error_desc<C>::char_type const* basic_error_desc<C>::c_str() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_error_desc<C>::char_type const* basic_error_desc<C>::c_str() const STLSOFT_NOEXCEPT
 {
     return get_description();
 }
 
 template <ss_typename_param_k C>
-inline ss_typename_type_ret_k basic_error_desc<C>::size_type basic_error_desc<C>::length() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_error_desc<C>::size_type basic_error_desc<C>::length() const STLSOFT_NOEXCEPT
 {
     return m_length;
 }
 
 template <ss_typename_param_k C>
-inline ss_typename_type_ret_k basic_error_desc<C>::size_type basic_error_desc<C>::size() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_error_desc<C>::size_type basic_error_desc<C>::size() const STLSOFT_NOEXCEPT
 {
     return length();
 }

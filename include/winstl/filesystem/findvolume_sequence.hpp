@@ -10,11 +10,11 @@
  *              regretably now implemented as independent classes.
  *
  * Created:     15th January 2002
- * Updated:     21st June 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,8 +58,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_MAJOR     4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_MINOR     3
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_REVISION  7
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_EDIT      116
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_REVISION  8
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDVOLUME_SEQUENCE_EDIT      117
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -324,7 +324,7 @@ private:
     #else /* ? STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
     private:
     #endif /* STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
-        ~shared_handle() stlsoft_throw_0()
+        ~shared_handle() STLSOFT_NOEXCEPT
         {
             WINSTL_MESSAGE_ASSERT("Shared search handle being destroyed with outstanding references!", 0 == cRefs);
 
@@ -367,7 +367,7 @@ public:
     /// Copy constructor
     basic_findvolume_sequence_const_iterator(class_type const& rhs);
     /// Destructor
-    ~basic_findvolume_sequence_const_iterator() stlsoft_throw_0();
+    ~basic_findvolume_sequence_const_iterator() STLSOFT_NOEXCEPT;
 
     /// Copy assignment operator
     class_type& operator =(class_type const& rhs);
@@ -661,7 +661,7 @@ inline ss_typename_type_ret_k basic_findvolume_sequence_const_iterator<C, T, V>:
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k V>
-inline basic_findvolume_sequence_const_iterator<C, T, V>::~basic_findvolume_sequence_const_iterator() stlsoft_throw_0()
+inline basic_findvolume_sequence_const_iterator<C, T, V>::~basic_findvolume_sequence_const_iterator() STLSOFT_NOEXCEPT
 {
     if(NULL != m_handle)
     {

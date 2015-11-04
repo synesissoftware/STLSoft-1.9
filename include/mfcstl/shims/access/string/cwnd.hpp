@@ -4,11 +4,11 @@
  * Purpose:     Contains classes and functions for dealing with MFC strings.
  *
  * Created:     24th May 2002
- * Updated:     22nd November 2011
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_MAJOR       4
 # define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_MINOR       0
-# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_REVISION    6
-# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_EDIT        94
+# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_REVISION    7
+# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_STRING_HPP_CWND_EDIT        95
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -302,7 +302,7 @@ public:
 #endif /* STLSOFT_CF_MOVE_CONSTRUCTOR_SUPPORT */
 
     /// Releases any storage aquired by the proxy
-    ~c_str_ptr_null_CWnd_proxy() stlsoft_throw_0()
+    ~c_str_ptr_null_CWnd_proxy() STLSOFT_NOEXCEPT
     {
         string_maker_type::free(m_buffer);
     }
@@ -388,7 +388,7 @@ public:
 #endif /* STLSOFT_CF_MOVE_CONSTRUCTOR_SUPPORT */
 
     /// Releases any storage aquired by the proxy
-    ~c_str_ptr_CWnd_proxy() stlsoft_throw_0()
+    ~c_str_ptr_CWnd_proxy() STLSOFT_NOEXCEPT
     {
         string_maker_type::free(m_buffer);
     }

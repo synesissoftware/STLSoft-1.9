@@ -4,11 +4,11 @@
  * Purpose:     Win32 last error scoping class.
  *
  * Created:     27th November 1998
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_MAJOR       4
 # define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_MINOR       0
-# define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_REVISION    2
-# define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_EDIT        45
+# define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_REVISION    3
+# define WINSTL_VER_WINSTL_ERROR_HPP_LAST_ERROR_SCOPE_EDIT        46
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -129,7 +129,7 @@ public:
 public:
     /// \brief Takes a copy of the current thread error, which will be reset
     /// on destruction of this instance
-    last_error_scope() stlsoft_throw_0()
+    last_error_scope() STLSOFT_NOEXCEPT
         : m_dwErr(::GetLastError())
     {}
     /// \brief Takes a copy of the current thread error, which will be reset
@@ -137,14 +137,14 @@ public:
     /// set to the given value.
     ///
     /// \param dwErr The value to which the current thread error is set
-    ss_explicit_k last_error_scope(ws_dword_t dwErr) stlsoft_throw_0()
+    ss_explicit_k last_error_scope(ws_dword_t dwErr) STLSOFT_NOEXCEPT
         : m_dwErr(::GetLastError())
     {
         ::SetLastError(dwErr);
     }
     /// \brief Resets the thread error value current at the epoque of
     /// construction of this instance
-    ~last_error_scope() stlsoft_throw_0()
+    ~last_error_scope() STLSOFT_NOEXCEPT
     {
         ::SetLastError(m_dwErr);
     }

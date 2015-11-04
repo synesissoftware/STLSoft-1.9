@@ -18,7 +18,7 @@
  *              ownership issues described in the article.
  *
  * Created:     15th January 2002
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Nevin Liber for pressing upon me the need to lead by
  *              example when writing books about good design/implementation;
@@ -69,8 +69,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MAJOR       4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MINOR       9
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION    1
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT        218
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION    2
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT        219
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ public:
                         ,   char_type           delim
                         ,   flags_type          flags = directories | files);
     /// Destructor
-    ~basic_findfile_sequence() stlsoft_throw_0();
+    ~basic_findfile_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -576,7 +576,7 @@ private:
 # else /* ? STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
     private:
 # endif /* STLSOFT_CF_COMPILER_WARNS_NO_PUBLIC_DTOR */
-        ~shared_handle() stlsoft_throw_0()
+        ~shared_handle() STLSOFT_NOEXCEPT
         {
             WINSTL_MESSAGE_ASSERT("Shared search handle being destroyed with outstanding references!", 0 == m_refCount);
 
@@ -631,7 +631,7 @@ public:
     /// <a href = "http://synesis.com.au/resources/articles/cpp/movectors.pdf">Move constructor</a>
     basic_findfile_sequence_const_input_iterator(class_type const& rhs);
     /// Destructor
-    ~basic_findfile_sequence_const_input_iterator() stlsoft_throw_0();
+    ~basic_findfile_sequence_const_input_iterator() STLSOFT_NOEXCEPT;
 
     // Copy assignment operator
     basic_findfile_sequence_const_input_iterator& operator =(class_type const& rhs);
@@ -1070,7 +1070,7 @@ inline basic_findfile_sequence<C, T>::basic_findfile_sequence(  char_type const*
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T>
-inline basic_findfile_sequence<C, T>::~basic_findfile_sequence() stlsoft_throw_0()
+inline basic_findfile_sequence<C, T>::~basic_findfile_sequence() STLSOFT_NOEXCEPT
 {
     WINSTL_ASSERT(is_valid());
 
@@ -1484,7 +1484,7 @@ inline basic_findfile_sequence_const_input_iterator<C, T, V> &basic_findfile_seq
 }
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k V>
-inline basic_findfile_sequence_const_input_iterator<C, T, V>::~basic_findfile_sequence_const_input_iterator() stlsoft_throw_0()
+inline basic_findfile_sequence_const_input_iterator<C, T, V>::~basic_findfile_sequence_const_input_iterator() STLSOFT_NOEXCEPT
 {
     if(NULL != m_handle)
     {

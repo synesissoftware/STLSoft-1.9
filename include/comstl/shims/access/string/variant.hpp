@@ -4,11 +4,11 @@
  * Purpose:     Contains classes and functions for dealing with OLE/COM strings.
  *
  * Created:     24th May 2002
- * Updated:     27th April 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_MAJOR    5
 # define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_MINOR    0
-# define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_REVISION 6
-# define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_EDIT     115
+# define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_REVISION 7
+# define COMSTL_VER_COMSTL_SHIMS_ACCESS_STRING_HPP_VARIANT_EDIT     116
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ public:
 #endif /* STLSOFT_CF_MOVE_CONSTRUCTOR_SUPPORT */
 
     /// Releases any storage aquired by the proxy
-    ~c_str_null_VARIANT_proxy() stlsoft_throw_0()
+    ~c_str_null_VARIANT_proxy() STLSOFT_NOEXCEPT
     {
         if(m_own)
         {
@@ -237,7 +237,7 @@ public:
 #endif /* STLSOFT_CF_MOVE_CONSTRUCTOR_SUPPORT */
 
     /// Releases any storage aquired by the proxy
-    ~c_str_VARIANT_proxy_w() stlsoft_throw_0()
+    ~c_str_VARIANT_proxy_w() STLSOFT_NOEXCEPT
     {
         ::SysFreeString(m_bstr);
     }
@@ -306,7 +306,7 @@ public:
 #endif /* STLSOFT_CF_MOVE_CONSTRUCTOR_SUPPORT */
 
     /// Releases any storage aquired by the proxy
-    ~c_str_VARIANT_proxy_a() stlsoft_throw_0()
+    ~c_str_VARIANT_proxy_a() STLSOFT_NOEXCEPT
     {
         if(m_buffer != empty_string_())
         {

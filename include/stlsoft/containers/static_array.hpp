@@ -4,13 +4,13 @@
  * Purpose:     Statically sized multidimensional class template.
  *
  * Created:     4th August 1998
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Thanks to:   Neal Becker for suggesting the uninitialised mode.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_MAJOR     4
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_MINOR     4
-# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_REVISION  2
-# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_EDIT      188
+# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_REVISION  3
+# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_STATIC_ARRAY_EDIT      189
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -267,7 +267,7 @@ public:
     static_array_1d();
     static_array_1d(value_type const& t);
     static_array_1d(class_type const& rhs);
-    ~static_array_1d() stlsoft_throw_0();
+    ~static_array_1d() STLSOFT_NOEXCEPT;
 
 // Access
 public:
@@ -406,7 +406,7 @@ public:
     static_array_2d();
     static_array_2d(value_type const& t);
     static_array_2d(class_type const& rhs);
-    ~static_array_2d() stlsoft_throw_0();
+    ~static_array_2d() STLSOFT_NOEXCEPT;
 
 // Operations
 public:
@@ -555,7 +555,7 @@ public:
     static_array_3d();
     static_array_3d(value_type const& t);
     static_array_3d(class_type const& rhs);
-    ~static_array_3d() stlsoft_throw_0();
+    ~static_array_3d() STLSOFT_NOEXCEPT;
 
 // Operations
 public:
@@ -707,7 +707,7 @@ public:
     static_array_4d();
     static_array_4d(value_type const& t);
     static_array_4d(class_type const& rhs);
-    ~static_array_4d() stlsoft_throw_0();
+    ~static_array_4d() STLSOFT_NOEXCEPT;
 
 // Operations
 public:
@@ -835,7 +835,7 @@ inline static_array_1d<T, N0, P, M>::static_array_1d(static_array_1d<T, N0, P, M
 }
 
 template <ss_typename_param_k T, ss_size_t N0, ss_typename_param_k P, ss_typename_param_k M>
-inline static_array_1d<T, N0, P, M>::~static_array_1d() stlsoft_throw_0()
+inline static_array_1d<T, N0, P, M>::~static_array_1d() STLSOFT_NOEXCEPT
 {
     if(!is_pointer_type<M>::value)
     {
@@ -1065,7 +1065,7 @@ inline static_array_2d<T, N0, N1, P, M>::static_array_2d(static_array_2d<T, N0, 
 }
 
 template <ss_typename_param_k T, ss_size_t N0, ss_size_t N1, ss_typename_param_k P, ss_typename_param_k M>
-inline static_array_2d<T, N0, N1, P, M>::~static_array_2d() stlsoft_throw_0()
+inline static_array_2d<T, N0, N1, P, M>::~static_array_2d() STLSOFT_NOEXCEPT
 {
     if(!is_pointer_type<M>::value)
     {
@@ -1325,7 +1325,7 @@ inline static_array_3d<T, N0, N1, N2, P, M>::static_array_3d(static_array_3d<T, 
 }
 
 template <ss_typename_param_k T, ss_size_t N0, ss_size_t N1, ss_size_t N2, ss_typename_param_k P, ss_typename_param_k M>
-inline static_array_3d<T, N0, N1, N2, P, M>::~static_array_3d() stlsoft_throw_0()
+inline static_array_3d<T, N0, N1, N2, P, M>::~static_array_3d() STLSOFT_NOEXCEPT
 {
     if(!is_pointer_type<M>::value)
     {
@@ -1587,7 +1587,7 @@ inline static_array_4d<T, N0, N1, N2, N3, P, M>::static_array_4d(static_array_4d
 }
 
 template <ss_typename_param_k T, ss_size_t N0, ss_size_t N1, ss_size_t N2, ss_size_t N3, ss_typename_param_k P, ss_typename_param_k M>
-inline static_array_4d<T, N0, N1, N2, N3, P, M>::~static_array_4d() stlsoft_throw_0()
+inline static_array_4d<T, N0, N1, N2, N3, P, M>::~static_array_4d() STLSOFT_NOEXCEPT
 {
     if(!is_pointer_type<M>::value)
     {

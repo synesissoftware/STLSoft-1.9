@@ -4,7 +4,7 @@
  * Purpose:     Compile-time template constraints templates.
  *
  * Created:     19th November 1998
- * Updated:     11th August 2010
+ * Updated:     4th November 2015
  *
  * Thanks:      To Peter Bannister for having the clear thinking to see the
  *              obvious (but only in hindsight) tactic of overloading the
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_MAJOR      5
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_MINOR      0
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_REVISION   4
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_EDIT       99
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_REVISION   5
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_CONSTRAINTS_EDIT       100
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ template<   ss_typename_param_k D
 struct must_have_base
 {
 public:
-    ~must_have_base() stlsoft_throw_0()
+    ~must_have_base() STLSOFT_NOEXCEPT
     {
         void(*p)(D*, B*) = constraints;
 
@@ -195,7 +195,7 @@ template<   ss_typename_param_k D
 struct must_be_derived
 {
 public:
-    ~must_be_derived() stlsoft_throw_0()
+    ~must_be_derived() STLSOFT_NOEXCEPT
     {
 # if defined(STLSOFT_COMPILER_IS_BORLAND)
         cant_be_overloaded_if_same_type(static_cast<D*>(0)
@@ -245,7 +245,7 @@ template<   ss_typename_param_k T1
         >
 struct must_be_same_size
 {
-    ~must_be_same_size() stlsoft_throw_0()
+    ~must_be_same_size() STLSOFT_NOEXCEPT
     {
         void    (*pfn)(void) = constraints;
 
@@ -292,7 +292,7 @@ template <ss_typename_param_k T>
 struct must_be_subscriptable
 {
 public:
-    ~must_be_subscriptable() stlsoft_throw_0()
+    ~must_be_subscriptable() STLSOFT_NOEXCEPT
     {
         int (*pfn)(T const&) = constraints;
 
@@ -329,7 +329,7 @@ template <ss_typename_param_k T>
 struct must_subscript_as_decayable_pointer
 {
 public:
-    ~must_subscript_as_decayable_pointer() stlsoft_throw_0()
+    ~must_subscript_as_decayable_pointer() STLSOFT_NOEXCEPT
     {
         ss_size_t   (*pfn)(T const&) = constraints;
 
@@ -390,7 +390,7 @@ public:
     {}
 
     // Required by CodeWarrior
-    ~must_be_pod() stlsoft_throw_0()
+    ~must_be_pod() STLSOFT_NOEXCEPT
     {
         int   (*pfn)(void) = constraints;
 

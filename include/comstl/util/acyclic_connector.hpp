@@ -4,11 +4,11 @@
  * Purpose:     A component for relating two COM objects without cycles.
  *
  * Created:     25th March 2006
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2006-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_MAJOR     1
 # define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_MINOR     2
-# define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_REVISION  7
-# define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_EDIT      21
+# define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_REVISION  8
+# define COMSTL_VER_COMSTL_UTIL_HPP_ACYCLIC_CONNECTOR_EDIT      22
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -266,7 +266,7 @@ public:
                     ,   LPUNKNOWN       rightPeer
                     ,   IAcyclicSide    **rightSide);
 private:
-    ~acyclic_connector() stlsoft_throw_0();
+    ~acyclic_connector() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Implementation
@@ -419,7 +419,7 @@ inline acyclic_connector<MX>::acyclic_connector(LPUNKNOWN       leftPeer
 }
 
 template <ss_typename_param_k MX>
-inline acyclic_connector<MX>::~acyclic_connector() stlsoft_throw_0()
+inline acyclic_connector<MX>::~acyclic_connector() STLSOFT_NOEXCEPT
 {}
 
 template <ss_typename_param_k MX>

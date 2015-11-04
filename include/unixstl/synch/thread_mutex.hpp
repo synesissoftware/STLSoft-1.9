@@ -4,11 +4,11 @@
  * Purpose:     Intra-process mutex, based on PTHREADS pthread_mutex_t.
  *
  * Created:     17th December 1996
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_MAJOR       4
 # define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_MINOR       3
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_REVISION    3
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_EDIT        56
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_REVISION    4
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_THREAD_MUTEX_EDIT        57
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -142,7 +142,7 @@ public:
 /// @{
 public:
     /// \brief Creates an instance of the mutex
-    ss_explicit_k thread_mutex(bool_type bRecursive = true) stlsoft_throw_0()
+    ss_explicit_k thread_mutex(bool_type bRecursive = true) STLSOFT_NOEXCEPT
         : m_mx(&m_mx_)
         , m_error(create_(&m_mx_, bRecursive))
         , m_bOwnHandle(true)
@@ -161,7 +161,7 @@ public:
     }
 
     /// \brief Destroys an instance of the mutex
-    ~thread_mutex() stlsoft_throw_0()
+    ~thread_mutex() STLSOFT_NOEXCEPT
     {
         if( 0 == m_error &&
             m_bOwnHandle)
@@ -226,7 +226,7 @@ public:
     /// unixstl::synchronisation_exception if the lock cannot be released. When
     /// compiling absent exception support, failure to release the lock
     /// will be reflected in a non-zero return from get_error().
-    void unlock() stlsoft_throw_0()
+    void unlock() STLSOFT_NOEXCEPT
     {
         m_error = ::pthread_mutex_unlock(m_mx);
 
@@ -239,7 +239,7 @@ public:
     }
 
     /// \brief Contains the last failed error code from the underlying PTHREADS API
-    int get_error() const stlsoft_throw_0()
+    int get_error() const STLSOFT_NOEXCEPT
     {
         return m_error;
     }
@@ -249,12 +249,12 @@ public:
 /// @{
 public:
     /// \brief The underlying kernel object handle
-    pthread_mutex_t* handle() stlsoft_throw_0()
+    pthread_mutex_t* handle() STLSOFT_NOEXCEPT
     {
         return m_mx;
     }
     /// \brief The underlying kernel object handle
-    pthread_mutex_t* get() stlsoft_throw_0()
+    pthread_mutex_t* get() STLSOFT_NOEXCEPT
     {
         return m_mx;
     }

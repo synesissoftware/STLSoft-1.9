@@ -5,7 +5,7 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     7th February 2002
- * Updated:     11th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks to:   Pablo Aguilar for discovering the Borland weirdness which is now
  *              addressed with the calc_path_max_() method.
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR    4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    5
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 2
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     122
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 3
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     123
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ public:
     ///  to be constant-time. See the documentation for
     ///  \link stlsoft::auto_buffer auto_buffer\endlink for
     ///  further details.
-    void swap(class_type& rhs) stlsoft_throw_0()
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT
     {
         m_buffer.swap(rhs.m_buffer);
     }
@@ -351,7 +351,7 @@ public:
     /// \brief Causes the drives to be examined again for the next instance.
     ///
     /// \deprecated
-    static void refresh() stlsoft_throw_0()
+    static void refresh() STLSOFT_NOEXCEPT
     {}
 /// @}
 

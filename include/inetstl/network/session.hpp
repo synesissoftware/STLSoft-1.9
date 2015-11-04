@@ -4,11 +4,11 @@
  * Purpose:     Contains the basic_session class.
  *
  * Created:     30th April 1999
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_MAJOR      5
 # define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_MINOR      1
-# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_REVISION   3
-# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_EDIT       61
+# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_REVISION   4
+# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_EDIT       62
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -155,7 +155,7 @@ public:
                                 ,   char_type const*    pcszProxyBypass    =   NULL
                                 ,   is_dword_t          flags               =   0);
     /// Closes the session, if open
-    ~basic_session() stlsoft_throw_0();
+    ~basic_session() STLSOFT_NOEXCEPT;
 
 // Operations
 public:
@@ -278,7 +278,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k X
         ,   ss_typename_param_k T
         >
-inline basic_session<C, X, T>::~basic_session() stlsoft_throw_0()
+inline basic_session<C, X, T>::~basic_session() STLSOFT_NOEXCEPT
 {
     if(NULL != m_hConn)
     {

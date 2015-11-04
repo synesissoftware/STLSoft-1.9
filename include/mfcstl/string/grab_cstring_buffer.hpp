@@ -4,11 +4,11 @@
  * Purpose:     CString Get/ReleaseBuffer scoping class.
  *
  * Created:     12th February 1999
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_MAJOR      4
 # define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_MINOR      0
-# define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_REVISION   1
-# define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_EDIT       59
+# define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_REVISION   2
+# define MFCSTL_VER_MFCSTL_STRING_HPP_GRAB_CSTRING_BUFFER_EDIT       60
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -111,7 +111,7 @@ public:
     /// original length. If acquisition fails then a CMemoryException is thrown.
     grab_cstring_buffer(CString &str, int length) stlsoft_throw_1(CMemoryException *);
     /// Releases the managed string.
-    ~grab_cstring_buffer() stlsoft_throw_0();
+    ~grab_cstring_buffer() STLSOFT_NOEXCEPT;
 
 // Conversion operators
 public:
@@ -169,7 +169,7 @@ inline grab_cstring_buffer::grab_cstring_buffer(CString &str, int length) stlsof
     m_psz[m_len] = '\0';
 }
 
-inline grab_cstring_buffer::~grab_cstring_buffer() stlsoft_throw_0()
+inline grab_cstring_buffer::~grab_cstring_buffer() STLSOFT_NOEXCEPT
 {
     // Best to check that the end character has not been overwritten
     MFCSTL_MESSAGE_ASSERT("The client code has overwritten the managed area of the grab_cstring_buffer instance", '\0' == m_psz[m_len]);

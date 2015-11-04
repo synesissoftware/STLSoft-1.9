@@ -4,11 +4,11 @@
  * Purpose:     afx_allocator class.
  *
  * Created:     5th August 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_MAJOR       2
 # define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_MINOR       0
-# define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_REVISION    4
-# define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_EDIT        21
+# define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_REVISION    5
+# define MFCSTL_VER_MFCSTL_MEMORY_HPP_AFX_ALLOCATOR_EDIT        22
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -152,18 +152,18 @@ public:
 // Construction
 public:
     /// Default constructor
-    afx_allocator() stlsoft_throw_0()
+    afx_allocator() STLSOFT_NOEXCEPT
     {}
     /// Copy constructor
-    afx_allocator(class_type const& rhs) stlsoft_throw_0()
+    afx_allocator(class_type const& rhs) STLSOFT_NOEXCEPT
     {}
 #ifdef STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT
     template <ss_typename_param_k U>
-    afx_allocator(afx_allocator<U> const& rhs) stlsoft_throw_0()
+    afx_allocator(afx_allocator<U> const& rhs) STLSOFT_NOEXCEPT
     {}
 #endif /* STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT */
     /// Destructor
-    ~afx_allocator() stlsoft_throw_0()
+    ~afx_allocator() STLSOFT_NOEXCEPT
     {}
 
     class_type const& operator =(class_type const& rhs)

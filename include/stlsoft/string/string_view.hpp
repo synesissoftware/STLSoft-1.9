@@ -4,7 +4,7 @@
  * Purpose:     basic_string_view class.
  *
  * Created:     16th October 2004
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Thanks to:   Bjorn Karlsson and Scott Patterson for discussions on various
  *              naming and design issues. Thanks also to Pablo Aguilar for
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_MAJOR       3
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_MINOR       3
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_REVISION    4
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_EDIT        95
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_REVISION    5
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_VIEW_EDIT        96
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -235,7 +235,7 @@ public:
     /// Construct from the range [first:last)
     basic_string_view(char_type const* first, char_type const* last);
     /// Destructor
-    ~basic_string_view() stlsoft_throw_0();
+    ~basic_string_view() STLSOFT_NOEXCEPT;
 
     /// Copy assignment operator
     class_type& operator =(class_type const& rhs);
@@ -246,32 +246,32 @@ public:
 /// @{
 public:
     /// Swaps the contents between \c this and \c other
-    void swap(class_type& other) stlsoft_throw_0();
+    void swap(class_type& other) STLSOFT_NOEXCEPT;
 
     /// Empties the string
-    void clear() stlsoft_throw_0();
+    void clear() STLSOFT_NOEXCEPT;
 
     /// \brief Clear c_str() representation
     ///
     /// Causes the c_str() representation, if currently allocated (see c_str() for details),
     /// to be destroyed, in order that the next call to c_str() will result in a fresh
     /// nul-terminated copy of the 'current' contents of the view.
-    void refresh() stlsoft_throw_0();
+    void refresh() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
 /// @{
 public:
     /// The number of elements in the string
-    size_type size() const stlsoft_throw_0();
+    size_type size() const STLSOFT_NOEXCEPT;
     /// The maximum number of elements that can be stored in the string
-    static size_type max_size() stlsoft_throw_0();
+    static size_type max_size() STLSOFT_NOEXCEPT;
     /// The number of elements in the string
-    size_type length() const stlsoft_throw_0();
+    size_type length() const STLSOFT_NOEXCEPT;
     /// The storage currently allocated by the string
-    size_type capacity() const stlsoft_throw_0();
+    size_type capacity() const STLSOFT_NOEXCEPT;
     /// Indicates whether the string is empty
-    ss_bool_t empty() const stlsoft_throw_0();
+    ss_bool_t empty() const STLSOFT_NOEXCEPT;
 
     /// Returns an instance of the allocator type
     allocator_type get_allocator() const;
@@ -281,22 +281,22 @@ public:
 /// @{
 public:
     /// Evaluates whether two strings are equal
-    ss_bool_t equal(class_type const& rhs) const stlsoft_throw_0();
+    ss_bool_t equal(class_type const& rhs) const STLSOFT_NOEXCEPT;
     /// Evaluates whether two strings are equal
-    ss_bool_t equal(value_type const* rhs, size_type cchRhs) const stlsoft_throw_0();
+    ss_bool_t equal(value_type const* rhs, size_type cchRhs) const STLSOFT_NOEXCEPT;
 
     /// Compares \c this with the given string
-    ss_sint_t compare(size_type pos, size_type cch, value_type const* s, size_type cchRhs) const stlsoft_throw_0();
+    ss_sint_t compare(size_type pos, size_type cch, value_type const* s, size_type cchRhs) const STLSOFT_NOEXCEPT;
     /// Compares \c this with the given string
-    ss_sint_t compare(size_type pos, size_type cch, value_type const* s) const stlsoft_throw_0();
+    ss_sint_t compare(size_type pos, size_type cch, value_type const* s) const STLSOFT_NOEXCEPT;
     /// Compares \c this with the given string
-    ss_sint_t compare(value_type const* s) const stlsoft_throw_0();
+    ss_sint_t compare(value_type const* s) const STLSOFT_NOEXCEPT;
     /// Compares \c this with the given string
-    ss_sint_t compare(size_type pos, size_type cch, class_type const& rhs, size_type posRhs, size_type cchRhs) const stlsoft_throw_0();
+    ss_sint_t compare(size_type pos, size_type cch, class_type const& rhs, size_type posRhs, size_type cchRhs) const STLSOFT_NOEXCEPT;
     /// Compares \c this with the given string
-    ss_sint_t compare(size_type pos, size_type cch, class_type const& rhs) const stlsoft_throw_0();
+    ss_sint_t compare(size_type pos, size_type cch, class_type const& rhs) const STLSOFT_NOEXCEPT;
     /// Compares \c this with the given string
-    ss_sint_t compare(class_type const& rhs) const stlsoft_throw_0();
+    ss_sint_t compare(class_type const& rhs) const STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Accessors
@@ -338,9 +338,9 @@ public:
     value_type const*       c_str(ss_bool_t bRefresh) const;
 #endif /* 0 */
     /// Returns non-mutable (const) pointer to string data
-    value_type const*       data() const stlsoft_throw_0();
+    value_type const*       data() const STLSOFT_NOEXCEPT;
     /// Returns value of base pointer
-    value_type const*       base() const stlsoft_throw_0();
+    value_type const*       base() const STLSOFT_NOEXCEPT;
 
 #if 0
     /// Returns the first character in the string
@@ -428,10 +428,10 @@ private:
     static ss_sint_t compare_(char_type const* lhs, size_type lhs_len, char_type const* rhs, size_type rhs_len);
 
     // Closes the m_cstr member
-    void close_() stlsoft_throw_0();
+    void close_() STLSOFT_NOEXCEPT;
 
     // Closes the m_cstr member and sets to NULL
-    void close_set_null_() stlsoft_throw_0();
+    void close_set_null_() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Members
@@ -918,7 +918,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline /* static */ void basic_string_view<C, T, A>::close_() stlsoft_throw_0()
+inline /* static */ void basic_string_view<C, T, A>::close_() STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(NULL != m_cstr);
 
@@ -935,7 +935,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline /* static */ void basic_string_view<C, T, A>::close_set_null_() stlsoft_throw_0()
+inline /* static */ void basic_string_view<C, T, A>::close_set_null_() STLSOFT_NOEXCEPT
 {
     if(NULL != m_cstr)
     {
@@ -1071,7 +1071,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline basic_string_view<C, T, A>::~basic_string_view() stlsoft_throw_0()
+inline basic_string_view<C, T, A>::~basic_string_view() STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1101,7 +1101,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline void basic_string_view<C, T, A>::swap(ss_typename_type_k basic_string_view<C, T, A>::class_type& rhs) stlsoft_throw_0()
+inline void basic_string_view<C, T, A>::swap(ss_typename_type_k basic_string_view<C, T, A>::class_type& rhs) STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1116,7 +1116,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline void basic_string_view<C, T, A>::clear() stlsoft_throw_0()
+inline void basic_string_view<C, T, A>::clear() STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1132,7 +1132,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline void basic_string_view<C, T, A>::refresh() stlsoft_throw_0()
+inline void basic_string_view<C, T, A>::refresh() STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1147,7 +1147,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::size() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::size() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1158,7 +1158,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline /* static */ ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::max_size() stlsoft_throw_0()
+inline /* static */ ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::max_size() STLSOFT_NOEXCEPT
 {
     return static_cast<size_type>(-1) / sizeof(char_type);
 }
@@ -1169,7 +1169,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::length() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::length() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1180,7 +1180,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::capacity() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_string_view<C, T, A>::size_type basic_string_view<C, T, A>::capacity() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1191,7 +1191,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_bool_t basic_string_view<C, T, A>::empty() const stlsoft_throw_0()
+inline ss_bool_t basic_string_view<C, T, A>::empty() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1213,7 +1213,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_bool_t basic_string_view<C, T, A>::equal(ss_typename_type_k basic_string_view<C, T, A>::class_type const& rhs) const stlsoft_throw_0()
+inline ss_bool_t basic_string_view<C, T, A>::equal(ss_typename_type_k basic_string_view<C, T, A>::class_type const& rhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1224,7 +1224,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_bool_t basic_string_view<C, T, A>::equal(ss_typename_type_k basic_string_view<C, T, A>::value_type const* rhs, ss_typename_type_k basic_string_view<C, T, A>::size_type cchRhs) const stlsoft_throw_0()
+inline ss_bool_t basic_string_view<C, T, A>::equal(ss_typename_type_k basic_string_view<C, T, A>::value_type const* rhs, ss_typename_type_k basic_string_view<C, T, A>::size_type cchRhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1239,7 +1239,7 @@ template<   ss_typename_param_k C
 inline ss_sint_t basic_string_view<C, T, A>::compare(   ss_typename_type_k basic_string_view<C, T, A>::size_type          pos
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cch
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::value_type const   *rhs
-                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cchRhs) const stlsoft_throw_0()
+                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cchRhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1277,7 +1277,7 @@ template<   ss_typename_param_k C
         >
 inline ss_sint_t basic_string_view<C, T, A>::compare(   ss_typename_type_k basic_string_view<C, T, A>::size_type          pos
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cch
-                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::value_type const*  rhs) const stlsoft_throw_0()
+                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::value_type const*  rhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1308,7 +1308,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_sint_t basic_string_view<C, T, A>::compare(ss_typename_type_k basic_string_view<C, T, A>::value_type const* rhs) const stlsoft_throw_0()
+inline ss_sint_t basic_string_view<C, T, A>::compare(ss_typename_type_k basic_string_view<C, T, A>::value_type const* rhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1326,7 +1326,7 @@ inline ss_sint_t basic_string_view<C, T, A>::compare(   ss_typename_type_k basic
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cch
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::class_type const&  rhs
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          posRhs
-                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cchRhs) const stlsoft_throw_0()
+                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cchRhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
     STLSOFT_ASSERT(pos <= length());
@@ -1375,7 +1375,7 @@ template<   ss_typename_param_k C
         >
 inline ss_sint_t basic_string_view<C, T, A>::compare(   ss_typename_type_k basic_string_view<C, T, A>::size_type          pos
                                                     ,   ss_typename_type_k basic_string_view<C, T, A>::size_type          cch
-                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::class_type const&  rhs) const stlsoft_throw_0()
+                                                    ,   ss_typename_type_k basic_string_view<C, T, A>::class_type const&  rhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1406,7 +1406,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_sint_t basic_string_view<C, T, A>::compare(ss_typename_type_k basic_string_view<C, T, A>::class_type const& rhs) const stlsoft_throw_0()
+inline ss_sint_t basic_string_view<C, T, A>::compare(ss_typename_type_k basic_string_view<C, T, A>::class_type const& rhs) const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1535,7 +1535,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_typename_type_ret_k basic_string_view<C, T, A>::value_type const* basic_string_view<C, T, A>::data() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_string_view<C, T, A>::value_type const* basic_string_view<C, T, A>::data() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 
@@ -1546,7 +1546,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline ss_typename_type_ret_k basic_string_view<C, T, A>::value_type const* basic_string_view<C, T, A>::base() const stlsoft_throw_0()
+inline ss_typename_type_ret_k basic_string_view<C, T, A>::value_type const* basic_string_view<C, T, A>::base() const STLSOFT_NOEXCEPT
 {
     STLSOFT_ASSERT(is_valid());
 

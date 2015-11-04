@@ -4,11 +4,11 @@
  * Purpose:     Synchronisation object lock scoping class.
  *
  * Created:     1st October 1994
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_MAJOR     6
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_MINOR     0
-# define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_REVISION  1
-# define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_EDIT      112
+# define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_REVISION  2
+# define STLSOFT_VER_STLSOFT_SYNCH_HPP_LOCK_SCOPE_EDIT      113
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -227,7 +227,7 @@ public:
         traits_type::lock(m_l);
     }
     /// \brief Unlocks the lockable instance
-    ~lock_scope() stlsoft_throw_0()
+    ~lock_scope() STLSOFT_NOEXCEPT
     {
         traits_type::unlock(m_l);
     }

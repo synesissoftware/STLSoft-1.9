@@ -4,11 +4,11 @@
  * Purpose:     Intra-process mutext, based on PTHREADS.
  *
  * Created:     15th May 2002
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_MAJOR      4
 # define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_MINOR      6
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_REVISION   4
-# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_EDIT       74
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_REVISION   5
+# define UNIXSTL_VER_UNIXSTL_SYNCH_HPP_PROCESS_MUTEX_EDIT       75
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -196,7 +196,7 @@ public:
     {}
 #endif /* _POSIX_THREAD_PROCESS_SHARED */
     /// \brief Destroys an instance of the mutex
-    ~process_mutex() stlsoft_throw_0()
+    ~process_mutex() STLSOFT_NOEXCEPT
     {
         if( 0 == m_error &&
             m_bOwnHandle)
@@ -274,7 +274,7 @@ public:
     }
 
     /// \brief Contains the last failed error code from the underlying PTHREADS API
-    int get_error() const stlsoft_throw_0()
+    int get_error() const STLSOFT_NOEXCEPT
     {
         return m_error;
     }
@@ -284,12 +284,12 @@ public:
 /// @{
 public:
     /// \brief The underlying kernel object handle
-    pthread_mutex_t* handle() stlsoft_throw_0()
+    pthread_mutex_t* handle() STLSOFT_NOEXCEPT
     {
         return m_mx;
     }
     /// \brief The underlying kernel object handle
-    pthread_mutex_t* get() stlsoft_throw_0()
+    pthread_mutex_t* get() STLSOFT_NOEXCEPT
     {
         return m_mx;
     }

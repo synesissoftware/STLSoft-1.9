@@ -4,7 +4,7 @@
  * Purpose:     Process Id sequence class.
  *
  * Created:     24th June 2005
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Thanks to:   Adi Shavit for spotting a small inefficiency in the
  *              resize()-ing, during the review of Extended STL volume 1
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_MAJOR     2
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_MINOR     2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_REVISION  2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_EDIT      48
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_REVISION  3
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_PROCESS_MODULE_SEQUENCE_EDIT      49
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -178,7 +178,7 @@ public:
     /// Copies the contents of the sequence
     process_module_sequence(class_type const& rhs);
     /// Releases the storage associated with the process id list
-    ~process_module_sequence() stlsoft_throw_0();
+    ~process_module_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -316,7 +316,7 @@ inline process_module_sequence::process_module_sequence(process_module_sequence 
     stlsoft_ns_qual_std(copy)(rhs.m_modules.begin(), rhs.m_modules.end(), m_modules.begin());
 }
 
-inline process_module_sequence::~process_module_sequence() stlsoft_throw_0()
+inline process_module_sequence::~process_module_sequence() STLSOFT_NOEXCEPT
 {}
 
 inline process_module_sequence::const_iterator process_module_sequence::begin() const

@@ -4,11 +4,11 @@
  * Purpose:     Contains the basic_connection class.
  *
  * Created:     30th April 1999
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_MAJOR       5
 # define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_MINOR       1
-# define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_REVISION    3
-# define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_EDIT        67
+# define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_REVISION    4
+# define INETSTL_VER_INETSTL_NETWORK_HPP_CONNECTION_EDIT        68
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -160,7 +160,7 @@ public:
                                 ,   is_dword_t          flags
                                 ,   is_dword_t          context     =   0);
     /// Closes the connection, if open
-    ~basic_connection() stlsoft_throw_0();
+    ~basic_connection() STLSOFT_NOEXCEPT;
 
 // Operations
 public:
@@ -287,7 +287,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k X
         ,   ss_typename_param_k T
         >
-inline basic_connection<C, X, T>::~basic_connection() stlsoft_throw_0()
+inline basic_connection<C, X, T>::~basic_connection() STLSOFT_NOEXCEPT
 {
     if(NULL != m_hConn)
     {

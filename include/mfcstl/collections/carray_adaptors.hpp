@@ -5,7 +5,7 @@
  *              class templates.
  *
  * Created:     1st December 2002
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks to:   Nevin Liber and Scott Meyers for kicking my lazy behind, and
  *              requiring that I implement the full complement of standard
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_MAJOR    4
 # define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_MINOR    3
-# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_REVISION 1
-# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_EDIT     83
+# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_REVISION 2
+# define MFCSTL_VER_MFCSTL_COLLECTIONS_HPP_CARRAY_ADAPTORS_EDIT     84
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -298,7 +298,7 @@ protected:
     CArray_adaptor_base()
     {}
     /// \brief Destructor
-    ~CArray_adaptor_base() stlsoft_throw_0()
+    ~CArray_adaptor_base() STLSOFT_NOEXCEPT
     {}
 public:
     /// Returns a copy of the allocator used by the container
@@ -760,7 +760,7 @@ public:
     /// \brief Removes the last element from the non-empty array
     ///
     /// \note The behaviour is undefined if the array is empty
-    void pop_back() stlsoft_throw_0()
+    void pop_back() STLSOFT_NOEXCEPT
     {
         // Precondition checks
         MFCSTL_MESSAGE_ASSERT("pop_back() called on empty container", !empty());
@@ -958,7 +958,7 @@ public:
     ///   pointers to its internal members, or to its peer elements, then these
     ///   relationships will be broked, and the subsequent behaviour of the
     ///   program will be undefined
-    iterator erase(iterator pos) stlsoft_throw_0()
+    iterator erase(iterator pos) STLSOFT_NOEXCEPT
     {
         // Precondition checks
         MFCSTL_ASSERT(pos == end() || (pos >= begin() && pos < end()));
@@ -988,7 +988,7 @@ public:
     ///   pointers to its internal members, or to its peer elements, then these
     ///   relationships will be broked, and the subsequent behaviour of the
     ///   program will be undefined
-    iterator erase(iterator first, iterator last) stlsoft_throw_0()
+    iterator erase(iterator first, iterator last) STLSOFT_NOEXCEPT
     {
         // Precondition checks
         MFCSTL_ASSERT(first <= last);
@@ -1006,7 +1006,7 @@ public:
         return first;
     }
     /// \brief Removes all the elements from the array
-    void clear() stlsoft_throw_0()
+    void clear() STLSOFT_NOEXCEPT
     {
         get_CArray().RemoveAll();
 
@@ -1021,7 +1021,7 @@ public:
     ///
     /// \note This method is only defined if the preprocessor symbol
     ///   MFCSTL_CARRAY_SWAP_MEMBERS_SUPPORT is defined
-    void swap(class_type& rhs) stlsoft_throw_0()
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT
     {
         mfcstl::CArray_swap(this->get_CArray(), rhs.get_CArray());
     }
@@ -1293,7 +1293,7 @@ public:
 
         parent_class_type::assign(first, last);
     }
-    ~CArray_cadaptor() stlsoft_throw_0()
+    ~CArray_cadaptor() STLSOFT_NOEXCEPT
     {
         STLSOFT_STATIC_ASSERT(sizeof(A) == sizeof(ss_typename_type_k T::array_type));
     }

@@ -4,7 +4,7 @@
  * Purpose:     Simple class that represents a path.
  *
  * Created:     1st May 1993
- * Updated:     11th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks to:   Pablo Aguilar for reporting defect in push_ext() (which
  *              doesn't work for wide-string builds).
@@ -53,8 +53,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_MAJOR    6
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_MINOR    7
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_REVISION 2
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_EDIT     264
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_REVISION 3
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_PATH_EDIT     265
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -305,11 +305,11 @@ public:
     /// \note Does not trim the separator character from the root designator
     ///
     /// \note This method is idempotent.
-    class_type& pop_sep() stlsoft_throw_0();
+    class_type& pop_sep() STLSOFT_NOEXCEPT;
     /// Removes the extension, if any, from the file component of the path
     ///
     /// \note This method is idempotent.
-    class_type& pop_ext() stlsoft_throw_0();
+    class_type& pop_ext() STLSOFT_NOEXCEPT;
 
     /// Equivalent to push()
     class_type& operator /=(char_type const* rhs);
@@ -1407,7 +1407,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline basic_path<C, T, A>& basic_path<C, T, A>::pop_sep() stlsoft_throw_0()
+inline basic_path<C, T, A>& basic_path<C, T, A>::pop_sep() STLSOFT_NOEXCEPT
 {
     if(0 != m_len)
     {
@@ -1445,7 +1445,7 @@ template<   ss_typename_param_k C
         ,   ss_typename_param_k T
         ,   ss_typename_param_k A
         >
-inline basic_path<C, T, A>& basic_path<C, T, A>::pop_ext() stlsoft_throw_0()
+inline basic_path<C, T, A>& basic_path<C, T, A>::pop_ext() STLSOFT_NOEXCEPT
 {
     { for(ws_size_t len = m_len; 0 != len; --len)
     {

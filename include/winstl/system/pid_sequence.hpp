@@ -4,7 +4,7 @@
  * Purpose:     Process Id sequence class.
  *
  * Created:     24th June 2005
- * Updated:     25th March 2010
+ * Updated:     4th November 2015
  *
  * Thanks to:   Adi Shavit for spotting a small inefficiency in the
  *              resize()-ing, during the review of Extended STL volume 1
@@ -12,7 +12,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_MAJOR    2
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_MINOR    2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_REVISION 2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_EDIT     51
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_REVISION 3
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_PID_SEQUENCE_EDIT     52
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -190,7 +190,7 @@ public:
     /// Copies the contents of the sequence
     pid_sequence(class_type const& rhs);
     /// Releases the storage associated with the process id list
-    ~pid_sequence() stlsoft_throw_0();
+    ~pid_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Iteration
@@ -406,7 +406,7 @@ inline pid_sequence::pid_sequence(pid_sequence const& rhs)
     stlsoft_ns_qual_std(copy)(rhs.m_pids.begin(), rhs.m_pids.end(), m_pids.begin());
 }
 
-inline pid_sequence::~pid_sequence() stlsoft_throw_0()
+inline pid_sequence::~pid_sequence() STLSOFT_NOEXCEPT
 {}
 
 inline pid_sequence::const_iterator pid_sequence::begin() const

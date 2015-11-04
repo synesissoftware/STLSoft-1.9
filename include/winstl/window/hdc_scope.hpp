@@ -4,11 +4,11 @@
  * Purpose:     GDI scope class.
  *
  * Created:     20th October 1994
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_MAJOR      3
 # define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_MINOR      0
-# define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_REVISION   1
-# define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_EDIT       43
+# define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_REVISION   2
+# define WINSTL_VER_WINSTL_WINDOW_HPP_HDC_SCOPE_EDIT       44
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -125,7 +125,7 @@ public:
         WINSTL_ASSERT(NULL != hwnd);
     }
     /// Releases the device context associated with the window
-    ~HDC_scope() stlsoft_throw_0()
+    ~HDC_scope() STLSOFT_NOEXCEPT
     {
         if(NULL != m_hdc)
         {

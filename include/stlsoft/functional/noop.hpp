@@ -4,11 +4,11 @@
  * Purpose:     Basic functionals.
  *
  * Created:     19th January 2002
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_MAJOR      3
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_MINOR      0
-# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_REVISION   2
-# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_EDIT       47
+# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_REVISION   3
+# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_NOOP_EDIT       48
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -103,7 +103,7 @@ struct noop_function
 {
 public:
     /// The function call operator, which does nothing
-    void operator ()(T const& /* t */) stlsoft_throw_0()
+    void operator ()(T const& /* t */) STLSOFT_NOEXCEPT
     {}
 };
 

@@ -4,11 +4,11 @@
  * Purpose:     errno scoping class.
  *
  * Created:     28th November 1998
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_MAJOR      3
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_MINOR      0
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_REVISION   3
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_EDIT       40
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_REVISION   4
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ERRNO_SCOPE_EDIT       41
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -116,17 +116,17 @@ public:
 /// @{
 public:
     /// \brief Remembers the current value of <code>errno</code>.
-    errno_scope() stlsoft_throw_0()
+    errno_scope() STLSOFT_NOEXCEPT
         : m_errno(errno)
     {}
     /// \brief Remembers the given value as the value of <code>errno</code>.
-    ss_explicit_k errno_scope(int errno_) stlsoft_throw_0()
+    ss_explicit_k errno_scope(int errno_) STLSOFT_NOEXCEPT
         : m_errno(errno_)
     {
         errno = m_errno;
     }
     /// \brief Replaces the remembered value of <code>errno</code>.
-    ~errno_scope() stlsoft_throw_0()
+    ~errno_scope() STLSOFT_NOEXCEPT
     {
         errno = m_errno;
     }

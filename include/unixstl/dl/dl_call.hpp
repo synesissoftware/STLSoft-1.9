@@ -4,11 +4,11 @@
  * Purpose:     Invocation of functions in dynamic libraries.
  *
  * Created:     sometime in 1998
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_MAJOR       2
 # define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_MINOR       3
-# define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_REVISION    6
-# define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_EDIT        41
+# define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_REVISION    7
+# define UNIXSTL_VER_UNIXSTL_DL_HPP_DL_CALL_EDIT        42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -133,7 +133,7 @@ public:
         : parent_class_type(class_type::create_reason_(functionName), err)
     {}
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
-    virtual ~missing_entry_point_exception() stlsoft_throw_0()
+    virtual ~missing_entry_point_exception() STLSOFT_NOEXCEPT
     {}
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /// @}

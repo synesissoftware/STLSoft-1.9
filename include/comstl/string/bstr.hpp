@@ -4,13 +4,13 @@
  * Purpose:     bstr class.
  *
  * Created:     20th December 1996
- * Updated:     5th March 2011
+ * Updated:     4th November 2015
  *
  * Thanks:      To Gabor Fischer for requesting attach().
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_MAJOR       2
 # define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_MINOR       8
-# define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_REVISION    4
-# define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_EDIT        62
+# define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_REVISION    5
+# define _COMSTL_VER_COMSTL_STRING_HPP_BSTR_EDIT        63
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -173,7 +173,7 @@ public:
     /// \brief Copy constructor
     bstr(class_type const& rhs);
     bstr(class_type const& rhs, size_type pos, size_type len);
-    ~bstr() stlsoft_throw_0();
+    ~bstr() STLSOFT_NOEXCEPT;
 
     /// \brief Copies the given instance
     class_type& operator =(class_type const& rhs);
@@ -273,9 +273,9 @@ public:
 /// @{
 public:
     /// \brief Swaps the contents with the given instance
-    void swap(class_type& rhs) stlsoft_throw_0();
+    void swap(class_type& rhs) STLSOFT_NOEXCEPT;
     /// \brief Swaps the contents with the given BSTR
-    void swap(BSTR& rhs) stlsoft_throw_0();
+    void swap(BSTR& rhs) STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Members
@@ -609,7 +609,7 @@ inline bstr::bstr(bstr::class_type const& rhs, bstr::size_type pos, bstr::size_t
 #endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
 }
 
-inline bstr::~bstr() stlsoft_throw_0()
+inline bstr::~bstr() STLSOFT_NOEXCEPT
 {
     ::SysFreeString(m_bstr);
 }
@@ -845,12 +845,12 @@ inline bstr::bool_type bstr::equal(BSTR const& rhs) const
 
 // Operations
 
-inline void bstr::swap(bstr::class_type& rhs) stlsoft_throw_0()
+inline void bstr::swap(bstr::class_type& rhs) STLSOFT_NOEXCEPT
 {
     std_swap(m_bstr, rhs.m_bstr);
 }
 
-inline void bstr::swap(BSTR& rhs) stlsoft_throw_0()
+inline void bstr::swap(BSTR& rhs) STLSOFT_NOEXCEPT
 {
     std_swap(m_bstr, rhs);
 }

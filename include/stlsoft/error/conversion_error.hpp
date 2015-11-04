@@ -4,11 +4,11 @@
  * Purpose:     Definition of the stlsoft::conversion_error exception class.
  *
  * Created:     15th December 2006
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2007-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2007-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_MAJOR       1
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_MINOR       0
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_REVISION    6
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_EDIT        10
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_REVISION    7
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_CONVERSION_ERROR_EDIT        11
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -119,7 +119,7 @@ protected:
     _MSC_VER > 1200
     // There's a defect in the VC++ 6 compiler that causes the throwing of
     // any derived class to cause an ICE
-    virtual ~conversion_error_base() stlsoft_throw_0() = 0;
+    virtual ~conversion_error_base() STLSOFT_NOEXCEPT = 0;
 #endif /* compiler */
 /// @}
 };
@@ -164,7 +164,7 @@ public:
         : parent_class_type(rhs)
         , m_code(rhs.m_code)
     {}
-    virtual ~conversion_error() stlsoft_throw_0()
+    virtual ~conversion_error() STLSOFT_NOEXCEPT
     {}
 private:
     class_type& operator =(class_type const&);
@@ -200,7 +200,7 @@ private:
 
 # if !defined(STLSOFT_COMPILER_IS_MSVC) || \
     _MSC_VER > 1200
-inline /* virtual */ conversion_error_base::~conversion_error_base() stlsoft_throw_0()
+inline /* virtual */ conversion_error_base::~conversion_error_base() STLSOFT_NOEXCEPT
 {}
 # endif /* compiler */
 

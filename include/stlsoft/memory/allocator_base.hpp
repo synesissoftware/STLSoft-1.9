@@ -4,11 +4,11 @@
  * Purpose:     Allocator commmon features.
  *
  * Created:     20th August 2003
- * Updated:     10th August 2009
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_MAJOR    4
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_MINOR    1
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_REVISION 6
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_EDIT     48
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_REVISION 7
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_BASE_EDIT     49
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -187,7 +187,7 @@ private:
 /// @{
 public:
     /// \brief Returns the maximum number of allocatable entities
-    size_type max_size() const stlsoft_throw_0()
+    size_type max_size() const STLSOFT_NOEXCEPT
     {
         return static_cast<size_type>(-1) / sizeof(value_type);
     }
@@ -199,14 +199,14 @@ public:
     /// \brief Returns the address corresponding to the given reference
     ///
     /// \param x A reference to a \c value_type instance whose address will be calculated
-    pointer address(reference x) const stlsoft_throw_0()
+    pointer address(reference x) const STLSOFT_NOEXCEPT
     {
         return &x;
     }
     /// \brief Returns the address corresponding to the given non-mutable (const) reference
     ///
     /// \param x A non-mutable (const) reference to a \c value_type instance whose address will be calculated
-    const_pointer address(const_reference x) const stlsoft_throw_0()
+    const_pointer address(const_reference x) const STLSOFT_NOEXCEPT
     {
         return &x;
     }
@@ -298,7 +298,7 @@ public:
     /// \brief In-place destroys an instance
     ///
     /// \param p The instance whose destructor is to be called
-    void destroy(pointer p) stlsoft_throw_0()
+    void destroy(pointer p) STLSOFT_NOEXCEPT
     {
         STLSOFT_ASSERT(NULL != p);
 

@@ -582,7 +582,7 @@ public:
     ss_explicit_k version_info(ws_char_w_t const* moduleName);
 
     /// Releases any allocated resources
-    ~version_info() stlsoft_throw_0();
+    ~version_info() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Properties
@@ -1000,7 +1000,7 @@ inline /* ss_explicit_k */ version_info::version_info(ws_char_w_t const* moduleN
     init_();
 }
 
-inline version_info::~version_info() stlsoft_throw_0()
+inline version_info::~version_info() STLSOFT_NOEXCEPT
 {
     allocator_type  allocator;
 

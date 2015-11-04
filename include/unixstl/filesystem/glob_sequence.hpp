@@ -4,7 +4,7 @@
  * Purpose:     glob_sequence class.
  *
  * Created:     15th January 2002
- * Updated:     9th October 2015
+ * Updated:     4th November 2015
  *
  * Thanks:      To Carlos Santander Bernal for helping with Mac compatibility.
  *              To Nevin Liber for pressing upon me the need to lead by
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_MAJOR     5
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_MINOR     2
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_REVISION  7
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_EDIT      162
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_REVISION  8
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_EDIT      163
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ public:
 /// \name Construction
 /// @{
 public:
-    ss_explicit_k glob_sequence_exception(us_int_t globStatus, us_int_t errno_) stlsoft_throw_0()
+    ss_explicit_k glob_sequence_exception(us_int_t globStatus, us_int_t errno_) STLSOFT_NOEXCEPT
         : m_globStatus(globStatus)
         , m_errno(errno_)
     {}
@@ -281,17 +281,17 @@ public:
 #if defined(STLSOFT_COMPILER_IS_DMC)
     char const* what() const throw()
 #else /* ? compiler */
-    char const* what() const stlsoft_throw_0()
+    char const* what() const STLSOFT_NOEXCEPT
 #endif /* compiler */
     {
         return "glob_sequence failure";
     }
 
-    us_int_t get_globstatus() const stlsoft_throw_0()
+    us_int_t get_globstatus() const STLSOFT_NOEXCEPT
     {
         return m_globStatus;
     }
-    us_int_t get_errno() const stlsoft_throw_0()
+    us_int_t get_errno() const STLSOFT_NOEXCEPT
     {
         return m_errno;
     }
@@ -532,7 +532,7 @@ public:
 #endif /* 0 */
 
     /// \brief Releases any acquired resources
-    ~glob_sequence() stlsoft_throw_0();
+    ~glob_sequence() STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Attributes
@@ -695,7 +695,7 @@ inline glob_sequence::glob_sequence(char_type const* directory, char_type const*
 }
 #endif /* 0 */
 
-inline glob_sequence::~glob_sequence() stlsoft_throw_0()
+inline glob_sequence::~glob_sequence() STLSOFT_NOEXCEPT
 {
     UNIXSTL_ASSERT(is_valid());
 

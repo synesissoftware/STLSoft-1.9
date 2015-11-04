@@ -4,11 +4,11 @@
  * Purpose:     processheap_allocator class.
  *
  * Created:     25th February 2002
- * Updated:     31st March 2010
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_MAJOR       4
 # define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_MINOR       1
-# define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_REVISION    3
-# define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_EDIT        83
+# define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_REVISION    4
+# define WINSTL_VER_WINSTL_MEMORY_HPP_PROCESSHEAP_ALLOCATOR_EDIT        84
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -143,22 +143,22 @@ public:
 /// @{
 public:
     /// Default constructor
-    processheap_allocator() stlsoft_throw_0()
+    processheap_allocator() STLSOFT_NOEXCEPT
         : m_processheap(::GetProcessHeap())
     {}
     /// Copy constructor
 #ifdef STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT
     template <ss_typename_param_k U>
-    processheap_allocator(processheap_allocator<U> const& /* rhs */) stlsoft_throw_0()
+    processheap_allocator(processheap_allocator<U> const& /* rhs */) STLSOFT_NOEXCEPT
         : m_processheap(::GetProcessHeap())
     {}
 #else /* ? STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT */
-    processheap_allocator(processheap_allocator const& /* rhs */) stlsoft_throw_0()
+    processheap_allocator(processheap_allocator const& /* rhs */) STLSOFT_NOEXCEPT
         : m_processheap(::GetProcessHeap())
     {}
 #endif /* STLSOFT_CF_ALLOCATOR_REBIND_SUPPORT */
     /// Destructor
-    ~processheap_allocator() stlsoft_throw_0()
+    ~processheap_allocator() STLSOFT_NOEXCEPT
     {}
 
     /// Copy assignment operator
