@@ -4,11 +4,11 @@
  * Purpose:     Converts a Win32 error code to a printable string.
  *
  * Created:     13th July 2003
- * Updated:     13th May 2014
+ * Updated:     4th November 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_MAJOR       4
 # define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_MINOR       6
-# define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_REVISION    3
-# define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_EDIT        88
+# define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_REVISION    4
+# define WINSTL_VER_WINSTL_ERROR_HPP_ERROR_DESC_EDIT        89
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -358,7 +358,7 @@ public:
     }
 public:
     /// Releases any resources.
-    ~basic_error_desc() stlsoft_throw_0();
+    ~basic_error_desc() STLSOFT_NOEXCEPT;
 
 #if defined(STLSOFT_COMPILER_IS_GCC) || \
     defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
@@ -367,7 +367,7 @@ public:
     ///   to instances of the type.
     ///
     /// \note Defined only for GCC compilation.
-    basic_error_desc(class_type& rhs) stlsoft_throw_0();
+    basic_error_desc(class_type& rhs) STLSOFT_NOEXCEPT;
 #endif /* compiler */
 /// @}
 
@@ -390,11 +390,11 @@ public:
     operator char_type const* () const;
 #endif /* !WINSTL_ERROR_DESC_NO_IMPLICIT_CONVERSION) */
     /// The length of the error description
-    size_type       length() const stlsoft_throw_0();
+    size_type       length() const STLSOFT_NOEXCEPT;
     /// The length of the error description
-    size_type       size() const stlsoft_throw_0();
+    size_type       size() const STLSOFT_NOEXCEPT;
     /// Indicates whether the instance is empty
-    bool_type       empty() const stlsoft_throw_0();
+    bool_type       empty() const STLSOFT_NOEXCEPT;
 /// @}
 
 /// \name Implementation
@@ -506,7 +506,7 @@ template<
 ,   ss_typename_param_k T
 >
 inline
-basic_error_desc<C, T>::~basic_error_desc() stlsoft_throw_0()
+basic_error_desc<C, T>::~basic_error_desc() STLSOFT_NOEXCEPT
 {
 #ifdef STLSOFT_CF_USE_RAW_OFFSETOF_IN_STATIC_ASSERT
     STLSOFT_STATIC_ASSERT(STLSOFT_RAW_OFFSETOF(class_type, m_length) < STLSOFT_RAW_OFFSETOF(class_type, m_message));
@@ -526,7 +526,7 @@ template<
 inline
 basic_error_desc<C, T>::basic_error_desc(
     ss_typename_type_k basic_error_desc<C, T>::class_type& rhs
-) stlsoft_throw_0()
+) STLSOFT_NOEXCEPT
 {
     m_length        =   rhs.m_length;
     rhs.m_length    =   0;
@@ -582,7 +582,7 @@ template<
 >
 inline
 ss_typename_type_ret_k basic_error_desc<C, T>::size_type
-basic_error_desc<C, T>::length() const stlsoft_throw_0()
+basic_error_desc<C, T>::length() const STLSOFT_NOEXCEPT
 {
     return m_length;
 }
@@ -593,7 +593,7 @@ template<
 >
 inline
 ss_typename_type_ret_k basic_error_desc<C, T>::size_type
-basic_error_desc<C, T>::size() const stlsoft_throw_0()
+basic_error_desc<C, T>::size() const STLSOFT_NOEXCEPT
 {
     return length();
 }
@@ -604,7 +604,7 @@ template<
 >
 inline
 ss_typename_type_ret_k basic_error_desc<C, T>::bool_type
-basic_error_desc<C, T>::empty() const stlsoft_throw_0()
+basic_error_desc<C, T>::empty() const STLSOFT_NOEXCEPT
 {
     return 0 == length();
 }

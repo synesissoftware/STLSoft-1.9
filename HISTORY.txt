@@ -2,9 +2,30 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  1st November 2015
+; Updated:  15th November 2015
 
 ============================================================================
+
+
+15th November 2015 - 1.9.124 released
+-------------------------------------
+
+ * MSVC++ does not support __func__
+
+
+15th November 2015 - 1.9.123 released
+-------------------------------------
+
+ * added STLSOFT_NOEXCEPT
+ * changed no-throw declaration from stlsoft_throw_0() to STLSOFT_NOEXCEPT
+ * STLSOFT_CF_EXPLICIT_KEYWORD_SUPPORT => STLSOFT_CF_explicit_KEYWORD_SUPPORT
+ * STLSOFT_CF_MUTABLE_KEYWORD_SUPPORT => STLSOFT_CF_mutable_KEYWORD_SUPPORT
+ * STLSOFT_CF_BUILTIN_nullptr_SUPPORT => STLSOFT_CF_nullptr_KEYWORD_SUPPORT
+ * STLSOFT_CF_OVERRIDE_KEYWORD_SUPPORT => STLSOFT_CF_override_KEYWORD_SUPPORT
+ * STLSOFT_CF_constexpr_KEYWORD_SUPPORT
+ * STLSOFT_CF_final_KEYWORD_SUPPORT
+ * added token_information<>::get(), token_information<>::size()
+ * correct use of deallocate()
 
 
 1st November 2015 - 1.9.122 released
