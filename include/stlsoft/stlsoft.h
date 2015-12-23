@@ -458,7 +458,7 @@
 # endif /* !__STLSOFT_CF_CUSTOM_COMPILER_INCLUDE_NAME */
 
 #elif defined(__clang__)
- /* ******************************* Comeau ****************************** */
+ /* ******************************* Clang ******************************* */
 # define STLSOFT_COMPILER_IS_CLANG
 # define STLSOFT_COMPILER_LABEL_STRING          "Clang C/C++"
 # if __clang_major__ < 6
