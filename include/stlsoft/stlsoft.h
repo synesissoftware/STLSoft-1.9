@@ -2824,6 +2824,19 @@ inline void suppress_unused_func(R (STLSOFT_STDCALL *)(A0))
 # define STLSOFT_SUPPRESS_UNNAMED_PARAM(p)  ((void)p);
 #endif /* __cplusplus */
 
+/** \def STLSOFT_SUPPRESS_UNUSED_LOCAL_TYPEDEF
+ * \ingroup group__project__stlsoft__code_modification_macros
+ *
+ * \brief Used to suppress unused local typedef warnings
+ */
+#if defined(__cplusplus) && \
+    (   defined(STLSOFT_COMPILER_IS_GCC) && \
+            __GNUC__ >= 4 && __GNUC_MINOR__ >= 8)
+# define STLSOFT_SUPPRESS_UNUSED_LOCAL_TYPEDEF() __attribute__((unused));
+#else /* ? __cplusplus */
+# define STLSOFT_SUPPRESS_UNUSED_LOCAL_TYPEDEF()
+#endif /* __cplusplus */
+
 /** @} */
 
 /* /////////////////////////////////////////////////////////////////////////
