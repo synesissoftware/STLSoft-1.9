@@ -1426,7 +1426,11 @@
      defined(STLSOFT_COMPILER_IS_GCC) || \
      defined(STLSOFT_COMPILER_IS_INTEL) || \
      0
-#  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1]; } while(0)
+#  if defined(STLSOFT_COMPILER_IS_GCC) && __GNUC__ >= 4 && __GNUC_MINOR__ >= 8
+#   define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1] __attribute__((unused)); } while(0) 
+#  else /* Compiler is Gnu 4.8 or newer with -Wunused-local-typedefs included in -Wall. */
+#   define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1]; } while(0) 
+#  endif /* Compiler is Gnu 4.8 or newer with -Wunused-local-typedefs included in -Wall. */
 # else /* ? compiler */
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : 0]; } while(0)
 # endif /* compiler */
