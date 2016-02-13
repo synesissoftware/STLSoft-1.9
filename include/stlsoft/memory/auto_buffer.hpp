@@ -4,7 +4,7 @@
  * Purpose:     Contains the auto_buffer template class.
  *
  * Created:     19th January 2002
- * Updated:     4th November 2015
+ * Updated:     26th December 2015
  *
  * Thanks:      To Magnificent Imbecil for pointing out error in
  *              documentation, and for suggesting swap() optimisation.
@@ -56,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MAJOR       5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_MINOR       2
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    6
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        166
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_REVISION    7
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_AUTO_BUFFER_EDIT        167
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -160,7 +160,7 @@ private:
                                     :   divided_value_
     };
 public:
-    enum { value            =   1 == sizeof(T)
+    enum {  value            =   1 == sizeof(T)
                                     ?   max_value
                                     :   divided_value < min_value
                                         ?   min_value
@@ -377,7 +377,8 @@ template<   ss_typename_param_k T
 
 template<   ss_typename_param_k T
 # ifdef STLSOFT_CF_TEMPLATE_CLASS_DEFAULT_FUNDAMENTAL_ARGUMENT_SUPPORT
-#  if defined(STLSOFT_COMPILER_IS_BORLAND)
+#  if 0
+#  elif defined(STLSOFT_COMPILER_IS_BORLAND)
         ,   ss_size_t           space   =   256
 #  elif defined(STLSOFT_COMPILER_IS_DMC)
         ,   ss_size_t           SPACE   =   256
