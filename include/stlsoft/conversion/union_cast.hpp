@@ -6,11 +6,11 @@
  *              some compilers.
  *
  * Created:     2nd May 1997
- * Updated:     10th August 2009
+ * Updated:     26th December 2015
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_MAJOR    5
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_MINOR    0
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_REVISION 3
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_EDIT     64
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_REVISION 5
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_UNION_CAST_EDIT     66
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -70,6 +70,9 @@
 # ifndef STLSOFT_INCL_STLSOFT_META_HPP_BASE_TYPE_TRAITS
 #  include <stlsoft/meta/base_type_traits.hpp>
 # endif /* !STLSOFT_INCL_STLSOFT_META_HPP_BASE_TYPE_TRAITS */
+# ifndef STLSOFT_INCL_STLSOFT_META_HPP_YESNO
+#  include <stlsoft/meta/yesno.hpp>
+# endif /* !STLSOFT_INCL_STLSOFT_META_HPP_YESNO */
 #endif /* STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -101,15 +104,16 @@ namespace stlsoft
  * risk. Notwithstanding that, the TO and FROM types have to be the same
  * size, so the technique is widely usable.
  */
-template<   ss_typename_param_k TO
-        ,   ss_typename_param_k FROM
+template<
+    ss_typename_param_k TO
+,   ss_typename_param_k FROM
 #if defined(STLSOFT_COMPILER_IS_GCC) && \
-    __GNUC__ < 3
-        ,   ss_bool_t           B_CHECK_ALIGN    /* =   true */
+__GNUC__ < 3
+,   ss_bool_t           B_CHECK_ALIGN    /* =   true */
 #else /* ? compiler */
-        ,   ss_bool_t           B_CHECK_ALIGN    =   true
+,   ss_bool_t           B_CHECK_ALIGN    =   true
 #endif /* compiler */
-        >
+>
 union union_caster
 {
 /// \name Member Types
@@ -135,9 +139,11 @@ public:
         //
         // (i) Sizes must be the same
         // (ii) Both must be of POD type
-        // (iii) There must be either a change of const/volatile,  or a change
-        //  of type, but not both.
-        // (iv) Both must be non-pointers, or must point to POD types
+        // (iii) There must be either a change of const/volatile, or a
+        //  change of type, but not both.
+        // (iv) Both must be non-pointers, or must point to POD (or void)
+        //  types
+        // (v) check alignment
 
 #if !defined(STLSOFT_COMPILER_IS_DMC) || \
     __DMC__ >= 0x0833
@@ -147,54 +153,34 @@ public:
         stlsoft_constraint_must_be_pod(from_type);
         stlsoft_constraint_must_be_pod(to_type);
 # if defined(STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT)
-        // (iii) There must be either a change of const/volatile,
-        /// or a change of type, but not both.
+        // (iii) There must be either a change of const/volatile, or a
+        //  change of type, but not both.
 //        STLSOFT_STATIC_ASSERT(  (1 == is_same_type<from_type, to_type>::value) ||
 //                                (   base_type_traits<from_type>::is_const == base_type_traits<to_type>::is_const &&
 //                                    base_type_traits<from_type>::is_volatile == base_type_traits<to_type>::is_volatile));
 
-        // (iv) Both must be non-pointers, or must point to POD types
+        // (iv) Both must be non-pointers, or must point to POD (or void)
+        //  types
         typedef ss_typename_type_k base_type_traits<from_type>::base_type   from_base_type;
         typedef ss_typename_type_k base_type_traits<to_type>::base_type     to_base_type;
 
         stlsoft_constraint_must_be_pod_or_void(from_base_type);
         stlsoft_constraint_must_be_pod_or_void(to_base_type);
 
-        if( !base_type_traits<from_type>::is_pointer &&
-            base_type_traits<to_type>::is_pointer &&
-            0 != from)
-        {
-            ss_size_t       to_size     =   size_of<to_base_type>::value;
-            union U
-            {
-                ss_size_t   size_;
-                from_type   from_;
-#  if !defined(STLSOFT_COMPILER_IS_MSVC) || \
-      _MSC_VER < 1310
-                inline U(from_type from)
-                    : from_(from)
-                {}
-            } u_(from); // Can't be anonymous, otherwise GCC has an ICE!
-#  else /* ? compiler */
-            } u_;
-            u_.from_ = from;
-#  endif /* compiler */
-            ss_size_t       from_value  =   u_.size_;
-
-            STLSOFT_SUPPRESS_UNUSED(to_size);
-            STLSOFT_SUPPRESS_UNUSED(from_value);
-
-            // Need to add to_size, since Metrowerks warns of constant division by zero
-            STLSOFT_MESSAGE_ASSERT( "Misalignment in conversion from non-pointer to pointer", (!bCheckAlign || (0 == to_size) || (0 == ((from_value + to_size) % to_size))));
-        }
 # endif /* STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT */
+
+        // (v) check alignment
+        STLSOFT_MESSAGE_ASSERT("Misalignment in conversion from non-pointer to pointer", !bCheckAlign || check_align_(from));
 #else /* ? compiler */
+
         // Sizes must be the same
         STLSOFT_ASSERT(sizeof(from_type) == sizeof(to_type));
 #endif /* compiler */
 
         STLSOFT_SUPPRESS_UNUSED(bCheckAlign);
     }
+private:
+    class_type& operator =(class_type const&);  // copy-assignment proscribed
 /// @}
 
 /// \name Conversion
@@ -207,17 +193,98 @@ public:
     }
 /// @}
 
-/// \name Members
+/// \name implementation
+/// @{
+private:
+# if defined(STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT)
+    template<
+        ss_typename_param_k T1
+    ,   ss_typename_param_k T2
+    >
+    static
+    bool
+    should_compare_3_(
+        T1
+    ,   T2
+    ,   from_type const& /* from */
+    )
+    {
+        return false;
+    }
+
+    static
+    bool
+    should_compare_3_(
+        no_type
+    ,   yes_type
+    ,   from_type const& from
+    )
+    {
+        return 0 != from;
+    }
+
+    template<
+        bool    V_FromIsPointer
+    ,   bool    V_ToIsPointer
+    >
+    static
+    bool
+    should_compare_(
+        from_type const& from
+    )
+    {
+        typedef ss_typename_type_k value_to_yesno_type<V_FromIsPointer>::type   from_is_pointer_t;
+        typedef ss_typename_type_k value_to_yesno_type<V_ToIsPointer>::type     to_is_pointer_t;
+
+        return should_compare_3_(from_is_pointer_t(), to_is_pointer_t(), from);
+    }
+#endif /* STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT */
+
+    static
+    bool
+    check_align_(
+        from_type const& from
+    )
+    {
+# if defined(STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT)
+        typedef ss_typename_type_k base_type_traits<from_type>::base_type   from_base_type;
+        typedef ss_typename_type_k base_type_traits<to_type>::base_type     to_base_type;
+
+        if(!should_compare_<base_type_traits<from_type>::is_pointer, base_type_traits<to_type>::is_pointer>(from))
+        {
+            return true;
+        }
+        else
+        {
+            ss_size_t const to_size     =   size_of<to_base_type>::value;
+            // Can't be anonymous, otherwise GCC has an ICE!
+            union U // {
+            {
+                ss_size_t   size_;
+                from_type   from_;
+            } u_;
+            u_.from_ = from;
+            ss_size_t const from_value  =   u_.size_;
+
+            STLSOFT_SUPPRESS_UNUSED(to_size);
+            STLSOFT_SUPPRESS_UNUSED(from_value);
+
+            return (0 == to_size) || (0 == ((from_value + to_size) % to_size));
+        }
+#else /* ? STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT */
+        STLSOFT_SUPPRESS_UNUSED(from);
+
+        return true;
+#endif /* STLSOFT_CF_TEMPLATE_PARTIAL_SPECIALISATION_SUPPORT */
+    }
+
+/// @}
+
+/// \name Fields
 /// @{
 private:
     from_type const  m_from;
     to_type          m_to;
-/// @}
-
-/// \name Not to be implemented
-/// @{
-private:
-    class_type& operator =(class_type const&);
 /// @}
 };
 
@@ -240,13 +307,18 @@ private:
 
 short  *ps;
 int    i = stlsoft::union_cast<int>(ps);    // Ok: same size
-double d = stlsoft::union_cast<double>(ps); // Compile error: different size
+double d = stlsoft::union_cast<double>(ps); // Compile error: different sizes
 \endcode
  */
 template<   ss_typename_param_k TO
         ,   ss_typename_param_k FROM
         >
-inline union_caster<TO, FROM, true> union_cast(FROM const from, ss_bool_t bCheckAlign = true)
+inline
+union_caster<TO, FROM, true>
+union_cast(
+    FROM const  from
+,   ss_bool_t   bCheckAlign = true
+)
 {
     return union_caster<TO, FROM, true>(from, bCheckAlign);
 }
@@ -261,7 +333,12 @@ inline union_caster<TO, FROM, true> union_cast(FROM const from, ss_bool_t bCheck
 template<   ss_typename_param_k TO
         ,   ss_typename_param_k FROM
         >
-inline union_caster<TO, FROM, true> make_union_cast(FROM const from, ss_bool_t bCheckAlign = true)
+inline
+union_caster<TO, FROM, true>
+make_union_cast(
+    FROM const  from
+,   ss_bool_t   bCheckAlign = true
+)
 {
     return union_caster<TO, FROM, true>(from, bCheckAlign);
 }
@@ -274,33 +351,51 @@ inline union_caster<TO, FROM, true> make_union_cast(FROM const from, ss_bool_t b
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
-template<   ss_typename_param_k TO
-        ,   ss_typename_param_k FROM
-        ,   ss_bool_t           B_CHECK_ALIGN
-        >
-inline ss_bool_t operator < (union_caster<TO, FROM, B_CHECK_ALIGN> const& lhs, TO const& rhs)
+template<
+    ss_typename_param_k TO
+,   ss_typename_param_k FROM
+,   ss_bool_t           B_CHECK_ALIGN
+>
+inline
+ss_bool_t
+operator <(
+    union_caster<TO, FROM, B_CHECK_ALIGN> const&    lhs
+,   TO const&                                       rhs
+)
 {
     TO const    lhs_    =   lhs;
 
     return lhs_ < rhs;
 }
 
-template<   ss_typename_param_k TO
-        ,   ss_typename_param_k FROM
-        ,   ss_bool_t           B_CHECK_ALIGN
-        >
-inline ss_bool_t operator < (TO const& lhs, union_caster<TO, FROM, B_CHECK_ALIGN> const& rhs)
+template<
+    ss_typename_param_k TO
+,   ss_typename_param_k FROM
+,   ss_bool_t           B_CHECK_ALIGN
+>
+inline
+ss_bool_t
+operator <(
+    TO const&                                       lhs
+,   union_caster<TO, FROM, B_CHECK_ALIGN> const&    rhs
+)
 {
     TO const    rhs_    =   rhs;
 
     return lhs < rhs_;
 }
 
-template<   ss_typename_param_k TO
-        ,   ss_typename_param_k FROM
-        ,   ss_bool_t           B_CHECK_ALIGN
-        >
-inline ss_bool_t operator < (union_caster<TO, FROM, B_CHECK_ALIGN> const& lhs, union_caster<TO, FROM, B_CHECK_ALIGN> const& rhs)
+template<
+    ss_typename_param_k TO
+,   ss_typename_param_k FROM
+,   ss_bool_t           B_CHECK_ALIGN
+>
+inline
+ss_bool_t
+operator <(
+    union_caster<TO, FROM, B_CHECK_ALIGN> const&    lhs
+,   union_caster<TO, FROM, B_CHECK_ALIGN> const&    rhs
+)
 {
     TO const    lhs_    =   lhs;
     TO const    rhs_    =   rhs;
@@ -320,7 +415,7 @@ inline ss_bool_t operator < (union_caster<TO, FROM, B_CHECK_ALIGN> const& lhs, u
 /* ////////////////////////////////////////////////////////////////////// */
 
 #ifndef _STLSOFT_NO_NAMESPACE
-} // namespace stlsoft
+} /* namespace stlsoft */
 #endif /* _STLSOFT_NO_NAMESPACE */
 
 /* ////////////////////////////////////////////////////////////////////// */
