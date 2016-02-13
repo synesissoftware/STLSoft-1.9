@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Visual C++.
  *
  * Created:     7th February 2003
- * Updated:     15th November 2015
+ * Updated:     26th December 2015
  *
  * Thanks:      To Cláudio Albuquerque for working on the
  *              Win64-compatibility.
@@ -64,8 +64,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MAJOR     3
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     28
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  2
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      128
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  3
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      129
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -363,8 +363,14 @@
 # define STLSOFT_CF_nullptr_KEYWORD_SUPPORT
 #endif /* compiler */
 
-#if _MSC_VER >= 1600
+#if _MSC_VER >= 1700 || \
+    (   _MSC_VER >= 1600 && \
+        STLSOFT_MSVC_ALLOW_override_KEYWORD)
 # define STLSOFT_CF_override_KEYWORD_SUPPORT
+# if _MSC_VER < 1700 && \
+     !defined(STLSOFT_MSVC_SUPPRESS_NONSTDEXTUSED_)
+#  define STLSOFT_MSVC_SUPPRESS_NONSTDEXTUSED_
+# endif
 #endif /* compiler */
 
 #if _MSC_VER >= 1300
@@ -782,25 +788,49 @@
  * Compiler warning suppression
  */
 
+/** \def STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+ *
+ * Define this to allow classic (i.e. 1.0-1.9) warning suppressions to be
+ * operative
+ */
+
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+
+# if (_MSC_VER == 1200) || \
+     (_MSC_VER >= 1600)
+#  define STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+# endif
+#endif
+
+
 /* Suppresses: "'identifier' : has bad storage class" */
 #pragma warning(disable : 4042)
 
-/* Suppresses: "typedef-name 'identifier1' used as synonym for class-name 'identifier2'" */
-#pragma warning(disable : 4097)
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
 
-/* Suppresses: "conditional expression is constant" */
-#pragma warning(disable : 4127)
+ /* Suppresses: "typedef-name 'identifier1' used as synonym for class-name 'identifier2'" */
+# pragma warning(disable : 4097)
 
-/* Suppresses: "qualifier applied to reference type ignored" */
-#pragma warning(disable : 4181)
+ /* Suppresses: "conditional expression is constant" */
+# pragma warning(disable : 4127)
 
-/* Suppresses: "'<function>' has C-linkage specified, but returns UDT '<udt>' which is incompatible with C" */
+ /* Suppresses: "qualifier applied to reference type ignored" */
+# pragma warning(disable : 4181)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
+
+
+ /* Suppresses: "'<function>' has C-linkage specified, but returns UDT '<udt>' which is incompatible with C" */
 #if _MSC_VER < 1200
 # pragma warning(disable : 4190)
 #endif /* compiler */
 
-/* Suppresses: "nonstandard extension used : nameless struct/union" */
-#pragma warning(disable : 4201)
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+
+ /* Suppresses: "nonstandard extension used : nameless struct/union" */
+# pragma warning(disable : 4201)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
 
 /* Suppresses: "nonstandard extension used : 'xxxx' keyword is reserved for future use" */
 #if _MSC_VER < 1100
@@ -812,48 +842,73 @@
 # pragma warning(disable : 4284)
 #endif /* compiler */
 
-/* Suppresses: "C++ Exception Specification ignored" */
-#pragma warning(disable : 4290)
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+
+ /* Suppresses: "C++ Exception Specification ignored" */
+# pragma warning(disable : 4290)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
 
 #if defined(_MSC_EXTENSIONS)
 /* Suppresses: nonstandard extension used : 'argument' : conversion from 'X' to 'X&' */
 # pragma warning(disable : 4239)
 #endif /* _MSC_EXTENSIONS && _MSC_VER < 1310 */
 
-/* Suppresses: "'' decorated name length exceeded, name was truncated" */
-#pragma warning(disable : 4503)
+#ifdef STLSOFT_MSVC_SUPPRESS_NONSTDEXTUSED_
+ /* Suppresses "nonstandard extension used: '....'" */
+# pragma warning(disable : 4481)
+#endif
+
+
+
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+
+ /* Suppresses: "'' decorated name length exceeded, name was truncated" */
+# pragma warning(disable : 4503)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
 
 #if _MSC_VER < 1300 && \
     !defined(STLSOFT_STRICT)
 # pragma warning(disable : 4512)
 #endif /* _MSC_VER < 1300 && STLSOFT_STRICT */
 
-/* Suppresses: "unreferenced inline function has been removed" */
-#pragma warning(disable : 4514)
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
+
+ /* Suppresses: "unreferenced inline function has been removed" */
+# pragma warning(disable : 4514)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
 
 #if _MSC_VER >= 1310
-/* Suppresses: "expression before comma has no effect; expected expression with side-effect" */
+ /* Suppresses: "expression before comma has no effect; expected expression with side-effect" */
 # pragma warning(disable : 4548)
 
-/* Suppresses: "#pragma warning : there is no warning number 'XXXX'" */
+ /* Suppresses: "#pragma warning : there is no warning number 'XXXX'" */
 # pragma warning(disable: 4619)
 #endif /* compiler */
 
-/* Suppresses: "C++ language change: to explicitly specialize class template 'X' use the following syntax: template<> struct X<Y>" */
 #if _MSC_VER < 1310
+ /* Suppresses: "C++ language change: to explicitly specialize class template 'X' use the following syntax: template<> struct X<Y>" */
 # pragma warning(disable : 4663)
 #endif /* compiler */
 
-/* Suppresses: "'function' : resolved overload was found by argument-dependent lookup" */
 #if _MSC_VER >= 1310
+ /* Suppresses: "'function' : resolved overload was found by argument-dependent lookup" */
 # pragma warning(disable : 4675)
 #endif /* compiler */
 
-/* Suppresses: "function not expanded" */
-#pragma warning(disable : 4710)
+#ifndef STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS
 
-/* Suppresses: "identifier was truncated to '255' characters in the browser information" */
-#pragma warning(disable : 4786)
+ /* Suppresses: "function not expanded" */
+# pragma warning(disable : 4710)
+
+#endif /* !STLSOFT_MSVC_SUPPRESS_CLASSIC_WARNINGS */
+
+#if _MSC_VER < 1600
+ /* Suppresses: "identifier was truncated to '255' characters in the browser information" */
+# pragma warning(disable : 4786)
+#endif
 
 #if _MSC_VER >= 1310
 /* Suppresses: "'bytes' bytes padding added after member 'member'" */

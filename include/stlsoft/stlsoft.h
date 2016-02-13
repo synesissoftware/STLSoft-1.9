@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     15th November 2015
+ * Updated:     26th December 2015
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    38
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     456
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     457
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -287,12 +287,13 @@
 # define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (1st November 2015) */
 # define _STLSOFT_VER_1_9_123   0x01097bff  /*!< Version 1.9.123 (15th November 2015) */
 # define _STLSOFT_VER_1_9_124   0x01097cff  /*!< Version 1.9.124 (15th November 2015) */
+# define _STLSOFT_VER_1_9_125   0x01098cff  /*!< Version 1.9.125 (26th December 2015) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   124
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_124
+#define _STLSOFT_VER_REVISION   125
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_125
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -2340,65 +2341,121 @@ throw_x(
 
 /** \def stlsoft_throw_0
  * \brief Indicates that the given function/method does not throw any exceptions.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to \c noexcept for translators
+ *   that support this keyword; in all other cases this resolves to
+ *   <code>throw()</code>
  */
 /** \def stlsoft_throw_1
  * \brief Indicates that the given function/method throws the named type.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_2
  * \brief Indicates that the given function/method throws the two named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_3
  * \brief Indicates that the given function/method throws the three named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_4
  * \brief Indicates that the given function/method throws the four named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_5
  * \brief Indicates that the given function/method throws the five named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_6
  * \brief Indicates that the given function/method throws the six named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_7
  * \brief Indicates that the given function/method throws the seven named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 /** \def stlsoft_throw_8
  * \brief Indicates that the given function/method throws the eight named types.
+ *
+ * \note As of STLSoft 1.9.125, this resolves to nothing, because exception
+ *   specifications are deprecated unless the preprocessor object-like
+ *   symbol STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
  */
 
+#ifdef __cplusplus
+
 /* Exception signatures. */
-#if !defined(STLSOFT_NO_USE_EXCEPTION_SPECIFICATIONS) && \
-    !defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) && \
-    (   defined(STLSOFT_USE_EXCEPTION_SPECIFICATIONS) || \
-        defined(STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT))
-# ifndef STLSOFT_USE_EXCEPTION_SPECIFICATIONS
-#  define STLSOFT_USE_EXCEPTION_SPECIFICATIONS
-# endif /* !STLSOFT_USE_EXCEPTION_SPECIFICATIONS */
-# define stlsoft_throw_0()                                  throw ()
-# define stlsoft_throw_1(x1)                                throw (x1)
-# define stlsoft_throw_2(x1, x2)                            throw (x1, x2)
-# define stlsoft_throw_3(x1, x2, x3)                        throw (x1, x2, x3)
-# define stlsoft_throw_4(x1, x2, x3, x4)                    throw (x1, x2, x3, x4)
-# define stlsoft_throw_5(x1, x2, x3, x4, x5)                throw (x1, x2, x3, x4, x5)
-# define stlsoft_throw_6(x1, x2, x3, x4, x5, x6)            throw (x1, x2, x3, x4, x5, x6)
-# define stlsoft_throw_7(x1, x2, x3, x4, x5, x6, x7)        throw (x1, x2, x3, x4, x5, x6, x7)
-# define stlsoft_throw_8(x1, x2, x3, x4, x5, x6, x7, x8)    throw (x1, x2, x3, x4, x5, x6, x7, x8)
-#else /* ? exception specifications */
-# ifdef STLSOFT_USE_EXCEPTION_SPECIFICATIONS
-#  undef STLSOFT_USE_EXCEPTION_SPECIFICATIONS
-# endif /* STLSOFT_USE_EXCEPTION_SPECIFICATIONS */
-# define stlsoft_throw_0()
-# define stlsoft_throw_1(x1)
-# define stlsoft_throw_2(x1, x2)
-# define stlsoft_throw_3(x1, x2, x3)
-# define stlsoft_throw_4(x1, x2, x3, x4)
-# define stlsoft_throw_5(x1, x2, x3, x4, x5)
-# define stlsoft_throw_6(x1, x2, x3, x4, x5, x6)
-# define stlsoft_throw_7(x1, x2, x3, x4, x5, x6, x7)
-# define stlsoft_throw_8(x1, x2, x3, x4, x5, x6, x7, x8)
-#endif /* STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT && !STLSOFT_DOCUMENTATION_SKIP_SECTION */
+# if 0
+# elif defined(STLSOFT_NO_USE_EXCEPTION_SPECIFICATIONS)
+
+#  define stlsoft_throw_0()
+# elif defined(STLSOFT_CF_noexcept_KEYWORD_SUPPORT) || \
+       defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+
+#  define stlsoft_throw_0()                                 ss_noexcept_k
+# elif defined(STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT)
+
+#  define stlsoft_throw_0()                                 throw ()
+# else
+
+#  define stlsoft_throw_0()
+# endif
 
 
+# if !defined(STLSOFT_NO_USE_EXCEPTION_SPECIFICATIONS) && \
+     !defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) && \
+     defined(STLSOFT_CF_EXCEPTION_SIGNATURE_SUPPORT) && \
+     defined(STLSOFT_USE_EXCEPTION_SPECIFICATIONS)
+
+#  define stlsoft_throw_1(x1)                               throw (x1)
+#  define stlsoft_throw_2(x1, x2)                           throw (x1, x2)
+#  define stlsoft_throw_3(x1, x2, x3)                       throw (x1, x2, x3)
+#  define stlsoft_throw_4(x1, x2, x3, x4)                   throw (x1, x2, x3, x4)
+#  define stlsoft_throw_5(x1, x2, x3, x4, x5)               throw (x1, x2, x3, x4, x5)
+#  define stlsoft_throw_6(x1, x2, x3, x4, x5, x6)           throw (x1, x2, x3, x4, x5, x6)
+#  define stlsoft_throw_7(x1, x2, x3, x4, x5, x6, x7)       throw (x1, x2, x3, x4, x5, x6, x7)
+#  define stlsoft_throw_8(x1, x2, x3, x4, x5, x6, x7, x8)   throw (x1, x2, x3, x4, x5, x6, x7, x8)
+# else /* ? exception specifications */
+
+#  define stlsoft_throw_1(x1)
+#  define stlsoft_throw_2(x1, x2)
+#  define stlsoft_throw_3(x1, x2, x3)
+#  define stlsoft_throw_4(x1, x2, x3, x4)
+#  define stlsoft_throw_5(x1, x2, x3, x4, x5)
+#  define stlsoft_throw_6(x1, x2, x3, x4, x5, x6)
+#  define stlsoft_throw_7(x1, x2, x3, x4, x5, x6, x7)
+#  define stlsoft_throw_8(x1, x2, x3, x4, x5, x6, x7, x8)
+# endif /* exception specifications */
+#endif /* __cplusplus */
+
+
+/** \def STLSOFT_NOEXCEPT
+ *
+ * \brief Function decorator that denotes the semantic of the \c noexcept
+ *   keyword / <code>throw()</code> construct in a compiler-independent
+ *   manner.
+ */
 #if !defined(__cplusplus)
 # define STLSOFT_NOEXCEPT
 #elif defined(STLSOFT_CF_noexcept_KEYWORD_SUPPORT)
