@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  15th November 2015
+; Updated:  14th February 2016
 
 ============================================================================
 
@@ -15,6 +15,30 @@ STLSoft - Changes
    *   *  means a general bullet-point  *
    *                                    *
    **************************************
+
+
+============================================================================
+
+Changes for 1.9.125 (14th February 2016)
+
+General:
+========
+
+ * various minor warnings / compiler compatibilities
+
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/stlsoft.h:
+    ~ STLSOFT_STATIC_ASSERT() now compatible with GCC at maximum-warnings
+    ~ exception specifications macros now changed: stlsoft_throw_0() is now noexcept when supported; all others now resolve to nothing unless STLSOFT_USE_EXCEPTION_SPECIFICATIONS is defined
+
+  ~ stlsoft/conversion/union_cast.hpp:
+    ~ moved all constant-tests to compile-time to fix compiler-warnings
 
 
 ============================================================================

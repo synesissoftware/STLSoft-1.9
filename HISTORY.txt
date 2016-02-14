@@ -2,9 +2,15 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  15th November 2015
+; Updated:  14th February 2016
 
 ============================================================================
+
+
+14th February 2016 - 1.9.125 released
+-------------------------------------
+
+ * various minor warnings / compiler compatibilities
 
 
 15th November 2015 - 1.9.124 released
