@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     26th December 2015
+ * Updated:     14th February 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     457
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     458
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -287,7 +287,7 @@
 # define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (1st November 2015) */
 # define _STLSOFT_VER_1_9_123   0x01097bff  /*!< Version 1.9.123 (15th November 2015) */
 # define _STLSOFT_VER_1_9_124   0x01097cff  /*!< Version 1.9.124 (15th November 2015) */
-# define _STLSOFT_VER_1_9_125   0x01098cff  /*!< Version 1.9.125 (26th December 2015) */
+# define _STLSOFT_VER_1_9_125   0x01098cff  /*!< Version 1.9.125 (14th February 2016) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
@@ -1422,7 +1422,13 @@
 #if defined(STLSOFT_CF_static_assert_SUPPORT)
 # define STLSOFT_STATIC_ASSERT(expr)        static_assert((expr), #expr)
 #elif defined(STLSOFT_CF_STATIC_ASSERT_SUPPORT)
-# if 0 || \
+# if 0
+# elif defined(STLSOFT_COMPILER_IS_GCC) && \
+       (   __GNUC__ > 4 || \
+           (   __GNUC__ == 4 && \
+               __GNUC_MINOR__ >= 8))
+#  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1] __attribute__((unused)); } while(0)
+# elif 0 || \
      defined(STLSOFT_COMPILER_IS_CLANG) || \
      defined(STLSOFT_COMPILER_IS_GCC) || \
      defined(STLSOFT_COMPILER_IS_INTEL) || \
