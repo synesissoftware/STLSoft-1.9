@@ -4,11 +4,11 @@
  * Purpose:     Contains the ref_ptr template class.
  *
  * Created:     2nd November 1994
- * Updated:     4th November 2015
+ * Updated:     14th February 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 1994-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_MAJOR      5
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_MINOR      3
-# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_REVISION   3
-# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_EDIT       490
+# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_REVISION   4
+# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_REF_PTR_EDIT       491
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -282,7 +282,8 @@ public:
     template<   ss_typename_param_k I2
             ,   ss_typename_param_k U2
             >
-    explicit ref_ptr(ref_ptr<T, I2, U2>& rhs)
+    ss_explicit_k
+    ref_ptr(ref_ptr<T, I2, U2>& rhs)
         : m_pi(rhs.m_pi)
     {
         if(NULL != m_pi)

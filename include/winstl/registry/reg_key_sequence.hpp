@@ -13,11 +13,11 @@
  *              basic_reg_key_sequence class interface.
  *
  * Created:     19th January 2002
- * Updated:     4th November 2015
+ * Updated:     30th April 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,7 +61,7 @@
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_MAJOR      3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_MINOR      9
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_REVISION   3
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_EDIT       133
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_SEQUENCE_EDIT       134
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -322,7 +322,7 @@ public:
 /// \name Implementation
 /// @{
 private:
-    registry_util::shared_handle    *create_shared_handle_(result_type &res);
+    registry_util::shared_handle*   create_shared_handle_(result_type& res);
     static REGSAM                   validate_access_mask_(REGSAM accessMask, bool_type bMonitorExternalInvalidation);
     static hkey_type                dup_key_(hkey_type hkey, REGSAM accessMask/* , result_type *result */);
 /// @}
@@ -504,7 +504,9 @@ private:
 // basic_reg_key_sequence
 
 template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
-inline registry_util::shared_handle *basic_reg_key_sequence<C, T, A>::create_shared_handle_(result_type &res)
+inline
+registry_util::shared_handle*
+basic_reg_key_sequence<C, T, A>::create_shared_handle_(result_type& res)
 {
     // 1. Duplicate the registry handle
     //
