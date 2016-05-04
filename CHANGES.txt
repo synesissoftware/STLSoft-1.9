@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  14th February 2016
+; Updated:  4th May 2016
 
 ============================================================================
 
@@ -15,6 +15,41 @@ STLSoft - Changes
    *   *  means a general bullet-point  *
    *                                    *
    **************************************
+
+
+
+
+============================================================================
+
+Changes for 1.9.126 (4th April 2016)
+
+General:
+========
+
+ * improvements to Windows Registry library
+
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/error/iteration_interruption.hpp:
+    ~ improved what() message handling
+
+ WinSTL
+ ======
+
+ ~ winstl/registry/reg_key.hpp:
+    ~ has_sub_key() and has_value() now non-mutating
+
+ ~ winstl/registry/util/shared_handles.hpp:
+    ~ now throws exception when registry change notification registration fails
+
+ ~ winstl/system/version_info.hpp:
+    ~ fix for NoX compilation
+
 
 
 ============================================================================
