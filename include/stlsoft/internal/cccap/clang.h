@@ -4,11 +4,11 @@
  * Purpose:     Compiler feature discrimination for Clang C/C++.
  *
  * Created:     14th March 2015
- * Updated:     4th November 2015
+ * Updated:     6th May 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2015-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -57,8 +57,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MAJOR    1
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     8
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 2
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     9
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -358,25 +358,25 @@
 
 /* 8-bit integer */
 #define STLSOFT_CF_8BIT_INT_SUPPORT
-#define STLSOFT_SI08_T_BASE_TYPE    signed      __INT8_TYPE__
-#define STLSOFT_UI08_T_BASE_TYPE    unsigned    __INT8_TYPE__
+#define STLSOFT_SI08_T_BASE_TYPE                __INT8_TYPE__
+#define STLSOFT_UI08_T_BASE_TYPE                __UINT8_TYPE__
 
 /* 16-bit integer */
 #define STLSOFT_CF_16BIT_INT_SUPPORT
-#define STLSOFT_SI16_T_BASE_TYPE    signed      __INT16_TYPE__
-#define STLSOFT_UI16_T_BASE_TYPE    unsigned    __INT16_TYPE__
+#define STLSOFT_SI16_T_BASE_TYPE                __INT16_TYPE__
+#define STLSOFT_UI16_T_BASE_TYPE                __UINT16_TYPE__
 
 /* 32-bit integer */
 #define STLSOFT_CF_32BIT_INT_SUPPORT
-#define STLSOFT_SI32_T_BASE_TYPE    signed      __INT32_TYPE__
-#define STLSOFT_UI32_T_BASE_TYPE    unsigned    __INT32_TYPE__
+#define STLSOFT_SI32_T_BASE_TYPE                __INT32_TYPE__
+#define STLSOFT_UI32_T_BASE_TYPE                __UINT32_TYPE__
 #define STLSOFT_CF_LONG_DISTINCT_INT_TYPE
 
 /* 64-bit integer */
 #define STLSOFT_CF_64BIT_INT_SUPPORT
 #define STLSOFT_CF_64BIT_INT_IS_long_long
-#define STLSOFT_SI64_T_BASE_TYPE    signed      __INT64_TYPE__
-#define STLSOFT_UI64_T_BASE_TYPE    unsigned    __INT64_TYPE__
+#define STLSOFT_SI64_T_BASE_TYPE                __INT64_TYPE__
+#define STLSOFT_UI64_T_BASE_TYPE                __UINT64_TYPE__
 
 /* /////////////////////////////////////////////////////////////////////////
  * still-to-be-determined features
