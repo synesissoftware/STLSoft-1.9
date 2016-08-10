@@ -5,7 +5,7 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     19th January 2002
- * Updated:     27th April 2016
+ * Updated:     30th April 2016
  *
  * Thanks:      To Sam Fisher for spotting the defect in the set_value_()
  *              overload for REG_MULTI_SZ values (widestring only).
@@ -53,9 +53,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MAJOR       3
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MINOR       9
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    13
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        140
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_MINOR       10
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_REVISION    1
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_REG_KEY_EDIT        141
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -744,6 +744,11 @@ public:
     /// \return An instance of basic_reg_value.
      */
     key_value_type              get_value(char_type const* valueName) const;
+    /** Returns the unnamed (default) value of the holding key
+     *
+     * \return An instance of basic_reg_value
+     */
+    key_value_type              get_value() const;
 #ifdef STLSOFT_CF_MEMBER_TEMPLATE_FUNCTION_SUPPORT
     /** Returns the named value.
     ///
@@ -755,6 +760,7 @@ public:
         return this->get_value(stlsoft_ns_qual(c_str_ptr)(stlsoft_ns_qual(c_str_ptr)(valueName)));
     }
 #endif /* STLSOFT_CF_MEMBER_TEMPLATE_FUNCTION_SUPPORT */
+
 //  std::list<key_value_type>   get_values(char_type const* valueNames) const;
 /// @}
 
@@ -1510,6 +1516,14 @@ template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
 inline basic_reg_value<C, T, A> basic_reg_key<C, T, A>::get_value(ss_typename_type_k basic_reg_key<C, T, A>::char_type const* valueName) const
 {
     return basic_reg_value<C, T, A>(m_hkey, valueName);
+}
+
+template <ss_typename_param_k C, ss_typename_param_k T, ss_typename_param_k A>
+inline
+basic_reg_value<C, T, A>
+basic_reg_key<C, T, A>::get_value() const
+{
+    return basic_reg_value<C, T, A>(m_hkey, NULL);
 }
 
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */

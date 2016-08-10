@@ -18,7 +18,7 @@
  *              ownership issues described in the article.
  *
  * Created:     15th January 2002
- * Updated:     4th November 2015
+ * Updated:     9th August 2016
  *
  * Thanks:      To Nevin Liber for pressing upon me the need to lead by
  *              example when writing books about good design/implementation;
@@ -26,7 +26,7 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -69,8 +69,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MAJOR       4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_MINOR       9
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION    2
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT        219
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_REVISION    3
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FINDFILE_SEQUENCE_EDIT        220
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -403,16 +403,20 @@ private:
     {
         WINSTL_ASSERT(NULL != directory);
         WINSTL_ASSERT(0 != cchDirectory);
+        WINSTL_ASSERT(cchDirectory < file_path_buffer_type_::max_size());
 
         const size_type cchFilename = traits_type::str_len(data.cFileName);
 
         traits_type::char_copy(&m_path[0], directory, cchDirectory);
         m_path[cchDirectory] = '\0';
-        if(!traits_type::has_dir_end(&m_path[0]))
+        if(!traits_type::has_dir_end(&m_path[0] + (cchDirectory - 1)))
         {
             traits_type::ensure_dir_end(&m_path[0] + (cchDirectory - 1));
             ++cchDirectory;
         }
+
+        WINSTL_MESSAGE_ASSERT("resultant path will be too long", cchDirectory + cchFilename < file_path_buffer_type_::max_size());
+
         traits_type::char_copy(&m_path[0] + cchDirectory, data.cFileName, cchFilename);
         m_path[cchDirectory + cchFilename] = '\0';
         m_pathLen = cchDirectory + cchFilename;
