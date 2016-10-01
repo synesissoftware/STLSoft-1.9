@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  4th May 2016
+; Updated:  1st October 2016
 
 ============================================================================
 
@@ -21,7 +21,73 @@ STLSoft - Changes
 
 ============================================================================
 
-Changes for 1.9.126 (4th April 2016)
+Changes for 1.9.130 (1st October 2016)
+
+General:
+========
+
+ * minor tidyings
+
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/string/special_string_instance.hpp:
+    ~ ensures consistency in invocation of initialisation functions
+
+ UNIXSTL
+ =======
+
+ ~ unixstl/system/environment_variable.hpp:
+    + added c_str(), empty(), and size() methods to make consistent with WinSTL variant
+
+ ~ unixstl/system/system_traits.hpp:
+    + added get_home_directory() method to make consistent with WinSTL variant
+
+ WinSTL
+ ======
+
+ ~ winstl/security/token_information.hpp:
+    ~ stlsoft_throw_0() => STLSOFT_NOEXCEPT
+
+ ~ winstl/registry/reg_key.hpp:
+    + added 0-param (unnamed) overload of get_value()
+
+
+============================================================================
+
+Changes for 1.9.129 (17th July 2016)
+
+
+General:
+========
+
+ * minor tidyings
+
+
+ STLSoft
+ =======
+
+ ~ stlsoft/internal/cccap/borland.h:
+    + added STLSOFT_CF_FUNC_SYMBOL_SUPPORT
+
+ ~ stlsoft/stlsoft.h:
+    + added discrimination of STLSOFT_CF_FUNC_SYMBOL_SUPPORT
+
+ WinSTL
+ ======
+
+ ~ winstl/filesystem/file_path_buffer.hpp:
+    + added capacity()
+    ~ fix to copy-ctor
+
+
+============================================================================
+
+Changes for 1.9.126 (4th May 2016)
 
 General:
 ========
@@ -996,7 +1062,7 @@ Summary:
  * numerous improvements to unixstl::filesystem_traits::glob_sequence
  * unixstl::readdir_sequence correction to elide sockets from search results
  * winstl/time/conversion_functions.h renaming (and deprecation) of non-standard C function names
-    
+
 Changes:
 ========
 
@@ -1072,7 +1138,7 @@ Summary:
  * added winstl_C_format_message_strerror_a(), an analogue of strerror() for Windows API "error" codes
  * adjusted discrimination of exception-support macros, based on presence of GCC compiler's __EXCEPTIONS symbol
  * minor VC++ compatibility fix for stlsoft/shims/access/string/std/exception.hpp
-    
+
 Changes:
 ========
 
@@ -1102,7 +1168,7 @@ Summary:
 ========
 
  * fix for GCC 4.5+ unixstl::filesystem_traits
-    
+
 Changes:
 ========
 
@@ -1126,7 +1192,7 @@ Summary:
  * correction(s)/enhancement(s) to which of MFCSTL's string access shim headers are automatically included
  * added discrimination of new pre-processor symbol PLATFORMSTL_NO_PLATFORM_NAMESPACE, to ease dependent library implementation
  * avoidance of false memory-leak reports in use of stlsoft::truncation_test
-    
+
 Changes:
 ========
 
@@ -1184,7 +1250,7 @@ Summary:
  * added is_path_rooted(), is_path_absolute(), and is_path_UNC() methods to unixstl::filesystem_traits<>
  * added two-parameters overloads of is_path_rooted(), is_path_absolute(), and is_path_UNC() methods to winstl::filesystem_traits<>
  * include/winstl/error/error_functions.h: substantial refactoring of format_message()-family of functions (and their C analogues)
-    
+
 Changes:
 ========
 
