@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     13th July 2016
+ * Updated:     17th July 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 6
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     462
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 7
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     463
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -290,13 +290,14 @@
 # define _STLSOFT_VER_1_9_125   0x01097dff  /*!< Version 1.9.125 (14th February 2016) */
 # define _STLSOFT_VER_1_9_126   0x01097eff  /*!< Version 1.9.126 (30th April 2016) */
 # define _STLSOFT_VER_1_9_127   0x01097fff  /*!< Version 1.9.127 (6th May 2016) */
-# define _STLSOFT_VER_1_9_128   0x010980ff  /*!< Version 1.9.127 (13th July 2016) */
+# define _STLSOFT_VER_1_9_128   0x010980ff  /*!< Version 1.9.128 (13th July 2016) */
+# define _STLSOFT_VER_1_9_129   0x010981ff  /*!< Version 1.9.129 (17th July 2016) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   128
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_128
+#define _STLSOFT_VER_REVISION   129
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_129
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -360,15 +361,15 @@
  *
  * Currently the only compilers supported by the STLSoft libraries are
  *
- * Borland C++ 5.5, 5.51, 5.6 & 5.6.4
+ * Borland C++ 5.5, 5.51, 5.6, 5.6.4, 6.1.x, 6.2.x
  * Clang 6.0
  * Comeau 4.3.0.1 & 4.3.3
  * Digital Mars C/C++ 8.26 and above
- * GCC 2.95, 2.96, 3.2, 3.3, 3.4 & 4.0
+ * GCC 2.95, 2.96, 3.2, 3.3, 3.4, 4.0, 5.x
  * Intel C/C++ 6.0, 7.0, 7.1, 8.0, 9.0
  * Metrowerks 2.4 & 3.0 (CodeWarrior 7.0 & 8.0)
  * SunPro 5.9
- * Visual C++ 4.2, 5.0, 6.0, 7.0 (.NET), 7.1 (.NET 2003), 8.0
+ * Visual C++ 4.2, 5.0, 6.0, 7.0 (.NET), 7.1 (.NET 2003), 8, 9, 10, 11, 12, 14
  * Watcom C/C++ 11.0, Open Watcom 1.0, 1.1, 1.2, 1.3, 1.4, 1.5
  */
 
@@ -502,11 +503,13 @@
 # elif (__BORLANDC__ == 0x0582)
 #  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 5.82 (Turbo C++)"
 # elif (0x0590 == (__BORLANDC__ & 0xfff0))
-#  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 5.9.x"
+#  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 5.9x"
 # elif (0x0610 == (__BORLANDC__ & 0xfff0))
-#  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 6.1.x (C++ Builder)"
+#  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 6.1x (C++ Builder)"
+# elif (0x0620 == (__BORLANDC__ & 0xfff0))
+#  define STLSOFT_COMPILER_VERSION_STRING       "Borland C++ 6.2x (Embarcadero)"
 # else /* ? __BORLANDC__ */
-#  error Currently only versions 5.51, 5.6, 5.6.4, 5.8.2, 5.9.x, and 6.1.x of the Borland C++ compiler are supported by the STLSoft libraries
+#  error Currently only versions 5.51, 5.6, 5.6.4, 5.8.2, 5.9x, 6.1x. and 6.2x of the Borland C++ compiler are supported by the STLSoft libraries
 # endif /* __BORLANDC__ */
 
 #elif defined(__DMC__)
