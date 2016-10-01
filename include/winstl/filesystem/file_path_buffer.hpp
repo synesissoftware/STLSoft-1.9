@@ -5,14 +5,14 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     7th February 2002
- * Updated:     4th November 2015
+ * Updated:     29th June 2016
  *
  * Thanks to:   Pablo Aguilar for discovering the Borland weirdness which is now
  *              addressed with the calc_path_max_() method.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR    4
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    5
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 3
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     123
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 5
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     125
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,9 @@ STLSOFT_COMPILER_IS_MSVC: _MSC_VER<1200
 # include <winstl/winstl.h>
 #endif /* !WINSTL_INCL_WINSTL_H_WINSTL */
 
-#define WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER
+#ifndef WINSTL_FILE_PATH_BUFFER_NO_USE_AUTO_BUFFER
+# define WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER
+#endif
 
 #if defined(STLSOFT_COMPILER_IS_MSVC)
 # if _MSC_VER < 1100
@@ -206,7 +208,7 @@ private:
                                             ,   A
                                             >                       buffer_type;
 #else /* ? WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER */
-    typedef stlsoft_ns_qual_std(vector)<C>                          buffer_type;
+    typedef stlsoft_ns_qual_std(vector)<C, A>                       buffer_type;
 #endif /* WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER */
 /// @}
 
@@ -234,24 +236,40 @@ public:
 public:
     /// \brief Default constructor
     basic_file_path_buffer()
-        : m_buffer(1 + calc_path_max_())
+        : m_buffer(1 + calc_path_max_internal_())
     {
 #ifdef STLSOFT_DEBUG
-        STLSOFT_NS_QUAL(pod_fill_n)(&m_buffer[0], m_buffer.size(), static_cast<char_type>('?'));
-        m_buffer[m_buffer.size() - 1] = '\0';
+        STLSOFT_NS_QUAL(pod_fill_n)(&m_buffer[0], external_size_(), static_cast<char_type>('?'));
+        m_buffer[external_size_() - 1] = '\0';
+
+        set_eyecatcher_();
 #endif /* STLSOFT_DEBUG */
+
+        WINSTL_ASSERT(is_valid_());
     }
     /// \brief Copy constructor
     basic_file_path_buffer(class_type const& rhs)
         : m_buffer(rhs.size())
     {
-        stlsoft_ns_qual(pod_copy_n)(data(), rhs.data(), m_buffer.size());
+        WINSTL_ASSERT(rhs.is_valid_());
+
+#ifdef STLSOFT_DEBUG
+        set_eyecatcher_();
+#endif /* STLSOFT_DEBUG */
+
+        stlsoft_ns_qual(pod_copy_n)(&m_buffer[0], &rhs.m_buffer[0], external_size_());
+
+        WINSTL_ASSERT(is_valid_());
     }
     /// \brief Copy assignment operator
     class_type& operator =(class_type const& rhs)
     {
-        m_buffer.resize(rhs.size());
-        stlsoft_ns_qual(pod_copy_n)(data(), rhs.data(), m_buffer.size());
+        WINSTL_ASSERT(is_valid_());
+
+        m_buffer.resize(rhs.external_size_());
+        stlsoft_ns_qual(pod_copy_n)(&m_buffer[0], &rhs.m_buffer[0], external_size_());
+
+        WINSTL_ASSERT(is_valid_());
 
         return *this;
     }
@@ -281,6 +299,8 @@ public:
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
     value_type const* data() const
     {
+        WINSTL_ASSERT(is_valid_());
+
 #ifdef WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER
         return m_buffer.data();
 #else /* ? WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER */
@@ -289,6 +309,8 @@ public:
     }
     value_type* data()
     {
+        WINSTL_ASSERT(is_valid_());
+
 #ifdef WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER
         return m_buffer.data();
 #else /* ? WINSTL_FILE_PATH_BUFFER_USE_AUTO_BUFFER */
@@ -300,12 +322,16 @@ public:
     /// \brief Returns a pointer to a nul-terminated string
     value_type const* c_str() const
     {
+        WINSTL_ASSERT(is_valid_());
+
         return this->data();
     }
 
     /// \brief Returns a mutable (non-const) pointer to the internal buffer
     reference operator [](ws_size_t index)
     {
+        WINSTL_ASSERT(is_valid_());
+
         buffer_type& this_ = m_buffer;
 
         return this_[index];
@@ -325,13 +351,15 @@ public:
     /// \brief Returns the size of the internal buffer
     size_type size() const
     {
-        return m_buffer.size();
+        WINSTL_ASSERT(is_valid_());
+
+        return external_size_();
     }
 
     /// \brief Returns the maximum size of the internal buffer
     static size_type max_size()
     {
-        return calc_path_max_();
+        return calc_path_max_external_();
     }
 
     /// \brief Copies the contents into a caller supplied buffer
@@ -341,7 +369,9 @@ public:
     /// \param cchBuffer Number of characters of available space in \c buffer.
     size_type copy(char_type *buffer, size_type cchBuffer) const
     {
-        return stlsoft_ns_qual(copy_contents)(buffer, cchBuffer, m_buffer.data(), m_buffer.size());
+        WINSTL_ASSERT(is_valid_());
+
+        return stlsoft_ns_qual(copy_contents)(buffer, cchBuffer, m_buffer.data(), external_size_());
     }
 /// @}
 
@@ -358,10 +388,66 @@ public:
 /// \name Implementation
 /// @{
 private:
+#ifdef _DEBUG
+    static
+    char_type const*
+    get_eyecatcher_(
+        size_type*  size
+    )
+    {
+        static char_type const s_eyeCatcher[] = { 'd', 'e', 'a', 'd', 'b', 'e', 'e', 'f' };
+
+        *size = STLSOFT_NUM_ELEMENTS(s_eyeCatcher);
+
+        return s_eyeCatcher;
+    }
+
+    void
+    set_eyecatcher_()
+    {
+        size_type               ecs;
+        char_type const* const  ec  =   get_eyecatcher_(&ecs);
+        size_type const         n   =   m_buffer.size() - ecs;
+        char_type *             p   =   &m_buffer[0] + n;
+
+        ::memcpy(p, ec, sizeof(char_type) * ecs);
+    }
+
+    static
+    size_type
+    get_eyecatcher_size_()
+    {
+        size_type ecs;
+
+        get_eyecatcher_(&ecs);
+
+        return ecs;
+    }
+#endif
+
+    bool is_valid_() const
+    {
+#ifdef _DEBUG
+        {
+            size_type               ecs;
+            char_type const* const  ec  =   get_eyecatcher_(&ecs);
+            size_type const         n   =   m_buffer.size() - ecs;
+            char_type const*        p   =   &m_buffer[0] + n;
+
+            if(0 != ::memcmp(p, ec, sizeof(char_type) * ecs))
+            {
+                return false;
+            }
+        }
+#endif
+
+        return true;
+    }
+
     // Have to do it this way, as an inline, in-MIL tertiary operator causes
     // Borland C++ to think that the answer's 5! 'tis a mysterious beastie,
     // the old Borland compiler, is it not?
-    static size_type calc_path_max_()
+    static size_type calc_path_max_external_()
     {
         size_type   n;
 
@@ -373,6 +459,37 @@ private:
         {
             n = CCH_NT;
         }
+
+        return n;
+    }
+
+    static size_type calc_path_max_internal_()
+    {
+        size_type n = calc_path_max_external_();
+
+#ifdef _DEBUG
+        // add bytes for eye catcher
+        n += get_eyecatcher_size_();
+#endif
+
+        return n;
+    }
+
+    size_type
+    internal_size_() const
+    {
+        return m_buffer.size();
+    }
+
+    size_type
+    external_size_() const
+    {
+        size_type n = internal_size_();
+
+#ifdef _DEBUG
+        // add bytes for eye catcher
+        n -= get_eyecatcher_size_();
+#endif
 
         return n;
     }

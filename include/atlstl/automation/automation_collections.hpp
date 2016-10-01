@@ -4,11 +4,11 @@
  * Purpose:     Adaptor classes for creating COM collection instances.
  *
  * Created:     16th April 1999
- * Updated:     10th August 2009
+ * Updated:     22nd May 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 1999-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_MAJOR     3
 # define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_MINOR     2
-# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_REVISION  2
-# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_EDIT      107
+# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_REVISION  3
+# define ATLSTL_VER_ATLSTL_AUTOMATION_HPP_AUTOMATION_COLLECTIONS_EDIT      109
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -281,10 +281,12 @@ public:
     typedef E                                                               enumerator_type;
     typedef generic_automation_collection<E, ThreadModel, I, DispidCount>   class_type;
 
+/// \name Construction
+/// @{
 public:
     generic_automation_collection()
         : m_enumerator(NULL)
-        , m_count(static_cast<as_size_t>(~0))
+        , m_count(sentinel_NoCount_())
     {}
     void SetEnumerator(enumerator_type* enumerator, as_bool_t bAddRef)
     {
@@ -305,12 +307,22 @@ public:
     {
         m_enumerator->Release();
     }
+private:
+    generic_automation_collection(class_type const&);   // copy-construction proscribed
+    class_type& operator =(class_type const&);          // copy-assignment proscribed
+/// @}
 
+/// \name Operations
+/// @{
+public:
     HRESULT SupportsCount() const
     {
-        return (static_cast<as_size_t>(~0) == m_count) ? S_FALSE : S_OK;
+        return (sentinel_NoCount_() == m_count) ? S_FALSE : S_OK;
     }
+/// @}
 
+/// \name Initialisation
+/// @{
 public:
     template<   ss_typename_param_k ITER
             ,   ss_typename_param_k ITF
@@ -331,7 +343,10 @@ public:
 
         return m_enumerator->Init(begin, end, owner);
     }
+/// @}
 
+/// \name Operations
+/// @{
 public:
     HRESULT get__NewEnum(LPUNKNOWN* punk)
     {
@@ -362,7 +377,7 @@ public:
     {
         ATLSTL_ASSERT(NULL != pVal);
 
-        if(static_cast<as_size_t>(~0) == m_count)
+        if(sentinel_NoCount_() == m_count)
         {
             return E_UNEXPECTED;
         }
@@ -373,29 +388,24 @@ public:
             return S_OK;
         }
     }
+/// @}
 
-/// \name Member Variables
+/// \name Implementation
+/// @{
+private:
+    static as_size_t sentinel_NoCount_()
+    {
+        return static_cast<as_size_t>(~0);
+    }
+/// @}
+
+/// \name Fields
 /// @{
 private:
     enumerator_type*    m_enumerator;
     as_size_t           m_count;
 /// @}
-
-private:
-    generic_automation_collection(class_type const&);
-    class_type& operator =(class_type const&);
 };
-
-#if 0
-template<   ss_typename_param_k C   //!< Collection interface
-        ,   ss_typename_param_k E   //!< Enumerator interface
-        ,   ss_typename_param_k T   //!< Element type
-        ,   ss_typename_param_k XXXXXXXXX
-        >
-class simple_automation_collection
-{
-};
-#endif /* 0 */
 
 ////////////////////////////////////////////////////////////////////////////
 // Unit-testing

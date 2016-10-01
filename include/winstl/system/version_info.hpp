@@ -4,7 +4,7 @@
  * Purpose:     Helper for accessing version information.
  *
  * Created:     16th February 1998
- * Updated:     26th April 2016
+ * Updated:     24th May 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MAJOR    5
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MINOR    3
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 3
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     129
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 4
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     130
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -1005,7 +1005,7 @@ inline version_info::~version_info() STLSOFT_NOEXCEPT
     allocator_type  allocator;
 
 #ifdef STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT
-    allocator.deallocate(m_mem.first, m_mem.second);
+    allocator.deallocate(static_cast<ws_byte_t*>(m_mem.first), m_mem.second);
 #else /* ? STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT */
     allocator.deallocate(m_mem.first);
 #endif /* !STLSOFT_LF_ALLOCATOR_ALLOCATE_HAS_HINT */

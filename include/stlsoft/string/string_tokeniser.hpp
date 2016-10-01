@@ -4,11 +4,11 @@
  * Purpose:     String token parsing class.
  *
  * Created:     6th January 2001
- * Updated:     31st July 2010
+ * Updated:     30th June 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2001-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2001-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_MAJOR     5
 # define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_MINOR     1
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_REVISION  8
-# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_EDIT      222
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_REVISION  10
+# define STLSOFT_VER_STLSOFT_STRING_HPP_STRING_TOKENISER_EDIT      224
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -134,6 +134,18 @@ namespace stlsoft
 /* /////////////////////////////////////////////////////////////////////////
  * Classes
  */
+
+#ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
+
+template <int V_shouldSkip>
+struct skip_discriminator_type_
+{};
+
+STLSOFT_TEMPLATE_SPECIALISATION
+struct skip_discriminator_type_<0>
+{};
+
+#endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 // string_tokeniser_ignore_blanks
 
@@ -869,27 +881,34 @@ public:
             //     iterator (m_find0) to the previously identified start of the next item (m_next)
             // 2. Starting from m_find0, determine the end-of-item (m_find1)
 
-// TODO: Make this into a overload-selector, to avoid the "conditional expression is constant" warning
-            if(blanks_policy_type::value)
+            skip_blanks_if_(skip_discriminator_type_<blanks_policy_type::value != 0>());
+
+            determine_end_();
+        }
+
+        void skip_blanks_if_(skip_discriminator_type_<1>)
+        {
+            // 1. Skip blanks until at start of next item
+            for(m_find0 = m_next; m_find0 != m_end; )
             {
-                // 1. Skip blanks until at start of next item
-                for(m_find0 = m_next; m_find0 != m_end; )
+                if(comparator_type::not_equal(get_delim_ref_(m_delimiter), m_find0))
                 {
-                    if(comparator_type::not_equal(get_delim_ref_(m_delimiter), m_find0))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        m_find0 +=  static_cast<ss_ptrdiff_t>(m_cchDelimiter);
-                    }
+                    break;
+                }
+                else
+                {
+                    m_find0 +=  static_cast<ss_ptrdiff_t>(m_cchDelimiter);
                 }
             }
-            else
-            {
-                m_find0 = m_next;
-            }
+        }
 
+        void skip_blanks_if_(skip_discriminator_type_<0>)
+        {
+            m_find0 = m_next;
+        }
+
+        void determine_end_()
+        {
             // 2. Determine the end-of-item (m_find1), starting from m_find0
             for(m_find1 = m_find0; ; )
             {

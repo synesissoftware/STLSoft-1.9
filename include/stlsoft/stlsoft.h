@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     6th May 2016
+ * Updated:     13th July 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 5
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     461
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 6
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     462
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -287,15 +287,16 @@
 # define _STLSOFT_VER_1_9_122   0x01097aff  /*!< Version 1.9.122 (1st November 2015) */
 # define _STLSOFT_VER_1_9_123   0x01097bff  /*!< Version 1.9.123 (15th November 2015) */
 # define _STLSOFT_VER_1_9_124   0x01097cff  /*!< Version 1.9.124 (15th November 2015) */
-# define _STLSOFT_VER_1_9_125   0x01098cff  /*!< Version 1.9.125 (14th February 2016) */
-# define _STLSOFT_VER_1_9_126   0x01098dff  /*!< Version 1.9.126 (30th April 2016) */
-# define _STLSOFT_VER_1_9_127   0x01098eff  /*!< Version 1.9.127 (6th May 2016) */
+# define _STLSOFT_VER_1_9_125   0x01097dff  /*!< Version 1.9.125 (14th February 2016) */
+# define _STLSOFT_VER_1_9_126   0x01097eff  /*!< Version 1.9.126 (30th April 2016) */
+# define _STLSOFT_VER_1_9_127   0x01097fff  /*!< Version 1.9.127 (6th May 2016) */
+# define _STLSOFT_VER_1_9_128   0x010980ff  /*!< Version 1.9.127 (13th July 2016) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   127
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_127
+#define _STLSOFT_VER_REVISION   128
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_128
 
 /* /////////////////////////////////////
  * Underlying version detection
