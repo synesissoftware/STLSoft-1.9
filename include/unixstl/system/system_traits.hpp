@@ -5,11 +5,11 @@
  *              Unicode specialisations thereof.
  *
  * Created:     15th November 2002
- * Updated:     10th September 2011
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,9 +52,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_MAJOR     5
-# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_MINOR     4
+# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_MINOR     5
 # define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_REVISION  1
-# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_EDIT      111
+# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_SYSTEM_TRAITS_EDIT      112
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -67,6 +67,12 @@
 #ifndef STLSOFT_INCL_STLSOFT_INTERNAL_H_SAFESTR
 # include <stlsoft/internal/safestr.h>
 #endif /* !STLSOFT_INCL_STLSOFT_INTERNAL_H_SAFESTR */
+
+#if STLSOFT_LEAD_VER >= 0x010a0000
+# ifndef UNIXSTL_INCL_UNIXSTL_SYSTEM_H_DIRECTORY_FUNCTIONS
+#  include <unixstl/system/directory_functions.h>
+# endif /* !UNIXSTL_INCL_UNIXSTL_SYSTEM_H_DIRECTORY_FUNCTIONS */
+#endif /* STLSoft 1.10+ */
 
 #if defined(_WIN32) || \
     defined(_WIN64)
@@ -232,6 +238,15 @@ public:
     static char_type*   str_set(char_type* s, size_type n, char_type c);
 /// @}
 
+/// \name System Paths
+/// @{
+public:
+#if STLSOFT_LEAD_VER >= 0x010a0000
+    /// Gets the full path name of the user's home directory
+    static size_type    get_home_directory(char_type* buffer, size_type cchBuffer);
+#endif /* STLSoft 1.10+ */
+/// @}
+
 /// \name Dynamic Loading
 /// @{
 public:
@@ -392,6 +407,17 @@ public:
 
         return s;
     }
+
+public:
+#if STLSOFT_LEAD_VER >= 0x010a0000
+    /// Gets the full path name of the user's home directory
+    static size_type get_home_directory(char_type* buffer, size_type cchBuffer)
+    {
+        UNIXSTL_ASSERT(NULL != buffer || 0 == cchBuffer);
+
+        return unixstl_C_get_home_directory_a(buffer, cchBuffer);
+    }
+#endif /* STLSoft 1.10+ */
 
 public:
     static module_type load_library(char_type const* name)
@@ -600,6 +626,17 @@ public:
 
         return s;
     }
+
+public:
+#if STLSOFT_LEAD_VER >= 0x010a0000
+    /// Gets the full path name of the user's home directory
+    static size_type get_home_directory(char_type* buffer, size_type cchBuffer)
+    {
+        UNIXSTL_ASSERT(NULL != buffer || 0 == cchBuffer);
+
+        return unixstl_C_get_home_directory_w(buffer, cchBuffer);
+    }
+#endif /* STLSoft 1.10+ */
 
 public:
     static module_type load_library(char_type const* name);

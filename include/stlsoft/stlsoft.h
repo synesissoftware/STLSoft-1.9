@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     17th July 2016
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 7
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     463
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    40
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     465
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -292,12 +292,13 @@
 # define _STLSOFT_VER_1_9_127   0x01097fff  /*!< Version 1.9.127 (6th May 2016) */
 # define _STLSOFT_VER_1_9_128   0x010980ff  /*!< Version 1.9.128 (13th July 2016) */
 # define _STLSOFT_VER_1_9_129   0x010981ff  /*!< Version 1.9.129 (17th July 2016) */
+# define _STLSOFT_VER_1_9_130   0x010982ff  /*!< Version 1.9.130 (1st October 2016) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   129
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_129
+#define _STLSOFT_VER_REVISION   130
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_130
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -871,6 +872,8 @@
  */
 
 #if 0
+#elif defined(STLSOFT_CF_FUNC_SYMBOL_SUPPORT)
+# define STLSOFT_FUNCTION_SYMBOL    __FUNC__
 #elif defined(STLSOFT_CF_func_SYMBOL_SUPPORT)
 # define STLSOFT_FUNCTION_SYMBOL    __func__
 #elif defined(STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT)

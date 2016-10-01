@@ -496,6 +496,7 @@ inline ws_dword_t basic_reg_value<C, T, A>::get_type_() const
     if(!m_bTypeRetrieved)
     {
         size_type   data_size = 0;
+        ws_dword_t  type;
 
 #ifndef STLSOFT_CF_mutable_KEYWORD_SUPPORT
         /* A little-known trick, but a useful one for dealing with translators
@@ -505,9 +506,10 @@ inline ws_dword_t basic_reg_value<C, T, A>::get_type_() const
         ws_bool_t&   m_bTypeRetrieved   =   const_cast<ws_bool_t &>(this->m_bTypeRetrieved);
 #endif /* STLSOFT_CF_mutable_KEYWORD_SUPPORT */
 
-        if(0 == traits_type::reg_query_value(m_hkey, m_name.c_str(), m_type, NULL, data_size))
+        if(0 == traits_type::reg_query_value(m_hkey, m_name.c_str(), type, NULL, data_size))
         {
-            m_bTypeRetrieved = ws_true_v;
+            m_type              =   type;
+            m_bTypeRetrieved    =   ws_true_v;
         }
     }
 

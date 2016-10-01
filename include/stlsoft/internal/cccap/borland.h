@@ -4,14 +4,14 @@
  * Purpose:     Compiler feature discrimination for Borland C/C++.
  *
  * Created:     7th February 2003
- * Updated:     4th November 2015
+ * Updated:     10th August 2016
  *
  * Thanks to:   markitus82 for pointing out overlooking of support for
  *              __FUNCTION__.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -59,9 +59,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MAJOR      3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MINOR      19
+# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_MINOR      20
 # define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_REVISION   1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_EDIT       86
+# define STLSOFT_VER_H_STLSOFT_CCCAP_BORLAND_EDIT       87
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -94,6 +94,7 @@
 
 /* Support for:
  *  - __func__
+ *  - __FUNC__
  *  - __FUNCTION__
  *  - __PRETTY_FUNCTION__
  *  - __FUNCSIG__
@@ -102,6 +103,10 @@
 /*
 #define STLSOFT_CF_func_SYMBOL_SUPPORT
 */
+
+#if (__BORLANDC__ & 0xfff0) >= 0x0620
+# define STLSOFT_CF_FUNC_SYMBOL_SUPPORT
+#endif /* __BORLANDC__ */
 
 /*
 #define STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT
