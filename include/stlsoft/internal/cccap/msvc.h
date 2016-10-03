@@ -4,14 +4,14 @@
  * Purpose:     Compiler feature discrimination for Visual C++.
  *
  * Created:     7th February 2003
- * Updated:     26th December 2015
+ * Updated:     1st October 2016
  *
  * Thanks:      To Cláudio Albuquerque for working on the
  *              Win64-compatibility.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -63,9 +63,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MAJOR     3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     28
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      129
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_MINOR     29
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_REVISION  1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_MSVC_EDIT      130
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -445,6 +445,7 @@
  *      other non-template constructor
  *    - copy-constructor template overload is properly discriminated against
  *      other non-template copy-constructor
+ *    - template void type parameter
  */
 
 #if _MSC_VER >= 1100
@@ -530,6 +531,10 @@
  */
 #if _MSC_VER >= 1300
 # define STLSOFT_CF_TEMPLATE_COPY_CONSTRUCTOR_TEMPLATE_OVERLOAD_DISCRIMINATED_AGAINST_NON_TEMPLATE_COPY_CONSTRUCTOR
+#endif /* compiler */
+
+#if _MSC_VER >= 1310
+# define STLSOFT_CF_TEMPLATE_VOID_TYPE_PARAMETER
 #endif /* compiler */
 
 /* /////////////////////////////////////////////////////////////////////////
