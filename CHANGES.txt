@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  1st October 2016
+; Updated:  2nd November 2016
 
 ============================================================================
 
@@ -16,6 +16,32 @@ STLSoft - Changes
    *                                    *
    **************************************
 
+
+
+
+============================================================================
+
+Changes for 1.9.131 (2nd November 2016)
+
+General:
+========
+
+ * added ss_typename_void_k
+
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/stlsoft.h:
+ ~ stlsoft/internal/cccap/clang.h:
+ ~ stlsoft/internal/cccap/gcc.h:
+ ~ stlsoft/internal/cccap/intel.h:
+ ~ stlsoft/internal/cccap/msvc.h:
+    + added STLSOFT_CF_TEMPLATE_VOID_TYPE_PARAMETER
+    + added ss_typename_void_k
 
 
 

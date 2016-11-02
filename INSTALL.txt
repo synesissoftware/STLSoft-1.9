@@ -2,7 +2,7 @@
 STLSoft - Install
 
 ; Created:  29th March 2002
-; Updated:  1st October 2016
+; Updated:  2nd November 2016
 
 ============================================================================
 
@@ -11,29 +11,30 @@ STLSoft - Install
  It is recommended that you define an STLSOFT environment variable.
  
  For example, if you're using UNIX and you install
-  to /usr/local/stlsoft/stlsoft-1.9.130 then you should set the environment
-  variable STLSOFT to /usr/local/stlsoft/stlsoft-1.9.130 in which case the
+  to /usr/local/stlsoft/stlsoft-1.9.131 then you should set the environment
+  variable STLSOFT to /usr/local/stlsoft/stlsoft-1.9.131 in which case the
   file stlsoft/stlsoft.h will be located in
   $STLSOFT/include/stlsoft/stlsoft.h
   
  Conversely, if you're using Windows and you intall
-  to C:\3pty\STLSoft\stlsoft-1.9.130 then you should set the environment
-  variable STLSoft to C:\3pty\STLSoft\stlsoft-1.9.130 in which case the
+  to C:\3pty\STLSoft\stlsoft-1.9.131 then you should set the environment
+  variable STLSoft to C:\3pty\STLSoft\stlsoft-1.9.131 in which case the
   file stlsoft/stlsoft.h will be located in
-  C:\3pty\STLSoft\stlsoft-1.9.130\stlsoft\stlsoft.h
+  C:\3pty\STLSoft\stlsoft-1.9.131\stlsoft\stlsoft.h
 
  The makefiles / project files of several other open-source projects expect
  this symbol, including:
 
-  * b64             http://synesis.com.au/software/b64.html
-  * CLASP           http://sf.net/projects/systemtools/
-  * FastFormat      http://fastformat.org/
+  * b64             http://github.com/synesissoftware/b64
+  * CLASP           http://github.com/synesissoftware/CLASP
+  * FastFormat      http://github.com/synesissoftware/FastFormat
   * flecxx          http://flecxx.org/
-  * libCLImate      http://libclimate.org/
+  * libCLImate      http://github.com/synesissoftware/libCLImate
   * Open-RJ         http://openrj.org/
-  * Pantheios       http://pantheios.org/
-  * recls           http://recls.org/
+  * Pantheios       http://github.com/synesissoftware/Pantheios
+  * recls           http://github.com/synesissoftware/recls
   * shwild          http://shwild.org/
+  * VOLE            http://github.com/synesissoftware/VOLE
   * xContract       http://xcontract.org/
   * xCover          http://xcover.org/
   * xTests          http://xtests.org/

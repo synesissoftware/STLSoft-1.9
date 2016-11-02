@@ -2,9 +2,15 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  1st October 2016
+; Updated:  2nd November 2016
 
 ============================================================================
+
+
+2nd November 2016 - 1.9.131 released
+------------------------------------
+
+ * added ss_typename_void_k
 
 
 1st October 2016 - 1.9.130 released
