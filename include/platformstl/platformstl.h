@@ -155,7 +155,8 @@
 #if defined(unix) || \
     defined(UNIX) || \
     defined(__unix__) || \
-    defined(__unix)
+    defined(__unix) || \
+    defined(__MACH__)
 # define PLATFORMSTL_OS_IS_UNIX
 #elif defined(WIN64) || \
       defined(_WIN64) || \
