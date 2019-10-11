@@ -2,7 +2,7 @@
 STLSoft - How You Can Help
 
 ; Created:  27th December 2010
-; Updated:  9th September 2015
+; Updated:  11th October 2019
 
 ============================================================================
 
@@ -23,19 +23,12 @@ There are several ways in which you can help the STLSoft project:
 
 We're very keen to hear of any problems you have in using the libraries.
 
-If you're unsure whether your issue is a genuine defect in the library, we
-ask that you post a description of your problem on the project Help Forum,
-located at:
+Please submit an issue at:
 
-  https://sourceforge.net/projects/stlsoft/forums/forum/864084
+  https://github.com/synesissoftware/STLSoft-1.9/issues
 
-If you're sure that your issue is a genuine defect, please feel free to
-submit an item in the project Bug Tracker, located at:
-
-  https://sourceforge.net/tracker/?group_id=238860&atid=1107746
-
-In either case, please help us to help you by submitting as much information
-about the problem as you think is relevant, including:
+Please help us to help you by submitting as much information about the
+problem as you think is relevant, including:
 
  * the compiler you're using
  * the architecture and operating system you're targeting
@@ -51,15 +44,13 @@ about the problem as you think is relevant, including:
 If there are features that you think would enhance the libraries, please
 feel free to share your ideas.
 
-If you're precisely sure what you need, please feel free to start a
-conversation on the Open Discussion Forum, located at:
+You can either submit an issue:
 
-  https://sourceforge.net/projects/stlsoft/forums/forum/864083
+  https://github.com/synesissoftware/STLSoft-1.9/issues
 
-If you're not clear of what you need, please feel free to submit an item in
-the project Feature Request Tracker, located at:
+Or provide your suggested work via a pull-request:
 
-  https://sourceforge.net/tracker/?group_id=238860&atid=1107749
+  https://github.com/synesissoftware/STLSoft-1.9/pulls
 
 
 3. Volunteer your help
@@ -69,13 +60,8 @@ If you have any components you'd like to submit to the libraries, or you
 would like to offer any other help, please get in contact.
 
 In particular, at the moment we're hoping to move to redevelop the STLSoft
-website using MediaWiki (on SourceForge) and we'd be very keen to hear
-from anyone who has skills in this area (as we don't!)
-
-If you wish to help out in any way, please get in contact at via the Open
-Discussion Forum, located at:
-
-  https://sourceforge.net/projects/stlsoft/forums/forum/864083
+website using MediaWiki and we'd be keen to hear from anyone who has skills
+in this area (as we don't!)
 
 
 4. Sponsor development

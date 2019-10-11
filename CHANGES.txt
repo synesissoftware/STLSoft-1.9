@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  2nd November 2016
+; Updated:  11th October 2019
 
 ============================================================================
 
@@ -18,6 +18,47 @@ STLSoft - Changes
 
 
 
+============================================================================
+
+Changes for 1.9.132 (11th October 2019)
+
+General:
+========
+
+ * GCC 4.8, 4.9 compatibility
+ * PlatformSTL now recognises Mac OSX as UNIX implicitly
+ * fixed up project files (README, NEWS, etc.)
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/conversion/byte_format_functions.hpp:
+ ~ stlsoft/conversion/sap_cast.hpp:
+ ~ stlsoft/conversion/union_cast.hpp:
+ ~ stlsoft/string/copy_functions.hpp:
+    ~ hiding/suppressing unused typedefs
+
+ ~ stlsoft/stlsoft.h:
+    ~ GCC 4.9 compatibility
+
+ PlatformSTL
+ ===========
+
+ ~ platformstl/platformstl.h:
+    + recognising Mac OSX architecture as UNIX
+
+ Distribution
+ ============
+
+ ~ FAQ.txt:
+ ~ HOW_YOU_CAN_HELP.txt:
+ ~ INSTALL.txt:
+ ~ README.txt:
+ ~ TODO.txt:
+    ~ updated thoroughly
 
 ============================================================================
 
@@ -8627,4 +8668,6 @@ Diffs:
 
   root-dir-1: H:\3Pty\stlsoft\1.8.3\include
   root-dir-2: H:\3Pty\stlsoft\1.8.4-beta1
+
+=============================== end of file ================================
 

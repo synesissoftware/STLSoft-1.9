@@ -2,7 +2,12 @@
 STLSoft - Install
 
 ; Created:  29th March 2002
-; Updated:  2nd November 2016
+; Updated:  11th October 2019
+
+============================================================================
+
+ NOTE: STLSoft 1.9 is obsolete; please instead use STLSoft 1.10, which may
+  be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
 ============================================================================
 
@@ -11,39 +16,36 @@ STLSoft - Install
  It is recommended that you define an STLSOFT environment variable.
  
  For example, if you're using UNIX and you install
-  to /usr/local/stlsoft/stlsoft-1.9.131 then you should set the environment
-  variable STLSOFT to /usr/local/stlsoft/stlsoft-1.9.131 in which case the
+  to /usr/local/stlsoft/stlsoft-1.9.132 then you should set the environment
+  variable STLSOFT to /usr/local/stlsoft/stlsoft-1.9.132 in which case the
   file stlsoft/stlsoft.h will be located in
   $STLSOFT/include/stlsoft/stlsoft.h
   
  Conversely, if you're using Windows and you intall
-  to C:\3pty\STLSoft\stlsoft-1.9.131 then you should set the environment
-  variable STLSoft to C:\3pty\STLSoft\stlsoft-1.9.131 in which case the
+  to C:\3pty\STLSoft\stlsoft-1.9.132 then you should set the environment
+  variable STLSoft to C:\3pty\STLSoft\stlsoft-1.9.132 in which case the
   file stlsoft/stlsoft.h will be located in
-  C:\3pty\STLSoft\stlsoft-1.9.131\stlsoft\stlsoft.h
+  C:\3pty\STLSoft\stlsoft-1.9.132\stlsoft\stlsoft.h
 
  The makefiles / project files of several other open-source projects expect
  this symbol, including:
 
-  * b64             http://github.com/synesissoftware/b64
-  * CLASP           http://github.com/synesissoftware/CLASP
-  * FastFormat      http://github.com/synesissoftware/FastFormat
-  * flecxx          http://flecxx.org/
-  * libCLImate      http://github.com/synesissoftware/libCLImate
-  * Open-RJ         http://openrj.org/
-  * Pantheios       http://github.com/synesissoftware/Pantheios
-  * recls           http://github.com/synesissoftware/recls
-  * shwild          http://shwild.org/
-  * VOLE            http://github.com/synesissoftware/VOLE
-  * xContract       http://xcontract.org/
-  * xCover          http://xcover.org/
-  * xTests          http://xtests.org/
+  * b64             https://github.com/synesissoftware/b64
+  * CLASP           https://github.com/synesissoftware/CLASP
+  * FastFormat      https://github.com/synesissoftware/FastFormat
+  * flecxx          https://flecxx.sourceforge.net/
+  * libCLImate      https://github.com/synesissoftware/libCLImate
+  * Pantheios       https://github.com/synesissoftware/Pantheios
+  * recls           https://github.com/synesissoftware/recls
+  * shwild          https://github.com/synesissoftware/shwild
+  * VOLE            https://github.com/synesissoftware/VOLE
+  * xContract       https://github.com/synesissoftware/xcontract
+  * xCover          https://github.com/synesissoftware/xcover
+  * xTests          https://github.com/synesissoftware/xtests
 
  If you're using STLSoft on UNIX, you might want to apply dos2unix over all
  the files before using it. You *must* do this if you're using the SunPro
  C compiler.
 
- NOTE: If you're using STLSoft 1.10 in alpha (delta) form, please consult
-    FAQ #6 in the accompanying FAQ.txt file.
+=============================== end of file ================================
 
-=============================== End of file ================================

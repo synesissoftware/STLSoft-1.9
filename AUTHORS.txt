@@ -2,7 +2,7 @@
 STLSoft - Authors
 
 ; Created:  29th March 2002
-; Updated:  14th February 2016
+; Updated:  11th October 2019
 
 ============================================================================
 
@@ -50,6 +50,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     John (cqj007)
     Jon Papaioannou
     Jonathan Wakely
+    Joseph Durel (JadeMatrix)
     Joseph McCay
     Joe Mariadassou
     Josh Kelley
@@ -66,7 +67,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Michal Makowski
     Mikael Pahmp
     Mike Batten
-    Mikkoi Koivunalho
+    Mikko Koivunalho (mikkoi)
     Neal Becker
     Nevin Liber
     Pablo Aguilar
@@ -103,4 +104,5 @@ Bug reports, fixes and suggestions (for which we are very grateful):
 
 Contributions are welcomed.
 
-=============================== End of file ================================
+=============================== end of file ================================
+

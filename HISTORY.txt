@@ -2,9 +2,17 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  2nd November 2016
+; Updated:  11th October 2019
 
 ============================================================================
+
+
+11th October 2019 - 1.9.132 released
+------------------------------------
+
+ * GCC 4.8, 4.9 compatibility
+ * PlatformSTL now recognises Mac OSX as UNIX implicitly
+ * fixed up project files (README, NEWS, etc.)
 
 
 2nd November 2016 - 1.9.131 released
@@ -1027,5 +1035,5 @@ STLSoft - History
 
    comstl/string/bstr_functions.h
 
+=============================== end of file ================================
 
-=============================== End of file ================================

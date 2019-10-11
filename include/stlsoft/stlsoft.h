@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     1st October 2016
+ * Updated:     11th October 2019
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,8 +54,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    41
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     466
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 3
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     468
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -294,12 +294,13 @@
 # define _STLSOFT_VER_1_9_129   0x010981ff  /*!< Version 1.9.129 (17th July 2016) */
 # define _STLSOFT_VER_1_9_130   0x010982ff  /*!< Version 1.9.130 (1st October 2016) */
 # define _STLSOFT_VER_1_9_131   0x010983ff  /*!< Version 1.9.131 (1st October 2016) */
+# define _STLSOFT_VER_1_9_132   0x010984ff  /*!< Version 1.9.132 (11th October 2019) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   131
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_131
+#define _STLSOFT_VER_REVISION   132
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_132
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -1430,24 +1431,30 @@
  * \param expr A compile-time evaluatable condition that must be non-zero, or compilation will fail.
  */
 #if defined(STLSOFT_CF_static_assert_SUPPORT)
+
 # define STLSOFT_STATIC_ASSERT(expr)        static_assert((expr), #expr)
 #elif defined(STLSOFT_CF_STATIC_ASSERT_SUPPORT)
+
 # if 0
-# elif defined(STLSOFT_COMPILER_IS_GCC) && \
-       (   __GNUC__ > 4 || \
-           (   __GNUC__ == 4 && \
-               __GNUC_MINOR__ >= 8))
+# elif 0 || \
+       (    defined(STLSOFT_COMPILER_IS_GCC) && \
+            STLSOFT_GCC_VER >= 40800) || \
+       0
+
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1] __attribute__((unused)); } while(0)
 # elif 0 || \
      defined(STLSOFT_COMPILER_IS_CLANG) || \
      defined(STLSOFT_COMPILER_IS_GCC) || \
      defined(STLSOFT_COMPILER_IS_INTEL) || \
      0
+
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : -1]; } while(0)
 # else /* ? compiler */
+
 #  define STLSOFT_STATIC_ASSERT(expr)       do { typedef int ai[(expr) ? 1 : 0]; } while(0)
 # endif /* compiler */
 #else /* ? STLSOFT_CF_STATIC_ASSERT_SUPPORT */
+
 # define STLSOFT_STATIC_ASSERT(expr)        STLSOFT_MESSAGE_ASSERT("Static assertion failed: ", (expr))
 #endif /* STLSOFT_CF_STATIC_ASSERT_SUPPORT */
 
@@ -2843,14 +2850,20 @@ STLSOFT_CLOSE_WORKER_NS_(template_ex)
  * \brief Used to suppress unused variable warnings
  */
 #if defined(__cplusplus) && \
-    (   defined(STLSOFT_COMPILER_IS_COMO) || \
-        /* defined(STLSOFT_COMPILER_IS_DMCx) || */ \
-        (   defined(STLSOFT_COMPILER_IS_GCC) && \
-            __GNUC__ >= 3) || \
+    (   0 ||\
+        defined(STLSOFT_COMPILER_IS_COMO) ||\
+        (   1 &&\
+            defined(STLSOFT_COMPILER_IS_GCC) &&\
+            __GNUC__ >= 3 &&\
+            !defined(_WIN32) &&\
+            1) || \
         defined(STLSOFT_COMPILER_IS_INTEL) || \
-        (   defined(STLSOFT_COMPILER_IS_MSVC) && \
-            _MSC_VER >= 1600)|| \
-        defined(STLSOFT_COMPILER_IS_WATCOM))
+        (   1 &&\
+            defined(STLSOFT_COMPILER_IS_MSVC) && \
+            _MSC_VER >= 1600 &&\
+            1)|| \
+        defined(STLSOFT_COMPILER_IS_WATCOM) ||\
+        0)
 template<ss_typename_param_k T>
 inline void suppress_unused_func(T const volatile &)
 {}
@@ -2889,28 +2902,38 @@ inline void suppress_unused_func(R (STLSOFT_STDCALL *)(A0))
 # endif /* __cplusplus */
 #endif /* compiler */
 
-/** \def STLSOFT_UNNAMED_PARAM
+/** \def STLSOFT_UNNAMED_PARAM(p)
+ *
  * \ingroup group__project__stlsoft__code_modification_macros
  *
  * \brief Used to define an unused parameter for C compilation and/or documentation processing, but not for C++ compilation
+ *
+ * \param p The parameter to define
  */
 #if defined(__cplusplus) && \
     !defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+
 # define STLSOFT_UNNAMED_PARAM(p)
 #else /* ? __cplusplus */
+
 # define STLSOFT_UNNAMED_PARAM(p)           p
 #endif /* __cplusplus */
 
-/** \def STLSOFT_SUPPRESS_UNNAMED_PARAM
+/** \def STLSOFT_SUPPRESS_UNNAMED_PARAM(p)
+ *
  * \ingroup group__project__stlsoft__code_modification_macros
  *
  * \brief Used to suppress unused parameter warnings (in C compilation) for parameters defined by STLSOFT_UNNAMED_PARAM()
+ *
+ * \param p The parameter to suppress
  */
 #if defined(__cplusplus) && \
     !defined(STLSOFT_DOCUMENTATION_SKIP_SECTION)
+
 # define STLSOFT_SUPPRESS_UNNAMED_PARAM(p)
 #else /* ? __cplusplus */
-# define STLSOFT_SUPPRESS_UNNAMED_PARAM(p)  ((void)p);
+
+# define STLSOFT_SUPPRESS_UNNAMED_PARAM(p)                  ((void)(p))
 #endif /* __cplusplus */
 
 /** @} */

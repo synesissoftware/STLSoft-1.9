@@ -5,11 +5,11 @@
  *              platform discriminations, and definitions of types.
  *
  * Created:     20th March 2005
- * Updated:     26th August 2015
+ * Updated:     11th October 2019
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,8 +47,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MAJOR    1
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MINOR    14
-# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_REVISION 3
-# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     42
+# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_REVISION 5
+# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     44
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file platformstl/platformstl.h
@@ -125,12 +125,13 @@
 # define _PLATFORMSTL_VER_1_8_2     0x010802ff  /*!< Version 1.8.2 (with STLSoft 1.9.90) */
 # define _PLATFORMSTL_VER_1_8_3     0x010803ff  /*!< Version 1.8.3 (with STLSoft 1.9.110) */
 # define _PLATFORMSTL_VER_1_8_4     0x010804ff  /*!< Version 1.8.4 (with STLSoft 1.9.119) */
+# define _PLATFORMSTL_VER_1_8_5     0x010805ff  /*!< Version 1.8.5 (with STLSoft 1.9.132) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _PLATFORMSTL_VER_MAJOR      1
 #define _PLATFORMSTL_VER_MINOR      8
-#define _PLATFORMSTL_VER_REVISION   4
-#define _PLATFORMSTL_VER            _PLATFORMSTL_VER_1_8_4
+#define _PLATFORMSTL_VER_REVISION   5
+#define _PLATFORMSTL_VER            _PLATFORMSTL_VER_1_8_5
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -144,26 +145,34 @@
  * STLSoft version compatibility
  */
 
-#if _STLSOFT_VER < 0x01096eff
-# error This version of the PlatformSTL libraries requires STLSoft version 1.9.100, or later. (www.stlsoft.org)
+#if _STLSOFT_VER < 0x010984ff
+# error This version of the PlatformSTL libraries requires STLSoft version 1.9.132, or later. (www.stlsoft.org)
 #endif /* STLSoft version */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Operating system identification
  */
 
-#if defined(unix) || \
-    defined(UNIX) || \
-    defined(__unix__) || \
-    defined(__unix)
+#if 0
+#elif 0 || \
+      defined(unix) || \
+      defined(UNIX) || \
+      defined(__unix__) || \
+      defined(__unix) || \
+      defined(__MACH__) || \
+      0
 # define PLATFORMSTL_OS_IS_UNIX
-#elif defined(WIN64) || \
+#elif 0 || \
+      defined(WIN64) || \
       defined(_WIN64) || \
-      defined(__WIN64__)
+      defined(__WIN64__) || \
+      0
 # define PLATFORMSTL_OS_IS_WIN64
-#elif defined(WIN32) || \
+#elif 0 || \
+      defined(WIN32) || \
       defined(_WIN32) || \
-      defined(__WIN32__)
+      defined(__WIN32__) || \
+      0
 # define PLATFORMSTL_OS_IS_WIN32
 #else /* ? operating system */
 # error Operating system not discriminated. Only UNIX, Win32 and Win64 are currently recognised by PlatformSTL

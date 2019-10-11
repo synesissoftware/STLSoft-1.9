@@ -2,7 +2,7 @@
 STLSoft - FAQ
 
 ; Created:  29th March 2002
-; Updated:  30th September 2010
+; Updated:  11th October 2019
 
 ============================================================================
 
@@ -49,9 +49,7 @@ Q4: "Does STLSoft have unit-tests?"
 
 A4:
   Yes, but for various reasons they're not available with the STLSoft 1.9
-  distribution. The STLSoft 1.10 alpha distributions come with an increasing
-  number of unit-/component-tests for both STLSoft 1.9 and STLSoft 1.10, and
-  when STLSoft 1.10 enters beta phase, it will ship with tests.
+  distribution. When STLSoft 1.11 is released it will include unit-tests.
 
 
 Q5: "What is STLSoft 1.10?"
@@ -60,35 +58,8 @@ A5:
   STLSoft 1.10 is the next version of STLSoft. As well as containing several
   new components, it also incorporates wholesale refactoring of code and of
   the structural aspects (including packaging and directories). STLSoft 1.10
-  is still in alpha-delta stage (see A6).
+  is available (in beta form) from GitHub:
 
-
-Q6: "How do I use STLSoft 1.10?"
-
-A6:
-  While it's still in alpha stage, the STLSoft 1.10 releases are in "delta"
-  form, i.e. they must be "added" to an up-to-date STLSoft 1.9 distribution.
-  This is achieved in one of two ways:
-
-  (1) Overwrite
-
-  You download and install STLSoft 1.9 as per A2. You then download the
-  STLSoft 1.10 alpha-delta archive and extract it directly over the STLSoft
-  1.9 directory.
-
-  (2) Include Path Interposition
-
-  You download and install STLSoft 1.9 as per A2. You then download the
-  STLSoft 1.10 alpha-delta archive and extract it to a separate directory,
-  defining an environment variable STLSOFT_1_10 to that directory. You then
-  specify the include paths in your IDE project files and in makefiles in
-  reverse order, as in:
-
-    * -I$STLSOFT_1_10/include -I$STLSOFT/include (if you're on UNIX), OR
-    * -I%STLSOFT_1_10%/include -I%STLSOFT%/include (if you're on Windows)
-
-
-  We strongly recommend using method (2).
-
+  https://github.com/synesissoftware/STLSoft-1.10
 
 =============================== End of file ================================

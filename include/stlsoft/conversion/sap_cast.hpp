@@ -5,11 +5,11 @@
  *              the same cv-qualification.
  *
  * Created:     25th February 2004
- * Updated:     10th August 2009
+ * Updated:     11th October 2019
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_MAJOR      4
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_MINOR      0
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_REVISION   2
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_EDIT       46
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_REVISION   3
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_SAP_CAST_EDIT       48
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -141,9 +141,6 @@ inline TO sap_cast(FROM from)
     // Both types must be pointer types
     STLSOFT_STATIC_ASSERT(0 != base_type_traits<FROM>::is_pointer);
     STLSOFT_STATIC_ASSERT(0 != base_type_traits<TO>::is_pointer);
-
-    typedef ss_typename_type_k base_type_traits<FROM>::base_type    from_base_type;
-    typedef ss_typename_type_k base_type_traits<TO>::base_type      to_base_type;
 
     // The intermediate type might be void *, void const*, void volatile * or
     // void const volatile *
