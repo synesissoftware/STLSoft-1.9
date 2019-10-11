@@ -5,11 +5,11 @@
  *              operations.
  *
  * Created:     25th November 2006
- * Updated:     10th August 2009
+ * Updated:     14th February 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2007-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2007-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,8 +52,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_MAJOR      1
 # define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_MINOR      0
-# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_REVISION   2
-# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_EDIT       7
+# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_REVISION   3
+# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_EDIT       8
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -118,7 +118,8 @@ public:
 /// @{
 public:
     /// \brief Constructs an instance of Window
-    explicit Window(HWND hwnd = NULL)
+    ss_explicit_k
+    Window(HWND hwnd = NULL)
         : parent_class_type(hwnd)
     {}
 

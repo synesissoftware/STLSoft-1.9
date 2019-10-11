@@ -5,7 +5,7 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     7th February 2002
- * Updated:     29th June 2016
+ * Updated:     13th August 2016
  *
  * Thanks to:   Pablo Aguilar for discovering the Borland weirdness which is now
  *              addressed with the calc_path_max_() method.
@@ -54,9 +54,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MAJOR    4
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    5
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 5
-# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     125
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_MINOR    6
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_REVISION 1
+# define WINSTL_VER_WINSTL_FILESYSTEM_HPP_FILE_PATH_BUFFER_EDIT     127
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -249,7 +249,7 @@ public:
     }
     /// \brief Copy constructor
     basic_file_path_buffer(class_type const& rhs)
-        : m_buffer(rhs.size())
+        : m_buffer(rhs.internal_size_())
     {
         WINSTL_ASSERT(rhs.is_valid_());
 
@@ -327,7 +327,7 @@ public:
         return this->data();
     }
 
-    /// \brief Returns a mutable (non-const) pointer to the internal buffer
+    /// \brief Returns a mutable (non-const) pointer to an element in the buffer
     reference operator [](ws_size_t index)
     {
         WINSTL_ASSERT(is_valid_());
@@ -338,7 +338,7 @@ public:
     }
 #if !defined(STLSOFT_COMPILER_IS_COMO) || \
     __COMO_VERSION__ >= 4303
-    /// \brief Returns a non-mutable (const) pointer to the internal buffer
+    /// \brief Returns a non-mutable (const) pointer to an element in the buffer
     const_reference operator [](ws_size_t index) const
     {
         WINSTL_MESSAGE_ASSERT("Index out of range", !(size() < index));
@@ -348,7 +348,7 @@ public:
 #else /* ? compiler */
 #endif /* compiler */
 
-    /// \brief Returns the size of the internal buffer
+    /// \brief Returns the size of the buffer
     size_type size() const
     {
         WINSTL_ASSERT(is_valid_());
@@ -356,7 +356,15 @@ public:
         return external_size_();
     }
 
-    /// \brief Returns the maximum size of the internal buffer
+    /// \brief Returns the capacity of the buffer
+    size_type capacity() const
+    {
+        WINSTL_ASSERT(is_valid_());
+
+        return external_size_();
+    }
+
+    /// \brief Returns the maximum size of the buffer
     static size_type max_size()
     {
         return calc_path_max_external_();
@@ -388,7 +396,7 @@ public:
 /// \name Implementation
 /// @{
 private:
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
     static
     char_type const*
     get_eyecatcher_(
@@ -427,7 +435,7 @@ private:
 
     bool is_valid_() const
     {
-#ifdef _DEBUG
+#ifdef STLSOFT_DEBUG
         {
             size_type               ecs;
             char_type const* const  ec  =   get_eyecatcher_(&ecs);
@@ -498,7 +506,7 @@ private:
 /// \name Members
 /// @{
 private:
-    buffer_type m_buffer;
+    buffer_type         m_buffer;
 /// @}
 };
 

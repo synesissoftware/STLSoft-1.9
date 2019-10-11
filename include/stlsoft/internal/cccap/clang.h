@@ -4,7 +4,7 @@
  * Purpose:     Compiler feature discrimination for Clang C/C++.
  *
  * Created:     14th March 2015
- * Updated:     6th May 2016
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -56,9 +56,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MAJOR    1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    3
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 2
-# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     9
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_MINOR    4
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_REVISION 1
+# define STLSOFT_VER_H_STLSOFT_CCCAP_CLANG_EDIT     10
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -278,6 +278,7 @@
  *      other non-template constructor
  *    - copy-constructor template overload is properly discriminated against
  *      other non-template copy-constructor
+ *    - template void type parameter
  */
 
 #define STLSOFT_CF_TEMPLATE_SUPPORT
@@ -315,6 +316,8 @@
 #define STLSOFT_CF_TEMPLATE_CONSTRUCTOR_TEMPLATE_OVERLOAD_DISCRIMINATED_AGAINST_NON_TEMPLATE_CONSTRUCTOR
 
 #define STLSOFT_CF_TEMPLATE_COPY_CONSTRUCTOR_TEMPLATE_OVERLOAD_DISCRIMINATED_AGAINST_NON_TEMPLATE_COPY_CONSTRUCTOR
+
+#define STLSOFT_CF_TEMPLATE_VOID_TYPE_PARAMETER
 
 /* /////////////////////////////////////////////////////////////////////////
  * Calling convention

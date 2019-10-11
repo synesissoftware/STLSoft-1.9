@@ -4,11 +4,11 @@
  * Purpose:     Simple class that provides access to an environment variable.
  *
  * Created:     2nd November 2003
- * Updated:     10th August 2009
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +50,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_MAJOR      4
-# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_MINOR      2
+# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_MINOR      3
 # define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_REVISION   1
-# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_EDIT       65
+# define UNIXSTL_VER_UNIXSTL_SYSTEM_HPP_ENVIRONMENT_VARIABLE_EDIT       66
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -143,6 +143,8 @@ public:
     typedef us_size_t                           size_type;
     /// The difference type
     typedef us_ptrdiff_t                        difference_type;
+    /// The Boolean type
+    typedef us_bool_t                           bool_type;
 
 // Construction
 public:
@@ -178,12 +180,27 @@ public:
         return m_buffer.data();
     }
 
+    /// Returns a pointer to a nul-terminated string
+    char_type const* c_str() const
+    {
+        return m_buffer.data();
+    }
+
 // Attributes
 public:
     /// Returns the length of the variable
     size_type length() const
     {
+        return size();
+    }
+    /// Returns the length of the variable
+    size_type size() const
+    {
         return m_buffer.size() - 1;
+    }
+    bool_type empty() const
+    {
+        return 0u == size();
     }
 
 // Members

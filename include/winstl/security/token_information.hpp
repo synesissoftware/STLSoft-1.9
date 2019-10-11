@@ -4,11 +4,11 @@
  * Purpose:     Helper for accessing token information.
  *
  * Created:     20th June 2003
- * Updated:     4th November 2015
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2003-2016, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,8 +50,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_MAJOR     4
 # define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_MINOR     2
-# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_REVISION  1
-# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_EDIT      54
+# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_REVISION  2
+# define WINSTL_VER_WINSTL_SECURITY_HPP_TOKEN_INFORMATION_EDIT      55
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -325,7 +325,7 @@ private:
     }
 public:
 
-    ~token_information() stlsoft_throw_0()
+    ~token_information() STLSOFT_NOEXCEPT
     {
 #ifdef STLSOFT_LF_ALLOCATOR_DEALLOCATE_HAS_COUNT
         allocator_type().deallocate(m_data.first, m_data.second);

@@ -6,7 +6,7 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     17th July 2016
+ * Updated:     1st October 2016
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,9 +53,9 @@
 /* File version */
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    39
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 7
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     463
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    41
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 1
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     466
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -292,12 +292,14 @@
 # define _STLSOFT_VER_1_9_127   0x01097fff  /*!< Version 1.9.127 (6th May 2016) */
 # define _STLSOFT_VER_1_9_128   0x010980ff  /*!< Version 1.9.128 (13th July 2016) */
 # define _STLSOFT_VER_1_9_129   0x010981ff  /*!< Version 1.9.129 (17th July 2016) */
+# define _STLSOFT_VER_1_9_130   0x010982ff  /*!< Version 1.9.130 (1st October 2016) */
+# define _STLSOFT_VER_1_9_131   0x010983ff  /*!< Version 1.9.131 (1st October 2016) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   129
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_129
+#define _STLSOFT_VER_REVISION   131
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_131
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -871,6 +873,8 @@
  */
 
 #if 0
+#elif defined(STLSOFT_CF_FUNC_SYMBOL_SUPPORT)
+# define STLSOFT_FUNCTION_SYMBOL    __FUNC__
 #elif defined(STLSOFT_CF_func_SYMBOL_SUPPORT)
 # define STLSOFT_FUNCTION_SYMBOL    __func__
 #elif defined(STLSOFT_CF_FUNCTION_SYMBOL_SUPPORT)
@@ -2808,6 +2812,26 @@ private:
 # error Compiler not discriminated
 #endif /* compiler */
 
+/* /////////////////////////////////////////////////////////////////////////
+ * Template support - misc.
+ */
+
+#ifdef __cplusplus
+# ifdef STLSOFT_CF_TEMPLATE_VOID_TYPE_PARAMETER
+
+#  define ss_template_void_k                                void
+
+# else
+
+#  define ss_template_void_k                                STLSOFT_WORKER_NS_QUAL_(template_ex, void_struct)
+
+STLSOFT_OPEN_WORKER_NS_(template_ex)
+struct void_struct
+{};
+STLSOFT_CLOSE_WORKER_NS_(template_ex)
+
+# endif
+#endif /* __cplusplus */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Code suppression macro(s)
