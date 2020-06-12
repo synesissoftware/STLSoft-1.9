@@ -6,10 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     11th October 2019
+ * Updated:     13th June 2020
  *
  * Home:        http://stlsoft.org/
  *
+ * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -54,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    41
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     468
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 4
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     469
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -295,12 +296,13 @@
 # define _STLSOFT_VER_1_9_130   0x010982ff  /*!< Version 1.9.130 (1st October 2016) */
 # define _STLSOFT_VER_1_9_131   0x010983ff  /*!< Version 1.9.131 (1st October 2016) */
 # define _STLSOFT_VER_1_9_132   0x010984ff  /*!< Version 1.9.132 (11th October 2019) */
+# define _STLSOFT_VER_1_9_133   0x010985ff  /*!< Version 1.9.133 (13th June 2020) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   132
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_132
+#define _STLSOFT_VER_REVISION   133
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_133
 
 /* /////////////////////////////////////
  * Underlying version detection

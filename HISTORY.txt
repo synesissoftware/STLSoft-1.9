@@ -2,9 +2,15 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  11th October 2019
+; Updated:  13th June 2020
 
 ============================================================================
+
+
+13th June 2020 - 1.9.133 released
+---------------------------------
+
+ * Add support for the ARM architecture when doing Android NDK GCC compilation
 
 
 11th October 2019 - 1.9.132 released

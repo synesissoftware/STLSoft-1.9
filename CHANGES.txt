@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  11th October 2019
+; Updated:  13th June 2020
 
 ============================================================================
 
@@ -17,6 +17,24 @@ STLSoft - Changes
    **************************************
 
 
+
+============================================================================
+
+Changes for 1.9.133 (13th June 2020)
+
+General:
+========
+
+ * Add support for the ARM architecture when doing Android NDK GCC compilation
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/internal/cccap/gcc.h:
+    + added detection for __arm__
 
 ============================================================================
 

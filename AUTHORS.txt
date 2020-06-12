@@ -2,7 +2,7 @@
 STLSoft - Authors
 
 ; Created:  29th March 2002
-; Updated:  11th October 2019
+; Updated:  13th June 2020
 
 ============================================================================
 
@@ -28,6 +28,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     chenchang
     Chris Newcombe
     Christian Roessel
+    christopherplawrence
     Christopher Diggins
     Cláudio Albuquerque
     Colin Gravell
