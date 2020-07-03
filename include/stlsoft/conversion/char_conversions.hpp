@@ -4,11 +4,12 @@
  * Purpose:     Character-encoding scheme interconversion components.
  *
  * Created:     31st May 2003
- * Updated:     9th October 2015
+ * Updated:     27th June 2020
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,9 +51,9 @@
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_MAJOR    5
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_MINOR    2
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_REVISION 3
-# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_EDIT     98
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_MINOR    3
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_REVISION 1
+# define STLSOFT_VER_STLSOFT_CONVERSION_HPP_CHAR_CONVERSIONS_EDIT     99
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -482,12 +483,12 @@ private:
  *
  * \ingroup group__library__conversion
  */
-typedef multibyte2wide<256>               m2w;
+typedef multibyte2wide<256>                 m2w;
 /** \brief Type that converts a wide string to a multibyte string.
  *
  * \ingroup group__library__conversion
  */
-typedef wide2multibyte<256>               w2m;
+typedef wide2multibyte<256>                 w2m;
 
 /** \brief [Deprecated] Type that converts a multibyte string to a wide string.
  *
@@ -495,26 +496,28 @@ typedef wide2multibyte<256>               w2m;
  *
  * \deprecated This name is deprecated in favour of stlsoft::m2w
  */
-typedef multibyte2wide<256>               a2w;
+typedef multibyte2wide<256>                 a2w;
 /** \brief [Deprecated] Type that converts a wide string to a multibyte string.
  *
  * \ingroup group__library__conversion
  *
  * \deprecated This name is deprecated in favour of stlsoft::w2m
  */
-typedef wide2multibyte<256>               w2a;
+typedef wide2multibyte<256>                 w2a;
 
-//#if defined(UNICODE)
-//typedef encoding2encoding<ss_char_w_t>  t2w;
-//typedef encoding2encoding<ss_char_w_t>  w2t;
-//typedef w2a                             t2a;
-//typedef a2w                             a2t;
-//#else /* ? UNICODE */
-//typedef encoding2encoding<ss_char_a_t>  t2a;
-//typedef encoding2encoding<ss_char_a_t>  a2t;
-//typedef a2w                             t2w;
-//typedef w2a                             w2t;
-//#endif /* UNICODE */
+#if defined(UNICODE)
+
+typedef encoding2encoding<ss_char_w_t>      t2w;
+typedef encoding2encoding<ss_char_w_t>      w2t;
+typedef w2a                                 t2a;
+typedef a2w                                 a2t;
+#else /* ? UNICODE */
+
+typedef encoding2encoding<ss_char_a_t>      t2a;
+typedef encoding2encoding<ss_char_a_t>      a2t;
+typedef a2w                                 t2w;
+typedef w2a                                 w2t;
+#endif /* UNICODE */
 
 /* /////////////////////////////////////////////////////////////////////////
  * Shims

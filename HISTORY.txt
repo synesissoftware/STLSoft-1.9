@@ -2,9 +2,16 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  13th June 2020
+; Updated:  4th July 2020
 
 ============================================================================
+
+
+4th July 2020 - 1.9.134 released
+--------------------------------
+
+ * added compatibility with Visual C++ 15.x and 16.x
+ * added stlsoft::t2w, stlsoft::w2t, stlsoft::t2a, stlsoft::a2t for upcoming Pantheios release
 
 
 13th June 2020 - 1.9.133 released

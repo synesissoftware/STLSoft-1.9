@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  13th June 2020
+; Updated:  4th July 2020
 
 ============================================================================
 
@@ -17,6 +17,28 @@ STLSoft - Changes
    **************************************
 
 
+
+============================================================================
+
+Changes for 1.9.134 (4th July 2020)
+
+General:
+========
+
+ * added compatibility with Visual C++ 15.x and 16.x
+ * added stlsoft::t2w, stlsoft::w2t, stlsoft::t2a, stlsoft::a2t for upcoming Pantheios release
+
+Changes:
+========
+
+ STLSoft
+ =======
+
+ ~ stlsoft/stlsoft.h:
+    + added compatibility with Visual C++ 15.x and 16.x
+
+ ~ stlsoft/conversion/char_conversions.hpp:
+    + added t2w, w2t, t2a, a2t
 
 ============================================================================
 
