@@ -5,14 +5,15 @@
  *              abstracting away standard library inconsistencies.
  *
  * Created:     2nd January 2000
- * Updated:     21st September 2015
+ * Updated:     27th July 2020
  *
  * Thanks:      To Cláudio Albuquerque for assisting with VC++ 12 & 14
  *              support.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,9 +24,9 @@
  * - Redistributions in binary form must reproduce the above copyright notice,
  *   this list of conditions and the following disclaimer in the documentation
  *   and/or other materials provided with the distribution.
- * - Neither the name(s) of Matthew Wilson and Synesis Software nor the names of
- *   any contributors may be used to endorse or promote products derived from
- *   this software without specific prior written permission.
+ * - Neither the name(s) of Matthew Wilson and Synesis Information Systems nor
+ *   the names of any contributors may be used to endorse or promote products
+ *   derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -55,8 +56,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MAJOR     5
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_MINOR     8
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      115
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_REVISION  2
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_ITERATOR_HELPER_EDIT      116
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -1059,7 +1060,9 @@ inline stlsoft_ns_qual(ss_ptrdiff_t) *distance_type(pointer_iterator<V, P, R>::t
  */
 
 #if 0
-#elif defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC)
+#elif defined(STLSOFT_CF_STD_LIBRARY_IS_DINKUMWARE_VC) && \
+      ( !defined(STLSOFT_COMPILER_IS_MSVC) || \
+        _MSC_VER < 1900)
 # define stlsoft_iterator_query_category(I, i)      (stlsoft_ns_qual_std(_Iter_cat)(i))
 # define stlsoft_iterator_query_category_ptr(I, i)  (&stlsoft_ns_qual_std(_Iter_cat)(i))
 

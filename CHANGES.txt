@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  4th July 2020
+; Updated:  27th July 2020
 
 ============================================================================
 
@@ -17,6 +17,31 @@ STLSoft - Changes
    **************************************
 
 
+
+============================================================================
+
+Changes for 1.9.135 (27th July 2020)
+
+General:
+========
+
+ * VC++ 15/16 compatibility
+ * fixed unixstl::readdir_sequence::empty()
+
+Changes:
+========
+
+ STLSoft:
+ ========
+
+ ~ stlsoft/util/std/iterator_helper.hpp:
+    ~ VC++ 15/16 compatibility
+
+ UNIXSTL:
+ ========
+
+ ~ unixstl/filesystem/readdir_sequence.hpp:
+    ~ fixed readdir_sequence::empty()
 
 ============================================================================
 

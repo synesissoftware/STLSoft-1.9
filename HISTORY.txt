@@ -2,9 +2,16 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  4th July 2020
+; Updated:  27th July 2020
 
 ============================================================================
+
+
+27th July 2020 - 1.9.135 released
+---------------------------------
+
+ * VC++ 15/16 compatibility
+ * fixed unixstl::readdir_sequence::empty()
 
 
 4th July 2020 - 1.9.134 released
