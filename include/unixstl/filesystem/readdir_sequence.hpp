@@ -4,24 +4,25 @@
  * Purpose:     readdir_sequence class.
  *
  * Created:     15th January 2002
- * Updated:     4th November 2015
+ * Updated:     6th July 2020
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
- * - Redistributions of source code must retain the above copyright notice, this
- *   list of conditions and the following disclaimer.
+ * - Redistributions of source code must retain the above copyright notice,
+ *   this list of conditions and the following disclaimer.
  * - Redistributions in binary form must reproduce the above copyright notice,
  *   this list of conditions and the following disclaimer in the documentation
  *   and/or other materials provided with the distribution.
- * - Neither the name(s) of Matthew Wilson and Synesis Software nor the names of
- *   any contributors may be used to endorse or promote products derived from
- *   this software without specific prior written permission.
+ * - Neither the name(s) of Matthew Wilson and Synesis Information Systems nor
+ *   the names of any contributors may be used to endorse or promote products
+ *   derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -50,8 +51,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_MAJOR      5
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_MINOR      2
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_REVISION   3
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_EDIT       136
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_REVISION   4
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_READDIR_SEQUENCE_EDIT       137
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -635,7 +636,7 @@ inline
 us_bool_t
 readdir_sequence::empty() const
 {
-    return begin() != end();
+    return begin() == end();
 }
 
 inline

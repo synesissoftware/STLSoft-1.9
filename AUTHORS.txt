@@ -2,7 +2,7 @@
 STLSoft - Authors
 
 ; Created:  29th March 2002
-; Updated:  13th June 2020
+; Updated:  6th July 2020
 
 ============================================================================
 
@@ -96,6 +96,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Vinson Lee
     Volker Lukas
     W³odzimierz Skiba
+    wiluite
     Yakov Markovitch
     yozara
     Zar Eindl
