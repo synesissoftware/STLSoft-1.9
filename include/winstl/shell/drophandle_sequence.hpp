@@ -5,11 +5,12 @@
  *              and Unicode specialisations thereof.
  *
  * Created:     13th November 2002
- * Updated:     4th November 2015
+ * Updated:     14th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_MAJOR      4
 # define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_MINOR      1
 # define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_REVISION   6
-# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_EDIT       98
+# define WINSTL_VER_WINSTL_SHELL_HPP_DROPHANDLE_SEQUENCE_EDIT       99
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -296,17 +297,17 @@ class basic_drophandle_sequence
 {
 public:
     /// \brief The character type
-    typedef C                                                                               char_type;
+    typedef C                                               char_type;
     /// \brief The traits type
-    typedef T                                                                               traits_type;
+    typedef T                                               traits_type;
     /// \brief The current parameterisation of the type
-    typedef basic_drophandle_sequence<C, T>                                                 class_type;
+    typedef basic_drophandle_sequence<C, T>                 class_type;
     /// \brief The non-mutating (const) iterator type
-    typedef basic_drophandle_sequence_const_iterator<C, T>                                  const_iterator;
+    typedef basic_drophandle_sequence_const_iterator<C, T>  const_iterator;
     /// \brief The value type
-    typedef ss_typename_type_k const_iterator::value_type                                   value_type;
+    typedef ss_typename_type_k const_iterator::value_type   value_type;
     /// \brief The difference type
-    typedef ws_ptrdiff_t                                                                    difference_type;
+    typedef ws_ptrdiff_t                                    difference_type;
 #if defined(STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT) && \
     !defined(STLSOFT_COMPILER_IS_BORLAND)
     /// \brief The non-mutating (const) reverse iterator type
@@ -314,12 +315,13 @@ public:
 #if !defined(STLSOFT_COMPILER_IS_BORLAND)
             ss_typename_type_k
 #endif /* compiler */
-                               stlsoft_ns_qual(const_reverse_iterator_generator)<   const_iterator
-                                                                                ,   value_type
-                                                                                ,   value_type  // By-Value Temporary reference category
-                                                                                ,   void        // By-Value Temporary reference category
-                                                                                ,   difference_type
-                                                                                >::type     const_reverse_iterator;
+                               stlsoft_ns_qual(const_reverse_iterator_generator)<
+                                        const_iterator
+                                    ,   value_type
+                                    ,   value_type  // By-Value Temporary reference category
+                                    ,   void        // By-Value Temporary reference category
+                                    ,   difference_type
+                                    >::type                 const_reverse_iterator;
 #endif /* STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT */
 
 // Construction

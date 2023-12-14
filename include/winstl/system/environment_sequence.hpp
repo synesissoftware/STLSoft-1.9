@@ -4,11 +4,12 @@
  * Purpose:     basic_environment_sequence class.
  *
  * Created:     31st December 2002
- * Updated:     4th November 2015
+ * Updated:     14th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_MAJOR    4
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_MINOR    1
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_REVISION 2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_EDIT     83
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_ENVIRONMENT_SEQUENCE_EDIT     84
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -142,7 +143,7 @@ class basic_environment_sequence
 /// @{
 public:
     /// The character type
-    typedef C                                                   char_type;
+    typedef C                                               char_type;
     /// Structure representing the items
     struct symbol
     {
@@ -152,38 +153,40 @@ public:
         char_type const* value;
     };
     /// The value type
-    typedef symbol                                              value_type;
+    typedef symbol                                          value_type;
     /// The current parameterisation of the type
-    typedef basic_environment_sequence<C>                       class_type;
+    typedef basic_environment_sequence<C>                   class_type;
     /// The non-mutable (const) pointer type
-    typedef value_type const*                                   const_pointer;
+    typedef value_type const*                               const_pointer;
     /// The non-mutable (const) reference type
-    typedef value_type const&                                   const_reference;
+    typedef value_type const&                               const_reference;
     /// The size type
-    typedef ws_size_t                                           size_type;
+    typedef ws_size_t                                       size_type;
     /// The difference type
-    typedef ws_ptrdiff_t                                        difference_type;
+    typedef ws_ptrdiff_t                                    difference_type;
     /// The non-mutating (const) iterator type
     typedef
 #if !defined(STLSOFT_COMPILER_IS_BORLAND)
       ss_typename_type_k
 #endif /* compiler */
-        stlsoft_ns_qual(pointer_iterator)   <   value_type
-                                            ,   const_pointer
-                                            ,   const_reference
-                                            >::type             const_iterator;
+        stlsoft_ns_qual(pointer_iterator)<
+            value_type
+        ,   const_pointer
+        ,   const_reference
+        >::type                                             const_iterator;
 #if defined(STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT)
     /// The non-mutating (const) reverse iterator type
     typedef
 #if !defined(STLSOFT_COMPILER_IS_BORLAND)
             ss_typename_type_k
 #endif /* compiler */
-                               stlsoft_ns_qual(const_reverse_iterator_generator)<   const_iterator
-                                                                                ,   value_type
-                                                                                ,   const_reference
-                                                                                ,   const_pointer
-                                                                                ,   difference_type
-                                                                                >::type     const_reverse_iterator;
+                               stlsoft_ns_qual(const_reverse_iterator_generator)<
+                                        const_iterator
+                                    ,   value_type
+                                    ,   const_reference
+                                    ,   const_pointer
+                                    ,   difference_type
+                                    >::type                 const_reverse_iterator;
 #endif /* STLSOFT_LF_BIDIRECTIONAL_ITERATOR_SUPPORT */
 /// @}
 
