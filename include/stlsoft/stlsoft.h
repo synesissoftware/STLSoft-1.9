@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     27th July 2020
+ * Updated:     14th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -56,7 +56,7 @@
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    42
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     471
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     472
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -2800,7 +2800,7 @@ private:
         __GNUC_MINOR__ >= 3 && \
         !defined(__APPLE__))
 
-  /* This version of the technique for GCC 3.3+ was suggested by Lars Rune Nøstdal,
+  /* This version of the technique for GCC 3.3+ was suggested by Lars Rune NÃ¸stdal,
    * from Norway. Many thanks, Lars!
    */
 

@@ -4,13 +4,14 @@
  * Purpose:     basic_static_string class template.
  *
  * Created:     11th June 1994
- * Updated:     4th November 2015
+ * Updated:     14th December 2023
  *
- * Thanks:      To Cl·udio Albuquerque for supplying the pop_back() member.
+ * Thanks:      To Cl√°udio Albuquerque for supplying the pop_back() member.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1994-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

@@ -4,16 +4,17 @@
  * Purpose:     Discriminates between standard library implementations
  *
  * Created:     2nd January 2000
- * Updated:     7th August 2015
+ * Updated:     14th December 2023
  *
- * Thanks:      To Cl·udio Albuquerque for assisting with VC++ 12 & 14
+ * Thanks:      To Cl√°udio Albuquerque for assisting with VC++ 12 & 14
  *              support. To Gabor Fischer for reporting problems with VC++
  *              9/10 compatibility, and persisting in (re-)reporting it even
  *              when I was being a thickie and unable to reproduce it.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

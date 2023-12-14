@@ -2,7 +2,7 @@
 STLSoft - Authors
 
 ; Created:  29th March 2002
-; Updated:  6th July 2020
+; Updated:  14th December 2023
 
 ============================================================================
 
@@ -17,7 +17,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
 
     Adi Shavit
     Allan McLellan
-    Anders F Björklund
+    Anders F BjÃ¶rklund
     Andrew Bond
     Anton Sekeris
     Bart van der Velden
@@ -30,7 +30,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Christian Roessel
     christopherplawrence
     Christopher Diggins
-    Cláudio Albuquerque
+    ClÃ¡udio Albuquerque
     Colin Gravell
     Dave Brooks
     David Wang
@@ -55,8 +55,9 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Joseph McCay
     Joe Mariadassou
     Josh Kelley
-    Julio César Carrascal Urquijo
+    Julio CÃ©sar Carrascal Urquijo
     Lars Ivar Igesund
+    Lars Rune NÃ¸stdal
     Luoyi
     Maciej Kaniewski
     Magnificent Imbecil
@@ -95,7 +96,7 @@ Bug reports, fixes and suggestions (for which we are very grateful):
     Victor T
     Vinson Lee
     Volker Lukas
-    W³odzimierz Skiba
+    WÅ‚odzimierz Skiba
     wiluite
     Yakov Markovitch
     yozara
