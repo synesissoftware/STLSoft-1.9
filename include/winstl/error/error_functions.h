@@ -4,11 +4,12 @@
  * Purpose:     Error functions.
  *
  * Created:     7th May 2000
- * Updated:     19th July 2014
+ * Updated:     14th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_MAJOR     4
 # define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_MINOR     4
 # define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_REVISION  4
-# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_EDIT      70
+# define WINSTL_VER_WINSTL_ERROR_H_ERROR_FUNCTIONS_EDIT      71
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -246,7 +247,7 @@ winstl_C_fmtmsg_elide_message_w_(
     return last;
 }
 
-/**
+/** TBC
  *
  *
  * \param flags. Automatically added to this are FORMAT_MESSAGE_ALLOCATE_BUFFER and, if source is NULL, FORMAT_MESSAGE_FROM_SYSTEM
@@ -256,7 +257,7 @@ winstl_C_fmtmsg_elide_message_w_(
  *   ways: \c FORMAT_MESSAGE_ALLOCATE_BUFFER is always
  *   added; \c FORMAT_MESSAGE_FROM_SYSTEM is added if
  *   \c source is \c NULL.
- * 
+ *
  * \ingroup group__library__error
  */
 STLSOFT_INLINE
@@ -288,17 +289,17 @@ winstl_C_FormatMessageA_INVOKE_for_alloc_(
     );
 }
 
-/**
+/** TBC
  *
- * 
+ *
  * \param flags. Automatically added to this are FORMAT_MESSAGE_ALLOCATE_BUFFER and, if source is NULL, FORMAT_MESSAGE_FROM_SYSTEM
  * \param source
- * 
+ *
  * \note The flags are altered in the following
  *   ways: \c FORMAT_MESSAGE_ALLOCATE_BUFFER is always
  *   added; \c FORMAT_MESSAGE_FROM_SYSTEM is added if
  *   \c source is \c NULL.
- * 
+ *
  * \ingroup group__library__error
  */
 STLSOFT_INLINE
@@ -331,17 +332,17 @@ winstl_C_FormatMessageW_INVOKE_for_alloc_(
 }
 
 
-/**
+/** TBC
  *
- * 
+ *
  * \param flags. Automatically removed from this is FORMAT_MESSAGE_ALLOCATE_BUFFER and added to this, if source is NULL, is FORMAT_MESSAGE_FROM_SYSTEM
  * \param source
- * 
+ *
  * \note The flags are altered in the following
  *   ways: \c FORMAT_MESSAGE_ALLOCATE_BUFFER is always
  *   removed; \c FORMAT_MESSAGE_FROM_SYSTEM is added if
  *   \c source is \c NULL.
- * 
+ *
  * \ingroup group__library__error
  */
 STLSOFT_INLINE
@@ -373,17 +374,17 @@ winstl_C_FormatMessageA_INVOKE_in_buffer_(
     );
 }
 
-/**
+/** TBC
  *
- * 
+ *
  * \param flags. Automatically removed from this is FORMAT_MESSAGE_ALLOCATE_BUFFER and added to this, if source is NULL, is FORMAT_MESSAGE_FROM_SYSTEM
  * \param source
- * 
+ *
  * \note The flags are altered in the following
  *   ways: \c FORMAT_MESSAGE_ALLOCATE_BUFFER is always
  *   removed; \c FORMAT_MESSAGE_FROM_SYSTEM is added if
  *   \c source is \c NULL.
- * 
+ *
  * \ingroup group__library__error
  */
 STLSOFT_INLINE
@@ -591,7 +592,7 @@ winstl_C_fmtmsg_LocalFree__(void *pv)
  * C functions
  */
 
-/** Translates the 
+/** TBC
  *
  * \ingroup group__library__error
  *
@@ -633,7 +634,7 @@ winstl_C_format_message_from_module_to_allocated_buffer_a(
     return r;
 }
 
-/** Translates the 
+/** TBC
  *
  * \ingroup group__library__error
  *
@@ -833,16 +834,15 @@ STLSOFT_INLINE ws_dword_t winstl_C_format_message_alloc_w(
     return res;
 }
 
-/** Functional equivalent to the C standard library 
+/** Functional equivalent to the C standard library
  *   function <code>strerror()</code> for the Windows API, except that the
  *   returned pointer must be freed
  *   (by <code>winstl_C_format_message_free_buff_a()</code>) to avoid
  *   a memory leak.
  *
- * 
  * \return Always a non-NULL pointer to a nul-terminated multibyte string.
  *
- * \note The returned pointer must be released by a call 
+ * \note The returned pointer must be released by a call
  *   to <code>winstl_C_format_message_free_buff_a()</code>
  */
 STLSOFT_INLINE

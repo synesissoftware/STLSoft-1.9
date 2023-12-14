@@ -4,7 +4,7 @@
  * Purpose:     glob_sequence class.
  *
  * Created:     15th January 2002
- * Updated:     4th November 2015
+ * Updated:     14th December 2023
  *
  * Thanks:      To Carlos Santander Bernal for helping with Mac compatibility.
  *              To Nevin Liber for pressing upon me the need to lead by
@@ -12,7 +12,8 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +56,7 @@
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_MAJOR     5
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_MINOR     2
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_REVISION  8
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_EDIT      163
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_GLOB_SEQUENCE_EDIT      164
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -134,8 +135,6 @@
 /* User may define UNIXSTL_GLOB_SEQUENCE_TRUST_ONLYDIR to cause the
  * component to trust GLOB_ONLYDIR, if present. If GLOB_ONLYDIR is not
  * detected, UNIXSTL_GLOB_SEQUENCE_TRUST_ONLYDIR is ignored.
- *
- * For any implementations that 
  */
 
 #ifndef GLOB_ONLYDIR
@@ -1232,7 +1231,6 @@ glob_sequence::init_glob_3_(
         // 2. Looking for directories only
         //  - and GLOB_ONLYDIR is supported
         // 3. Looking for anything
-        // 
 
 #ifdef UNIXSTL_GLOB_SEQUENCE_TRUST_ONLYREG
         // 1. Looking for files only

@@ -4,11 +4,12 @@
  * Purpose:     A container that measures the frequency of the unique elements it contains.
  *
  * Created:     1st October 2005
- * Updated:     4th November 2015
+ * Updated:     14th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FREQUENCY_MAP_MAJOR    2
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FREQUENCY_MAP_MINOR    6
 # define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FREQUENCY_MAP_REVISION 2
-# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FREQUENCY_MAP_EDIT     30
+# define STLSOFT_VER_STLSOFT_CONTAINERS_HPP_FREQUENCY_MAP_EDIT     31
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -132,13 +133,13 @@ public:
     /// The key type
     typedef ss_typename_param_k map_type_::key_type                 key_type;
 //    typedef ss_typename_param_k map_type_::mapped_type              mapped_type
-    /// The count type                                              
+    /// The count type
     typedef N                                                       count_type;
-    /// The size type                                               
+    /// The size type
     typedef ss_size_t                                               size_type;
-    /// The difference type                                         
+    /// The difference type
     typedef ss_ptrdiff_t                                            difference_type;
-    /// The boolean type                                            
+    /// The boolean type
     typedef ss_bool_t                                               bool_type;
 
 public: // Construction

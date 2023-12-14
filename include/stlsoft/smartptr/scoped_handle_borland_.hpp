@@ -5,14 +5,15 @@
  *              resource types; special implementation for Borland.
  *
  * Created:     1st November 1994
- * Updated:     10th August 2009
+ * Updated:     14th December 2023
  *
  * Thanks to:   Maciej Kaniewski, for requesting Borland compatibility (in
  *              order to use FastFormat and Pantheios)
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1994-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -56,7 +57,7 @@
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SCOPED_HANDLE_BORLAND__MAJOR      6
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SCOPED_HANDLE_BORLAND__MINOR      1
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SCOPED_HANDLE_BORLAND__REVISION   2
-# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SCOPED_HANDLE_BORLAND__EDIT       670
+# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SCOPED_HANDLE_BORLAND__EDIT       671
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -115,7 +116,7 @@ struct scoped_handle_borland_impl_
     };
 
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (cdecl*)(H)
      */
@@ -183,7 +184,7 @@ struct scoped_handle_borland_impl_
         function_type   m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (fastcall*)(H)
      */
@@ -251,7 +252,7 @@ struct scoped_handle_borland_impl_
         function_type   m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (stdcall*)(H)
      */
@@ -319,7 +320,7 @@ struct scoped_handle_borland_impl_
         function_type   m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (cdecl*)(H)
      */
@@ -384,7 +385,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (fastcall*)(H)
      */
@@ -449,7 +450,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (stdcall*)(H)
      */
@@ -515,7 +516,7 @@ struct scoped_handle_borland_impl_
     };
 
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (cdecl*)(void)
      */
@@ -580,7 +581,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (fastcall*)(void)
      */
@@ -645,7 +646,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  R (stdcall*)(void)
      */
@@ -710,7 +711,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (cdecl*)(void)
      */
@@ -773,7 +774,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (fastcall*)(void)
      */
@@ -836,7 +837,7 @@ struct scoped_handle_borland_impl_
         function_type m_fn;
     };
 
-    /* Template for function of the form 
+    /* Template for function of the form
      *
      *  void (stdcall*)(void)
      */
