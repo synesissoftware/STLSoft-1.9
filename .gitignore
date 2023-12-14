@@ -1,32 +1,90 @@
 
 # directories (by name)
 
+/.git-old/
+/.vs/
+
+/_build/
+/_internal/
+
+/bin/
+/doc/
+/dox/
+/ideas/
+/included/
+/releases/
+/temp/
+
+Debug/
+DebugMt/
+Debug Multithreaded/
+Debug Multithreaded Dll/
+DebugNox/
+DebugUnix/
+Release/
+ReleaseMt/
+Release Multithreaded/
+Release Multithreaded Dll/
+ReleaseNox/
+ReleaseUnix/
+
+Win32/
+x64/
+
 # directories (by pattern)
+
+/include-*/
 
 # files (by name)
 
+.DS_Store
+.update_deps
+
+list_changes.cmd
+prepare.cmd
+sh.exe.stackdump
+
+build/makefile.tmpl
+build/makefile.tools.xml
+
 include/stlsoft/internal/dos2unix.has.been.performed
+
 
 # files (by pattern)
 
 *~
 *.a
 *.app
+*.b64
+*.bak
 *.dll
 *.dylib
 *.exe
 *.gch
+*.idb
+*.ilk
 *.lib
+*.log
+*.ncb
 *.o
 *.obj
 *.opensdf
+*.opt
+*.org
 *.out
 *.pch
-*.sdf
+*.pdb
+*.res
 *.sbr
 *.scc
+*.sdf
 *.so
+*.suo
 *.swp
-*.vcproj.user
-*.vcxproj.user
+*.tlog
+*.tmp
+*.unsuccessfulbuild
+*.vcproj*.user
+*.vcxproj*.user
+*.zip
 
