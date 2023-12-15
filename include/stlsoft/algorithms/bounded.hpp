@@ -4,7 +4,7 @@
  * Purpose:     Bounded algorithms.
  *
  * Created:     23rd October 2004
- * Updated:     14th December 2023
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
@@ -52,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_BOUNDED_MAJOR       2
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_BOUNDED_MINOR       1
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_BOUNDED_REVISION    1
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_BOUNDED_EDIT        23
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_BOUNDED_EDIT        24
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -171,3 +171,4 @@ inline void replace_n(I src, ss_size_t n, T const& oldValue, T const& newValue)
 #endif /* !STLSOFT_INCL_STLSOFT_ALGORITHMS_HPP_BOUNDED */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

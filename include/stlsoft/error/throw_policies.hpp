@@ -4,11 +4,12 @@
  * Purpose:     Exception throwing policy classes.
  *
  * Created:     19th January 2002
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * Copyright (c) 2006, Pablo Aguilar
  * All rights reserved.
  *
@@ -54,7 +55,7 @@
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_MAJOR     5
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_MINOR     0
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_REVISION  3
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_EDIT      52
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_THROW_POLICIES_EDIT      53
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -232,3 +233,4 @@ typedef null_exception_policy   nothrow_exception;
 #endif /* !STLSOFT_INCL_STLSOFT_ERROR_HPP_THROW_POLICIES */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

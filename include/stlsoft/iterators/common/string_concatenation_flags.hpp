@@ -5,7 +5,7 @@
  *              c_string_concatenator_iterator.
  *
  * Created:     31st July 2010
- * Updated:     31st July 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
@@ -53,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS_MAJOR    1
 # define STLSOFT_VER_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS_MINOR    0
 # define STLSOFT_VER_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS_REVISION 1
-# define STLSOFT_VER_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS_EDIT     1
+# define STLSOFT_VER_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS_EDIT     2
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -98,3 +98,4 @@ struct string_concatenation_flags
 #endif /* !STLSOFT_INCL_STLSOFT_ITERATORS_COMMON_HPP_STRING_CONCATENATION_FLAGS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

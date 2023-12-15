@@ -4,11 +4,12 @@
  * Purpose:     Helper for accessing version information.
  *
  * Created:     16th February 1998
- * Updated:     24th May 2016
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1998-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MAJOR    5
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_MINOR    3
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_REVISION 4
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     130
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_VERSION_INFO_EDIT     131
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -1422,3 +1423,4 @@ inline void version_info::init_()
 #endif /* WINSTL_INCL_WINSTL_SYSTEM_HPP_VERSION_INFO */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

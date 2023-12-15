@@ -4,11 +4,12 @@
  * Purpose:     Root header for the STLSoft implementation of RangeLib.
  *
  * Created:     12th October 2004
- * Updated:     2nd March 2012
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2012, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -45,7 +46,7 @@
 # define RANGELIB_VER_RANGELIB_HPP_RANGELIB_MAJOR    1
 # define RANGELIB_VER_RANGELIB_HPP_RANGELIB_MINOR    4
 # define RANGELIB_VER_RANGELIB_HPP_RANGELIB_REVISION 1
-# define RANGELIB_VER_RANGELIB_HPP_RANGELIB_EDIT     29
+# define RANGELIB_VER_RANGELIB_HPP_RANGELIB_EDIT     30
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file rangelib/rangelib.hpp
@@ -270,3 +271,4 @@ namespace rangelib = ::stlsoft::rangelib_project;
 #endif /* !RANGELIB_INCL_RANGELIB_HPP_RANGELIB */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

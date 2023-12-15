@@ -5,10 +5,11 @@
  *              platform discriminations, and definitions of types.
  *
  * Created:     20th March 2005
- * Updated:     11th October 2019
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -48,7 +49,7 @@
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MAJOR    1
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_MINOR    14
 # define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_REVISION 5
-# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     44
+# define PLATFORMSTL_VER_PLATFORMSTL_H_PLATFORMSTL_EDIT     45
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file platformstl/platformstl.h
@@ -515,3 +516,4 @@ namespace platformstl = ::stlsoft::platformstl_project;
 #endif /* !PLATFORMSTL_INCL_PLATFORMSTL_H_PLATFORMSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

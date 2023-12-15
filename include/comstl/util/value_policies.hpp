@@ -5,11 +5,12 @@
  *              enumerator interfaces.
  *
  * Created:     17th September 1998
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1998-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_MAJOR    5
 # define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_MINOR    1
 # define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_REVISION 3
-# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_EDIT     166
+# define COMSTL_VER_COMSTL_UTIL_HPP_VALUE_POLICIES_EDIT     167
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -536,3 +537,4 @@ public:
 #endif /* !COMSTL_INCL_COMSTL_UTIL_HPP_VALUE_POLICIES */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -5,11 +5,12 @@
  *              operations.
  *
  * Created:     25th November 2006
- * Updated:     14th February 2016
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2007-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_MAJOR      1
 # define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_MINOR      0
 # define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_REVISION   3
-# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_EDIT       8
+# define ATLSTL_VER_ATLSTL_WINDOW_HPP_WINDOW_EDIT       9
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -244,3 +245,4 @@ private:
 #endif /* ATLSTL_INCL_ATLSTL_WINDOW_HPP_SYNESIS_ABOUT_DIALOG */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

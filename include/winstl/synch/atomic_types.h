@@ -4,11 +4,12 @@
  * Purpose:     WinSTL atomic functions.
  *
  * Created:     23rd October 1997
- * Updated:     29th April 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1997-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_SYNCH_H_ATOMIC_TYPES_MAJOR     5
 # define WINSTL_VER_WINSTL_SYNCH_H_ATOMIC_TYPES_MINOR     0
 # define WINSTL_VER_WINSTL_SYNCH_H_ATOMIC_TYPES_REVISION  1
-# define WINSTL_VER_WINSTL_SYNCH_H_ATOMIC_TYPES_EDIT      203
+# define WINSTL_VER_WINSTL_SYNCH_H_ATOMIC_TYPES_EDIT      204
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -123,3 +124,4 @@ typedef ws_sint32_t     atomic_int_t;
 #endif /* !WINSTL_INCL_WINSTL_SYNCH_H_ATOMIC_TYPES */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

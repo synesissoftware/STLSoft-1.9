@@ -4,11 +4,12 @@
  * Purpose:     WinSTL process-time performance counter class.
  *
  * Created:     22nd March 2002
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define WINSTL_VER_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER_MAJOR       4
 # define WINSTL_VER_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER_MINOR       0
 # define WINSTL_VER_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER_REVISION    3
-# define WINSTL_VER_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER_EDIT        54
+# define WINSTL_VER_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER_EDIT        55
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -336,3 +337,4 @@ inline processtimes_counter::interval_type processtimes_counter::get_microsecond
 #endif /* !WINSTL_INCL_WINSTL_PERFORMANCE_HPP_PROCESSTIMES_COUNTER */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

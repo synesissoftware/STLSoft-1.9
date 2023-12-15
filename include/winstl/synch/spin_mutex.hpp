@@ -4,14 +4,15 @@
  * Purpose:     Intra-process mutex, based on spin waits.
  *
  * Created:     27th August 1997
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Thanks:      To Rupert Kittinger, for pointing out that prior
  *              implementation that always yielded was not really "spinning".
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1997-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,7 +55,7 @@
 # define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_MAJOR       4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_MINOR       2
 # define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_REVISION    2
-# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_EDIT        59
+# define WINSTL_VER_WINSTL_SYNCH_HPP_SPIN_MUTEX_EDIT        60
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -394,3 +395,4 @@ public:
 #endif /* !WINSTL_INCL_WINSTL_SYNCH_HPP_SPIN_MUTEX */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

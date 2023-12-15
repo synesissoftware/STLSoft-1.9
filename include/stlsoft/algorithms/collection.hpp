@@ -4,7 +4,7 @@
  * Purpose:     Whole collection algorithms.
  *
  * Created:     17th January 2002
- * Updated:     14th December 2023
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
@@ -52,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_COLLECTION_MAJOR    3
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_COLLECTION_MINOR    1
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_COLLECTION_REVISION 1
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_COLLECTION_EDIT     70
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_COLLECTION_EDIT     71
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -224,3 +224,4 @@ inline O copy_all(T (&ar)[N], O dest)
 #endif /* !STLSOFT_INCL_STLSOFT_ALGORITHMS_HPP_COLLECTION */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
