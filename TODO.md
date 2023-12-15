@@ -1,5 +1,12 @@
 # STLSoft - TODO
 
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
+
+
+----
+
+
 **NOTE**: some of the following are very old, stretching back even into the 2000s, so this list will be updated a lot over the coming months. The most glaring of these is to ensure compatiblity with C++-14/17/20 as is necessary.
 
 ## STLSoft 1.9.x TODOs:

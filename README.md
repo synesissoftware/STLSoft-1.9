@@ -1,5 +1,12 @@
 # STLSoft-1.9
 
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
+
+
+----
+
+
 ## Update (2023)
 
 **NOTE:** Users of **STLSoft** should now use the [STLSoft, v 1.10](https://github.com/synesissoftware/STLSoft-1.10).

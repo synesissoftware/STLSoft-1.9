@@ -1,5 +1,12 @@
 # STLSoft - Known Issues:
 
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
+
+
+----
+
+
 ## STLSoft 1.10 Known Issues:
 
  * There are some problems with GCC 4+ in compiling the fixed array classes with the subscript operators.

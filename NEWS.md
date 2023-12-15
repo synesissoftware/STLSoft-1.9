@@ -1,5 +1,11 @@
 # STLSoft - News
 
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
+
+
+----
+
 
 | Date                  | News Item                                                 |
 | --------------------- | --------------------------------------------------------- |

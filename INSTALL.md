@@ -3,7 +3,9 @@
 > Note
 > **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
+
 ----
+
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -53,6 +55,7 @@ $ git clone -b master https://github.com/synesissoftware/STLSoft-1.9
 
 ----
 
+
 ## Use of environment variables in other open-source projects.
 
 Unless you are certain that your projects, and all the projects upon which they depend, all use **STLSoft** via **CMake** then it is recommended that you define an `STLSOFT` environment variable.
@@ -88,6 +91,7 @@ The makefiles / project files of several other open-source projects expect this 
 
 
 ----
+
 
 ## Understanding the top-level project build scripts
 

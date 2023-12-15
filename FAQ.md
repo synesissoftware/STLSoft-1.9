@@ -3,7 +3,9 @@
 > Note
 > **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
+
 ----
+
 
 The FAQ list is under (constant) development. If you post a question on the
 Issues forum (https://github.com/synesissoftware/STLSoft-1.10/issues)

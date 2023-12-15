@@ -1,10 +1,10 @@
-============================================================================
-STLSoft - History
+# STLSoft - History
 
-; Created:  29th March 2002
-; Updated:  15th December 2023
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
-============================================================================
+
+----
 
 
 15th December 2023 - 1.9.136 released
