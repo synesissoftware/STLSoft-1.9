@@ -1,12 +1,18 @@
 # STLSoft - Install <!-- omit in toc -->
 
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
+
+----
+
+## Table of Contents <!-- omit in toc -->
+
 - [Installing](#installing)
   - [As downloaded archive, using environment variables](#as-downloaded-archive-using-environment-variables)
   - [Cloning project, using environment variables](#cloning-project-using-environment-variables)
 - [Use of environment variables in other open-source projects.](#use-of-environment-variables-in-other-open-source-projects)
 - [Understanding the top-level project build scripts](#understanding-the-top-level-project-build-scripts)
 
-**NOTE**: **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
 ## Installing
 

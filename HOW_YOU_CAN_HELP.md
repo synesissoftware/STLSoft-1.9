@@ -1,5 +1,7 @@
 # STLSoft - How You Can Help <!-- omit in toc -->
 
+## Table of Contents <!-- omit in toc -->
+
 There are several ways in which you can help the **STLSoft** project:
 
 - [Defect reports](#defect-reports)
