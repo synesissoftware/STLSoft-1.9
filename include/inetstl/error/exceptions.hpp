@@ -4,11 +4,12 @@
  * Purpose:     Contains the internet_exception class.
  *
  * Created:     25th April 2004
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_MAJOR     4
 # define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_MINOR     2
 # define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_REVISION  2
-# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_EDIT      43
+# define INETSTL_VER_INETSTL_ERROR_HPP_EXCEPTIONS_EDIT      44
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -297,3 +298,4 @@ public:
 #endif /* INETSTL_INCL_INETSTL_ERROR_HPP_EXCEPTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

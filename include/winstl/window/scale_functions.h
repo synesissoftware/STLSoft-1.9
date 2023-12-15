@@ -4,11 +4,12 @@
  * Purpose:     Contains scale functions.
  *
  * Created:     7th February 2002
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_H_SCALE_FUNCTIONS_MAJOR      4
 # define WINSTL_VER_WINSTL_WINDOW_H_SCALE_FUNCTIONS_MINOR      0
 # define WINSTL_VER_WINSTL_WINDOW_H_SCALE_FUNCTIONS_REVISION   1
-# define WINSTL_VER_WINSTL_WINDOW_H_SCALE_FUNCTIONS_EDIT       44
+# define WINSTL_VER_WINSTL_WINDOW_H_SCALE_FUNCTIONS_EDIT       45
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -196,3 +197,4 @@ inline ws_sint_t calc_height(RECT const& rc)
 #endif /* WINSTL_INCL_WINSTL_WINDOW_H_SCALE_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     COM-related exception classes, and their policy classes
  *
  * Created:     8th December 2004
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +56,7 @@
 # define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_MAJOR       2
 # define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_MINOR       2
 # define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_REVISION    2
-# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_EDIT        45
+# define COMSTL_VER_COMSTL_ERROR_HPP_EXCEPTIONS_EDIT        46
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -317,3 +318,4 @@ typedef exception_policy_base<variant_type_exception>   variant_type_exception_p
 #endif /* !COMSTL_INCL_COMSTL_ERROR_HPP_EXCEPTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

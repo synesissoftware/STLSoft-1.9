@@ -4,13 +4,14 @@
  * Purpose:     Contains the module class.
  *
  * Created:     30th October 1997
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Thanks to:   Pablo Aguilar for the idea of a template-based get_symbol().
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1997-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define WINSTL_VER_WINSTL_DL_HPP_MODULE_MAJOR      6
 # define WINSTL_VER_WINSTL_DL_HPP_MODULE_MINOR      5
 # define WINSTL_VER_WINSTL_DL_HPP_MODULE_REVISION   2
-# define WINSTL_VER_WINSTL_DL_HPP_MODULE_EDIT       229
+# define WINSTL_VER_WINSTL_DL_HPP_MODULE_EDIT       230
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -618,3 +619,4 @@ inline module::module_handle_type module::get() const
 #endif /* WINSTL_INCL_WINSTL_DL_HPP_MODULE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

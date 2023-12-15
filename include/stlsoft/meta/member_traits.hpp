@@ -5,11 +5,12 @@
  *              for too long.
  *
  * Created:     11th October 2004
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -57,7 +58,7 @@
 # define STLSOFT_VER_STLSOFT_META_HPP_MEMBER_TRAITS_MAJOR       2
 # define STLSOFT_VER_STLSOFT_META_HPP_MEMBER_TRAITS_MINOR       1
 # define STLSOFT_VER_STLSOFT_META_HPP_MEMBER_TRAITS_REVISION    1
-# define STLSOFT_VER_STLSOFT_META_HPP_MEMBER_TRAITS_EDIT        37
+# define STLSOFT_VER_STLSOFT_META_HPP_MEMBER_TRAITS_EDIT        38
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -181,3 +182,4 @@ protected:
 #endif /* !STLSOFT_INCL_STLSOFT_META_HPP_MEMBER_TRAITS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

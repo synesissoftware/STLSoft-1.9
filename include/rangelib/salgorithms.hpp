@@ -4,11 +4,12 @@
  * Purpose:     Range-adapted Sequence algorithms.
  *
  * Created:     19th July 2005
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -69,7 +70,7 @@
 # define RANGELIB_VER_RANGELIB_HPP_SALGORITHMS_MAJOR     1
 # define RANGELIB_VER_RANGELIB_HPP_SALGORITHMS_MINOR     1
 # define RANGELIB_VER_RANGELIB_HPP_SALGORITHMS_REVISION  3
-# define RANGELIB_VER_RANGELIB_HPP_SALGORITHMS_EDIT      17
+# define RANGELIB_VER_RANGELIB_HPP_SALGORITHMS_EDIT      18
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -337,3 +338,4 @@ inline void sr_replace_if(S &s, P pred, T newVal)
 #endif /* !RANGELIB_INCL_RANGELIB_HPP_SALGORITHMS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

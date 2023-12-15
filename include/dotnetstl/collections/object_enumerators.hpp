@@ -4,11 +4,12 @@
  * Purpose:     A simple object enumerator, based on ArrayList.
  *
  * Created:     24th June 2003
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 #define DOTNETSTL_VER_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS_MAJOR    4
 #define DOTNETSTL_VER_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS_MINOR    0
 #define DOTNETSTL_VER_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS_REVISION 2
-#define DOTNETSTL_VER_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS_EDIT     27
+#define DOTNETSTL_VER_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS_EDIT     28
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -170,3 +171,4 @@ private:
 #endif /* DOTNETSTL_INCL_DOTNETSTL_COLLECTIONS_HPP_OBJECT_ENUMERATORS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -5,11 +5,12 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     22nd November 2013
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define COMSTL_VER_COMSTL_H_COMSTL_MAJOR       3
 # define COMSTL_VER_COMSTL_H_COMSTL_MINOR       9
 # define COMSTL_VER_COMSTL_H_COMSTL_REVISION    2
-# define COMSTL_VER_COMSTL_H_COMSTL_EDIT        117
+# define COMSTL_VER_COMSTL_H_COMSTL_EDIT        119
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file comstl/comstl.h
@@ -578,7 +579,7 @@ stlsoft_ns_using(move_lhs_from_rhs)
 #  define COMSTL_VARIANT_UNION_ARMS_HAVE_NAMES_
 # endif /* NONAMELESSUNION */
 #else /* ? compiler */
-   /* Other compilers use the MS headers, which test against __STDC__, 
+   /* Other compilers use the MS headers, which test against __STDC__,
     * _FORCENAMELESSUNION and NONAMELESSUNION
     */
 # if (  __STDC__ && \
@@ -592,7 +593,7 @@ stlsoft_ns_using(move_lhs_from_rhs)
  *
  * \ingroup group__project__comstl__language_agnostic_macros
  *
- * \brief 
+ * \brief TBC
  */
 # if defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) || \
      !defined(COMSTL_VARIANT_UNION_ARMS_HAVE_NAMES_)
@@ -622,7 +623,7 @@ stlsoft_ns_using(move_lhs_from_rhs)
  *
  * \ingroup group__project__comstl__language_agnostic_macros
  *
- * \brief 
+ * \brief TBC
  */
 
 # if defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) || \
@@ -653,7 +654,7 @@ stlsoft_ns_using(move_lhs_from_rhs)
  *
  * \ingroup group__project__comstl__language_agnostic_macros
  *
- * \brief 
+ * \brief TBC
  */
 # if defined(STLSOFT_DOCUMENTATION_SKIP_SECTION) || \
      !defined(COMSTL_VARIANT_UNION_ARMS_HAVE_NAMES_)
@@ -666,7 +667,7 @@ stlsoft_ns_using(move_lhs_from_rhs)
  *
  * \ingroup group__project__comstl__language_agnostic_macros
  *
- * \brief 
+ * \brief TBC
  */
 #define COMSTL_ACCESS_VARIANT_decVal_BYREF(var)         COMSTL_ACCESS_VARIANT_decVal_BYPTR(&(var))
 
@@ -835,3 +836,4 @@ namespace comstl = ::stlsoft::comstl_project;
 #endif /* COMSTL_INCL_COMSTL_H_COMSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -5,11 +5,12 @@
  *              module filename.
  *
  * Created:     31st March 2002
- * Updated:     12th August 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_MODULE_FILENAME_MAJOR     4
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_MODULE_FILENAME_MINOR     2
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_MODULE_FILENAME_REVISION  1
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_MODULE_FILENAME_EDIT      73
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_MODULE_FILENAME_EDIT      75
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -186,7 +187,7 @@ typedef stlsoft_ns_qual(special_string_instance_1)<modfname_policy<ws_char_w_t> 
  */
 typedef stlsoft_ns_qual(special_string_instance_1)<modfname_policy<TCHAR> >          module_filename;
 
-/* //////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * Unit-testing
  */
 
@@ -211,3 +212,4 @@ typedef stlsoft_ns_qual(special_string_instance_1)<modfname_policy<TCHAR> >     
 #endif /* WINSTL_INCL_WINSTL_SYSTEM_HPP_MODULE_FILENAME */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

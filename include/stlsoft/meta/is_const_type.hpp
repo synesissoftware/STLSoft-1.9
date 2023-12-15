@@ -4,11 +4,12 @@
  * Purpose:     is_const_type meta class.
  *
  * Created:     19th November 1998
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1998-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_CONST_TYPE_MAJOR       1
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_CONST_TYPE_MINOR       0
 # define STLSOFT_VER_STLSOFT_META_HPP_IS_CONST_TYPE_REVISION    4
-# define STLSOFT_VER_STLSOFT_META_HPP_IS_CONST_TYPE_EDIT        9
+# define STLSOFT_VER_STLSOFT_META_HPP_IS_CONST_TYPE_EDIT        10
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -169,3 +170,4 @@ struct is_const_type<void>
 #endif /* !STLSOFT_INCL_STLSOFT_META_HPP_IS_CONST_TYPE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

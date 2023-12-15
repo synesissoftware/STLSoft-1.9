@@ -5,11 +5,12 @@
  *              will be, subject to upgrade in standardisation.
  *
  * Created:     30th May 2002
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +56,7 @@
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS_MAJOR    1
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS_MINOR    0
 # define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS_REVISION 4
-# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS_EDIT     14
+# define STLSOFT_VER_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS_EDIT     16
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -108,7 +109,6 @@ namespace stlsoft
 
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 
-    
 struct vswprintf_detector_base
 {
 protected:
@@ -135,12 +135,12 @@ struct vswprintf_detector
 public:
     enum
     {
-        /// Indicates whether <code>vswprintf()</code> takes 3 parameters 
+        /// Indicates whether <code>vswprintf()</code> takes 3 parameters
         has_3_param = (sizeof(one_t) == sizeof(vswprintf_detector_base::has_3_param_vswprintf(::vswprintf)))
     };
     enum
     {
-        /// Indicates whether <code>vswprintf()</code> takes 4 parameters 
+        /// Indicates whether <code>vswprintf()</code> takes 4 parameters
         has_4_param = (sizeof(three_t) == sizeof(vswprintf_detector_base::has_4_param_vswprintf(::vswprintf)))
     };
 };
@@ -173,12 +173,12 @@ struct swprintf_detector
 public:
     enum
     {
-        /// Indicates whether <code>swprintf()</code> takes 3 parameters 
+        /// Indicates whether <code>swprintf()</code> takes 3 parameters
         has_3_param = (sizeof(one_t) == sizeof(swprintf_detector_base::has_3_param_swprintf(::swprintf)))
     };
     enum
     {
-        /// Indicates whether <code>swprintf()</code> takes 4 parameters 
+        /// Indicates whether <code>swprintf()</code> takes 4 parameters
         has_4_param = (sizeof(three_t) == sizeof(swprintf_detector_base::has_4_param_swprintf(::swprintf)))
     };
 };
@@ -194,3 +194,4 @@ public:
 #endif /* !STLSOFT_INCL_STLSOFT_UTIL_STD_HPP_STDIO_OVERLOAD_DETECTORS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     winstl::to_DATE(UDATE const&) overload.
  *
  * Created:     21st October 2007
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2007-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define WINSTL_VER_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE_MAJOR     1
 # define WINSTL_VER_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE_MINOR     0
 # define WINSTL_VER_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE_REVISION  2
-# define WINSTL_VER_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE_EDIT      3
+# define WINSTL_VER_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE_EDIT      4
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -149,3 +150,4 @@ inline DATE to_DATE(UDATE const& rhs)
 #endif /* !WINSTL_INCL_WINSTL_SHIMS_CONVERSION_TO_DATE_HPP_UDATE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

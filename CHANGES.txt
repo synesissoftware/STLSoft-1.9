@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  27th July 2020
+; Updated:  15th December 2023
 
 ============================================================================
 
@@ -16,6 +16,14 @@ STLSoft - Changes
    *                                    *
    **************************************
 
+
+
+============================================================================
+
+Changes for 1.9.136 (15th December 2023)
+
+ * lots of changes to standardise the library boilerplate
+ * porting back significant and necessary fixes from STLSoft-1.10
 
 
 ============================================================================

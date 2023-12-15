@@ -4,11 +4,12 @@
  * Purpose:     String access shims for .net.
  *
  * Created:     24th June 2003
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define DOTNETSTL_VER_DOTNETSTL_SHIMS_ACCESS_HPP_STRING_MAJOR      2
 # define DOTNETSTL_VER_DOTNETSTL_SHIMS_ACCESS_HPP_STRING_MINOR      0
 # define DOTNETSTL_VER_DOTNETSTL_SHIMS_ACCESS_HPP_STRING_REVISION   1
-# define DOTNETSTL_VER_DOTNETSTL_SHIMS_ACCESS_HPP_STRING_EDIT       14
+# define DOTNETSTL_VER_DOTNETSTL_SHIMS_ACCESS_HPP_STRING_EDIT       15
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -71,3 +72,4 @@
 #endif /* DOTNETSTL_INCL_DOTNETSTL_SHIMS_ACCESS_HPP_STRING */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

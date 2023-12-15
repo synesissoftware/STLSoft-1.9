@@ -5,11 +5,12 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     12th May 2003
- * Updated:     22nd November 2013
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2013, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -48,7 +49,7 @@
 # define DOTNETSTL_VER_DOTNETSTL_HPP_DOTNETSTL_MAJOR    3
 # define DOTNETSTL_VER_DOTNETSTL_HPP_DOTNETSTL_MINOR    5
 # define DOTNETSTL_VER_DOTNETSTL_HPP_DOTNETSTL_REVISION 2
-# define DOTNETSTL_VER_DOTNETSTL_HPP_DOTNETSTL_EDIT     52
+# define DOTNETSTL_VER_DOTNETSTL_HPP_DOTNETSTL_EDIT     53
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file dotnetstl/dotnetstl.hpp
@@ -419,3 +420,4 @@ namespace dotnetstl = ::stlsoft::dotnetstl_project;
 #endif /* DOTNETSTL_INCL_DOTNETSTL_HPP_DOTNETSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

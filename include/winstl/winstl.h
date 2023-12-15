@@ -5,11 +5,12 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     30th April 2016
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,7 +50,7 @@
 # define WINSTL_VER_WINSTL_H_WINSTL_MAJOR       3
 # define WINSTL_VER_WINSTL_H_WINSTL_MINOR       14
 # define WINSTL_VER_WINSTL_H_WINSTL_REVISION    6
-# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        197
+# define WINSTL_VER_WINSTL_H_WINSTL_EDIT        199
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file winstl/winstl.h
@@ -378,7 +379,7 @@
 # endif /* INVALID_FILE_ATTRIBUTES */
 # define INVALID_FILE_ATTRIBUTES        static_cast<DWORD>(0xFFFFFFFF)
 
-#else /* ? __cplusplus */ 
+#else /* ? __cplusplus */
 
 # ifndef INVALID_SET_FILE_POINTER
 #  define INVALID_SET_FILE_POINTER      stlsoft_c_cast(DWORD, -1)
@@ -1055,3 +1056,4 @@ namespace winstl = ::stlsoft::winstl_project;
 #endif /* WINSTL_INCL_WINSTL_H_WINSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

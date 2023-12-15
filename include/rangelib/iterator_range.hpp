@@ -4,11 +4,12 @@
  * Purpose:     Iterator range adaptor.
  *
  * Created:     4th November 2003
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,7 +48,7 @@
 # define RANGELIB_VER_RANGELIB_HPP_ITERATOR_RANGE_MAJOR    2
 # define RANGELIB_VER_RANGELIB_HPP_ITERATOR_RANGE_MINOR    6
 # define RANGELIB_VER_RANGELIB_HPP_ITERATOR_RANGE_REVISION 4
-# define RANGELIB_VER_RANGELIB_HPP_ITERATOR_RANGE_EDIT     43
+# define RANGELIB_VER_RANGELIB_HPP_ITERATOR_RANGE_EDIT     44
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -513,3 +514,4 @@ inline iterator_range<T const*, const_pointer_iterator_range_traits<const T> > m
 #endif /* !RANGELIB_INCL_RANGELIB_HPP_ITERATOR_RANGE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
