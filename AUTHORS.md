@@ -1,111 +1,104 @@
-============================================================================
-STLSoft - Authors
+# STLSoft - Authors
 
-; Created:  29th March 2002
-; Updated:  14th December 2023
+## Major Contributors:
 
-============================================================================
-
-
-Major Contributors:
-
-    Matthew Wilson        (most of the libraries)
-    Pablo Aguilar         (Windows ToolHelp Library)
+* Matthew Wilson        (most of the libraries)
+* Garth Lancaster       (many edits, fixes, and nuggets of advice over the years)
+* Pablo Aguilar         (Windows ToolHelp Library)
 
 
-Bug reports, fixes and suggestions (for which we are very grateful):
+## Bug reports, fixes and suggestions (for which we are very grateful):
 
-    Adi Shavit
-    Allan McLellan
-    Anders F Björklund
-    Andrew Bond
-    Anton Sekeris
-    Bart van der Velden
-    Bjorn Karlsson
-    Brad Cox
-    Carlos Santander Bernal
-    Carston Schmidt
-    chenchang
-    Chris Newcombe
-    Christian Roessel
-    christopherplawrence
-    Christopher Diggins
-    Cláudio Albuquerque
-    Colin Gravell
-    Dave Brooks
-    David Wang
-    Diego Chanoux
-    Dimitri Kaparis
-    Eduardo Bezerra
-    Eugene Gershnik
-    Felix Gartsman
-    Gabor Fischer
-    Greg Peet
-    HeartIcy
-    Kevlin Henney
-    iceboy
-    Ilya Minkov
-    jesusmalo
-    Javier Estrada
-    John Abney
-    John (cqj007)
-    Jon Papaioannou
-    Jonathan Wakely
-    Joseph Durel (JadeMatrix)
-    Joseph McCay
-    Joe Mariadassou
-    Josh Kelley
-    Julio César Carrascal Urquijo
-    Lars Ivar Igesund
-    Lars Rune Nøstdal
-    Luoyi
-    Maciej Kaniewski
-    Magnificent Imbecil
-    Manfred Ehrhart
-    Marc Kamradt
-    markitus82
-    Martin J Moene
-    Mateusz Loskot
-    Michal Makowski
-    Mikael Pahmp
-    Mike Batten
-    Mikko Koivunalho (mikkoi)
-    Neal Becker
-    Nevin Liber
-    Pablo Aguilar
-    Pavel Vozenilek
-    Peter Bannister
-    Peter Schregle
-    Raindog
-    Robert Kreger
-    Rupert Kittinger
-    Ryan Ginstrom
-    Sam Fisher
-    Sean Cavanaugh
-    Sean Kelly
-    Sergey Nikulov
-    Shawn Poulson
-    Scott Meyers
-    Scott Michel
-    Scott Patterson
-    Sean Kelly
-    ShaChris23
-    Steven (Kuaf Lee)
-    Vivi Orunitia
-    Victor Gaydov
-    Victor T
-    Vinson Lee
-    Volker Lukas
-    Włodzimierz Skiba
-    wiluite
-    Yakov Markovitch
-    yozara
-    Zar Eindl
-    zer0god
-
-    and many others whose posts and requests have been invaluable
+* Adi Shavit
+* Allan McLellan
+* Anders F Björklund
+* Andrew Bond
+* Anton Sekeris
+* Bart van der Velden
+* Bjorn Karlsson
+* Brad Cox
+* Carlos Santander Bernal
+* Carston Schmidt
+* chenchang
+* Chris Newcombe
+* Christian Roessel
+* Christopher Diggins
+* christopherplawrence
+* Cláudio Albuquerque
+* Colin Gravell
+* Dave Brooks
+* David Wang
+* Diego Chanoux
+* Dimitri Kaparis
+* Eduardo Bezerra
+* Eugene Gershnik
+* Felix Gartsman
+* Gabor Fischer
+* Greg Peet
+* HeartIcy
+* iceboy
+* Ilya Minkov
+* Javier Estrada
+* jesusmalo
+* Joe Mariadassou
+* John (cqj007)
+* John Abney
+* Jon Papaioannou
+* Jonathan Wakely
+* Joseph Durel (JadeMatrix)
+* Joseph McCay
+* Josh Kelley
+* Julio César Carrascal Urquijo
+* Kevlin Henney
+* Lars Ivar Igesund
+* Lars Rune Nøstdal
+* Luoyi
+* Maciej Kaniewski
+* Magnificent Imbecil
+* Manfred Ehrhart
+* Marc Kamradt
+* markitus82
+* Martin J Moene
+* Mateusz Loskot
+* Michal Makowski
+* Mikael Pahmp
+* Mike Batten
+* Mikko Koivunalho (mikkoi)
+* Neal Becker
+* Nevin Liber
+* Pablo Aguilar
+* Pavel Vozenilek
+* Peter Bannister
+* Peter Schregle
+* Raindog
+* Robert Kreger
+* Rupert Kittinger
+* Ryan Ginstrom
+* Sam Fisher
+* Scott Meyers
+* Scott Michel
+* Scott Patterson
+* Sean Cavanaugh
+* Sean Kelly
+* Sergey Nikulov
+* ShaChris23
+* Shawn Poulson
+* Steven (Kuaf Lee)
+* Victor Gaydov
+* Victor T
+* Vinson Lee
+* Vivi Orunitia
+* Volker Lukas
+* wiluite
+* Włodzimierz Skiba
+* Yakov Markovitch
+* yozara
+* Zar Eindl
+* zer0god
+* ... and many others whose posts and requests have been invaluable
 
 Contributions are welcomed.
 
-=============================== end of file ================================
+
+<!-- ########################### end of file ########################### -->
 

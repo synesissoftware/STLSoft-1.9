@@ -2,9 +2,16 @@
 STLSoft - History
 
 ; Created:  29th March 2002
-; Updated:  27th July 2020
+; Updated:  15th December 2023
 
 ============================================================================
+
+
+15th December 2023 - 1.9.136 released
+-------------------------------------------
+
+ * lots of changes to standardise the library boilerplate
+ * porting back significant and necessary fixes from STLSoft-1.10
 
 
 27th July 2020 - 1.9.135 released
@@ -1055,5 +1062,6 @@ STLSoft - History
 
    comstl/string/bstr_functions.h
 
-=============================== end of file ================================
+
+<!-- ########################### end of file ########################### -->
 

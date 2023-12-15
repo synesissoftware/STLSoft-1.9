@@ -1,20 +1,26 @@
-============================================================================
-STLSoft - TODO
+# STLSoft - TODO
 
-; Created:  29th March 2002
-; Updated:  11th October 2019
+**NOTE**: some of the following are very old, stretching back even into the 2000s, so this list will be updated a lot over the coming months. The most glaring of these is to ensure compatiblity with C++-14/17/20 as is necessary.
 
-============================================================================
+## STLSoft 1.9.x TODOs:
+
+* documentation improvements - Deferred. Will be done for STLSoft 1.11+
+* website improvements - Deferred. Will be done for STLSoft 1.11+
+* `scoped_method` - this is available in STLSoft 1.10
+* `scoped_method` - this is available in STLSoft 1.10
+* custom radix in `integer_to_string` - this is abandoned, but significant improvements are available in **1.10**
+* **C++ 11/14/17** compatibility - Deferred. Will be available in **1.10+**
 
 
-STLSoft 1.9 TODOs:
-==================
+## STLSoft 1.10+ TODOs:
 
-* Documentation improvements        -   abandoned. Will be done for STLSoft 1.11
-* Website                           -   deferred until STLSoft 1.11 released
-* scoped_method                     -   in STLSoft 1.10
-* custom radix in integer_to_string -   abandoned, but significant improvements available in 1.10 (alpha to be released soon)
-* C++ 11/14 compatibility           -   in STLSoft 1.10
+Please favour using [**STLSoft-1.10**](https://github.com/synesissoftware/STLSoft-1.10) for all future work.
 
-=============================== end of file ================================
+
+## abandoned TODOs:
+
+ * \<none>
+
+
+<!-- ########################### end of file ########################### -->
 
