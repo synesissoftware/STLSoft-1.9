@@ -4,11 +4,12 @@
  * Purpose:     Definition of minimum() and maximum() template functions.
  *
  * Created:     11th April 2005
- * Updated:     10th August 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_MINMAX_MAJOR       2
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_MINMAX_MINOR       1
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_MINMAX_REVISION    1
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_MINMAX_EDIT        15
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_MINMAX_EDIT        16
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -194,3 +195,4 @@ inline T const& minimum(
 #endif /* !STLSOFT_INCL_STLSOFT_UTIL_HPP_MINMAX */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

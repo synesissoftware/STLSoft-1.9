@@ -4,11 +4,12 @@
  * Purpose:     Contains the stlsoft::ptr_fun calling convention-aware function adaptors.
  *
  * Created:     13th June 1999
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1999-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS_MAJOR    4
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS_MINOR    2
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS_REVISION 2
-# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS_EDIT     62
+# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS_EDIT     63
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -795,3 +796,4 @@ binary_stdcall_void_function_pointer<A0, A1> ptr_fun(void (STLSOFT_STDCALL *func
 #endif /* !STLSOFT_INCL_STLSOFT_FUNCTIONAL_HPP_FUNCTION_POINTER_ADAPTORS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

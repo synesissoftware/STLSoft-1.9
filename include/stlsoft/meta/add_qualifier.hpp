@@ -4,11 +4,12 @@
  * Purpose:     Adds a const or volatile qualifier to a type.
  *
  * Created:     30th December 2005
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define STLSOFT_VER_STLSOFT_META_HPP_ADD_QUALIFIER_MAJOR       1
 # define STLSOFT_VER_STLSOFT_META_HPP_ADD_QUALIFIER_MINOR       1
 # define STLSOFT_VER_STLSOFT_META_HPP_ADD_QUALIFIER_REVISION    2
-# define STLSOFT_VER_STLSOFT_META_HPP_ADD_QUALIFIER_EDIT        11
+# define STLSOFT_VER_STLSOFT_META_HPP_ADD_QUALIFIER_EDIT        12
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -174,3 +175,4 @@ struct add_volatile_ref<void>
 #endif /* !STLSOFT_INCL_STLSOFT_META_HPP_ADD_QUALIFIER */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

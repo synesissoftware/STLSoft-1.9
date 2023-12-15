@@ -4,7 +4,7 @@
  * Purpose:     COM instance creation helper functions
  *
  * Created:     21st September 2005
- * Updated:     30th August 2015
+ * Updated:     15th December 2023
  *
  * Thanks:      To Adi Shavit for demanding more usability in these
  *              functions, which led to the adoption of stlsoft::ref_ptr<X>
@@ -12,7 +12,8 @@
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +56,7 @@
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_MAJOR    2
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_MINOR    3
 # define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_REVISION 2
-# define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_EDIT     23
+# define COMSTL_VER_COMSTL_UTIL_HPP_CREATION_FUNCTIONS_EDIT     24
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -315,3 +316,4 @@ inline HRESULT co_create_instance(
 #endif /* !COMSTL_INCL_COMSTL_UTIL_HPP_CREATION_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

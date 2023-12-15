@@ -4,11 +4,12 @@
  * Purpose:     Intra-process mutex, based on Windows CRITICAL_SECTION.
  *
  * Created:     17th December 1996
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1996-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1996-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_MAJOR     4
 # define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_MINOR     0
 # define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_REVISION  2
-# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_EDIT      53
+# define WINSTL_VER_WINSTL_SYNCH_HPP_THREAD_MUTEX_EDIT      54
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -304,3 +305,4 @@ public:
 #endif /* !WINSTL_INCL_WINSTL_SYNCH_HPP_THREAD_MUTEX */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     Error functions.
  *
  * Created:     20th October 1994
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1994-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1994-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_H_FONT_FUNCTIONS_MAJOR       4
 # define WINSTL_VER_WINSTL_WINDOW_H_FONT_FUNCTIONS_MINOR       0
 # define WINSTL_VER_WINSTL_WINDOW_H_FONT_FUNCTIONS_REVISION    1
-# define WINSTL_VER_WINSTL_WINDOW_H_FONT_FUNCTIONS_EDIT        137
+# define WINSTL_VER_WINSTL_WINDOW_H_FONT_FUNCTIONS_EDIT        138
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -161,3 +162,4 @@ inline void set_window_font(HWND hwnd, HFONT hfont, ws_bool_t bRedraw = true)
 #endif /* WINSTL_INCL_WINSTL_WINDOW_H_FONT_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

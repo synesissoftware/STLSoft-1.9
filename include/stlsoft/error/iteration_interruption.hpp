@@ -4,11 +4,12 @@
  * Purpose:     An exception thrown when an active end iterator is exhausted.
  *
  * Created:     30th November 2005
- * Updated:     30th April 2016
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION_MAJOR     2
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION_MINOR     0
 # define STLSOFT_VER_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION_REVISION  4
-# define STLSOFT_VER_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION_EDIT      16
+# define STLSOFT_VER_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION_EDIT      17
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -191,3 +192,4 @@ private:
 #endif /* !STLSOFT_INCL_STLSOFT_ERROR_HPP_ITERATION_INTERRUPTION */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

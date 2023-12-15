@@ -4,14 +4,15 @@
  * Purpose:     UNIXSTL atomic functions.
  *
  * Created:     23rd October 1997
- * Updated:     29th April 2010
+ * Updated:     15th December 2023
  *
  * Thanks:      To Brad Cox, for helping out in testing and fixing the
  *              implementation for MAC OSX (Intel).
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1997-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,7 +55,7 @@
 # define UNIXSTL_VER_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS_MAJOR     6
 # define UNIXSTL_VER_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS_MINOR     1
 # define UNIXSTL_VER_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS_REVISION  1
-# define UNIXSTL_VER_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS_EDIT      201
+# define UNIXSTL_VER_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS_EDIT      202
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -481,3 +482,4 @@ STLSOFT_INLINE atomic_int_t atomic_write(atomic_int_t volatile* pv, atomic_int_t
 #endif /* !UNIXSTL_INCL_UNIXSTL_SYNCH_H_ATOMIC_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

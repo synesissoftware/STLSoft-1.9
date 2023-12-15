@@ -4,13 +4,13 @@
  * Purpose:     Exception classes for TOOLHELP components.
  *
  * Created:     21st May 2005
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Thanks:      To Pablo for contributing this great library.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Pablo Aguilar
+ * Copyright (c) 2005-2023, Pablo Aguilar
  * Copyright (c) 2006-2007, Matthew Wilson
  * All rights reserved.
  *
@@ -55,7 +55,7 @@
 # define WINSTL_VER_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION_MAJOR      2
 # define WINSTL_VER_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION_MINOR      0
 # define WINSTL_VER_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION_REVISION   2
-# define WINSTL_VER_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION_EDIT       13
+# define WINSTL_VER_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION_EDIT       14
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -155,3 +155,4 @@ public:
 #endif // WINSTL_INCL_WINSTL_TOOLHELP_ERROR_HPP_SEQUENCE_EXCEPTION
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

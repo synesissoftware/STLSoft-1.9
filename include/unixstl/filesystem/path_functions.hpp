@@ -4,11 +4,12 @@
  * Purpose:     Helper functions for file handling
  *
  * Created:     13th June 2006
- * Updated:     2nd April 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS_MAJOR    1
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS_MINOR    1
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS_REVISION 5
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS_EDIT     12
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS_EDIT     13
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -304,3 +305,4 @@ us_size_t path_squeeze(S const& path, C* buffer, us_size_t cchBuffer)
 #endif /* !UNIXSTL_INCL_UNIXSTL_FILESYSTEM_HPP_PATH_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

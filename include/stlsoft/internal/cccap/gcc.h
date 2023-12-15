@@ -4,13 +4,13 @@
  * Purpose:     Compiler feature discrimination for GNU C/C++.
  *
  * Created:     7th February 2003
- * Updated:     13th June 2020
+ * Updated:     15th December 2023
  *
  * Thanks:      To Sergey Nikulov, for PowerPC (BSD) compatibility fixes
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -61,7 +61,7 @@
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MAJOR      3
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_MINOR      25
 # define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_REVISION   1
-# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       92
+# define STLSOFT_VER_H_STLSOFT_CCCAP_GCC_EDIT       93
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -618,3 +618,4 @@
 #include <stlsoft/internal/cccap/obsolete.h>
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

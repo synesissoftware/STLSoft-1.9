@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     27th July 2020
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2019-2020, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -56,7 +56,7 @@
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    42
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 2
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     471
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     474
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -298,7 +298,7 @@
 # define _STLSOFT_VER_1_9_132   0x010984ff  /*!< Version 1.9.132 (11th October 2019) */
 # define _STLSOFT_VER_1_9_133   0x010985ff  /*!< Version 1.9.133 (13th June 2020) */
 # define _STLSOFT_VER_1_9_134   0x010986ff  /*!< Version 1.9.134 (4th July 2020) */
-# define _STLSOFT_VER_1_9_135   0x010987ff  /*!< Version 1.9.137 (27th July 2020) */
+# define _STLSOFT_VER_1_9_135   0x010987ff  /*!< Version 1.9.135 (27th July 2020) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
@@ -2800,7 +2800,7 @@ private:
         __GNUC_MINOR__ >= 3 && \
         !defined(__APPLE__))
 
-  /* This version of the technique for GCC 3.3+ was suggested by Lars Rune Nøstdal,
+  /* This version of the technique for GCC 3.3+ was suggested by Lars Rune NÃ¸stdal,
    * from Norway. Many thanks, Lars!
    */
 
@@ -3391,3 +3391,4 @@ operator new(
 #endif /* !STLSOFT_INCL_STLSOFT_H_STLSOFT */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

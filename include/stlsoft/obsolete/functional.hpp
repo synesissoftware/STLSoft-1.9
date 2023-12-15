@@ -4,11 +4,12 @@
  * Purpose:     Mappings to stdlib string functions
  *
  * Created:     2nd December 2004
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,7 +51,7 @@
 # define STLSOFT_VER_STLSOFT_OBSOLETE_HPP_FUNCTIONAL_MAJOR      2
 # define STLSOFT_VER_STLSOFT_OBSOLETE_HPP_FUNCTIONAL_MINOR      0
 # define STLSOFT_VER_STLSOFT_OBSOLETE_HPP_FUNCTIONAL_REVISION   2
-# define STLSOFT_VER_STLSOFT_OBSOLETE_HPP_FUNCTIONAL_EDIT       17
+# define STLSOFT_VER_STLSOFT_OBSOLETE_HPP_FUNCTIONAL_EDIT       18
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -539,3 +540,4 @@ inline mem_fun_ref_1_t<R, C, V> mem_fun_ref_1(R (C::*pfn)(V), V value)
 #endif /* !STLSOFT_INCL_STLSOFT_OBSOLETE_HPP_FUNCTIONAL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

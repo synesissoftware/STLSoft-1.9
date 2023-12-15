@@ -4,11 +4,12 @@
  * Purpose:     unix_exception class, and its policy class
  *
  * Created:     19th June 2004
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define UNIXSTL_VER_UNIXSTL_ERROR_HPP_EXCEPTIONS_MAJOR     4
 # define UNIXSTL_VER_UNIXSTL_ERROR_HPP_EXCEPTIONS_MINOR     2
 # define UNIXSTL_VER_UNIXSTL_ERROR_HPP_EXCEPTIONS_REVISION  6
-# define UNIXSTL_VER_UNIXSTL_ERROR_HPP_EXCEPTIONS_EDIT      54
+# define UNIXSTL_VER_UNIXSTL_ERROR_HPP_EXCEPTIONS_EDIT      55
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -326,3 +327,4 @@ public:
 #endif /* !UNIXSTL_INCL_UNIXSTL_ERROR_HPP_EXCEPTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

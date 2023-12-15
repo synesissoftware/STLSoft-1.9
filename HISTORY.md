@@ -1,10 +1,17 @@
-============================================================================
-STLSoft - History
+# STLSoft - History
 
-; Created:  29th March 2002
-; Updated:  27th July 2020
+> Note
+> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
 
-============================================================================
+
+----
+
+
+15th December 2023 - 1.9.136 released
+-------------------------------------------
+
+ * lots of changes to standardise the library boilerplate
+ * porting back significant and necessary fixes from STLSoft-1.10
 
 
 27th July 2020 - 1.9.135 released
@@ -309,7 +316,7 @@ STLSoft - History
  * string_tokeniser iterator dereference operator changed to disallow return of mutable instance
  * string_view has improved comparison algorithm
  * added 3-, 4-, and 5-parameter overloads of stlsoft::minimum() and stlsoft::maximum()
- * various fixes and enhancements to platformstl::file_lines 
+ * various fixes and enhancements to platformstl::file_lines
  * added size() and empty() methods to winstl::environment_variable
  * implemented winstl::system_traits::str_n_compare_no_case()
 
@@ -342,7 +349,7 @@ STLSoft - History
  * separated UNIXSTL's atomic types into separate file unixstl/synch/atomic_types.h
  * separated WinSTL's atomic types into separate file winstl/synch/atomic_types.h
  * fixed winstl::memory_mapped_file to handle case where an offset is specified but there are 0 remaining bytes in the file to be mapped at that location: constructs an instance with 0 size
- * fixed potential memory leak of format-message-string if windows_exception creation throws an exception 
+ * fixed potential memory leak of format-message-string if windows_exception creation throws an exception
  * moved COMSTL_CCH_GUID to comstl/comstl.h from comstl/shims/access/string/guid.hpp
  * adjusted winstl::drophandle_sequence for Win64 compatibility
  * adjusted winstl::version_info for Win64 compatibility
@@ -1055,5 +1062,6 @@ STLSoft - History
 
    comstl/string/bstr_functions.h
 
-=============================== end of file ================================
+
+<!-- ########################### end of file ########################### -->
 

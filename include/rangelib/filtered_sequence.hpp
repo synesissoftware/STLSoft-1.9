@@ -4,11 +4,12 @@
  * Purpose:     Sequence range filter adaptation.
  *
  * Created:     28th December 2005
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2005-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,7 +48,7 @@
 # define RANGELIB_VER_RANGELIB_HPP_FILTERED_SEQUENCE_MAJOR       1
 # define RANGELIB_VER_RANGELIB_HPP_FILTERED_SEQUENCE_MINOR       0
 # define RANGELIB_VER_RANGELIB_HPP_FILTERED_SEQUENCE_REVISION    1
-# define RANGELIB_VER_RANGELIB_HPP_FILTERED_SEQUENCE_EDIT        6
+# define RANGELIB_VER_RANGELIB_HPP_FILTERED_SEQUENCE_EDIT        7
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -135,3 +136,4 @@ inline filtered_range<sequence_range<S>, P> filter_sequence(S &s, P pr)
 #endif /* !RANGELIB_INCL_RANGELIB_HPP_FILTERED_SEQUENCE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

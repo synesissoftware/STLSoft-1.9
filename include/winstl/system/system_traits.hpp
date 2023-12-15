@@ -5,14 +5,15 @@
  *              Unicode specialisations thereof.
  *
  * Created:     15th November 2002
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Thanks to:   Austin Ziegler for spotting the defective pre-condition
  *              enforcement of expand_environment_strings().
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -57,7 +58,7 @@
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS_MAJOR       5
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS_MINOR       8
 # define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS_REVISION    2
-# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS_EDIT        134
+# define WINSTL_VER_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS_EDIT        135
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -1337,3 +1338,4 @@ private:
 #endif /* WINSTL_INCL_WINSTL_SYSTEM_HPP_SYSTEM_TRAITS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     Allocator commmon features.
  *
  * Created:     20th August 2003
- * Updated:     5th December 2014
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2014, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_MAJOR    5
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_MINOR    2
 # define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_REVISION 1
-# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_EDIT     42
+# define STLSOFT_VER_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES_EDIT     43
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -287,3 +288,4 @@ namespace stlsoft
 #endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_ALLOCATOR_FEATURES */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

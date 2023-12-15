@@ -4,11 +4,12 @@
  * Purpose:     Scoping class for ATL _Module
  *
  * Created:     8th December 2004
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define ATLSTL_VER_ATLSTL_UTIL_HPP_MODULE_SCOPE_MAJOR       2
 # define ATLSTL_VER_ATLSTL_UTIL_HPP_MODULE_SCOPE_MINOR       1
 # define ATLSTL_VER_ATLSTL_UTIL_HPP_MODULE_SCOPE_REVISION    2
-# define ATLSTL_VER_ATLSTL_UTIL_HPP_MODULE_SCOPE_EDIT        27
+# define ATLSTL_VER_ATLSTL_UTIL_HPP_MODULE_SCOPE_EDIT        28
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -158,3 +159,4 @@ private:
 #endif /* !ATLSTL_INCL_ATLSTL_UTIL_HPP_MODULE_SCOPE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

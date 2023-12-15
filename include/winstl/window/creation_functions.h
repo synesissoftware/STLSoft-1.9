@@ -4,11 +4,12 @@
  * Purpose:     Window creation functions.
  *
  * Created:     7th May 2000
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_H_CREATION_FUNCTIONS_MAJOR    2
 # define WINSTL_VER_WINSTL_WINDOW_H_CREATION_FUNCTIONS_MINOR    0
 # define WINSTL_VER_WINSTL_WINDOW_H_CREATION_FUNCTIONS_REVISION 3
-# define WINSTL_VER_WINSTL_WINDOW_H_CREATION_FUNCTIONS_EDIT     17
+# define WINSTL_VER_WINSTL_WINDOW_H_CREATION_FUNCTIONS_EDIT     18
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -317,3 +318,4 @@ inline HWND CreateWindowEx( DWORD       dwExStyle
 #endif /* WINSTL_INCL_WINSTL_WINDOW_H_CREATION_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

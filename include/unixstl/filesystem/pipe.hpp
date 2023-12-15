@@ -4,11 +4,12 @@
  * Purpose:     pipe class, based on Windows anonymous pipe.
  *
  * Created:     19th June 2004
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PIPE_MAJOR      4
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PIPE_MINOR      1
 # define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PIPE_REVISION   2
-# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PIPE_EDIT       44
+# define UNIXSTL_VER_UNIXSTL_FILESYSTEM_HPP_PIPE_EDIT       45
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -224,3 +225,4 @@ private:
 #endif /* !UNIXSTL_INCL_UNIXSTL_FILESYSTEM_HPP_PIPE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

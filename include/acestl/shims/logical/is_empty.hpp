@@ -4,11 +4,12 @@
  * Purpose:     Contains the is_empty access shim.
  *
  * Created:     26th July 2006
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2006-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define ACESTL_VER_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY_MAJOR     2
 # define ACESTL_VER_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY_MINOR     0
 # define ACESTL_VER_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY_REVISION  1
-# define ACESTL_VER_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY_EDIT      8
+# define ACESTL_VER_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY_EDIT      9
 #endif /* !ACESTL_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -74,3 +75,4 @@
 #endif /* !ACESTL_INCL_ACESTL_SHIMS_LOGICAL_HPP_IS_EMPTY */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     Windows identification.
  *
  * Created:     11th March 2004
- * Updated:     25th March 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_UTIL_HPP_IDENT__MAJOR      4
 # define WINSTL_VER_WINSTL_WINDOW_UTIL_HPP_IDENT__MINOR      0
 # define WINSTL_VER_WINSTL_WINDOW_UTIL_HPP_IDENT__REVISION   1
-# define WINSTL_VER_WINSTL_WINDOW_UTIL_HPP_IDENT__EDIT       42
+# define WINSTL_VER_WINSTL_WINDOW_UTIL_HPP_IDENT__EDIT       43
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -160,3 +161,4 @@ inline WindowIdent GetWindowIdent(HWND hwnd)
 #endif /* WINSTL_INCL_WINSTL_WINDOW_UTIL_HPP_IDENT_ */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     Debug algorithms.
  *
  * Created:     17th January 2002
- * Updated:     26th March 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,7 +36,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * ////////////////////////////////////////////////////////////////////////// */
+ * ////////////////////////////////////////////////////////////////////// */
 
 
 /** \file stlsoft/algorithms/debug.hpp
@@ -51,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_DEBUG_MAJOR     3
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_DEBUG_MINOR     1
 # define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_DEBUG_REVISION  1
-# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_DEBUG_EDIT      68
+# define STLSOFT_VER_STLSOFT_ALGORITHMS_HPP_DEBUG_EDIT      70
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -179,3 +180,4 @@ inline UF for_each_postinc(I first, I last, UF func)
 #endif /* !STLSOFT_INCL_STLSOFT_ALGORITHMS_HPP_DEBUG */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

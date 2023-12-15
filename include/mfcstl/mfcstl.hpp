@@ -6,14 +6,15 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     26th August 2015
+ * Updated:     15th December 2023
  *
- * Thanks:      To Cl·udio Albuquerque for suggesting the inclusion of
+ * Thanks:      To Cl√°udio Albuquerque for suggesting the inclusion of
  *              atlstr.h.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define MFCSTL_VER_MFCSTL_HPP_MFCSTL_MAJOR     3
 # define MFCSTL_VER_MFCSTL_HPP_MFCSTL_MINOR     5
 # define MFCSTL_VER_MFCSTL_HPP_MFCSTL_REVISION  2
-# define MFCSTL_VER_MFCSTL_HPP_MFCSTL_EDIT      95
+# define MFCSTL_VER_MFCSTL_HPP_MFCSTL_EDIT      96
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file mfcstl/mfcstl.hpp
@@ -513,3 +514,4 @@ namespace mfcstl = ::stlsoft::mfcstl_project;
 #endif /* MFCSTL_INCL_MFCSTL_HPP_MFCSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

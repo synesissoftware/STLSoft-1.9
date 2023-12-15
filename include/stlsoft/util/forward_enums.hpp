@@ -4,11 +4,12 @@
  * Purpose:     Contains macros for forward declaring enums.
  *
  * Created:     3rd November 2000
- * Updated:     29th April 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_HPP_FORWARD_ENUM_MAJOR      3
 # define STLSOFT_VER_STLSOFT_HPP_FORWARD_ENUM_MINOR      0
 # define STLSOFT_VER_STLSOFT_HPP_FORWARD_ENUM_REVISION   2
-# define STLSOFT_VER_STLSOFT_HPP_FORWARD_ENUM_EDIT       46
+# define STLSOFT_VER_STLSOFT_HPP_FORWARD_ENUM_EDIT       47
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -134,3 +135,4 @@ namespace stlsoft
 #endif /* !STLSOFT_INCL_STLSOFT_HPP_FORWARD_ENUM */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

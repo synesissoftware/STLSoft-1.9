@@ -4,11 +4,12 @@
  * Purpose:     Definition of stlsoft::equal_ptr predicate class.
  *
  * Created:     7th November 2004
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR_MAJOR     3
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR_MINOR     0
 # define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR_REVISION  1
-# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR_EDIT      23
+# define STLSOFT_VER_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR_EDIT      24
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -126,3 +127,4 @@ private:
 #endif /* !STLSOFT_INCL_STLSOFT_FUNCTIONAL_HPP_EQUAL_PTR */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
