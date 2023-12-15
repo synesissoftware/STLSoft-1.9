@@ -3,7 +3,7 @@
  *
  * Purpose:     Error info functions.
  *
- * Created:     5th Feburary 2004
+ * Created:     5th February 2004
  * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
