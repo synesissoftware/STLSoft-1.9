@@ -4,11 +4,12 @@
  * Purpose:     Mutual exclusion model class.
  *
  * Created:     19th December 1997
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1997-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1997-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_MAJOR     4
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_MINOR     0
 # define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_REVISION  2
-# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_EDIT      42
+# define STLSOFT_VER_STLSOFT_SYNCH_HPP_NULL_MUTEX_EDIT      43
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -166,3 +167,4 @@ inline void unlock_instance(stlsoft_ns_qual(null_mutex) &mx)
 #endif /* !STLSOFT_INCL_STLSOFT_SYNCH_HPP_NULL_MUTEX */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

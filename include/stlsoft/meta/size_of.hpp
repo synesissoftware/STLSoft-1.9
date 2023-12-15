@@ -4,11 +4,12 @@
  * Purpose:     Size determination.
  *
  * Created:     19th November 1998
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1998-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1998-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_META_HPP_SIZE_OF_MAJOR     4
 # define STLSOFT_VER_STLSOFT_META_HPP_SIZE_OF_MINOR     0
 # define STLSOFT_VER_STLSOFT_META_HPP_SIZE_OF_REVISION  1
-# define STLSOFT_VER_STLSOFT_META_HPP_SIZE_OF_EDIT      124
+# define STLSOFT_VER_STLSOFT_META_HPP_SIZE_OF_EDIT      125
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -108,3 +109,4 @@ struct size_of<void>
 #endif /* !STLSOFT_INCL_STLSOFT_META_HPP_SIZE_OF */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,13 +4,14 @@
  * Purpose:     Contains the listbox_sequence class.
  *
  * Created:     10th November 2002
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Thanks:      To Pablo Aguilar for some patches.
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -54,7 +55,7 @@
 # define WINSTL_VER_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE_MAJOR       4
 # define WINSTL_VER_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE_MINOR       2
 # define WINSTL_VER_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE_REVISION    2
-# define WINSTL_VER_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE_EDIT        64
+# define WINSTL_VER_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE_EDIT        65
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -276,3 +277,4 @@ private:
 #endif /* WINSTL_INCL_WINSTL_CONTROLS_HPP_LISTBOX_SEQUENCE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

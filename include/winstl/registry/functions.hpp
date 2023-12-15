@@ -4,11 +4,12 @@
  * Purpose:     Registry functions.
  *
  * Created:     20th November 1995
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1995-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1995-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_FUNCTIONS_MAJOR     3
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_FUNCTIONS_MINOR     1
 # define WINSTL_VER_WINSTL_REGISTRY_HPP_FUNCTIONS_REVISION  4
-# define WINSTL_VER_WINSTL_REGISTRY_HPP_FUNCTIONS_EDIT      49
+# define WINSTL_VER_WINSTL_REGISTRY_HPP_FUNCTIONS_EDIT      50
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -168,3 +169,4 @@ inline LONG reg_get_dword_value(HKEY hkey, C const* name, DWORD& value)
 #endif /* WINSTL_INCL_WINSTL_REGISTRY_HPP_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

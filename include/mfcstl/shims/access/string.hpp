@@ -4,11 +4,12 @@
  * Purpose:     Contains classes and functions for dealing with MFC strings.
  *
  * Created:     24th May 2002
- * Updated:     22nd November 2011
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2011, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_HPP_STRING_MAJOR    3
 # define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_HPP_STRING_MINOR    6
 # define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_HPP_STRING_REVISION 1
-# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_HPP_STRING_EDIT     86
+# define MFCSTL_VER_MFCSTL_SHIMS_ACCESS_HPP_STRING_EDIT     87
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -77,3 +78,4 @@
 #endif /* !MFCSTL_INCL_MFCSTL_SHIMS_ACCESS_HPP_STRING */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

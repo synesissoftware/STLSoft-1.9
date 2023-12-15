@@ -4,11 +4,12 @@
  * Purpose:     Contains the basic_session class.
  *
  * Created:     30th April 1999
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1999-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_MAJOR      5
 # define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_MINOR      1
 # define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_REVISION   4
-# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_EDIT       62
+# define INETSTL_VER_INETSTL_NETWORK_HPP_SESSION_EDIT       63
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -405,3 +406,4 @@ inline HINTERNET get_handle(basic_session<C, X, T> &s)
 #endif /* INETSTL_INCL_INETSTL_NETWORK_HPP_SESSION */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

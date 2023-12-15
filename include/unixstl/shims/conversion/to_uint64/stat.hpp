@@ -4,7 +4,7 @@
  * Purpose:     Contains the to_uint64 access shim overload for (struct stat).
  *
  * Created:     1st April 2010
- * Updated:     1st April 2010
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
@@ -51,7 +51,7 @@
 # define UNIXSTL_VER_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT_MAJOR      1
 # define UNIXSTL_VER_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT_MINOR      0
 # define UNIXSTL_VER_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT_REVISION   1
-# define UNIXSTL_VER_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT_EDIT       1
+# define UNIXSTL_VER_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT_EDIT       2
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -107,3 +107,4 @@ inline stlsoft_ns_qual(ss_uint64_t) to_uint64(struct stat const* st)
 #endif /* !UNIXSTL_INCL_UNIXSTL_SHIMS_CONVERSION_TO_UINT64_HPP_STAT */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

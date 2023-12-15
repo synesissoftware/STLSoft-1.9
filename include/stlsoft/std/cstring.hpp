@@ -4,14 +4,15 @@
  * Purpose:     Mappings to string string functions
  *
  * Created:     2nd December 2004
- * Updated:     31st March 2010
+ * Updated:     15th December 2023
  *
  * Thanks:      To Anton Sekeris for providing good advice on the naming scheme
  *              for the stlsoft/std headers
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2010, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,7 +56,7 @@
 # define STLSOFT_VER_STLSOFT_STD_HPP_CSTRING_MAJOR      1
 # define STLSOFT_VER_STLSOFT_STD_HPP_CSTRING_MINOR      5
 # define STLSOFT_VER_STLSOFT_STD_HPP_CSTRING_REVISION   4
-# define STLSOFT_VER_STLSOFT_STD_HPP_CSTRING_EDIT       33
+# define STLSOFT_VER_STLSOFT_STD_HPP_CSTRING_EDIT       34
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -525,3 +526,4 @@ inline ss_char_w_t* strdup(ss_char_w_t const* s)
 #endif /* !STLSOFT_INCL_STLSOFT_STD_HPP_CSTRING */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,7 +4,7 @@
  * Purpose:     Windows version discrimination.
  *
  * Created:     4th August 2015
- * Updated:     5th August 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
@@ -52,7 +52,7 @@
 #define WINSTL_VER_WINSTL_INTERNAL_H_WINDOWS_VERSION_MAJOR      1
 #define WINSTL_VER_WINSTL_INTERNAL_H_WINDOWS_VERSION_MINOR      0
 #define WINSTL_VER_WINSTL_INTERNAL_H_WINDOWS_VERSION_REVISION   2
-#define WINSTL_VER_WINSTL_INTERNAL_H_WINDOWS_VERSION_EDIT       2
+#define WINSTL_VER_WINSTL_INTERNAL_H_WINDOWS_VERSION_EDIT       3
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -296,3 +296,4 @@ WinSTL_C_internal_GetVersionEx(
 #endif /* WINSTL_INCL_WINSTL_INTERNAL_H_WINDOWS_VERSION */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

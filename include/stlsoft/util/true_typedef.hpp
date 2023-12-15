@@ -4,11 +4,12 @@
  * Purpose:     Contains the true_typedef class template.
  *
  * Created:     16th January 2002
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_TRUE_TYPEDEF_MAJOR     4
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_TRUE_TYPEDEF_MINOR     0
 # define STLSOFT_VER_STLSOFT_UTIL_HPP_TRUE_TYPEDEF_REVISION  1
-# define STLSOFT_VER_STLSOFT_UTIL_HPP_TRUE_TYPEDEF_EDIT      74
+# define STLSOFT_VER_STLSOFT_UTIL_HPP_TRUE_TYPEDEF_EDIT      75
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -993,3 +994,4 @@ inline true_typedef<T, U> const& operator |=(true_typedef<T, U> &v, true_typedef
 #endif /* !STLSOFT_INCL_STLSOFT_UTIL_HPP_TRUE_TYPEDEF */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     Contains the shared_ptr template class.
  *
  * Created:     17th June 2002
- * Updated:     14th February 2016
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2016, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -52,7 +53,7 @@
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SHARED_PTR_MAJOR       3
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SHARED_PTR_MINOR       3
 # define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SHARED_PTR_REVISION    3
-# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SHARED_PTR_EDIT        40
+# define STLSOFT_VER_STLSOFT_SMARTPTR_HPP_SHARED_PTR_EDIT        42
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -115,7 +116,7 @@ public:
     {
         STLSOFT_ASSERT(is_valid());
     }
-    /// 
+    /// TBC
     ///
     /// \note If exception handling is not enabled and memory cannot be
     ///   acquired to hold the sharing resource the object represented
@@ -491,3 +492,4 @@ namespace std
 #endif /* !STLSOFT_INCL_STLSOFT_SMARTPTR_HPP_SHARED_PTR */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

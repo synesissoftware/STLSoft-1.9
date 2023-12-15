@@ -4,11 +4,12 @@
  * Purpose:     Window icon scoping class.
  *
  * Created:     30th June 1999
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 1999-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 1999-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE_MAJOR      4
 # define WINSTL_VER_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE_MINOR      1
 # define WINSTL_VER_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE_REVISION   2
-# define WINSTL_VER_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE_EDIT       51
+# define WINSTL_VER_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE_EDIT       52
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -238,3 +239,4 @@ private:
 #endif /* WINSTL_INCL_WINSTL_WINDOW_HPP_WINDOW_ICON_SCOPE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

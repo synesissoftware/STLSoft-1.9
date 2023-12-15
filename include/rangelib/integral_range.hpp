@@ -4,11 +4,12 @@
  * Purpose:     Integral range class.
  *
  * Created:     4th November 2003
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,7 +48,7 @@
 # define RANGELIB_VER_RANGELIB_HPP_INTEGRAL_RANGE_MAJOR    2
 # define RANGELIB_VER_RANGELIB_HPP_INTEGRAL_RANGE_MINOR    6
 # define RANGELIB_VER_RANGELIB_HPP_INTEGRAL_RANGE_REVISION 6
-# define RANGELIB_VER_RANGELIB_HPP_INTEGRAL_RANGE_EDIT     57
+# define RANGELIB_VER_RANGELIB_HPP_INTEGRAL_RANGE_EDIT     58
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -455,3 +456,4 @@ inline integral_range<T> make_integral_range(T first, T last, T increment)
 #endif /* !RANGELIB_INCL_RANGELIB_HPP_INTEGRAL_RANGE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

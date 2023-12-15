@@ -5,11 +5,12 @@
  *              c_str_size accessors.
  *
  * Created:     16th January 2002
- * Updated:     14th March 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,7 +54,7 @@
 # define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING_MAJOR       4
 # define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING_MINOR       0
 # define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING_REVISION    6
-# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING_EDIT        95
+# define STLSOFT_VER_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING_EDIT        96
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -889,3 +890,4 @@ inline cannot_use_untyped_0_or_NULL_with_shims c_str_size(int deny_literal_NULL)
 #endif /* !STLSOFT_INCL_STLSOFT_SHIMS_ACCESS_STRING_STD_H_C_STRING */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

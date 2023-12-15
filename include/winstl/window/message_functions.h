@@ -4,11 +4,12 @@
  * Purpose:     Message functions.
  *
  * Created:     7th May 2000
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2000-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2000-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define WINSTL_VER_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS_MAJOR    4
 # define WINSTL_VER_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS_MINOR    0
 # define WINSTL_VER_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS_REVISION 2
-# define WINSTL_VER_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS_EDIT     39
+# define WINSTL_VER_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS_EDIT     40
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -152,3 +153,4 @@ inline LRESULT SendMessageW(HWND    hwnd
 #endif /* WINSTL_INCL_WINSTL_WINDOW_H_MESSAGE_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

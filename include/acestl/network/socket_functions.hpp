@@ -4,11 +4,12 @@
  * Purpose:     Helper functions for ACE_SOCK (and derived) classes
  *
  * Created:     28th November 2004
- * Updated:     10th August 2009
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2004-2009, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2004-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,7 +52,7 @@
 # define ACESTL_VER_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS_MAJOR      2
 # define ACESTL_VER_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS_MINOR      0
 # define ACESTL_VER_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS_REVISION   2
-# define ACESTL_VER_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS_EDIT       24
+# define ACESTL_VER_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS_EDIT       25
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -162,3 +163,4 @@ inline as_bool_t close_and_deregister(ACE_SOCK &sk, ACE_Reactor *reactor)
 #endif /* ACESTL_INCL_ACESTL_NETWORK_HPP_SOCKET_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

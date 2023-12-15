@@ -4,11 +4,12 @@
  * Purpose:     The #undefs for stlsoft/stlsoft.h.
  *
  * Created:     1st December 2003
- * Updated:     4th November 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2003-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2003-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,7 +59,7 @@
 # define STLSOFT_VER_H_STLSOFT__UNDEFS_MAJOR    2
 # define STLSOFT_VER_H_STLSOFT__UNDEFS_MINOR    9
 # define STLSOFT_VER_H_STLSOFT__UNDEFS_REVISION 1
-# define STLSOFT_VER_H_STLSOFT__UNDEFS_EDIT     28
+# define STLSOFT_VER_H_STLSOFT__UNDEFS_EDIT     29
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -485,3 +486,4 @@
 #endif /* STSLSOFT_ASM_IN_INLINE_SUPPORTED */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

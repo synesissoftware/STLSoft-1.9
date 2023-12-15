@@ -5,11 +5,12 @@
  *              and platform discriminations, and definitions of types.
  *
  * Created:     15th January 2002
- * Updated:     21st August 2015
+ * Updated:     15th December 2023
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2002-2015, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,7 +50,7 @@
 # define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_MAJOR    3
 # define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_MINOR    9
 # define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_REVISION 3
-# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_EDIT     96
+# define UNIXSTL_VER_UNIXSTL_H_UNIXSTL_EDIT     97
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 /** \file unixstl/unixstl.h \brief [C, C++] The root header for the \ref group__project__unixstl "UNIXSTL" project. */
@@ -712,3 +713,4 @@ namespace unixstl = ::stlsoft::unixstl_project;
 #endif /* !UNIXSTL_INCL_UNIXSTL_H_UNIXSTL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
