@@ -6,11 +6,11 @@
  *              types.
  *
  * Created:     15th January 2002
- * Updated:     15th December 2023
+ * Updated:     15th October 2026
  *
  * Home:        http://stlsoft.org/
  *
- * Copyright (c) 2019-2023, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2026, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2002-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -55,8 +55,8 @@
 #ifndef STLSOFT_DOCUMENTATION_SKIP_SECTION
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MAJOR    3
 # define STLSOFT_VER_STLSOFT_H_STLSOFT_MINOR    42
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 3
-# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     475
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_REVISION 4
+# define STLSOFT_VER_STLSOFT_H_STLSOFT_EDIT     476
 #else /* ? STLSOFT_DOCUMENTATION_SKIP_SECTION */
 /* # include "./internal/doxygen_defs.h" */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
@@ -300,12 +300,13 @@
 # define _STLSOFT_VER_1_9_134   0x010986ff  /*!< Version 1.9.134 (4th July 2020) */
 # define _STLSOFT_VER_1_9_135   0x010987ff  /*!< Version 1.9.135 (27th July 2020) */
 # define _STLSOFT_VER_1_9_136   0x010988ff  /*!< Version 1.9.136 (15th December 2023) */
+# define _STLSOFT_VER_1_9_137   0x010989ff  /*!< Version 1.9.137 (15th October 2026) */
 #endif /* !STLSOFT_DOCUMENTATION_SKIP_SECTION */
 
 #define _STLSOFT_VER_MAJOR      1
 #define _STLSOFT_VER_MINOR      9
-#define _STLSOFT_VER_REVISION   136
-#define _STLSOFT_VER            _STLSOFT_VER_1_9_136
+#define _STLSOFT_VER_REVISION   137
+#define _STLSOFT_VER            _STLSOFT_VER_1_9_137
 
 /* /////////////////////////////////////
  * Underlying version detection
@@ -718,10 +719,16 @@
 #  if 0
 #  elif _MSC_VER < 1920
 #   define STLSOFT_COMPILER_VERSION_STRING      "Visual C++ 15.x"
-#  elif _MSC_VER <= 1926
+#  elif _MSC_VER <= 1929
 #   define STLSOFT_COMPILER_VERSION_STRING      "Visual C++ 16.x"
+#  elif _MSC_VER <= 1944
+#   define STLSOFT_COMPILER_VERSION_STRING      "Visual C++ 17.x"
+#  elif _MSC_VER <= 1952
+#   define STLSOFT_COMPILER_VERSION_STRING      "Visual C++ 18.x"
 #  else
-#   error Visual C++ version that is >= vc16 is not recognised
+   /* Newer than last explicitly validated band for this line: warn, do not reject. */
+#   define STLSOFT_COMPILER_VERSION_STRING      "Visual C++ (unrecognised newer)"
+#   pragma message("STLSoft-1.9: Visual C++ toolset newer than last explicitly validated band; recognising as Visual C++ (unrecognised newer). Prefer synesissoftware/STLSoft for new work.")
 #  endif
 # else /* ? _MSC_VER */
 #  error Currently only versions 5.0, 6.0, 7.0, 7.1, 8.0, 9.0, 10.0, 11.0, 12.0, and 14.0 of the Visual C++ compiler are supported by the STLSoft libraries

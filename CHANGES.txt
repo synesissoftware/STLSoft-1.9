@@ -2,7 +2,7 @@
 STLSoft - Changes
 
 ; Created:  29th March 2002
-; Updated:  15th December 2023
+; Updated:  15th October 2026
 
 ============================================================================
 
@@ -18,7 +18,18 @@ STLSoft - Changes
 
 
 
+Changes for 1.9.137 (15th October 2026)
+
+General:
+========
+
+ * Semi-frozen / maintenance status: redirect all new work to synesissoftware/STLSoft (tip);
+ * Visual C++ recognition: extend known bands through 18.x; unknown-newer toolsets warn via #pragma message and continue (no #error);
+ * Standard-library recognition: accept modern MSVC STL via _YVALS_CORE_H_ alongside the classic _ITERATOR_/_UTILITY_/_XSTDDEF_ trio;
+
+
 ============================================================================
+
 
 Changes for 1.9.136 (15th December 2023)
 

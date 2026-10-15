@@ -1,11 +1,17 @@
 # STLSoft-1.9
 
-> Note
-> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
-
+> **Semi-frozen / maintenance**
+>
+> **STLSoft-1.9** is a historical, maintenance-only line. It remains available for
+> consumers that must stay on the 1.9 API (for example compatibility matrices),
+> but all **new development** and **new consumers** MUST use
+> **[synesissoftware/STLSoft](https://github.com/synesissoftware/STLSoft)** (tip).
+> Feature work belongs on tip; this repository only receives recognition and
+> packaging fixes required by historical consumers.
 
 ----
 
+[![Status](https://img.shields.io/badge/status-semi--frozen-orange.svg)](https://github.com/synesissoftware/STLSoft)
 
 ## Table of Contents <!-- omit in toc -->
 

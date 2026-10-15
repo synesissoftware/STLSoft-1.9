@@ -1,14 +1,19 @@
 # STLSoft - News
 
-> Note
-> **STLSoft-1.9** is now obsolete; please instead use **STLSoft 1.10**, which may be obtained from https://github.com/synesissoftware/STLSoft-1.10
-
+> **Semi-frozen / maintenance**
+>
+> **STLSoft-1.9** is a historical, maintenance-only line. It remains available for
+> consumers that must stay on the 1.9 API (for example compatibility matrices),
+> but all **new development** and **new consumers** MUST use
+> **[synesissoftware/STLSoft](https://github.com/synesissoftware/STLSoft)** (tip).
+> Feature work belongs on tip; this repository only receives recognition and
+> packaging fixes required by historical consumers.
 
 ----
 
-
 | Date                  | News Item                                                 |
 | --------------------- | --------------------------------------------------------- |
+| 15th October 2026     |   Release of STLSoft 1.9.137                              |
 | 15th December 2023    |   Release of STLSoft 1.9.136                              |
 | 13th December 2023    |   Release of [STLSoft 1.10.1](https://github.com/synesissoftware/STLSoft-1.10)  |
 | 27th July 2020        |   Release of STLSoft 1.9.135                              |
